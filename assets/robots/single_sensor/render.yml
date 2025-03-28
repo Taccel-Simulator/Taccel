@@ -1,0 +1,51 @@
+lightings:
+  R:
+    mesh: render/R.ply
+    intensity: 8.0
+    falloff: 2.0
+    color: [255.0, 16.0, 80.0]
+  G:
+    mesh: render/G.ply
+    intensity: 6.0
+    falloff: 2.0
+    color: [64.0, 255.0, 16.0]
+  B:
+    mesh: render/B.ply
+    intensity: 16.0
+    falloff: 2.0
+    color: [0.0, 80.0, 255.0]
+elastomer:
+  mesh: render/PadExtendedWithAcrylic.ply
+  pos: [0.0, 0.0, -0.0005]
+  roughness: 0.1
+  alpha: 1.0
+  transmission: 1.0
+  transmission_roughness: 0.0
+  base_color: [1.0, 1.0, 1.0]
+  specular: 0.3
+  ior: 1.8
+coat:
+  roughness: 1.0
+  alpha: 1.0
+  base_color: [1.0, 1.0, 1.0]
+  pos: [0.0, 0.0, -0.0004]
+  specular: 0.0
+  sheen: 0.0
+  smoothing: laplacian
+camera:
+  at: [0.0, 0.0, 0.0]
+  up: [0.0, 0.0, 1.0]
+  eye: [0.0, 0.0, 0.0245]
+  fov: 75
+  width: 464
+  height: 440
+marker:
+  type: overlay
+  radius: 5
+  color: [16, 16, 16]
+render:
+  denoising: True
+  dome_light_intensity: 0.0
+  width: 464
+  height: 440
+  spp: 256

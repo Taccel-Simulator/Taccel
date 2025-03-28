@@ -1,0 +1,32 @@
+[
+    {
+        "link_name": "panda_leftfinger",
+        "mesh_path": "meshes/visual/pad.stl",
+        "reso": "1e-05",
+        "pos": [
+            0.0,
+            0.0,
+            0.045
+        ],
+        "rot": [
+            1.5707963267948966,
+            0.0,
+            3.141592653589793
+        ]
+    },
+    {
+        "link_name": "panda_rightfinger",
+        "mesh_path": "meshes/visual/pad.stl",
+        "reso": "1e-05",
+        "pos": [
+            0.0,
+            0.0,
+            0.045
+        ],
+        "rot": [
+            1.5707963267948966,
+            0.0,
+            0.0
+        ]
+    }
+]

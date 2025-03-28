@@ -1,0 +1,30 @@
+[
+    {
+        "link_name": "link_3.0_tip",
+        "mesh_path": "meshes/digit_base.stl",
+        "reso": "1e-07",
+        "pos": [0.0, 0.0, 0.0],
+        "rot": [0.0, 0.0, 0.0]
+    },
+    {
+        "link_name": "link_7.0_tip",
+        "mesh_path": "meshes/digit_base.stl",
+        "reso": "1e-07",
+        "pos": [0.0, 0.0, 0.0],
+        "rot": [0.0, 0.0, 0.0]
+    },
+    {
+        "link_name": "link_11.0_tip",
+        "mesh_path": "meshes/digit_base.stl",
+        "reso": "1e-07",
+        "pos": [0.0, 0.0, 0.0],
+        "rot": [0.0, 0.0, 0.0]
+    },
+    {
+        "link_name": "link_15.0_tip",
+        "mesh_path": "meshes/digit_base.stl",
+        "reso": "1e-07",
+        "pos": [0.0, 0.0, 0.0],
+        "rot": [0.0, 0.0, 0.0]
+    }
+]

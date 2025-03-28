@@ -1,0 +1,56 @@
+<robot name="panda_tac">
+    <link name="panda_hand">
+        <visual>
+            <geometry>
+                <mesh filename="meshes/visual/hand.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="meshes/collision/hand.obj" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="panda_leftfinger">
+        <visual>
+            <geometry>
+                <mesh filename="meshes/visual/finger_tactile_base.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="meshes/collision/finger.obj" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="panda_rightfinger">
+        <visual>
+            <origin rpy="0 0 3.14159265359" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="meshes/visual/finger_tactile_base.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin rpy="0 0 3.14159265359" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="meshes/collision/finger.obj" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="panda_finger_joint1" type="prismatic">
+        <parent link="panda_hand" />
+        <child link="panda_leftfinger" />
+        <origin rpy="0 0 0" xyz="0 0 0.0584" />
+        <axis xyz="0 1 0" />
+        <dynamics damping="10.0" />
+        <limit effort="20" lower="0.0" upper="0.04" velocity="0.2" />
+    </joint>
+    <joint name="panda_finger_joint2" type="prismatic">
+        <parent link="panda_hand" />
+        <child link="panda_rightfinger" />
+        <origin rpy="0 0 0" xyz="0 0 0.0584" />
+        <axis xyz="0 -1 0" />
+        <dynamics damping="10.0" />
+        <limit effort="20" lower="0.0" upper="0.04" velocity="0.2" />
+    </joint>
+</robot>

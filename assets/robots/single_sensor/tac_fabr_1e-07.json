@@ -1,0 +1,17 @@
+[
+    {
+        "link_name": "sensor",
+        "mesh_path": "meshes/pad.stl",
+        "reso": 1e-07,
+        "pos": [
+            0.0,
+            0.0,
+            0.0
+        ],
+        "rot": [
+            0.0,
+            0.0,
+            0.0
+        ]
+    }
+]

@@ -1,0 +1,23 @@
+[
+    {
+        "link_name": "finger_1_link_3",
+        "mesh_path": "pad.stl",
+        "reso": "1e-09",
+        "pos": [0.015, 0.020, 0.0],
+        "rot": [-1.570796325, 0.0, 0.52]
+    },
+    {
+        "link_name": "finger_2_link_3",
+        "mesh_path": "pad.stl",
+        "reso": "1e-09",
+        "pos": [0.015, 0.020, 0.0],
+        "rot": [-1.570796325, 0.0, 0.52]
+    },
+    {
+        "link_name": "finger_middle_link_3",
+        "mesh_path": "pad.stl",
+        "reso": "1e-09",
+        "pos": [0.015, 0.020, 0.0],
+        "rot": [-1.570796325, 0.0, 0.52]
+    }
+]

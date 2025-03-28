@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=42", "wheel", "cython"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "taccel"
+version = "1.0.0"
+description = "Taccel: A high-performance GPU-based Vision-Based Tactile Sensors (VBTS) simulator."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "Yuyang Li", email = "y.li@stu.pku.edu.cn"},
+    {name = "Wenxin Du", email = "setsunainn@gmail.com"},
+    {name = "Chang Yu", email = "changyu1@g.ucla.edu"},
+]
+dependencies = []
+
+[tool.setuptools]
+packages = ["warp_ipc", "taccel"]
+
+[project.optional-dependencies]
+dev = []
+
+[project.scripts]

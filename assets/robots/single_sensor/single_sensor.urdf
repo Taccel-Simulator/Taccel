@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<robot name="single_sensor">
+    <link name="platform"></link>
+    <joint name="sensor_height" type="prismatic">
+        <parent link="platform"/>
+        <child link="sensor"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="0.0" upper="0.1" velocity="0.5" effort="1000.0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+    <link name="sensor">
+        <visual>
+            <origin xyz="0.0 0.0 0.009" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.01 0.005 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+</robot>

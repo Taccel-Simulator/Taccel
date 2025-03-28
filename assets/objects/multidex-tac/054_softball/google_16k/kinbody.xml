@@ -1,0 +1,8 @@
+<KinBody name="softball">
+  <Body type="static" name="softball">
+    <Geom type="trimesh">
+      <Render>textured.dae</Render>
+      <Data>textured.dae</Data>
+    </Geom>
+  </Body>
+</KinBody>
