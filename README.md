@@ -18,7 +18,7 @@
 <sup>†</sup> Corresponding Author
 
 
-[📄 Paper (Coming Soon) ]
+[📄 [Paper](https://taccel-simulator.github.io/assets/taccel-paper.pdf) ]
 [📘 [Docs](https://taccel-simulator.github.io) ]
 [🛠️ [Code](https://github.com/Taccel-Simulator/Taccel) ]
 [📊 Dataset (Coming Soon)  ]
