@@ -22,3 +22,14 @@
 [📘 [Docs](https://taccel-simulator.github.io) ]
 [🛠️ [Code](https://github.com/Taccel-Simulator/Taccel) ]
 [📊 Dataset (Coming Soon)  ]
+
+If you use Taccel in your research, please use the following citation:
+
+```bibtex
+@misc{li2025taccel,
+   title={Taccel: Scaling Up Vision-based Tactile Robotics via High-performance GPU Simulation},
+   author={Li, Yuyang and Du, Wenxin and Yu, Chang and Li, Puhao and Zhao, Zihang and Liu, Tengyu and Jiang, Chenfanfu and Zhu, Yixin and Huang, Siyuan},
+   journal={arXiv preprint arXiv:2504.12908},
+   year={2025}
+}
+```
