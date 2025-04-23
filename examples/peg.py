@@ -179,6 +179,6 @@ if __name__ == "__main__":
         log.separate()
 
         if args.export_mesh:
-            model.write_scene("output/peg_in_hole-detro-multi-{}.obj".format(t))
+            model.write_scene(f"{OUT_DIR}/frames/peg_in_hole-detro-multi-{t}.ply")
 
         tqdm.write(f"Curr sim speed {(t + 1) * args.num_envs / sim_time} FPS")
