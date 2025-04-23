@@ -11,8 +11,9 @@ from scipy.spatial.transform import Rotation as R
 from tqdm import tqdm
 from warp.sim.render import SimRendererOpenGL
 
-import warp_ipc.utils.profile as abd_profile
+from taccel import TaccelModel, TactileRobot
 
+import warp_ipc.utils.profile as abd_profile
 from examples.example_utils import init_robot_demo
 from warp_ipc.ipc_integrator import IPCIntegrator
 from warp_ipc.utils.constants import VolMaterialType
@@ -27,29 +28,21 @@ if __name__ == "__main__":
 
     parser = ArgumentParser()
     parser.add_argument("--num_envs", type=int, default=4)
-    parser.add_argument("--tactile", action="store_true")
     parser.add_argument("--viz", action="store_true")
     args = parser.parse_args()
 
     _, OUT_DIR = init_robot_demo(args, "soft_teddy")
 
-    if args.tactile:
-        from taccel import TaccelModel as Model
-        from taccel import TactileRobot as Robot
-    else:
-        from warp_ipc.robots import Robot
-        from warp_ipc.sim_model import ASRModel as Model
-
     dt = 1 / 50
 
-    model = Model(num_envs=args.num_envs, viz_envs=list(range(args.num_envs)) if args.viz else [])
+    model = TaccelModel(num_envs=args.num_envs, viz_envs=list(range(args.num_envs)) if args.viz else [])
     model.dhat = 1e-3
     model.kappa = 3e6
     model.k_elasticity_damping = 0
 
-    stage_path = os.path.join(OUT_DIR, "parallel_test.usd")
+    stage_path = os.path.join(OUT_DIR, "teddy.usd")
 
-    urdf_path, _, tac_path = Robot.get_fabr_path("tactile-robotiq3f")
+    urdf_path, _, tac_path = TactileRobot.get_fabr_path("tactile-robotiq3f")
     for i_env in range(args.num_envs):
         model.add_robot(
             urdf_path,
@@ -60,9 +53,8 @@ if __name__ == "__main__":
             disable_coll_layers=[1],
         )
 
-    if args.tactile:
-        for i_env, robot in enumerate(model.robots):
-            model.add_vbts_to_sim(robot, coll_layers=1)
+    for i_env, robot in enumerate(model.robots):
+        model.add_vbts_to_sim(robot, coll_layers=1)
 
     env_translation = np.asarray([1.0, 0.0, 0.0])
 
