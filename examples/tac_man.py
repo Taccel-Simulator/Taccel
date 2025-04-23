@@ -41,7 +41,7 @@ def add_joint(
     part_handle: TetMeshBodyHandle,
     joint: WorldJointType,
     edge_verts=None,
-) -> WorldJointHandle:
+) -> WorldJointHandle | None:
     match joint:
         case WorldJointType.PRISMATIC:
             axis_x = 1.0
@@ -64,6 +64,7 @@ def add_joint(
         case WorldJointType.HELICAL:
             print("Loaded nut and bolt to simulate a helical joint")
             model.enable_affine_kinematic_constraint(part_handle)
+            joint_handle = None
 
         case _:
             raise NotImplementedError()
@@ -251,7 +252,7 @@ def run():
             cv2.waitKey(1)
         model.write_scene(osp.join(OUT_DIR, "frames", f"frame_{model.frame}.ply"))
         o3d.io.write_point_cloud(
-            osp.join(OUT_DIR, "frames", f"frame_{model.frame}_markers_GRASP.ply"),
+            osp.join(OUT_DIR, "frames", f"frame-tac_{model.frame}_markers_GRASP.ply"),
             o3d.geometry.PointCloud(points=o3d.utility.Vector3dVector(model.tac_markers[0].cpu().numpy())),
         )
 
@@ -339,7 +340,7 @@ def run():
             osp.join(
                 OUT_DIR,
                 "frames",
-                f"frame_{model.frame}_tracked_markers_{curr_state.name}_err={tracked_marker_diff:.4f}.ply",
+                f"frame-tac_{model.frame}_tracked_markers_{curr_state.name}_err={tracked_marker_diff:.4f}.ply",
             ),
             o3d.geometry.PointCloud(points=o3d.utility.Vector3dVector(curr_markers_world[tracking_marker_idx])),
         )
@@ -347,14 +348,17 @@ def run():
             osp.join(
                 OUT_DIR,
                 "frames",
-                f"frame_{model.frame}_reference_markers_{curr_state.name}_err={tracked_marker_diff:.4f}.ply",
+                f"frame-tac_{model.frame}_reference_markers_{curr_state.name}_err={tracked_marker_diff:.4f}.ply",
             ),
             o3d.geometry.PointCloud(points=o3d.utility.Vector3dVector(grasp_markers_world[tracking_marker_idx])),
         )
 
         all_rgbs, all_depths, all_normals = model.render_tactile(True, True)
         viz_rgb = all_rgbs[viz_env].reshape([800, 400, 3])
-        text = f"Env {viz_env} | {model.frame} ({curr_state.name}) | Diff: {tracked_marker_diff * 1000:.2f} mm | Joint: {joint_state:.4f}"
+        if joint_type == WorldJointType.HELICAL:
+            text = f"Env {viz_env} | {model.frame} ({curr_state.name}) | Diff: {tracked_marker_diff * 1000:.2f} mm"
+        else:
+            text = f"Env {viz_env} | {model.frame} ({curr_state.name}) | Diff: {tracked_marker_diff * 1000:.2f} mm | Joint: {joint_state:.4f}"
         viz_rgb = cv2.putText(viz_rgb, text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.3, (0, 0, 255), 1)
         if not args.headless:
             cv2.imshow("TacMan - RGB", viz_rgb[..., [2, 1, 0]])

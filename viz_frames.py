@@ -16,7 +16,7 @@ FPS = 25
 
 def find_ply_files(folder):
     """Finds and sorts ply files numerically based on the number in the filename."""
-    pattern = os.path.join(folder, "frame-*.ply")
+    pattern = os.path.join(folder, "frame_*.ply")
     files = glob.glob(pattern)
 
     def sort_key(filepath):
@@ -29,7 +29,7 @@ def find_ply_files(folder):
 
     files.sort(key=sort_key)
     if not files:
-        print(f"Error: No files matching frame-*.ply found in folder: {folder}")
+        print(f"Error: No files matching frame_*.ply found in folder: {folder}")
     return files
 
 
