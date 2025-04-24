@@ -578,8 +578,8 @@ class TaccelModel(ASRModel):
         for i_tac, vbts_cfg in enumerate(self.dummy_robot.vbts_cfgs):
             all_depths[:, i_tac] = vbts_cfg.ray_dist_to_depth_offset - all_depths[:, i_tac]
 
-        all_depths = all_depths.reshape(self.num_envs, self.dummy_robot.num_tac, *self.ref_imgs[i_tac].shape[1:3])
-        all_depths = torch.clamp(all_depths, 0.0, 3e-3)
+        all_depths = all_depths.reshape(self.num_envs, self.dummy_robot.num_tac, *self.ref_imgs[i_tac].shape[1:3]).transpose(-1, -2).contiguous()
+        all_depths = torch.clamp(all_depths, 0.0, 3e-3) * 1e3
         all_normals = depth_to_normal(all_depths)
         # all_normals = wp.to_torch(self.vbts_normals)
         for i_tac, (vbts_mlp, vbts_cfg) in enumerate(zip(self.vbts_mlps, self.dummy_robot.vbts_cfgs)):

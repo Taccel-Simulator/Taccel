@@ -27,7 +27,7 @@ if __name__ == "__main__":
     abd_profile.WATCH_GPU_MEM_USAGE_ENABLED = True
 
     parser = ArgumentParser()
-    parser.add_argument("--num_envs", type=int, default=4)
+    parser.add_argument("--num_envs", type=int, default=2)
     parser.add_argument("--viz", action="store_true")
     args = parser.parse_args()
 
@@ -36,7 +36,7 @@ if __name__ == "__main__":
     dt = 1 / 50
 
     model = TaccelModel(num_envs=args.num_envs, viz_envs=list(range(args.num_envs)) if args.viz else [])
-    model.dhat = 1e-3
+    model.dhat = 5e-3
     model.kappa = 3e6
     model.k_elasticity_damping = 0
 
@@ -165,6 +165,7 @@ if __name__ == "__main__":
     with open(osp.join(OUT_DIR, f"profile_{args.num_envs}.json"), "w") as f:
         json.dump(profile_data, f, indent=4)
 
+    print("Task finished. The visualizer will remain open until you close it.")
     if args.viz:
         while True:
             renderer.begin_frame(model.elapsed_time)

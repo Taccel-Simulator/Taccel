@@ -112,7 +112,7 @@ class VBTSConfig:
     density: float = 1e3
     E: float = 5e5
     nu: float = 0.4
-    mu: float = 0.3
+    mu: float = 1.0
     collide_with_robot: bool = False
     shell_body_handle: TriMeshBodyHandle = None
     gel_body_handle: TetMeshBodyHandle = None

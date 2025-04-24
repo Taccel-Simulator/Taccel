@@ -110,7 +110,7 @@ def run():
     model = TaccelModel(num_envs=1, viz_envs=[])
     model.set_kinematic_stiffness(1e8)
     model.gravity = wp.vec3d([0, 0, 0])
-    model.dhat = 1e-4
+    model.dhat = 5e-4
 
     if not args.headless:
         stage_path = os.path.join(OUT_DIR, "parallel_test.usd")
@@ -127,9 +127,9 @@ def run():
         )
 
     if joint_type == WorldJointType.PRISMATIC or joint_type == WorldJointType.REVOLUTE:
-        handle_extents = np.array([0.04, 0.1, 0.01]) * 2
+        handle_extents = np.array([0.0075, 0.1, 0.01]) * 2
         obj_handle_mesh = tm.primitives.Box(extents=handle_extents).to_mesh()
-        obj_handle_mesh.vertices = np.array(obj_handle_mesh.vertices) + np.array([[-0.01, 0.0, 0.1]])
+        obj_handle_mesh.vertices = np.array(obj_handle_mesh.vertices) + np.array([[0.02, 0.0, 0.1]])
 
         board_extent = np.random.uniform(0.3, 0.3, [2])
         obj_board_mesh = tm.primitives.Box(extents=np.array([0.01, board_extent[0], board_extent[1]])).to_mesh()
@@ -148,7 +148,7 @@ def run():
         gripper_init_pos = np.array([0.12, 0.0, 0.1])
         gripper_init_rot = R.from_euler("xyz", np.array([90, 0, -90]), degrees=True).as_matrix()
         gripper_release_q = 0.04
-        gripper_grasp_q = handle_extents[2] / 2 - 6e-4
+        gripper_grasp_q = handle_extents[2] / 2 - 8e-4 + model.dhat
 
         delta_tf = np.eye(4)
         delta_tf[:3, 3] = np.array([0.0, 0.0, -5e-4])
@@ -176,7 +176,7 @@ def run():
         gripper_init_pos = np.array([0.0, 0.0, 0.185])
         gripper_init_rot = R.from_euler("xyz", np.array([0.0, 180.0, 90.0]), degrees=True).as_matrix()
 
-        gripper_grasp_q = 0.012
+        gripper_grasp_q = 0.012 - model.dhat
         gripper_release_q = 0.04
 
     urdf_path, _, tac_path = Robot.get_fabr_path("tactile-pandahand", 1e-07)
@@ -205,6 +205,8 @@ def run():
     integrator.dt = 1 / 50
     integrator.max_newton_iter = 30
     integrator.use_inversion_free_step_size_filter = True
+    integrator.inversion_free_im_tol = 1e-6
+    integrator.inversion_free_cubic_coef_tol = 1e-10
 
     # Initialize states
     init_joint_params = {
@@ -270,7 +272,7 @@ def run():
     ).T
 
     marker_depth = np.abs(grasp_markers_local[..., -1] - canon_markers_local[..., -1]).reshape(-1)
-    tracking_marker_idx = np.where(marker_depth > 6e-4)[0].tolist()
+    tracking_marker_idx = np.where(marker_depth > 8e-4)[0].tolist()
     tracked_marker_diff = 0.0
     assert len(tracking_marker_idx) > 6
 
@@ -313,8 +315,8 @@ def run():
             case _:
                 break
 
-        if n_rec == 200:
-            print("Recovery failed")
+        if n_rec == 200 or tracked_marker_diff > 4e-3:
+            print("Recovery phase execution failed. Stopping simulation.")
             break
 
         if not joint_type == WorldJointType.HELICAL:
@@ -355,6 +357,7 @@ def run():
 
         all_rgbs, all_depths, all_normals = model.render_tactile(True, True)
         viz_rgb = all_rgbs[viz_env].reshape([800, 400, 3])
+        viz_d = all_depths[viz_env].reshape([800, 400])
         if joint_type == WorldJointType.HELICAL:
             text = f"Env {viz_env} | {model.frame} ({curr_state.name}) | Diff: {tracked_marker_diff * 1000:.2f} mm"
         else:
@@ -362,6 +365,7 @@ def run():
         viz_rgb = cv2.putText(viz_rgb, text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.3, (0, 0, 255), 1)
         if not args.headless:
             cv2.imshow("TacMan - RGB", viz_rgb[..., [2, 1, 0]])
+            cv2.imshow("TacMan - Depth", viz_d)
             cv2.waitKey(1)
 
         log.info(f"Current state: {curr_state.name} | Tracking {len(tracking_marker_idx)} markers")

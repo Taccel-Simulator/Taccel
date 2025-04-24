@@ -22,9 +22,10 @@ def init_robot_demo(args, demo_name: str, cache_dir: str = "./ptx"):
     OUT_DIR = f"./output/{demo_name}/{DATETIME_TAG}"
     os.makedirs(os.path.join(OUT_DIR, "frames"), exist_ok=True)
     json.dump(vars(args), open(os.path.join(OUT_DIR, "args.json"), "w"))
-    set_seed(args.seed if hasattr(args, "seed") else None)
+    set_seed(args.seed if hasattr(args, "seed") else 42)
     wp.config.kernel_cache_dir = cache_dir
     wp.config.cuda_output = "ptx"
+    wp.config.ptx_target_arch = 86
 
     return DATETIME_TAG, OUT_DIR
 
