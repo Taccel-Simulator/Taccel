@@ -10,7 +10,6 @@ import torch
 import trimesh as tm
 import warp as wp
 from scipy.spatial.transform import Rotation as R
-from warp.sim.render import SimRendererOpenGL
 
 sys.path.append(".")
 
@@ -112,20 +111,6 @@ def run():
     model.gravity = wp.vec3d([0, 0, 0])
     model.dhat = 5e-4
 
-    if not args.headless:
-        stage_path = os.path.join(OUT_DIR, "parallel_test.usd")
-        renderer = SimRendererOpenGL(
-            model,
-            stage_path,
-            scaling=1,
-            near_plane=1.0,
-            far_plane=100.0,
-            camera_fov=45.0,
-            camera_pos=(0.0, 2.0, 10.0),
-            camera_front=(0.0, 0.0, -1.0),
-            camera_up=(0.0, 1.0, 0.0),
-        )
-
     if joint_type == WorldJointType.PRISMATIC or joint_type == WorldJointType.REVOLUTE:
         handle_extents = np.array([0.0075, 0.1, 0.01]) * 2
         obj_handle_mesh = tm.primitives.Box(extents=handle_extents).to_mesh()
@@ -171,7 +156,7 @@ def run():
         edge_verts = None
 
         delta_tf = np.eye(4)
-        delta_tf[:3, :3] = R.from_euler("xyz", np.array([0, 0, 5.0]), degrees=True).as_matrix()
+        delta_tf[:3, :3] = R.from_euler("xyz", np.array([0, 0, 1.0]), degrees=True).as_matrix()
 
         gripper_init_pos = np.array([0.0, 0.0, 0.185])
         gripper_init_rot = R.from_euler("xyz", np.array([0.0, 180.0, 90.0]), degrees=True).as_matrix()
@@ -237,12 +222,7 @@ def run():
                 "panda_finger_joint2": gripper_grasp_q,
             }
         model.set_robot_targets([hand_q], hand_tf[None])
-        integrator.simulate(model, dt=0.02)
-
-        if not args.headless:
-            renderer.begin_frame(model.elapsed_time)
-            renderer.render(model.state())
-            renderer.end_frame()
+        integrator.simulate(model, dt=1 / 50)
 
         all_rgbs, all_depths, all_normals = model.render_tactile(True, True)
         viz_rgb = all_rgbs[viz_env].reshape([800, 400, 3])
@@ -323,12 +303,7 @@ def run():
             joint_state = model.get_joint_value(joint_handle)
 
         model.set_robot_targets([hand_q], hand_tf[None])
-        integrator.simulate(model, dt=0.02)
-
-        if not args.headless:
-            renderer.begin_frame(model.elapsed_time)
-            renderer.render(model.state())
-            renderer.end_frame()
+        integrator.simulate(model, dt=1 / 50)
 
         # Update markers
         robot_tf = model.robots[0].root_transform
@@ -357,7 +332,6 @@ def run():
 
         all_rgbs, all_depths, all_normals = model.render_tactile(True, True)
         viz_rgb = all_rgbs[viz_env].reshape([800, 400, 3])
-        viz_d = all_depths[viz_env].reshape([800, 400])
         if joint_type == WorldJointType.HELICAL:
             text = f"Env {viz_env} | {model.frame} ({curr_state.name}) | Diff: {tracked_marker_diff * 1000:.2f} mm"
         else:
@@ -365,7 +339,6 @@ def run():
         viz_rgb = cv2.putText(viz_rgb, text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.3, (0, 0, 255), 1)
         if not args.headless:
             cv2.imshow("TacMan - RGB", viz_rgb[..., [2, 1, 0]])
-            cv2.imshow("TacMan - Depth", viz_d)
             cv2.waitKey(1)
 
         log.info(f"Current state: {curr_state.name} | Tracking {len(tracking_marker_idx)} markers")

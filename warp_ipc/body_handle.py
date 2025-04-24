@@ -1,4 +1,5 @@
 import warp as wp
+import warp.sim
 from numpy.typing import NDArray
 from warp_ipc.utils.constants import BodyType
 
