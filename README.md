@@ -23,6 +23,8 @@
 [🛠️ [Code](https://github.com/Taccel-Simulator/Taccel) ]
 [📊 Dataset (Coming Soon)  ]
 
+> ℹ We have noticed an issue concerning the simulation scene when running Taccel on some machines (see [this issue](https://github.com/Taccel-Simulator/Taccel/issues/1#issuecomment-2823052905)). We're actively looking into this to solve it as soon as possible. If you encounter the same problem, please stay tuned!
+
 If you use Taccel in your research, please use the following citation:
 
 ```bibtex
