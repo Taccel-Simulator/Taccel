@@ -19,105 +19,6 @@ extern "C" {
 }
 
 
-extern "C" __global__ void array_matmul_cuda_kernel_forward(
-    wp::launch_bounds_t dim,
-    wp::array_t<wp::mat_t<3,3,wp::float64>> var_A,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_y,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_z)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        wp::mat_t<3,3,wp::float64>* var_1;
-        wp::vec_t<3,wp::float64>* var_2;
-        wp::vec_t<3,wp::float64> var_3;
-        wp::mat_t<3,3,wp::float64> var_4;
-        wp::vec_t<3,wp::float64> var_5;
-        //---------
-        // forward
-        // def array_matmul(A: wp.array(dtype=wp.mat33d), y: wp.array(dtype=wp.vec3d), z: wp.array(dtype=wp.vec3d)):       <L 21>
-        // tid = wp.tid()                                                                         <L 22>
-        var_0 = builtin_tid1d();
-        // z[tid] = A[tid] @ y[tid]                                                               <L 23>
-        var_1 = wp::address(var_A, var_0);
-        var_2 = wp::address(var_y, var_0);
-        var_4 = wp::load(var_1);
-        var_5 = wp::load(var_2);
-        var_3 = wp::mul(var_4, var_5);
-        wp::array_store(var_z, var_0, var_3);
-    }
-}
-
-
-
-extern "C" __global__ void array_matmul_cuda_kernel_backward(
-    wp::launch_bounds_t dim,
-    wp::array_t<wp::mat_t<3,3,wp::float64>> var_A,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_y,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_z,
-    wp::array_t<wp::mat_t<3,3,wp::float64>> adj_A,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_y,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_z)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        wp::mat_t<3,3,wp::float64>* var_1;
-        wp::vec_t<3,wp::float64>* var_2;
-        wp::vec_t<3,wp::float64> var_3;
-        wp::mat_t<3,3,wp::float64> var_4;
-        wp::vec_t<3,wp::float64> var_5;
-        //---------
-        // dual vars
-        wp::int32 adj_0 = {};
-        wp::mat_t<3,3,wp::float64> adj_1 = {};
-        wp::vec_t<3,wp::float64> adj_2 = {};
-        wp::vec_t<3,wp::float64> adj_3 = {};
-        wp::mat_t<3,3,wp::float64> adj_4 = {};
-        wp::vec_t<3,wp::float64> adj_5 = {};
-        //---------
-        // forward
-        // def array_matmul(A: wp.array(dtype=wp.mat33d), y: wp.array(dtype=wp.vec3d), z: wp.array(dtype=wp.vec3d)):       <L 21>
-        // tid = wp.tid()                                                                         <L 22>
-        var_0 = builtin_tid1d();
-        // z[tid] = A[tid] @ y[tid]                                                               <L 23>
-        var_1 = wp::address(var_A, var_0);
-        var_2 = wp::address(var_y, var_0);
-        var_4 = wp::load(var_1);
-        var_5 = wp::load(var_2);
-        var_3 = wp::mul(var_4, var_5);
-        // wp::array_store(var_z, var_0, var_3);
-        //---------
-        // reverse
-        wp::adj_array_store(var_z, var_0, var_3, adj_z, adj_0, adj_3);
-        wp::adj_mul(var_4, var_5, adj_1, adj_2, adj_3);
-        wp::adj_load(var_2, adj_2, adj_5);
-        wp::adj_load(var_1, adj_1, adj_4);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_2);
-        wp::adj_address(var_A, var_0, adj_A, adj_0, adj_1);
-        // adj: z[tid] = A[tid] @ y[tid]                                                          <L 23>
-        // adj: tid = wp.tid()                                                                    <L 22>
-        // adj: def array_matmul(A: wp.array(dtype=wp.mat33d), y: wp.array(dtype=wp.vec3d), z: wp.array(dtype=wp.vec3d)):  <L 21>
-        continue;
-    }
-}
-
-
-
 extern "C" __global__ void axpy_cuda_kernel_forward(
     wp::launch_bounds_t dim,
     wp::array_t<wp::vec_t<3,wp::float64>> var_y,
@@ -888,6 +789,105 @@ extern "C" __global__ void cg_one_iter_cuda_kernel_backward(
         // adj: alpha = wp.float64(0.0)                                                           <L 65>
         // adj: tid = wp.tid()                                                                    <L 64>
         // adj: def cg_one_iter(                                                                  <L 50>
+        continue;
+    }
+}
+
+
+
+extern "C" __global__ void array_matmul_cuda_kernel_forward(
+    wp::launch_bounds_t dim,
+    wp::array_t<wp::mat_t<3,3,wp::float64>> var_A,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_y,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_z)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        wp::mat_t<3,3,wp::float64>* var_1;
+        wp::vec_t<3,wp::float64>* var_2;
+        wp::vec_t<3,wp::float64> var_3;
+        wp::mat_t<3,3,wp::float64> var_4;
+        wp::vec_t<3,wp::float64> var_5;
+        //---------
+        // forward
+        // def array_matmul(A: wp.array(dtype=wp.mat33d), y: wp.array(dtype=wp.vec3d), z: wp.array(dtype=wp.vec3d)):       <L 21>
+        // tid = wp.tid()                                                                         <L 22>
+        var_0 = builtin_tid1d();
+        // z[tid] = A[tid] @ y[tid]                                                               <L 23>
+        var_1 = wp::address(var_A, var_0);
+        var_2 = wp::address(var_y, var_0);
+        var_4 = wp::load(var_1);
+        var_5 = wp::load(var_2);
+        var_3 = wp::mul(var_4, var_5);
+        wp::array_store(var_z, var_0, var_3);
+    }
+}
+
+
+
+extern "C" __global__ void array_matmul_cuda_kernel_backward(
+    wp::launch_bounds_t dim,
+    wp::array_t<wp::mat_t<3,3,wp::float64>> var_A,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_y,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_z,
+    wp::array_t<wp::mat_t<3,3,wp::float64>> adj_A,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_y,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_z)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        wp::mat_t<3,3,wp::float64>* var_1;
+        wp::vec_t<3,wp::float64>* var_2;
+        wp::vec_t<3,wp::float64> var_3;
+        wp::mat_t<3,3,wp::float64> var_4;
+        wp::vec_t<3,wp::float64> var_5;
+        //---------
+        // dual vars
+        wp::int32 adj_0 = {};
+        wp::mat_t<3,3,wp::float64> adj_1 = {};
+        wp::vec_t<3,wp::float64> adj_2 = {};
+        wp::vec_t<3,wp::float64> adj_3 = {};
+        wp::mat_t<3,3,wp::float64> adj_4 = {};
+        wp::vec_t<3,wp::float64> adj_5 = {};
+        //---------
+        // forward
+        // def array_matmul(A: wp.array(dtype=wp.mat33d), y: wp.array(dtype=wp.vec3d), z: wp.array(dtype=wp.vec3d)):       <L 21>
+        // tid = wp.tid()                                                                         <L 22>
+        var_0 = builtin_tid1d();
+        // z[tid] = A[tid] @ y[tid]                                                               <L 23>
+        var_1 = wp::address(var_A, var_0);
+        var_2 = wp::address(var_y, var_0);
+        var_4 = wp::load(var_1);
+        var_5 = wp::load(var_2);
+        var_3 = wp::mul(var_4, var_5);
+        // wp::array_store(var_z, var_0, var_3);
+        //---------
+        // reverse
+        wp::adj_array_store(var_z, var_0, var_3, adj_z, adj_0, adj_3);
+        wp::adj_mul(var_4, var_5, adj_1, adj_2, adj_3);
+        wp::adj_load(var_2, adj_2, adj_5);
+        wp::adj_load(var_1, adj_1, adj_4);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_2);
+        wp::adj_address(var_A, var_0, adj_A, adj_0, adj_1);
+        // adj: z[tid] = A[tid] @ y[tid]                                                          <L 23>
+        // adj: tid = wp.tid()                                                                    <L 22>
+        // adj: def array_matmul(A: wp.array(dtype=wp.mat33d), y: wp.array(dtype=wp.vec3d), z: wp.array(dtype=wp.vec3d)):  <L 21>
         continue;
     }
 }

@@ -19,401 +19,6 @@ extern "C" {
 }
 
 
-extern "C" __global__ void update_dof_satisfied_kernel_cuda_kernel_forward(
-    wp::launch_bounds_t dim,
-    wp::array_t<bool> var_x_has_constraint,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_x_target,
-    wp::array_t<bool> var_x_target_reached,
-    wp::array_t<bool> var_y_has_constraint,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_y,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_y_target,
-    wp::array_t<bool> var_y_target_reached,
-    wp::float64 var_dt,
-    wp::float64 var_tol)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        const wp::int32 var_1 = 0;
-        wp::shape_t* var_2;
-        wp::int32 var_3;
-        wp::shape_t var_4;
-        bool var_5;
-        bool* var_6;
-        bool* var_7;
-        const bool var_8 = false;
-        bool var_9;
-        bool var_10;
-        bool var_11;
-        bool var_12;
-        wp::vec_t<3,wp::float64>* var_13;
-        wp::vec_t<3,wp::float64>* var_14;
-        wp::vec_t<3,wp::float64> var_15;
-        wp::vec_t<3,wp::float64> var_16;
-        wp::vec_t<3,wp::float64> var_17;
-        wp::float64 var_18;
-        wp::float64 var_19;
-        bool var_20;
-        const wp::int32 var_21 = 1;
-        bool var_22;
-        const wp::int32 var_23 = 0;
-        wp::shape_t* var_24;
-        wp::int32 var_25;
-        wp::shape_t var_26;
-        wp::int32 var_27;
-        bool* var_28;
-        bool* var_29;
-        const bool var_30 = false;
-        bool var_31;
-        bool var_32;
-        bool var_33;
-        bool var_34;
-        wp::vec_t<12,wp::float64>* var_35;
-        wp::vec_t<12,wp::float64>* var_36;
-        wp::vec_t<12,wp::float64> var_37;
-        wp::vec_t<12,wp::float64> var_38;
-        wp::vec_t<12,wp::float64> var_39;
-        wp::float64 var_40;
-        wp::float64 var_41;
-        bool var_42;
-        const wp::int32 var_43 = 1;
-        bool var_44;
-        wp::int32 var_45;
-        //---------
-        // forward
-        // def update_dof_satisfied_kernel(                                                       <L 8>
-        // tid = wp.tid()                                                                         <L 20>
-        var_0 = builtin_tid1d();
-        // if tid < x_has_constraint.shape[0]:                                                    <L 21>
-        var_2 = &(var_x_has_constraint.shape);
-        var_4 = wp::load(var_2);
-        var_3 = wp::extract(var_4, var_1);
-        var_5 = (var_0 < var_3);
-        if (var_5) {
-            // if x_has_constraint[tid] and x_target_reached[tid] == False:                       <L 22>
-            var_6 = wp::address(var_x_has_constraint, var_0);
-            var_7 = wp::address(var_x_target_reached, var_0);
-            var_10 = wp::load(var_7);
-            var_9 = (var_10 == var_8);
-            var_11 = wp::load(var_6);
-            var_12 = var_11 && var_9;
-            if (var_12) {
-                // if wp.length(x[tid] - x_target[tid]) < tol * dt:                               <L 23>
-                var_13 = wp::address(var_x, var_0);
-                var_14 = wp::address(var_x_target, var_0);
-                var_16 = wp::load(var_13);
-                var_17 = wp::load(var_14);
-                var_15 = wp::sub(var_16, var_17);
-                var_18 = wp::length(var_15);
-                var_19 = wp::mul(var_tol, var_dt);
-                var_20 = (var_18 < var_19);
-                if (var_20) {
-                    // x_target_reached[tid] = wp.bool(1)                                         <L 24>
-                    var_22 = bool(var_21);
-                    wp::array_store(var_x_target_reached, var_0, var_22);
-                }
-            }
-        }
-        if (!var_5) {
-            // tid -= x_has_constraint.shape[0]                                                   <L 26>
-            var_24 = &(var_x_has_constraint.shape);
-            var_26 = wp::load(var_24);
-            var_25 = wp::extract(var_26, var_23);
-            var_27 = wp::sub(var_0, var_25);
-            // if y_has_constraint[tid] and y_target_reached[tid] == False:                       <L 27>
-            var_28 = wp::address(var_y_has_constraint, var_27);
-            var_29 = wp::address(var_y_target_reached, var_27);
-            var_32 = wp::load(var_29);
-            var_31 = (var_32 == var_30);
-            var_33 = wp::load(var_28);
-            var_34 = var_33 && var_31;
-            if (var_34) {
-                // if wp.length(y[tid] - y_target[tid]) < tol * dt:                               <L 28>
-                var_35 = wp::address(var_y, var_27);
-                var_36 = wp::address(var_y_target, var_27);
-                var_38 = wp::load(var_35);
-                var_39 = wp::load(var_36);
-                var_37 = wp::sub(var_38, var_39);
-                var_40 = wp::length(var_37);
-                var_41 = wp::mul(var_tol, var_dt);
-                var_42 = (var_40 < var_41);
-                if (var_42) {
-                    // y_target_reached[tid] = wp.bool(1)                                         <L 29>
-                    var_44 = bool(var_43);
-                    wp::array_store(var_y_target_reached, var_27, var_44);
-                }
-            }
-        }
-        var_45 = wp::where(var_5, var_0, var_27);
-    }
-}
-
-
-
-extern "C" __global__ void update_dof_satisfied_kernel_cuda_kernel_backward(
-    wp::launch_bounds_t dim,
-    wp::array_t<bool> var_x_has_constraint,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_x_target,
-    wp::array_t<bool> var_x_target_reached,
-    wp::array_t<bool> var_y_has_constraint,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_y,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_y_target,
-    wp::array_t<bool> var_y_target_reached,
-    wp::float64 var_dt,
-    wp::float64 var_tol,
-    wp::array_t<bool> adj_x_has_constraint,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_x,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_x_target,
-    wp::array_t<bool> adj_x_target_reached,
-    wp::array_t<bool> adj_y_has_constraint,
-    wp::array_t<wp::vec_t<12,wp::float64>> adj_y,
-    wp::array_t<wp::vec_t<12,wp::float64>> adj_y_target,
-    wp::array_t<bool> adj_y_target_reached,
-    wp::float64 adj_dt,
-    wp::float64 adj_tol)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        const wp::int32 var_1 = 0;
-        wp::shape_t* var_2;
-        wp::int32 var_3;
-        wp::shape_t var_4;
-        bool var_5;
-        bool* var_6;
-        bool* var_7;
-        const bool var_8 = false;
-        bool var_9;
-        bool var_10;
-        bool var_11;
-        bool var_12;
-        wp::vec_t<3,wp::float64>* var_13;
-        wp::vec_t<3,wp::float64>* var_14;
-        wp::vec_t<3,wp::float64> var_15;
-        wp::vec_t<3,wp::float64> var_16;
-        wp::vec_t<3,wp::float64> var_17;
-        wp::float64 var_18;
-        wp::float64 var_19;
-        bool var_20;
-        const wp::int32 var_21 = 1;
-        bool var_22;
-        const wp::int32 var_23 = 0;
-        wp::shape_t* var_24;
-        wp::int32 var_25;
-        wp::shape_t var_26;
-        wp::int32 var_27;
-        bool* var_28;
-        bool* var_29;
-        const bool var_30 = false;
-        bool var_31;
-        bool var_32;
-        bool var_33;
-        bool var_34;
-        wp::vec_t<12,wp::float64>* var_35;
-        wp::vec_t<12,wp::float64>* var_36;
-        wp::vec_t<12,wp::float64> var_37;
-        wp::vec_t<12,wp::float64> var_38;
-        wp::vec_t<12,wp::float64> var_39;
-        wp::float64 var_40;
-        wp::float64 var_41;
-        bool var_42;
-        const wp::int32 var_43 = 1;
-        bool var_44;
-        wp::int32 var_45;
-        //---------
-        // dual vars
-        wp::int32 adj_0 = {};
-        wp::int32 adj_1 = {};
-        wp::shape_t adj_2 = {};
-        wp::int32 adj_3 = {};
-        wp::shape_t adj_4 = {};
-        bool adj_5 = {};
-        bool adj_6 = {};
-        bool adj_7 = {};
-        bool adj_8 = {};
-        bool adj_9 = {};
-        bool adj_10 = {};
-        bool adj_11 = {};
-        bool adj_12 = {};
-        wp::vec_t<3,wp::float64> adj_13 = {};
-        wp::vec_t<3,wp::float64> adj_14 = {};
-        wp::vec_t<3,wp::float64> adj_15 = {};
-        wp::vec_t<3,wp::float64> adj_16 = {};
-        wp::vec_t<3,wp::float64> adj_17 = {};
-        wp::float64 adj_18 = {};
-        wp::float64 adj_19 = {};
-        bool adj_20 = {};
-        wp::int32 adj_21 = {};
-        bool adj_22 = {};
-        wp::int32 adj_23 = {};
-        wp::shape_t adj_24 = {};
-        wp::int32 adj_25 = {};
-        wp::shape_t adj_26 = {};
-        wp::int32 adj_27 = {};
-        bool adj_28 = {};
-        bool adj_29 = {};
-        bool adj_30 = {};
-        bool adj_31 = {};
-        bool adj_32 = {};
-        bool adj_33 = {};
-        bool adj_34 = {};
-        wp::vec_t<12,wp::float64> adj_35 = {};
-        wp::vec_t<12,wp::float64> adj_36 = {};
-        wp::vec_t<12,wp::float64> adj_37 = {};
-        wp::vec_t<12,wp::float64> adj_38 = {};
-        wp::vec_t<12,wp::float64> adj_39 = {};
-        wp::float64 adj_40 = {};
-        wp::float64 adj_41 = {};
-        bool adj_42 = {};
-        wp::int32 adj_43 = {};
-        bool adj_44 = {};
-        wp::int32 adj_45 = {};
-        //---------
-        // forward
-        // def update_dof_satisfied_kernel(                                                       <L 8>
-        // tid = wp.tid()                                                                         <L 20>
-        var_0 = builtin_tid1d();
-        // if tid < x_has_constraint.shape[0]:                                                    <L 21>
-        var_2 = &(var_x_has_constraint.shape);
-        var_4 = wp::load(var_2);
-        var_3 = wp::extract(var_4, var_1);
-        var_5 = (var_0 < var_3);
-        if (var_5) {
-            // if x_has_constraint[tid] and x_target_reached[tid] == False:                       <L 22>
-            var_6 = wp::address(var_x_has_constraint, var_0);
-            var_7 = wp::address(var_x_target_reached, var_0);
-            var_10 = wp::load(var_7);
-            var_9 = (var_10 == var_8);
-            var_11 = wp::load(var_6);
-            var_12 = var_11 && var_9;
-            if (var_12) {
-                // if wp.length(x[tid] - x_target[tid]) < tol * dt:                               <L 23>
-                var_13 = wp::address(var_x, var_0);
-                var_14 = wp::address(var_x_target, var_0);
-                var_16 = wp::load(var_13);
-                var_17 = wp::load(var_14);
-                var_15 = wp::sub(var_16, var_17);
-                var_18 = wp::length(var_15);
-                var_19 = wp::mul(var_tol, var_dt);
-                var_20 = (var_18 < var_19);
-                if (var_20) {
-                    // x_target_reached[tid] = wp.bool(1)                                         <L 24>
-                    var_22 = bool(var_21);
-                    // wp::array_store(var_x_target_reached, var_0, var_22);
-                }
-            }
-        }
-        if (!var_5) {
-            // tid -= x_has_constraint.shape[0]                                                   <L 26>
-            var_24 = &(var_x_has_constraint.shape);
-            var_26 = wp::load(var_24);
-            var_25 = wp::extract(var_26, var_23);
-            var_27 = wp::sub(var_0, var_25);
-            // if y_has_constraint[tid] and y_target_reached[tid] == False:                       <L 27>
-            var_28 = wp::address(var_y_has_constraint, var_27);
-            var_29 = wp::address(var_y_target_reached, var_27);
-            var_32 = wp::load(var_29);
-            var_31 = (var_32 == var_30);
-            var_33 = wp::load(var_28);
-            var_34 = var_33 && var_31;
-            if (var_34) {
-                // if wp.length(y[tid] - y_target[tid]) < tol * dt:                               <L 28>
-                var_35 = wp::address(var_y, var_27);
-                var_36 = wp::address(var_y_target, var_27);
-                var_38 = wp::load(var_35);
-                var_39 = wp::load(var_36);
-                var_37 = wp::sub(var_38, var_39);
-                var_40 = wp::length(var_37);
-                var_41 = wp::mul(var_tol, var_dt);
-                var_42 = (var_40 < var_41);
-                if (var_42) {
-                    // y_target_reached[tid] = wp.bool(1)                                         <L 29>
-                    var_44 = bool(var_43);
-                    // wp::array_store(var_y_target_reached, var_27, var_44);
-                }
-            }
-        }
-        var_45 = wp::where(var_5, var_0, var_27);
-        //---------
-        // reverse
-        wp::adj_where(var_5, var_0, var_27, adj_5, adj_0, adj_27, adj_45);
-        if (!var_5) {
-            if (var_34) {
-                if (var_42) {
-                    wp::adj_array_store(var_y_target_reached, var_27, var_44, adj_y_target_reached, adj_27, adj_44);
-                    adj_bool(var_43, adj_43, adj_44);
-                    // adj: y_target_reached[tid] = wp.bool(1)                                    <L 29>
-                }
-                wp::adj_mul(var_tol, var_dt, adj_tol, adj_dt, adj_41);
-                wp::adj_length(var_37, var_40, adj_37, adj_40);
-                wp::adj_sub(var_38, var_39, adj_35, adj_36, adj_37);
-                wp::adj_load(var_36, adj_36, adj_39);
-                wp::adj_load(var_35, adj_35, adj_38);
-                wp::adj_address(var_y_target, var_27, adj_y_target, adj_27, adj_36);
-                wp::adj_address(var_y, var_27, adj_y, adj_27, adj_35);
-                // adj: if wp.length(y[tid] - y_target[tid]) < tol * dt:                          <L 28>
-            }
-            wp::adj_load(var_28, adj_28, adj_33);
-            wp::adj_load(var_29, adj_29, adj_32);
-            wp::adj_address(var_y_target_reached, var_27, adj_y_target_reached, adj_27, adj_29);
-            wp::adj_address(var_y_has_constraint, var_27, adj_y_has_constraint, adj_27, adj_28);
-            // adj: if y_has_constraint[tid] and y_target_reached[tid] == False:                  <L 27>
-            wp::adj_sub(var_0, var_25, adj_0, adj_25, adj_27);
-            wp::adj_extract(var_26, var_23, adj_24, adj_23, adj_25);
-            wp::adj_load(var_24, adj_24, adj_26);
-            adj_x_has_constraint.shape = adj_24;
-            // adj: tid -= x_has_constraint.shape[0]                                              <L 26>
-        }
-        if (var_5) {
-            if (var_12) {
-                if (var_20) {
-                    wp::adj_array_store(var_x_target_reached, var_0, var_22, adj_x_target_reached, adj_0, adj_22);
-                    adj_bool(var_21, adj_21, adj_22);
-                    // adj: x_target_reached[tid] = wp.bool(1)                                    <L 24>
-                }
-                wp::adj_mul(var_tol, var_dt, adj_tol, adj_dt, adj_19);
-                wp::adj_length(var_15, var_18, adj_15, adj_18);
-                wp::adj_sub(var_16, var_17, adj_13, adj_14, adj_15);
-                wp::adj_load(var_14, adj_14, adj_17);
-                wp::adj_load(var_13, adj_13, adj_16);
-                wp::adj_address(var_x_target, var_0, adj_x_target, adj_0, adj_14);
-                wp::adj_address(var_x, var_0, adj_x, adj_0, adj_13);
-                // adj: if wp.length(x[tid] - x_target[tid]) < tol * dt:                          <L 23>
-            }
-            wp::adj_load(var_6, adj_6, adj_11);
-            wp::adj_load(var_7, adj_7, adj_10);
-            wp::adj_address(var_x_target_reached, var_0, adj_x_target_reached, adj_0, adj_7);
-            wp::adj_address(var_x_has_constraint, var_0, adj_x_has_constraint, adj_0, adj_6);
-            // adj: if x_has_constraint[tid] and x_target_reached[tid] == False:                  <L 22>
-        }
-        wp::adj_extract(var_4, var_1, adj_2, adj_1, adj_3);
-        wp::adj_load(var_2, adj_2, adj_4);
-        adj_x_has_constraint.shape = adj_2;
-        // adj: if tid < x_has_constraint.shape[0]:                                               <L 21>
-        // adj: tid = wp.tid()                                                                    <L 20>
-        // adj: def update_dof_satisfied_kernel(                                                  <L 8>
-        continue;
-    }
-}
-
-
-
 extern "C" __global__ void project_system_kernel_cuda_kernel_forward(
     wp::launch_bounds_t dim,
     wp::array_t<wp::int32> var_offsets,
@@ -1053,6 +658,401 @@ extern "C" __global__ void project_system_kernel_cuda_kernel_backward(
         // adj: project_row = wp.bool(0)                                                          <L 42>
         // adj: row_idx = wp.tid()                                                                <L 41>
         // adj: def project_system_kernel(                                                        <L 33>
+        continue;
+    }
+}
+
+
+
+extern "C" __global__ void update_dof_satisfied_kernel_cuda_kernel_forward(
+    wp::launch_bounds_t dim,
+    wp::array_t<bool> var_x_has_constraint,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_x_target,
+    wp::array_t<bool> var_x_target_reached,
+    wp::array_t<bool> var_y_has_constraint,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_y,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_y_target,
+    wp::array_t<bool> var_y_target_reached,
+    wp::float64 var_dt,
+    wp::float64 var_tol)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        const wp::int32 var_1 = 0;
+        wp::shape_t* var_2;
+        wp::int32 var_3;
+        wp::shape_t var_4;
+        bool var_5;
+        bool* var_6;
+        bool* var_7;
+        const bool var_8 = false;
+        bool var_9;
+        bool var_10;
+        bool var_11;
+        bool var_12;
+        wp::vec_t<3,wp::float64>* var_13;
+        wp::vec_t<3,wp::float64>* var_14;
+        wp::vec_t<3,wp::float64> var_15;
+        wp::vec_t<3,wp::float64> var_16;
+        wp::vec_t<3,wp::float64> var_17;
+        wp::float64 var_18;
+        wp::float64 var_19;
+        bool var_20;
+        const wp::int32 var_21 = 1;
+        bool var_22;
+        const wp::int32 var_23 = 0;
+        wp::shape_t* var_24;
+        wp::int32 var_25;
+        wp::shape_t var_26;
+        wp::int32 var_27;
+        bool* var_28;
+        bool* var_29;
+        const bool var_30 = false;
+        bool var_31;
+        bool var_32;
+        bool var_33;
+        bool var_34;
+        wp::vec_t<12,wp::float64>* var_35;
+        wp::vec_t<12,wp::float64>* var_36;
+        wp::vec_t<12,wp::float64> var_37;
+        wp::vec_t<12,wp::float64> var_38;
+        wp::vec_t<12,wp::float64> var_39;
+        wp::float64 var_40;
+        wp::float64 var_41;
+        bool var_42;
+        const wp::int32 var_43 = 1;
+        bool var_44;
+        wp::int32 var_45;
+        //---------
+        // forward
+        // def update_dof_satisfied_kernel(                                                       <L 8>
+        // tid = wp.tid()                                                                         <L 20>
+        var_0 = builtin_tid1d();
+        // if tid < x_has_constraint.shape[0]:                                                    <L 21>
+        var_2 = &(var_x_has_constraint.shape);
+        var_4 = wp::load(var_2);
+        var_3 = wp::extract(var_4, var_1);
+        var_5 = (var_0 < var_3);
+        if (var_5) {
+            // if x_has_constraint[tid] and x_target_reached[tid] == False:                       <L 22>
+            var_6 = wp::address(var_x_has_constraint, var_0);
+            var_7 = wp::address(var_x_target_reached, var_0);
+            var_10 = wp::load(var_7);
+            var_9 = (var_10 == var_8);
+            var_11 = wp::load(var_6);
+            var_12 = var_11 && var_9;
+            if (var_12) {
+                // if wp.length(x[tid] - x_target[tid]) < tol * dt:                               <L 23>
+                var_13 = wp::address(var_x, var_0);
+                var_14 = wp::address(var_x_target, var_0);
+                var_16 = wp::load(var_13);
+                var_17 = wp::load(var_14);
+                var_15 = wp::sub(var_16, var_17);
+                var_18 = wp::length(var_15);
+                var_19 = wp::mul(var_tol, var_dt);
+                var_20 = (var_18 < var_19);
+                if (var_20) {
+                    // x_target_reached[tid] = wp.bool(1)                                         <L 24>
+                    var_22 = bool(var_21);
+                    wp::array_store(var_x_target_reached, var_0, var_22);
+                }
+            }
+        }
+        if (!var_5) {
+            // tid -= x_has_constraint.shape[0]                                                   <L 26>
+            var_24 = &(var_x_has_constraint.shape);
+            var_26 = wp::load(var_24);
+            var_25 = wp::extract(var_26, var_23);
+            var_27 = wp::sub(var_0, var_25);
+            // if y_has_constraint[tid] and y_target_reached[tid] == False:                       <L 27>
+            var_28 = wp::address(var_y_has_constraint, var_27);
+            var_29 = wp::address(var_y_target_reached, var_27);
+            var_32 = wp::load(var_29);
+            var_31 = (var_32 == var_30);
+            var_33 = wp::load(var_28);
+            var_34 = var_33 && var_31;
+            if (var_34) {
+                // if wp.length(y[tid] - y_target[tid]) < tol * dt:                               <L 28>
+                var_35 = wp::address(var_y, var_27);
+                var_36 = wp::address(var_y_target, var_27);
+                var_38 = wp::load(var_35);
+                var_39 = wp::load(var_36);
+                var_37 = wp::sub(var_38, var_39);
+                var_40 = wp::length(var_37);
+                var_41 = wp::mul(var_tol, var_dt);
+                var_42 = (var_40 < var_41);
+                if (var_42) {
+                    // y_target_reached[tid] = wp.bool(1)                                         <L 29>
+                    var_44 = bool(var_43);
+                    wp::array_store(var_y_target_reached, var_27, var_44);
+                }
+            }
+        }
+        var_45 = wp::where(var_5, var_0, var_27);
+    }
+}
+
+
+
+extern "C" __global__ void update_dof_satisfied_kernel_cuda_kernel_backward(
+    wp::launch_bounds_t dim,
+    wp::array_t<bool> var_x_has_constraint,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_x_target,
+    wp::array_t<bool> var_x_target_reached,
+    wp::array_t<bool> var_y_has_constraint,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_y,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_y_target,
+    wp::array_t<bool> var_y_target_reached,
+    wp::float64 var_dt,
+    wp::float64 var_tol,
+    wp::array_t<bool> adj_x_has_constraint,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_x,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_x_target,
+    wp::array_t<bool> adj_x_target_reached,
+    wp::array_t<bool> adj_y_has_constraint,
+    wp::array_t<wp::vec_t<12,wp::float64>> adj_y,
+    wp::array_t<wp::vec_t<12,wp::float64>> adj_y_target,
+    wp::array_t<bool> adj_y_target_reached,
+    wp::float64 adj_dt,
+    wp::float64 adj_tol)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        const wp::int32 var_1 = 0;
+        wp::shape_t* var_2;
+        wp::int32 var_3;
+        wp::shape_t var_4;
+        bool var_5;
+        bool* var_6;
+        bool* var_7;
+        const bool var_8 = false;
+        bool var_9;
+        bool var_10;
+        bool var_11;
+        bool var_12;
+        wp::vec_t<3,wp::float64>* var_13;
+        wp::vec_t<3,wp::float64>* var_14;
+        wp::vec_t<3,wp::float64> var_15;
+        wp::vec_t<3,wp::float64> var_16;
+        wp::vec_t<3,wp::float64> var_17;
+        wp::float64 var_18;
+        wp::float64 var_19;
+        bool var_20;
+        const wp::int32 var_21 = 1;
+        bool var_22;
+        const wp::int32 var_23 = 0;
+        wp::shape_t* var_24;
+        wp::int32 var_25;
+        wp::shape_t var_26;
+        wp::int32 var_27;
+        bool* var_28;
+        bool* var_29;
+        const bool var_30 = false;
+        bool var_31;
+        bool var_32;
+        bool var_33;
+        bool var_34;
+        wp::vec_t<12,wp::float64>* var_35;
+        wp::vec_t<12,wp::float64>* var_36;
+        wp::vec_t<12,wp::float64> var_37;
+        wp::vec_t<12,wp::float64> var_38;
+        wp::vec_t<12,wp::float64> var_39;
+        wp::float64 var_40;
+        wp::float64 var_41;
+        bool var_42;
+        const wp::int32 var_43 = 1;
+        bool var_44;
+        wp::int32 var_45;
+        //---------
+        // dual vars
+        wp::int32 adj_0 = {};
+        wp::int32 adj_1 = {};
+        wp::shape_t adj_2 = {};
+        wp::int32 adj_3 = {};
+        wp::shape_t adj_4 = {};
+        bool adj_5 = {};
+        bool adj_6 = {};
+        bool adj_7 = {};
+        bool adj_8 = {};
+        bool adj_9 = {};
+        bool adj_10 = {};
+        bool adj_11 = {};
+        bool adj_12 = {};
+        wp::vec_t<3,wp::float64> adj_13 = {};
+        wp::vec_t<3,wp::float64> adj_14 = {};
+        wp::vec_t<3,wp::float64> adj_15 = {};
+        wp::vec_t<3,wp::float64> adj_16 = {};
+        wp::vec_t<3,wp::float64> adj_17 = {};
+        wp::float64 adj_18 = {};
+        wp::float64 adj_19 = {};
+        bool adj_20 = {};
+        wp::int32 adj_21 = {};
+        bool adj_22 = {};
+        wp::int32 adj_23 = {};
+        wp::shape_t adj_24 = {};
+        wp::int32 adj_25 = {};
+        wp::shape_t adj_26 = {};
+        wp::int32 adj_27 = {};
+        bool adj_28 = {};
+        bool adj_29 = {};
+        bool adj_30 = {};
+        bool adj_31 = {};
+        bool adj_32 = {};
+        bool adj_33 = {};
+        bool adj_34 = {};
+        wp::vec_t<12,wp::float64> adj_35 = {};
+        wp::vec_t<12,wp::float64> adj_36 = {};
+        wp::vec_t<12,wp::float64> adj_37 = {};
+        wp::vec_t<12,wp::float64> adj_38 = {};
+        wp::vec_t<12,wp::float64> adj_39 = {};
+        wp::float64 adj_40 = {};
+        wp::float64 adj_41 = {};
+        bool adj_42 = {};
+        wp::int32 adj_43 = {};
+        bool adj_44 = {};
+        wp::int32 adj_45 = {};
+        //---------
+        // forward
+        // def update_dof_satisfied_kernel(                                                       <L 8>
+        // tid = wp.tid()                                                                         <L 20>
+        var_0 = builtin_tid1d();
+        // if tid < x_has_constraint.shape[0]:                                                    <L 21>
+        var_2 = &(var_x_has_constraint.shape);
+        var_4 = wp::load(var_2);
+        var_3 = wp::extract(var_4, var_1);
+        var_5 = (var_0 < var_3);
+        if (var_5) {
+            // if x_has_constraint[tid] and x_target_reached[tid] == False:                       <L 22>
+            var_6 = wp::address(var_x_has_constraint, var_0);
+            var_7 = wp::address(var_x_target_reached, var_0);
+            var_10 = wp::load(var_7);
+            var_9 = (var_10 == var_8);
+            var_11 = wp::load(var_6);
+            var_12 = var_11 && var_9;
+            if (var_12) {
+                // if wp.length(x[tid] - x_target[tid]) < tol * dt:                               <L 23>
+                var_13 = wp::address(var_x, var_0);
+                var_14 = wp::address(var_x_target, var_0);
+                var_16 = wp::load(var_13);
+                var_17 = wp::load(var_14);
+                var_15 = wp::sub(var_16, var_17);
+                var_18 = wp::length(var_15);
+                var_19 = wp::mul(var_tol, var_dt);
+                var_20 = (var_18 < var_19);
+                if (var_20) {
+                    // x_target_reached[tid] = wp.bool(1)                                         <L 24>
+                    var_22 = bool(var_21);
+                    // wp::array_store(var_x_target_reached, var_0, var_22);
+                }
+            }
+        }
+        if (!var_5) {
+            // tid -= x_has_constraint.shape[0]                                                   <L 26>
+            var_24 = &(var_x_has_constraint.shape);
+            var_26 = wp::load(var_24);
+            var_25 = wp::extract(var_26, var_23);
+            var_27 = wp::sub(var_0, var_25);
+            // if y_has_constraint[tid] and y_target_reached[tid] == False:                       <L 27>
+            var_28 = wp::address(var_y_has_constraint, var_27);
+            var_29 = wp::address(var_y_target_reached, var_27);
+            var_32 = wp::load(var_29);
+            var_31 = (var_32 == var_30);
+            var_33 = wp::load(var_28);
+            var_34 = var_33 && var_31;
+            if (var_34) {
+                // if wp.length(y[tid] - y_target[tid]) < tol * dt:                               <L 28>
+                var_35 = wp::address(var_y, var_27);
+                var_36 = wp::address(var_y_target, var_27);
+                var_38 = wp::load(var_35);
+                var_39 = wp::load(var_36);
+                var_37 = wp::sub(var_38, var_39);
+                var_40 = wp::length(var_37);
+                var_41 = wp::mul(var_tol, var_dt);
+                var_42 = (var_40 < var_41);
+                if (var_42) {
+                    // y_target_reached[tid] = wp.bool(1)                                         <L 29>
+                    var_44 = bool(var_43);
+                    // wp::array_store(var_y_target_reached, var_27, var_44);
+                }
+            }
+        }
+        var_45 = wp::where(var_5, var_0, var_27);
+        //---------
+        // reverse
+        wp::adj_where(var_5, var_0, var_27, adj_5, adj_0, adj_27, adj_45);
+        if (!var_5) {
+            if (var_34) {
+                if (var_42) {
+                    wp::adj_array_store(var_y_target_reached, var_27, var_44, adj_y_target_reached, adj_27, adj_44);
+                    adj_bool(var_43, adj_43, adj_44);
+                    // adj: y_target_reached[tid] = wp.bool(1)                                    <L 29>
+                }
+                wp::adj_mul(var_tol, var_dt, adj_tol, adj_dt, adj_41);
+                wp::adj_length(var_37, var_40, adj_37, adj_40);
+                wp::adj_sub(var_38, var_39, adj_35, adj_36, adj_37);
+                wp::adj_load(var_36, adj_36, adj_39);
+                wp::adj_load(var_35, adj_35, adj_38);
+                wp::adj_address(var_y_target, var_27, adj_y_target, adj_27, adj_36);
+                wp::adj_address(var_y, var_27, adj_y, adj_27, adj_35);
+                // adj: if wp.length(y[tid] - y_target[tid]) < tol * dt:                          <L 28>
+            }
+            wp::adj_load(var_28, adj_28, adj_33);
+            wp::adj_load(var_29, adj_29, adj_32);
+            wp::adj_address(var_y_target_reached, var_27, adj_y_target_reached, adj_27, adj_29);
+            wp::adj_address(var_y_has_constraint, var_27, adj_y_has_constraint, adj_27, adj_28);
+            // adj: if y_has_constraint[tid] and y_target_reached[tid] == False:                  <L 27>
+            wp::adj_sub(var_0, var_25, adj_0, adj_25, adj_27);
+            wp::adj_extract(var_26, var_23, adj_24, adj_23, adj_25);
+            wp::adj_load(var_24, adj_24, adj_26);
+            adj_x_has_constraint.shape = adj_24;
+            // adj: tid -= x_has_constraint.shape[0]                                              <L 26>
+        }
+        if (var_5) {
+            if (var_12) {
+                if (var_20) {
+                    wp::adj_array_store(var_x_target_reached, var_0, var_22, adj_x_target_reached, adj_0, adj_22);
+                    adj_bool(var_21, adj_21, adj_22);
+                    // adj: x_target_reached[tid] = wp.bool(1)                                    <L 24>
+                }
+                wp::adj_mul(var_tol, var_dt, adj_tol, adj_dt, adj_19);
+                wp::adj_length(var_15, var_18, adj_15, adj_18);
+                wp::adj_sub(var_16, var_17, adj_13, adj_14, adj_15);
+                wp::adj_load(var_14, adj_14, adj_17);
+                wp::adj_load(var_13, adj_13, adj_16);
+                wp::adj_address(var_x_target, var_0, adj_x_target, adj_0, adj_14);
+                wp::adj_address(var_x, var_0, adj_x, adj_0, adj_13);
+                // adj: if wp.length(x[tid] - x_target[tid]) < tol * dt:                          <L 23>
+            }
+            wp::adj_load(var_6, adj_6, adj_11);
+            wp::adj_load(var_7, adj_7, adj_10);
+            wp::adj_address(var_x_target_reached, var_0, adj_x_target_reached, adj_0, adj_7);
+            wp::adj_address(var_x_has_constraint, var_0, adj_x_has_constraint, adj_0, adj_6);
+            // adj: if x_has_constraint[tid] and x_target_reached[tid] == False:                  <L 22>
+        }
+        wp::adj_extract(var_4, var_1, adj_2, adj_1, adj_3);
+        wp::adj_load(var_2, adj_2, adj_4);
+        adj_x_has_constraint.shape = adj_2;
+        // adj: if tid < x_has_constraint.shape[0]:                                               <L 21>
+        // adj: tid = wp.tid()                                                                    <L 20>
+        // adj: def update_dof_satisfied_kernel(                                                  <L 8>
         continue;
     }
 }

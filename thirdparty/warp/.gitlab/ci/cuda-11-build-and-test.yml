@@ -1,0 +1,267 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# ==============================================================================
+# Warp+CUDA 11 Build and Testing Child Pipeline
+#
+# This child pipeline is used to build and test Warp when the library is built
+# with the CUDA 11 Toolkit (release mode).
+#
+# This pipeline can be triggered from the main GitLab pipeline under specific
+# circumstances. See the child pipelines defined in /.gitlab-ci.yml for the
+# trigger conditions. It is not automatically run in merge request pipelines.
+# ==============================================================================
+
+include:
+  - /.gitlab/ci/common.yml
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "parent_pipeline"
+
+stages:
+  - build
+  - test
+  - package
+  - deploy
+
+# ==============================================================================
+# Build Jobs
+# ==============================================================================
+
+linux-aarch64 build:
+  stage: build
+  image: quay.io/pypa/manylinux2014_aarch64:latest
+  extends:
+    - .runner-build-linux-aarch64
+    - .save_warp_bin_artifact
+  variables:
+    PM_PYTHON_EXT: "python"
+  before_script:
+    - echo -e "\\e[0Ksection_start:`date +%s`:install_dependencies[collapsed=true]\\r\\e[0KInstalling dependencies"
+    - yum update && yum install curl wget -y
+    - wget -O Miniforge3.sh "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+    - bash Miniforge3.sh -b -p "${CI_PROJECT_DIR}/conda"
+    - source "${CI_PROJECT_DIR}/conda/etc/profile.d/conda.sh"
+    - conda activate
+    - python -m pip install --upgrade pip
+    - python -m pip install --upgrade numpy
+    - tools/packman/packman pull --platform linux-aarch64 --include-tag cuda-11 deps/cuda-toolkit-deps.packman.xml
+    - echo -e "\\e[0Ksection_end:`date +%s`:install_dependencies\\r\\e[0K"
+  script:
+    - python build_lib.py --cuda_path $CUDA
+    - mkdir -p warp/bin/linux-aarch64
+    - mv warp/bin/warp.so warp/bin/linux-aarch64
+    - mv warp/bin/warp-clang.so warp/bin/linux-aarch64
+
+linux-x86_64 build:
+  stage: build
+  image: quay.io/pypa/manylinux2014_x86_64:latest
+  extends:
+    - .save_warp_bin_artifact
+    - .runner-large-build-linux-x86_64
+  before_script:
+    - echo -e "\\e[0Ksection_start:`date +%s`:install_dependencies[collapsed=true]\\r\\e[0KInstalling dependencies"
+    - yum update && yum install curl wget -y
+    - echo -e "\\e[0Ksection_end:`date +%s`:install_dependencies\\r\\e[0K"
+  script:
+    - ./tools/ci/building/build-linux-x86_64/build.sh --cuda 11 --no-docker # We are already using the builder image
+    - mkdir -p warp/bin/linux-x86_64
+    - mv warp/bin/warp.so warp/bin/linux-x86_64
+    - mv warp/bin/warp-clang.so warp/bin/linux-x86_64
+
+windows-x86_64 build:
+  stage: build
+  extends:
+    - .save_warp_bin_artifact
+    - .runner-build-windows-x86_64
+  before_script:
+    - powershell -command "Get-Volume | Format-Table -AutoSize"
+  script:
+    - ./tools/ci/building/build-windows-x86_64/build.bat --cuda 11
+
+# ==============================================================================
+# Unit Testing Jobs
+#
+# Unlike the main testing jobs defined in /.gitlab-ci.yml, the CUDA 11 jobs don't
+# generate code coverage reports.
+# ==============================================================================
+
+linux-aarch64 test:
+  stage: test
+  image: ubuntu:22.04
+  needs: [linux-aarch64 build]
+  extends:
+    - .runner-test-linux-aarch64  # TODO: Change to .omni_devplat_arm_docker_gpu
+    - .save_test_report_artifact
+  before_script:
+    - echo -e "\\e[0Ksection_start:`date +%s`:install_dependencies[collapsed=true]\\r\\e[0KInstalling dependencies"
+    - !reference [.snippets, install-python+warp-aarch64]
+    - echo -e "\\e[0Ksection_end:`date +%s`:install_dependencies\\r\\e[0K"
+  script:
+    - python -m warp.tests --junit-report-xml rspec.xml -s autodetect --failfast
+
+linux-x86_64 test:
+  stage: test
+  image: ubuntu:22.04
+  needs: [linux-x86_64 build]
+  extends:
+    - .omni_nvks_gpu_2x
+    - .save_test_report_artifact
+  before_script:
+    - echo -e "\\e[0Ksection_start:`date +%s`:install_dependencies[collapsed=true]\\r\\e[0KInstalling dependencies"
+    - apt-get update && apt-get install curl --no-install-recommends -y
+    - df -h
+    # Move compiled binaries out of platform-specific directory
+    - mv warp/bin/linux-x86_64/warp.so warp/bin/
+    - mv warp/bin/linux-x86_64/warp-clang.so warp/bin/
+    - tools/packman/packman install -l _build/target-deps/python python ${DEFAULT_PYTHON}-linux-x86_64
+    - export PATH="$CUDA_BIN:$PATH"
+    - $PYTHON -m venv _venv
+    - source _venv/bin/activate
+    - python -m pip install --upgrade pip
+    - python -m pip install --upgrade usd-core Pillow
+    - python -m pip install --upgrade torch --extra-index-url https://download.pytorch.org/whl/cu121
+    - python -m pip install -U "jax[cuda12]"
+    - python -m pip install -e .
+    - echo -e "\\e[0Ksection_end:`date +%s`:install_dependencies\\r\\e[0K"
+    # HACK: disable P2P tests due to misbehaving agents
+    - export WARP_DISABLE_P2P_TESTS=1
+  script:
+    - python -m warp.tests --junit-report-xml rspec.xml -s autodetect --failfast
+
+windows-x86_64 test:
+  stage: test
+  needs: [windows-x86_64 build]
+  extends:
+    - .runner-test-windows-x86_64-gpu
+    - .save_test_report_artifact
+  before_script:
+    - !reference [.snippets, define-powershell-GetTime]
+    - Write-Output "$([char]27)[0Ksection_start:$(GetTime):install_dependencies[collapsed=true]$([char]13)$([char]27)[0KInstalling dependencies"
+    - powershell -command "Get-Volume | Format-Table -AutoSize"
+    - $python_name = $DEFAULT_PYTHON + "-windows-x86_64"
+    - tools/packman/packman.cmd install -l _build/target-deps/python python $python_name
+    - '& $env:CI_PROJECT_DIR\_build\target-deps\python\python.exe -m venv _venv'
+    - .\_venv\Scripts\Activate.ps1
+    - python -m pip install --upgrade pip
+    - python -m pip install --upgrade usd-core numpy Pillow
+    - python -m pip install --upgrade torch --extra-index-url https://download.pytorch.org/whl/cu121
+    - python -m pip install -e .
+    - Write-Output "$([char]27)[0Ksection_end:$(GetTime):install_dependencies$([char]13)$([char]27)[0K"
+  script:
+    - python -m warp.tests --junit-report-xml rspec.xml -s autodetect --failfast
+
+# ==============================================================================
+# Packaging Jobs
+# ==============================================================================
+
+# Creates wheel files for PyPI
+# Note that compared to the job in .gitlab-ci.yml, there is no aarch64 job
+# due to problems building a debug binary
+create pypi wheels:
+  stage: package
+  needs:
+    - linux-aarch64 build
+    - linux-x86_64 build
+    - windows-x86_64 build
+  extends:
+    - .runner-utility-linux-x86_64
+  before_script:
+    # Move binaries into platform-specific folders. Already done in the build jobs for Linux.
+    - mkdir -p warp/bin/windows-x86_64
+    - mv warp/bin/warp.dll warp/bin/windows-x86_64/
+    - mv warp/bin/warp-clang.dll warp/bin/windows-x86_64/
+    - python3 -m pip install --upgrade pip
+    - python3 -m pip install build
+  script:
+    - sed -i "s/^\(.*\)$/\1+cu11/" VERSION.md  # Modify VERSION.md with +cu11
+    - python3 -m build --wheel -C--build-option=-Pwindows-x86_64
+    - python3 -m build --wheel -C--build-option=-Plinux-x86_64 -C--build-option=-Mmanylinux2014
+    - python3 -m build --wheel -C--build-option=-Plinux-aarch64 -C--build-option=-Mmanylinux2014
+    - find . -type f -exec chmod 664 {} +
+    - find . -type d -exec chmod 775 {} +
+  artifacts:
+    name: $PARENT_COMMIT_REF_SLUG-$PARENT_COMMIT_SHORT_SHA
+    expose_as: "Python Wheels"
+    paths:
+      - "dist/"
+    when: always
+
+# ==============================================================================
+# Deployment Jobs
+#
+# This section currently contains jobs that publish files to the internal
+# GitLab service.
+# ==============================================================================
+
+publish wheels to gitlab pypi registry:
+  stage: deploy
+  image: python:3.11-slim
+  needs: ["create pypi wheels"]
+  extends:
+    - .runner-utility-linux-x86_64
+  rules:
+    - if: $PARENT_COMMIT_TAG
+    - if: $PARENT_COMMIT_BRANCH =~ /release-.*/
+    - when: manual # Can be triggered in all other scenarios
+      allow_failure: true
+  before_script:
+    - python3 -m pip install --upgrade pip
+    - python3 -m pip install --upgrade build twine
+  script:
+    - TWINE_PASSWORD=${CI_JOB_TOKEN} TWINE_USERNAME=gitlab-ci-token python3 -m twine upload --verbose --skip-existing --non-interactive --repository-url ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi dist/*
+
+# Uploads the wheels to the internal GitLab package registry in the Warp project
+# Generated files will be in a branch/tag-specific folder
+publish wheels to gitlab package registry:
+  stage: deploy
+  needs: ["create pypi wheels"]
+  extends:
+    - .runner-utility-linux-x86_64
+  rules:
+    - if: $PARENT_COMMIT_TAG
+    - if: $PARENT_COMMIT_BRANCH =~ /release-.*/
+    - when: manual # Can be triggered in all other scenarios
+      allow_failure: true
+  before_script:
+    - apt-get update && apt-get install curl --no-install-recommends -y
+  script:
+    - |
+      for file in $(find . -name '*.whl'); do
+          filename=$(basename -- "$file")
+          curl --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file "$file" "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/warp/${CI_COMMIT_REF_SLUG}/${filename}"
+      done
+    - echo "See the published files at $CI_PROJECT_URL/-/packages"
+
+publish wheels to github release:
+  stage: deploy
+  image: ubuntu:22.04
+  needs: ["create pypi wheels"]
+  extends:
+    - .runner-utility-linux-x86_64
+  rules:
+    - if: $PARENT_COMMIT_TAG
+  before_script:
+    - echo -e "\\e[0Ksection_start:`date +%s`:install_dependencies[collapsed=true]\\r\\e[0KInstalling dependencies"
+    - apt-get update && apt-get install wget ca-certificates --no-install-recommends -y
+    - wget -O Miniforge3.sh "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+    - bash Miniforge3.sh -b -p "${HOME}/conda"
+    - source "${HOME}/conda/etc/profile.d/conda.sh"
+    - conda activate
+    - conda install gh --channel conda-forge
+    - echo -e "\\e[0Ksection_end:`date +%s`:install_dependencies\\r\\e[0K"
+  script:
+    - gh release upload $PARENT_CI_COMMIT_TAG ./dist/*.whl

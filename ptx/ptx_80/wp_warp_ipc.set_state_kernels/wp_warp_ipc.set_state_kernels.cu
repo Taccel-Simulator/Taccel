@@ -19,149 +19,6 @@ extern "C" {
 }
 
 
-extern "C" __global__ void set_sim_soft_vel_cuda_kernel_forward(
-    wp::launch_bounds_t dim,
-    wp::array_t<wp::int32> var_soft_update_mask,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_verts_vel,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_v_x,
-    wp::int32 var_affine_verts_num)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        wp::int32* var_1;
-        wp::int32 var_2;
-        wp::int32 var_3;
-        const wp::int32 var_4 = 0;
-        bool var_5;
-        wp::vec_t<3,wp::float64>* var_6;
-        wp::vec_t<3,wp::float64> var_7;
-        wp::vec_t<3,wp::float64> var_8;
-        wp::int32 var_9;
-        //---------
-        // forward
-        // def set_sim_soft_vel(                                                                  <L 100>
-        // tid = wp.tid()                                                                         <L 106>
-        var_0 = builtin_tid1d();
-        // mask = soft_update_mask[tid]                                                           <L 107>
-        var_1 = wp::address(var_soft_update_mask, var_0);
-        var_3 = wp::load(var_1);
-        var_2 = wp::copy(var_3);
-        // if mask == 0:                                                                          <L 108>
-        var_5 = (var_2 == var_4);
-        if (var_5) {
-            // return                                                                             <L 109>
-            continue;
-        }
-        // vel = soft_verts_vel[tid]                                                              <L 110>
-        var_6 = wp::address(var_soft_verts_vel, var_0);
-        var_8 = wp::load(var_6);
-        var_7 = wp::copy(var_8);
-        // v_x[tid + affine_verts_num] = vel                                                      <L 111>
-        var_9 = wp::add(var_0, var_affine_verts_num);
-        wp::array_store(var_v_x, var_9, var_7);
-    }
-}
-
-
-
-extern "C" __global__ void set_sim_soft_vel_cuda_kernel_backward(
-    wp::launch_bounds_t dim,
-    wp::array_t<wp::int32> var_soft_update_mask,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_verts_vel,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_v_x,
-    wp::int32 var_affine_verts_num,
-    wp::array_t<wp::int32> adj_soft_update_mask,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_soft_verts_vel,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_v_x,
-    wp::int32 adj_affine_verts_num)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        wp::int32* var_1;
-        wp::int32 var_2;
-        wp::int32 var_3;
-        const wp::int32 var_4 = 0;
-        bool var_5;
-        wp::vec_t<3,wp::float64>* var_6;
-        wp::vec_t<3,wp::float64> var_7;
-        wp::vec_t<3,wp::float64> var_8;
-        wp::int32 var_9;
-        //---------
-        // dual vars
-        wp::int32 adj_0 = {};
-        wp::int32 adj_1 = {};
-        wp::int32 adj_2 = {};
-        wp::int32 adj_3 = {};
-        wp::int32 adj_4 = {};
-        bool adj_5 = {};
-        wp::vec_t<3,wp::float64> adj_6 = {};
-        wp::vec_t<3,wp::float64> adj_7 = {};
-        wp::vec_t<3,wp::float64> adj_8 = {};
-        wp::int32 adj_9 = {};
-        //---------
-        // forward
-        // def set_sim_soft_vel(                                                                  <L 100>
-        // tid = wp.tid()                                                                         <L 106>
-        var_0 = builtin_tid1d();
-        // mask = soft_update_mask[tid]                                                           <L 107>
-        var_1 = wp::address(var_soft_update_mask, var_0);
-        var_3 = wp::load(var_1);
-        var_2 = wp::copy(var_3);
-        // if mask == 0:                                                                          <L 108>
-        var_5 = (var_2 == var_4);
-        if (var_5) {
-            // return                                                                             <L 109>
-            goto label0;
-        }
-        // vel = soft_verts_vel[tid]                                                              <L 110>
-        var_6 = wp::address(var_soft_verts_vel, var_0);
-        var_8 = wp::load(var_6);
-        var_7 = wp::copy(var_8);
-        // v_x[tid + affine_verts_num] = vel                                                      <L 111>
-        var_9 = wp::add(var_0, var_affine_verts_num);
-        // wp::array_store(var_v_x, var_9, var_7);
-        //---------
-        // reverse
-        wp::adj_array_store(var_v_x, var_9, var_7, adj_v_x, adj_9, adj_7);
-        wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_9);
-        // adj: v_x[tid + affine_verts_num] = vel                                                 <L 111>
-        wp::adj_copy(var_8, adj_6, adj_7);
-        wp::adj_load(var_6, adj_6, adj_8);
-        wp::adj_address(var_soft_verts_vel, var_0, adj_soft_verts_vel, adj_0, adj_6);
-        // adj: vel = soft_verts_vel[tid]                                                         <L 110>
-        if (var_5) {
-            label0:;
-            // adj: return                                                                        <L 109>
-        }
-        // adj: if mask == 0:                                                                     <L 108>
-        wp::adj_copy(var_3, adj_1, adj_2);
-        wp::adj_load(var_1, adj_1, adj_3);
-        wp::adj_address(var_soft_update_mask, var_0, adj_soft_update_mask, adj_0, adj_1);
-        // adj: mask = soft_update_mask[tid]                                                      <L 107>
-        // adj: tid = wp.tid()                                                                    <L 106>
-        // adj: def set_sim_soft_vel(                                                             <L 100>
-        continue;
-    }
-}
-
-
-
 extern "C" __global__ void set_sim_affine_vel_cuda_kernel_forward(
     wp::launch_bounds_t dim,
     wp::array_t<wp::int32> var_affine_update_mask,
@@ -896,6 +753,149 @@ extern "C" __global__ void set_sim_affine_vel_cuda_kernel_backward(
         // adj: mask = affine_update_mask[tid]                                                    <L 48>
         // adj: tid = wp.tid()                                                                    <L 47>
         // adj: def set_sim_affine_vel(                                                           <L 38>
+        continue;
+    }
+}
+
+
+
+extern "C" __global__ void set_sim_soft_vel_cuda_kernel_forward(
+    wp::launch_bounds_t dim,
+    wp::array_t<wp::int32> var_soft_update_mask,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_verts_vel,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_v_x,
+    wp::int32 var_affine_verts_num)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        wp::int32* var_1;
+        wp::int32 var_2;
+        wp::int32 var_3;
+        const wp::int32 var_4 = 0;
+        bool var_5;
+        wp::vec_t<3,wp::float64>* var_6;
+        wp::vec_t<3,wp::float64> var_7;
+        wp::vec_t<3,wp::float64> var_8;
+        wp::int32 var_9;
+        //---------
+        // forward
+        // def set_sim_soft_vel(                                                                  <L 100>
+        // tid = wp.tid()                                                                         <L 106>
+        var_0 = builtin_tid1d();
+        // mask = soft_update_mask[tid]                                                           <L 107>
+        var_1 = wp::address(var_soft_update_mask, var_0);
+        var_3 = wp::load(var_1);
+        var_2 = wp::copy(var_3);
+        // if mask == 0:                                                                          <L 108>
+        var_5 = (var_2 == var_4);
+        if (var_5) {
+            // return                                                                             <L 109>
+            continue;
+        }
+        // vel = soft_verts_vel[tid]                                                              <L 110>
+        var_6 = wp::address(var_soft_verts_vel, var_0);
+        var_8 = wp::load(var_6);
+        var_7 = wp::copy(var_8);
+        // v_x[tid + affine_verts_num] = vel                                                      <L 111>
+        var_9 = wp::add(var_0, var_affine_verts_num);
+        wp::array_store(var_v_x, var_9, var_7);
+    }
+}
+
+
+
+extern "C" __global__ void set_sim_soft_vel_cuda_kernel_backward(
+    wp::launch_bounds_t dim,
+    wp::array_t<wp::int32> var_soft_update_mask,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_verts_vel,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_v_x,
+    wp::int32 var_affine_verts_num,
+    wp::array_t<wp::int32> adj_soft_update_mask,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_soft_verts_vel,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_v_x,
+    wp::int32 adj_affine_verts_num)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        wp::int32* var_1;
+        wp::int32 var_2;
+        wp::int32 var_3;
+        const wp::int32 var_4 = 0;
+        bool var_5;
+        wp::vec_t<3,wp::float64>* var_6;
+        wp::vec_t<3,wp::float64> var_7;
+        wp::vec_t<3,wp::float64> var_8;
+        wp::int32 var_9;
+        //---------
+        // dual vars
+        wp::int32 adj_0 = {};
+        wp::int32 adj_1 = {};
+        wp::int32 adj_2 = {};
+        wp::int32 adj_3 = {};
+        wp::int32 adj_4 = {};
+        bool adj_5 = {};
+        wp::vec_t<3,wp::float64> adj_6 = {};
+        wp::vec_t<3,wp::float64> adj_7 = {};
+        wp::vec_t<3,wp::float64> adj_8 = {};
+        wp::int32 adj_9 = {};
+        //---------
+        // forward
+        // def set_sim_soft_vel(                                                                  <L 100>
+        // tid = wp.tid()                                                                         <L 106>
+        var_0 = builtin_tid1d();
+        // mask = soft_update_mask[tid]                                                           <L 107>
+        var_1 = wp::address(var_soft_update_mask, var_0);
+        var_3 = wp::load(var_1);
+        var_2 = wp::copy(var_3);
+        // if mask == 0:                                                                          <L 108>
+        var_5 = (var_2 == var_4);
+        if (var_5) {
+            // return                                                                             <L 109>
+            goto label0;
+        }
+        // vel = soft_verts_vel[tid]                                                              <L 110>
+        var_6 = wp::address(var_soft_verts_vel, var_0);
+        var_8 = wp::load(var_6);
+        var_7 = wp::copy(var_8);
+        // v_x[tid + affine_verts_num] = vel                                                      <L 111>
+        var_9 = wp::add(var_0, var_affine_verts_num);
+        // wp::array_store(var_v_x, var_9, var_7);
+        //---------
+        // reverse
+        wp::adj_array_store(var_v_x, var_9, var_7, adj_v_x, adj_9, adj_7);
+        wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_9);
+        // adj: v_x[tid + affine_verts_num] = vel                                                 <L 111>
+        wp::adj_copy(var_8, adj_6, adj_7);
+        wp::adj_load(var_6, adj_6, adj_8);
+        wp::adj_address(var_soft_verts_vel, var_0, adj_soft_verts_vel, adj_0, adj_6);
+        // adj: vel = soft_verts_vel[tid]                                                         <L 110>
+        if (var_5) {
+            label0:;
+            // adj: return                                                                        <L 109>
+        }
+        // adj: if mask == 0:                                                                     <L 108>
+        wp::adj_copy(var_3, adj_1, adj_2);
+        wp::adj_load(var_1, adj_1, adj_3);
+        wp::adj_address(var_soft_update_mask, var_0, adj_soft_update_mask, adj_0, adj_1);
+        // adj: mask = soft_update_mask[tid]                                                      <L 107>
+        // adj: tid = wp.tid()                                                                    <L 106>
+        // adj: def set_sim_soft_vel(                                                             <L 100>
         continue;
     }
 }

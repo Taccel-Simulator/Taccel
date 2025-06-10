@@ -1,0 +1,368 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+name: CI
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  push:
+    tags:
+      - v*
+    branches:
+      - main
+      - release-*
+  schedule: # Schedule workflow only runs on the default branch
+    - cron: "45 9 * * *"
+
+env:
+  PYTHON_VERSION: 3.12
+
+jobs:
+  build-warp-windows:
+    runs-on: windows-2019
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install CTK
+        uses: Jimver/cuda-toolkit@v0.2.21
+        id: cuda-toolkit
+        with:
+          sub-packages: '["cudart", "nvcc", "nvrtc_dev", "nvjitlink"]'
+          method: 'network'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install --no-cache-dir --upgrade numpy
+      - name: Build
+        run: |
+          python build_lib.py
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifact-windows
+          path: ./warp/bin/
+
+  build-warp-ubuntu-x86_64:
+    runs-on: ubuntu-22.04
+    outputs:
+      artifact-url: ${{ steps.exports-header.outputs.artifact-url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install CTK
+        uses: Jimver/cuda-toolkit@v0.2.21
+        id: cuda-toolkit
+        with:
+          sub-packages: '["cudart-dev", "nvcc", "nvrtc-dev"]'
+          non-cuda-sub-packages: '["libnvjitlink-dev"]'
+          method: 'network'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install --no-cache-dir --upgrade numpy
+      - name: Build Warp
+        run: |
+          python build_lib.py
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifact-ubuntu-x86_64
+          path: warp/bin/
+      - name: Upload exports.h
+        uses: actions/upload-artifact@v4
+        id: exports-header
+        with:
+          name: exports-header
+          path: warp/native/exports.h
+
+  build-warp-ubuntu-aarch64:
+    runs-on: ubuntu-22.04-arm
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install CTK
+        uses: Jimver/cuda-toolkit@v0.2.21
+        id: cuda-toolkit
+        with:
+          sub-packages: '["cudart-dev", "nvcc", "nvrtc-dev"]'
+          non-cuda-sub-packages: '["libnvjitlink-dev"]'
+          method: 'network'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install --no-cache-dir --upgrade numpy
+      - name: Build Warp
+        run: |
+          python build_lib.py
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifact-ubuntu-aarch64
+          path: warp/bin/
+
+  build-warp-macos:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install --no-cache-dir --upgrade numpy
+      - name: Build
+        run: |
+          python build_lib.py
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifact-macos
+          path: ./warp/bin/
+
+  test-warp-windows:
+    runs-on: windows-latest
+    needs: build-warp-windows
+    env:
+      OS: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Download Warp build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifact-windows
+          path: ./warp/bin/
+      - name: Install Dependencies
+        run: |
+          python -m pip cache purge
+          python -m pip install --upgrade pip
+          pip install --no-cache-dir --upgrade numpy coverage[toml] usd-core Pillow
+          pip install --no-cache-dir .
+      - name: Run Tests
+        run: python -m warp.tests --junit-report-xml rspec.xml --coverage --coverage-xml coverage.xml -s autodetect
+      - name: Test Summary
+        uses: test-summary/action@v2.3
+        with:
+          paths: "rspec.xml"
+          show: "fail"
+        if: always()
+
+  test-warp-ubuntu-x86_64:
+    runs-on: ubuntu-latest
+    needs: build-warp-ubuntu-x86_64
+    env:
+      OS: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Download Warp build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifact-ubuntu-x86_64
+          path: ./warp/bin/
+      - name: Install Dependencies
+        run: |
+          python -m pip cache purge
+          python -m pip install --upgrade pip
+          pip install --no-cache-dir --upgrade numpy coverage[toml] usd-core Pillow
+          pip install --no-cache-dir .
+      - name: Run Tests
+        run: python -m warp.tests --junit-report-xml rspec.xml --coverage --coverage-xml coverage.xml -s autodetect
+      - name: Test Summary
+        uses: test-summary/action@v2.3
+        with:
+          paths: "rspec.xml"
+          show: "fail"
+        if: always()
+
+  test-warp-ubuntu-aarch64:
+    runs-on: ubuntu-22.04-arm
+    needs: build-warp-ubuntu-aarch64
+    env:
+      OS: ubuntu-22.04-arm
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Download Warp build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifact-ubuntu-aarch64
+          path: ./warp/bin/
+      - name: Install Dependencies
+        run: |
+          python -m pip cache purge
+          python -m pip install --upgrade pip
+          pip install --no-cache-dir --upgrade numpy coverage[toml]
+          pip install --no-cache-dir .
+      - name: Run Tests
+        run: python -m warp.tests --junit-report-xml rspec.xml --coverage --coverage-xml coverage.xml -s autodetect
+      - name: Test Summary
+        uses: test-summary/action@v2.3
+        with:
+          paths: "rspec.xml"
+          show: "fail"
+        if: always()
+
+  test-warp-macos:
+    runs-on: macos-13
+    needs: build-warp-macos
+    env:
+      OS: macos-13
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Download Warp build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifact-macos
+          path: ./warp/bin/
+      - name: Install Dependencies
+        run: |
+          python -m pip cache purge
+          python -m pip install --upgrade pip
+          pip install --no-cache-dir --upgrade numpy coverage[toml] usd-core Pillow
+          pip install --no-cache-dir .
+      - name: Run Tests
+        run: python -m warp.tests --maxjobs 4  --junit-report-xml rspec.xml --coverage --coverage-xml coverage.xml -s autodetect
+      - name: Test Summary
+        uses: test-summary/action@v2.3
+        with:
+          paths: "rspec.xml"
+          show: "fail"
+        if: always()
+
+  pull-request-docs:
+    runs-on: ubuntu-latest
+    needs: build-warp-ubuntu-x86_64
+    if: ${{ github.event_name == 'pull_request' }}
+    outputs:
+      artifact-url: ${{ steps.build-docs-output.outputs.artifact-url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Download Warp binaries
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifact-ubuntu-x86_64
+          path: warp/bin/
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install --no-cache-dir -r docs/requirements.txt
+      - name: Build Sphinx documentation
+        run: python build_docs.py --quick
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        id: build-docs-output
+        with:
+          name: build-docs-output
+          path: |
+            warp/stubs.py
+            docs/modules/functions.rst
+
+  check-build-docs-output:
+    runs-on: ubuntu-latest
+    needs: pull-request-docs
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Download build_docs.py output
+        uses: actions/download-artifact@v4
+        with:
+          name: build-docs-output
+      - name: Check functions.rst
+        env:
+          ARTIFACT_URL: ${{ needs.pull-request-docs.outputs.artifact-url }}
+        run: >
+          git diff --exit-code docs/modules/functions.rst ||
+          (echo "Please run build_docs.py (or download from $ARTIFACT_URL) and add docs/modules/functions.rst to your pull request." && false)
+      - name: Check stubs.py
+        env:
+          ARTIFACT_URL: ${{ needs.pull-request-docs.outputs.artifact-url }}
+        run: >
+          git diff --exit-code warp/stubs.py ||
+          (echo "Please run build_docs.py (or download from $ARTIFACT_URL) and add warp/stubs.py to your pull request." && false)
+
+  check-exports-header:
+    runs-on: ubuntu-latest
+    needs: build-warp-ubuntu-x86_64
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Download exports.h
+        uses: actions/download-artifact@v4
+        with:
+          name: exports-header
+          path: warp/native/
+      - name: Check exports.h
+        env:
+          ARTIFACT_URL: ${{ needs.build-warp-ubuntu-x86_64.outputs.artifact-url }}
+        run: >
+          git diff --exit-code warp/native/exports.h ||
+          (echo "Please run build_lib.py (or download from $ARTIFACT_URL) and add warp/native/exports.h to your pull request." && false)

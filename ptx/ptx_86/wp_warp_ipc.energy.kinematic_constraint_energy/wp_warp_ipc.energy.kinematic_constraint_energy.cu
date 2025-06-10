@@ -96,7 +96,7 @@ CUDA_CALLABLE void adj_atomic_add(COOMatrix3x3_0df4b45d* p, COOMatrix3x3_0df4b45
 
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/wp_math.py:145
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/wp_math.py:145
 static CUDA_CALLABLE wp::float64 sqr_0(
     wp::float64 var_x)
 {
@@ -112,7 +112,7 @@ static CUDA_CALLABLE wp::float64 sqr_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/wp_math.py:145
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/wp_math.py:145
 static CUDA_CALLABLE void adj_sqr_0(
     wp::float64 var_x,
     wp::float64 & adj_x,
@@ -141,7 +141,7 @@ static CUDA_CALLABLE void adj_sqr_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/matrix.py:152
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/matrix.py:152
 static CUDA_CALLABLE void COOMatrix3x3_atomic_add_0(
     COOMatrix3x3_0df4b45d var_mat,
     wp::int32 var_block_index,
@@ -190,7 +190,7 @@ static CUDA_CALLABLE void COOMatrix3x3_atomic_add_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/matrix.py:152
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/matrix.py:152
 static CUDA_CALLABLE void adj_COOMatrix3x3_atomic_add_0(
     COOMatrix3x3_0df4b45d var_mat,
     wp::int32 var_block_index,
@@ -281,17 +281,15 @@ static CUDA_CALLABLE void adj_COOMatrix3x3_atomic_add_0(
 
 
 
-extern "C" __global__ void compute_soft_kinematic_grad_cuda_kernel_forward(
+extern "C" __global__ void compute_soft_kinematic_energy_cuda_kernel_forward(
     wp::launch_bounds_t dim,
     wp::array_t<wp::vec_t<3,wp::float64>> var_x,
     wp::array_t<bool> var_soft_has_constraint,
     wp::array_t<wp::vec_t<3,wp::float64>> var_soft_target_dof,
     wp::float64 var_weight,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_grad,
+    wp::array_t<wp::float64> var_soft_energy,
     wp::int32 var_affine_verts_num,
-    wp::array_t<wp::float64> var_soft_verts_mass,
-    wp::array_t<wp::int32> var_node2env,
-    wp::array_t<wp::int32> var_env_states)
+    wp::array_t<wp::float64> var_soft_verts_mass)
 {
     for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
          _idx < dim.size;
@@ -303,108 +301,75 @@ extern "C" __global__ void compute_soft_kinematic_grad_cuda_kernel_forward(
         //---------
         // primal vars
         wp::int32 var_0;
-        wp::int32 var_1;
-        wp::int32* var_2;
-        wp::int32* var_3;
-        wp::int32 var_4;
-        const wp::int32 var_5 = 1;
-        bool var_6;
-        wp::int32 var_7;
-        wp::int32 var_8;
-        wp::int32* var_9;
-        wp::int32* var_10;
+        bool* var_1;
+        bool var_2;
+        bool var_3;
+        wp::float64* var_4;
+        wp::float64 var_5;
+        wp::float64 var_6;
+        const wp::float32 var_7 = 0.5;
+        wp::float64 var_8;
+        wp::float64 var_9;
+        wp::float64 var_10;
         wp::int32 var_11;
-        const wp::int32 var_12 = 2;
-        bool var_13;
-        wp::int32 var_14;
-        bool var_15;
-        wp::float64* var_16;
+        wp::vec_t<3,wp::float64>* var_12;
+        wp::vec_t<3,wp::float64>* var_13;
+        wp::vec_t<3,wp::float64> var_14;
+        wp::vec_t<3,wp::float64> var_15;
+        wp::vec_t<3,wp::float64> var_16;
         wp::float64 var_17;
         wp::float64 var_18;
-        bool* var_19;
-        bool var_20;
-        bool var_21;
-        wp::float64 var_22;
-        wp::int32 var_23;
-        wp::vec_t<3,wp::float64>* var_24;
-        wp::vec_t<3,wp::float64>* var_25;
-        wp::vec_t<3,wp::float64> var_26;
-        wp::vec_t<3,wp::float64> var_27;
-        wp::vec_t<3,wp::float64> var_28;
-        wp::vec_t<3,wp::float64> var_29;
-        wp::vec_t<3,wp::float64> var_30;
+        wp::float64 var_19;
         //---------
         // forward
-        // def compute_soft_kinematic_grad(                                                       <L 163>
-        // tid = wp.tid()                                                                         <L 174>
+        // def compute_soft_kinematic_energy(                                                     <L 86>
+        // tid = wp.tid()                                                                         <L 95>
         var_0 = builtin_tid1d();
-        // if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:       <L 175>
-        var_1 = wp::add(var_0, var_affine_verts_num);
-        var_2 = wp::address(var_node2env, var_1);
-        var_4 = wp::load(var_2);
-        var_3 = wp::address(var_env_states, var_4);
-        var_7 = wp::load(var_3);
-        var_6 = (var_7 == var_5);
-        var_8 = wp::add(var_0, var_affine_verts_num);
-        var_9 = wp::address(var_node2env, var_8);
-        var_11 = wp::load(var_9);
-        var_10 = wp::address(var_env_states, var_11);
-        var_14 = wp::load(var_10);
-        var_13 = (var_14 == var_12);
-        var_15 = var_6 || var_13;
-        if (var_15) {
-            // return                                                                             <L 176>
-            continue;
-        }
-        // mass = soft_verts_mass[tid]                                                            <L 177>
-        var_16 = wp::address(var_soft_verts_mass, var_0);
-        var_18 = wp::load(var_16);
-        var_17 = wp::copy(var_18);
-        // has_constraint = soft_has_constraint[tid]                                              <L 178>
-        var_19 = wp::address(var_soft_has_constraint, var_0);
-        var_21 = wp::load(var_19);
-        var_20 = wp::copy(var_21);
-        // if has_constraint:                                                                     <L 179>
-        if (var_20) {
-            // wp.atomic_add(                                                                     <L 180>
-            // soft_grad,                                                                         <L 181>
-            // tid,                                                                               <L 182>
-            // weight * mass * (x[tid + affine_verts_num] - soft_target_dof[tid]),                <L 183>
-            var_22 = wp::mul(var_weight, var_17);
-            var_23 = wp::add(var_0, var_affine_verts_num);
-            var_24 = wp::address(var_x, var_23);
-            var_25 = wp::address(var_soft_target_dof, var_0);
-            var_27 = wp::load(var_24);
-            var_28 = wp::load(var_25);
-            var_26 = wp::sub(var_27, var_28);
-            var_29 = wp::mul(var_22, var_26);
-            var_30 = wp::atomic_add(var_soft_grad, var_0, var_29);
+        // has_constraint = soft_has_constraint[tid]                                              <L 96>
+        var_1 = wp::address(var_soft_has_constraint, var_0);
+        var_3 = wp::load(var_1);
+        var_2 = wp::copy(var_3);
+        // mass = soft_verts_mass[tid]                                                            <L 97>
+        var_4 = wp::address(var_soft_verts_mass, var_0);
+        var_6 = wp::load(var_4);
+        var_5 = wp::copy(var_6);
+        // if has_constraint:                                                                     <L 98>
+        if (var_2) {
+            // soft_energy[tid] += wp.float64(0.5) * weight * mass * wp.length_sq(x[tid + affine_verts_num] - soft_target_dof[tid])       <L 99>
+            var_8 = wp::float64(var_7);
+            var_9 = wp::mul(var_8, var_weight);
+            var_10 = wp::mul(var_9, var_5);
+            var_11 = wp::add(var_0, var_affine_verts_num);
+            var_12 = wp::address(var_x, var_11);
+            var_13 = wp::address(var_soft_target_dof, var_0);
+            var_15 = wp::load(var_12);
+            var_16 = wp::load(var_13);
+            var_14 = wp::sub(var_15, var_16);
+            var_17 = wp::length_sq(var_14);
+            var_18 = wp::mul(var_10, var_17);
+            var_19 = wp::atomic_add(var_soft_energy, var_0, var_18);
         }
     }
 }
 
 
 
-extern "C" __global__ void compute_soft_kinematic_grad_cuda_kernel_backward(
+extern "C" __global__ void compute_soft_kinematic_energy_cuda_kernel_backward(
     wp::launch_bounds_t dim,
     wp::array_t<wp::vec_t<3,wp::float64>> var_x,
     wp::array_t<bool> var_soft_has_constraint,
     wp::array_t<wp::vec_t<3,wp::float64>> var_soft_target_dof,
     wp::float64 var_weight,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_grad,
+    wp::array_t<wp::float64> var_soft_energy,
     wp::int32 var_affine_verts_num,
     wp::array_t<wp::float64> var_soft_verts_mass,
-    wp::array_t<wp::int32> var_node2env,
-    wp::array_t<wp::int32> var_env_states,
     wp::array_t<wp::vec_t<3,wp::float64>> adj_x,
     wp::array_t<bool> adj_soft_has_constraint,
     wp::array_t<wp::vec_t<3,wp::float64>> adj_soft_target_dof,
     wp::float64 adj_weight,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_soft_grad,
+    wp::array_t<wp::float64> adj_soft_energy,
     wp::int32 adj_affine_verts_num,
-    wp::array_t<wp::float64> adj_soft_verts_mass,
-    wp::array_t<wp::int32> adj_node2env,
-    wp::array_t<wp::int32> adj_env_states)
+    wp::array_t<wp::float64> adj_soft_verts_mass)
 {
     for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
          _idx < dim.size;
@@ -416,159 +381,104 @@ extern "C" __global__ void compute_soft_kinematic_grad_cuda_kernel_backward(
         //---------
         // primal vars
         wp::int32 var_0;
-        wp::int32 var_1;
-        wp::int32* var_2;
-        wp::int32* var_3;
-        wp::int32 var_4;
-        const wp::int32 var_5 = 1;
-        bool var_6;
-        wp::int32 var_7;
-        wp::int32 var_8;
-        wp::int32* var_9;
-        wp::int32* var_10;
+        bool* var_1;
+        bool var_2;
+        bool var_3;
+        wp::float64* var_4;
+        wp::float64 var_5;
+        wp::float64 var_6;
+        const wp::float32 var_7 = 0.5;
+        wp::float64 var_8;
+        wp::float64 var_9;
+        wp::float64 var_10;
         wp::int32 var_11;
-        const wp::int32 var_12 = 2;
-        bool var_13;
-        wp::int32 var_14;
-        bool var_15;
-        wp::float64* var_16;
+        wp::vec_t<3,wp::float64>* var_12;
+        wp::vec_t<3,wp::float64>* var_13;
+        wp::vec_t<3,wp::float64> var_14;
+        wp::vec_t<3,wp::float64> var_15;
+        wp::vec_t<3,wp::float64> var_16;
         wp::float64 var_17;
         wp::float64 var_18;
-        bool* var_19;
-        bool var_20;
-        bool var_21;
-        wp::float64 var_22;
-        wp::int32 var_23;
-        wp::vec_t<3,wp::float64>* var_24;
-        wp::vec_t<3,wp::float64>* var_25;
-        wp::vec_t<3,wp::float64> var_26;
-        wp::vec_t<3,wp::float64> var_27;
-        wp::vec_t<3,wp::float64> var_28;
-        wp::vec_t<3,wp::float64> var_29;
-        wp::vec_t<3,wp::float64> var_30;
+        wp::float64 var_19;
         //---------
         // dual vars
         wp::int32 adj_0 = {};
-        wp::int32 adj_1 = {};
-        wp::int32 adj_2 = {};
-        wp::int32 adj_3 = {};
-        wp::int32 adj_4 = {};
-        wp::int32 adj_5 = {};
-        bool adj_6 = {};
-        wp::int32 adj_7 = {};
-        wp::int32 adj_8 = {};
-        wp::int32 adj_9 = {};
-        wp::int32 adj_10 = {};
+        bool adj_1 = {};
+        bool adj_2 = {};
+        bool adj_3 = {};
+        wp::float64 adj_4 = {};
+        wp::float64 adj_5 = {};
+        wp::float64 adj_6 = {};
+        wp::float32 adj_7 = {};
+        wp::float64 adj_8 = {};
+        wp::float64 adj_9 = {};
+        wp::float64 adj_10 = {};
         wp::int32 adj_11 = {};
-        wp::int32 adj_12 = {};
-        bool adj_13 = {};
-        wp::int32 adj_14 = {};
-        bool adj_15 = {};
-        wp::float64 adj_16 = {};
+        wp::vec_t<3,wp::float64> adj_12 = {};
+        wp::vec_t<3,wp::float64> adj_13 = {};
+        wp::vec_t<3,wp::float64> adj_14 = {};
+        wp::vec_t<3,wp::float64> adj_15 = {};
+        wp::vec_t<3,wp::float64> adj_16 = {};
         wp::float64 adj_17 = {};
         wp::float64 adj_18 = {};
-        bool adj_19 = {};
-        bool adj_20 = {};
-        bool adj_21 = {};
-        wp::float64 adj_22 = {};
-        wp::int32 adj_23 = {};
-        wp::vec_t<3,wp::float64> adj_24 = {};
-        wp::vec_t<3,wp::float64> adj_25 = {};
-        wp::vec_t<3,wp::float64> adj_26 = {};
-        wp::vec_t<3,wp::float64> adj_27 = {};
-        wp::vec_t<3,wp::float64> adj_28 = {};
-        wp::vec_t<3,wp::float64> adj_29 = {};
-        wp::vec_t<3,wp::float64> adj_30 = {};
+        wp::float64 adj_19 = {};
         //---------
         // forward
-        // def compute_soft_kinematic_grad(                                                       <L 163>
-        // tid = wp.tid()                                                                         <L 174>
+        // def compute_soft_kinematic_energy(                                                     <L 86>
+        // tid = wp.tid()                                                                         <L 95>
         var_0 = builtin_tid1d();
-        // if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:       <L 175>
-        var_1 = wp::add(var_0, var_affine_verts_num);
-        var_2 = wp::address(var_node2env, var_1);
-        var_4 = wp::load(var_2);
-        var_3 = wp::address(var_env_states, var_4);
-        var_7 = wp::load(var_3);
-        var_6 = (var_7 == var_5);
-        var_8 = wp::add(var_0, var_affine_verts_num);
-        var_9 = wp::address(var_node2env, var_8);
-        var_11 = wp::load(var_9);
-        var_10 = wp::address(var_env_states, var_11);
-        var_14 = wp::load(var_10);
-        var_13 = (var_14 == var_12);
-        var_15 = var_6 || var_13;
-        if (var_15) {
-            // return                                                                             <L 176>
-            goto label0;
-        }
-        // mass = soft_verts_mass[tid]                                                            <L 177>
-        var_16 = wp::address(var_soft_verts_mass, var_0);
-        var_18 = wp::load(var_16);
-        var_17 = wp::copy(var_18);
-        // has_constraint = soft_has_constraint[tid]                                              <L 178>
-        var_19 = wp::address(var_soft_has_constraint, var_0);
-        var_21 = wp::load(var_19);
-        var_20 = wp::copy(var_21);
-        // if has_constraint:                                                                     <L 179>
-        if (var_20) {
-            // wp.atomic_add(                                                                     <L 180>
-            // soft_grad,                                                                         <L 181>
-            // tid,                                                                               <L 182>
-            // weight * mass * (x[tid + affine_verts_num] - soft_target_dof[tid]),                <L 183>
-            var_22 = wp::mul(var_weight, var_17);
-            var_23 = wp::add(var_0, var_affine_verts_num);
-            var_24 = wp::address(var_x, var_23);
-            var_25 = wp::address(var_soft_target_dof, var_0);
-            var_27 = wp::load(var_24);
-            var_28 = wp::load(var_25);
-            var_26 = wp::sub(var_27, var_28);
-            var_29 = wp::mul(var_22, var_26);
-            // var_30 = wp::atomic_add(var_soft_grad, var_0, var_29);
+        // has_constraint = soft_has_constraint[tid]                                              <L 96>
+        var_1 = wp::address(var_soft_has_constraint, var_0);
+        var_3 = wp::load(var_1);
+        var_2 = wp::copy(var_3);
+        // mass = soft_verts_mass[tid]                                                            <L 97>
+        var_4 = wp::address(var_soft_verts_mass, var_0);
+        var_6 = wp::load(var_4);
+        var_5 = wp::copy(var_6);
+        // if has_constraint:                                                                     <L 98>
+        if (var_2) {
+            // soft_energy[tid] += wp.float64(0.5) * weight * mass * wp.length_sq(x[tid + affine_verts_num] - soft_target_dof[tid])       <L 99>
+            var_8 = wp::float64(var_7);
+            var_9 = wp::mul(var_8, var_weight);
+            var_10 = wp::mul(var_9, var_5);
+            var_11 = wp::add(var_0, var_affine_verts_num);
+            var_12 = wp::address(var_x, var_11);
+            var_13 = wp::address(var_soft_target_dof, var_0);
+            var_15 = wp::load(var_12);
+            var_16 = wp::load(var_13);
+            var_14 = wp::sub(var_15, var_16);
+            var_17 = wp::length_sq(var_14);
+            var_18 = wp::mul(var_10, var_17);
+            // var_19 = wp::atomic_add(var_soft_energy, var_0, var_18);
         }
         //---------
         // reverse
-        if (var_20) {
-            wp::adj_atomic_add(var_soft_grad, var_0, var_29, adj_soft_grad, adj_0, adj_29, adj_30);
-            wp::adj_mul(var_22, var_26, adj_22, adj_26, adj_29);
-            wp::adj_sub(var_27, var_28, adj_24, adj_25, adj_26);
-            wp::adj_load(var_25, adj_25, adj_28);
-            wp::adj_load(var_24, adj_24, adj_27);
-            wp::adj_address(var_soft_target_dof, var_0, adj_soft_target_dof, adj_0, adj_25);
-            wp::adj_address(var_x, var_23, adj_x, adj_23, adj_24);
-            wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_23);
-            wp::adj_mul(var_weight, var_17, adj_weight, adj_17, adj_22);
-            // adj: weight * mass * (x[tid + affine_verts_num] - soft_target_dof[tid]),           <L 183>
-            // adj: tid,                                                                          <L 182>
-            // adj: soft_grad,                                                                    <L 181>
-            // adj: wp.atomic_add(                                                                <L 180>
+        if (var_2) {
+            wp::adj_atomic_add(var_soft_energy, var_0, var_18, adj_soft_energy, adj_0, adj_18, adj_19);
+            wp::adj_mul(var_10, var_17, adj_10, adj_17, adj_18);
+            wp::adj_length_sq(var_14, adj_14, adj_17);
+            wp::adj_sub(var_15, var_16, adj_12, adj_13, adj_14);
+            wp::adj_load(var_13, adj_13, adj_16);
+            wp::adj_load(var_12, adj_12, adj_15);
+            wp::adj_address(var_soft_target_dof, var_0, adj_soft_target_dof, adj_0, adj_13);
+            wp::adj_address(var_x, var_11, adj_x, adj_11, adj_12);
+            wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_11);
+            wp::adj_mul(var_9, var_5, adj_9, adj_5, adj_10);
+            wp::adj_mul(var_8, var_weight, adj_8, adj_weight, adj_9);
+            wp::adj_float64(var_7, adj_7, adj_8);
+            // adj: soft_energy[tid] += wp.float64(0.5) * weight * mass * wp.length_sq(x[tid + affine_verts_num] - soft_target_dof[tid])  <L 99>
         }
-        // adj: if has_constraint:                                                                <L 179>
-        wp::adj_copy(var_21, adj_19, adj_20);
-        wp::adj_load(var_19, adj_19, adj_21);
-        wp::adj_address(var_soft_has_constraint, var_0, adj_soft_has_constraint, adj_0, adj_19);
-        // adj: has_constraint = soft_has_constraint[tid]                                         <L 178>
-        wp::adj_copy(var_18, adj_16, adj_17);
-        wp::adj_load(var_16, adj_16, adj_18);
-        wp::adj_address(var_soft_verts_mass, var_0, adj_soft_verts_mass, adj_0, adj_16);
-        // adj: mass = soft_verts_mass[tid]                                                       <L 177>
-        if (var_15) {
-            label0:;
-            // adj: return                                                                        <L 176>
-        }
-        wp::adj_load(var_10, adj_10, adj_14);
-        wp::adj_address(var_env_states, var_11, adj_env_states, adj_9, adj_10);
-        wp::adj_load(var_9, adj_9, adj_11);
-        wp::adj_address(var_node2env, var_8, adj_node2env, adj_8, adj_9);
-        wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_8);
-        wp::adj_load(var_3, adj_3, adj_7);
-        wp::adj_address(var_env_states, var_4, adj_env_states, adj_2, adj_3);
-        wp::adj_load(var_2, adj_2, adj_4);
-        wp::adj_address(var_node2env, var_1, adj_node2env, adj_1, adj_2);
-        wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_1);
-        // adj: if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:  <L 175>
-        // adj: tid = wp.tid()                                                                    <L 174>
-        // adj: def compute_soft_kinematic_grad(                                                  <L 163>
+        // adj: if has_constraint:                                                                <L 98>
+        wp::adj_copy(var_6, adj_4, adj_5);
+        wp::adj_load(var_4, adj_4, adj_6);
+        wp::adj_address(var_soft_verts_mass, var_0, adj_soft_verts_mass, adj_0, adj_4);
+        // adj: mass = soft_verts_mass[tid]                                                       <L 97>
+        wp::adj_copy(var_3, adj_1, adj_2);
+        wp::adj_load(var_1, adj_1, adj_3);
+        wp::adj_address(var_soft_has_constraint, var_0, adj_soft_has_constraint, adj_0, adj_1);
+        // adj: has_constraint = soft_has_constraint[tid]                                         <L 96>
+        // adj: tid = wp.tid()                                                                    <L 95>
+        // adj: def compute_soft_kinematic_energy(                                                <L 86>
         continue;
     }
 }
@@ -1712,210 +1622,6 @@ extern "C" __global__ void compute_affine_kinematic_energy_cuda_kernel_backward(
 
 
 
-extern "C" __global__ void compute_soft_kinematic_energy_cuda_kernel_forward(
-    wp::launch_bounds_t dim,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
-    wp::array_t<bool> var_soft_has_constraint,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_target_dof,
-    wp::float64 var_weight,
-    wp::array_t<wp::float64> var_soft_energy,
-    wp::int32 var_affine_verts_num,
-    wp::array_t<wp::float64> var_soft_verts_mass)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        bool* var_1;
-        bool var_2;
-        bool var_3;
-        wp::float64* var_4;
-        wp::float64 var_5;
-        wp::float64 var_6;
-        const wp::float32 var_7 = 0.5;
-        wp::float64 var_8;
-        wp::float64 var_9;
-        wp::float64 var_10;
-        wp::int32 var_11;
-        wp::vec_t<3,wp::float64>* var_12;
-        wp::vec_t<3,wp::float64>* var_13;
-        wp::vec_t<3,wp::float64> var_14;
-        wp::vec_t<3,wp::float64> var_15;
-        wp::vec_t<3,wp::float64> var_16;
-        wp::float64 var_17;
-        wp::float64 var_18;
-        wp::float64 var_19;
-        //---------
-        // forward
-        // def compute_soft_kinematic_energy(                                                     <L 86>
-        // tid = wp.tid()                                                                         <L 95>
-        var_0 = builtin_tid1d();
-        // has_constraint = soft_has_constraint[tid]                                              <L 96>
-        var_1 = wp::address(var_soft_has_constraint, var_0);
-        var_3 = wp::load(var_1);
-        var_2 = wp::copy(var_3);
-        // mass = soft_verts_mass[tid]                                                            <L 97>
-        var_4 = wp::address(var_soft_verts_mass, var_0);
-        var_6 = wp::load(var_4);
-        var_5 = wp::copy(var_6);
-        // if has_constraint:                                                                     <L 98>
-        if (var_2) {
-            // soft_energy[tid] += wp.float64(0.5) * weight * mass * wp.length_sq(x[tid + affine_verts_num] - soft_target_dof[tid])       <L 99>
-            var_8 = wp::float64(var_7);
-            var_9 = wp::mul(var_8, var_weight);
-            var_10 = wp::mul(var_9, var_5);
-            var_11 = wp::add(var_0, var_affine_verts_num);
-            var_12 = wp::address(var_x, var_11);
-            var_13 = wp::address(var_soft_target_dof, var_0);
-            var_15 = wp::load(var_12);
-            var_16 = wp::load(var_13);
-            var_14 = wp::sub(var_15, var_16);
-            var_17 = wp::length_sq(var_14);
-            var_18 = wp::mul(var_10, var_17);
-            var_19 = wp::atomic_add(var_soft_energy, var_0, var_18);
-        }
-    }
-}
-
-
-
-extern "C" __global__ void compute_soft_kinematic_energy_cuda_kernel_backward(
-    wp::launch_bounds_t dim,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
-    wp::array_t<bool> var_soft_has_constraint,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_target_dof,
-    wp::float64 var_weight,
-    wp::array_t<wp::float64> var_soft_energy,
-    wp::int32 var_affine_verts_num,
-    wp::array_t<wp::float64> var_soft_verts_mass,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_x,
-    wp::array_t<bool> adj_soft_has_constraint,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_soft_target_dof,
-    wp::float64 adj_weight,
-    wp::array_t<wp::float64> adj_soft_energy,
-    wp::int32 adj_affine_verts_num,
-    wp::array_t<wp::float64> adj_soft_verts_mass)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        bool* var_1;
-        bool var_2;
-        bool var_3;
-        wp::float64* var_4;
-        wp::float64 var_5;
-        wp::float64 var_6;
-        const wp::float32 var_7 = 0.5;
-        wp::float64 var_8;
-        wp::float64 var_9;
-        wp::float64 var_10;
-        wp::int32 var_11;
-        wp::vec_t<3,wp::float64>* var_12;
-        wp::vec_t<3,wp::float64>* var_13;
-        wp::vec_t<3,wp::float64> var_14;
-        wp::vec_t<3,wp::float64> var_15;
-        wp::vec_t<3,wp::float64> var_16;
-        wp::float64 var_17;
-        wp::float64 var_18;
-        wp::float64 var_19;
-        //---------
-        // dual vars
-        wp::int32 adj_0 = {};
-        bool adj_1 = {};
-        bool adj_2 = {};
-        bool adj_3 = {};
-        wp::float64 adj_4 = {};
-        wp::float64 adj_5 = {};
-        wp::float64 adj_6 = {};
-        wp::float32 adj_7 = {};
-        wp::float64 adj_8 = {};
-        wp::float64 adj_9 = {};
-        wp::float64 adj_10 = {};
-        wp::int32 adj_11 = {};
-        wp::vec_t<3,wp::float64> adj_12 = {};
-        wp::vec_t<3,wp::float64> adj_13 = {};
-        wp::vec_t<3,wp::float64> adj_14 = {};
-        wp::vec_t<3,wp::float64> adj_15 = {};
-        wp::vec_t<3,wp::float64> adj_16 = {};
-        wp::float64 adj_17 = {};
-        wp::float64 adj_18 = {};
-        wp::float64 adj_19 = {};
-        //---------
-        // forward
-        // def compute_soft_kinematic_energy(                                                     <L 86>
-        // tid = wp.tid()                                                                         <L 95>
-        var_0 = builtin_tid1d();
-        // has_constraint = soft_has_constraint[tid]                                              <L 96>
-        var_1 = wp::address(var_soft_has_constraint, var_0);
-        var_3 = wp::load(var_1);
-        var_2 = wp::copy(var_3);
-        // mass = soft_verts_mass[tid]                                                            <L 97>
-        var_4 = wp::address(var_soft_verts_mass, var_0);
-        var_6 = wp::load(var_4);
-        var_5 = wp::copy(var_6);
-        // if has_constraint:                                                                     <L 98>
-        if (var_2) {
-            // soft_energy[tid] += wp.float64(0.5) * weight * mass * wp.length_sq(x[tid + affine_verts_num] - soft_target_dof[tid])       <L 99>
-            var_8 = wp::float64(var_7);
-            var_9 = wp::mul(var_8, var_weight);
-            var_10 = wp::mul(var_9, var_5);
-            var_11 = wp::add(var_0, var_affine_verts_num);
-            var_12 = wp::address(var_x, var_11);
-            var_13 = wp::address(var_soft_target_dof, var_0);
-            var_15 = wp::load(var_12);
-            var_16 = wp::load(var_13);
-            var_14 = wp::sub(var_15, var_16);
-            var_17 = wp::length_sq(var_14);
-            var_18 = wp::mul(var_10, var_17);
-            // var_19 = wp::atomic_add(var_soft_energy, var_0, var_18);
-        }
-        //---------
-        // reverse
-        if (var_2) {
-            wp::adj_atomic_add(var_soft_energy, var_0, var_18, adj_soft_energy, adj_0, adj_18, adj_19);
-            wp::adj_mul(var_10, var_17, adj_10, adj_17, adj_18);
-            wp::adj_length_sq(var_14, adj_14, adj_17);
-            wp::adj_sub(var_15, var_16, adj_12, adj_13, adj_14);
-            wp::adj_load(var_13, adj_13, adj_16);
-            wp::adj_load(var_12, adj_12, adj_15);
-            wp::adj_address(var_soft_target_dof, var_0, adj_soft_target_dof, adj_0, adj_13);
-            wp::adj_address(var_x, var_11, adj_x, adj_11, adj_12);
-            wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_11);
-            wp::adj_mul(var_9, var_5, adj_9, adj_5, adj_10);
-            wp::adj_mul(var_8, var_weight, adj_8, adj_weight, adj_9);
-            wp::adj_float64(var_7, adj_7, adj_8);
-            // adj: soft_energy[tid] += wp.float64(0.5) * weight * mass * wp.length_sq(x[tid + affine_verts_num] - soft_target_dof[tid])  <L 99>
-        }
-        // adj: if has_constraint:                                                                <L 98>
-        wp::adj_copy(var_6, adj_4, adj_5);
-        wp::adj_load(var_4, adj_4, adj_6);
-        wp::adj_address(var_soft_verts_mass, var_0, adj_soft_verts_mass, adj_0, adj_4);
-        // adj: mass = soft_verts_mass[tid]                                                       <L 97>
-        wp::adj_copy(var_3, adj_1, adj_2);
-        wp::adj_load(var_1, adj_1, adj_3);
-        wp::adj_address(var_soft_has_constraint, var_0, adj_soft_has_constraint, adj_0, adj_1);
-        // adj: has_constraint = soft_has_constraint[tid]                                         <L 96>
-        // adj: tid = wp.tid()                                                                    <L 95>
-        // adj: def compute_soft_kinematic_energy(                                                <L 86>
-        continue;
-    }
-}
-
-
-
 extern "C" __global__ void compute_affine_kinematic_grad_cuda_kernel_forward(
     wp::launch_bounds_t dim,
     wp::array_t<wp::vec_t<12,wp::float64>> var_y,
@@ -2174,6 +1880,917 @@ extern "C" __global__ void compute_affine_kinematic_grad_cuda_kernel_backward(
         // adj: if env_states[body_env_id[tid]] == ENV_STATE_INVALID or env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED:  <L 154>
         // adj: tid = wp.tid()                                                                    <L 153>
         // adj: def compute_affine_kinematic_grad(                                                <L 143>
+        continue;
+    }
+}
+
+
+
+extern "C" __global__ void compute_soft_kinematic_grad_cuda_kernel_forward(
+    wp::launch_bounds_t dim,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
+    wp::array_t<bool> var_soft_has_constraint,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_target_dof,
+    wp::float64 var_weight,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_grad,
+    wp::int32 var_affine_verts_num,
+    wp::array_t<wp::float64> var_soft_verts_mass,
+    wp::array_t<wp::int32> var_node2env,
+    wp::array_t<wp::int32> var_env_states)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        wp::int32 var_1;
+        wp::int32* var_2;
+        wp::int32* var_3;
+        wp::int32 var_4;
+        const wp::int32 var_5 = 1;
+        bool var_6;
+        wp::int32 var_7;
+        wp::int32 var_8;
+        wp::int32* var_9;
+        wp::int32* var_10;
+        wp::int32 var_11;
+        const wp::int32 var_12 = 2;
+        bool var_13;
+        wp::int32 var_14;
+        bool var_15;
+        wp::float64* var_16;
+        wp::float64 var_17;
+        wp::float64 var_18;
+        bool* var_19;
+        bool var_20;
+        bool var_21;
+        wp::float64 var_22;
+        wp::int32 var_23;
+        wp::vec_t<3,wp::float64>* var_24;
+        wp::vec_t<3,wp::float64>* var_25;
+        wp::vec_t<3,wp::float64> var_26;
+        wp::vec_t<3,wp::float64> var_27;
+        wp::vec_t<3,wp::float64> var_28;
+        wp::vec_t<3,wp::float64> var_29;
+        wp::vec_t<3,wp::float64> var_30;
+        //---------
+        // forward
+        // def compute_soft_kinematic_grad(                                                       <L 163>
+        // tid = wp.tid()                                                                         <L 174>
+        var_0 = builtin_tid1d();
+        // if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:       <L 175>
+        var_1 = wp::add(var_0, var_affine_verts_num);
+        var_2 = wp::address(var_node2env, var_1);
+        var_4 = wp::load(var_2);
+        var_3 = wp::address(var_env_states, var_4);
+        var_7 = wp::load(var_3);
+        var_6 = (var_7 == var_5);
+        var_8 = wp::add(var_0, var_affine_verts_num);
+        var_9 = wp::address(var_node2env, var_8);
+        var_11 = wp::load(var_9);
+        var_10 = wp::address(var_env_states, var_11);
+        var_14 = wp::load(var_10);
+        var_13 = (var_14 == var_12);
+        var_15 = var_6 || var_13;
+        if (var_15) {
+            // return                                                                             <L 176>
+            continue;
+        }
+        // mass = soft_verts_mass[tid]                                                            <L 177>
+        var_16 = wp::address(var_soft_verts_mass, var_0);
+        var_18 = wp::load(var_16);
+        var_17 = wp::copy(var_18);
+        // has_constraint = soft_has_constraint[tid]                                              <L 178>
+        var_19 = wp::address(var_soft_has_constraint, var_0);
+        var_21 = wp::load(var_19);
+        var_20 = wp::copy(var_21);
+        // if has_constraint:                                                                     <L 179>
+        if (var_20) {
+            // wp.atomic_add(                                                                     <L 180>
+            // soft_grad,                                                                         <L 181>
+            // tid,                                                                               <L 182>
+            // weight * mass * (x[tid + affine_verts_num] - soft_target_dof[tid]),                <L 183>
+            var_22 = wp::mul(var_weight, var_17);
+            var_23 = wp::add(var_0, var_affine_verts_num);
+            var_24 = wp::address(var_x, var_23);
+            var_25 = wp::address(var_soft_target_dof, var_0);
+            var_27 = wp::load(var_24);
+            var_28 = wp::load(var_25);
+            var_26 = wp::sub(var_27, var_28);
+            var_29 = wp::mul(var_22, var_26);
+            var_30 = wp::atomic_add(var_soft_grad, var_0, var_29);
+        }
+    }
+}
+
+
+
+extern "C" __global__ void compute_soft_kinematic_grad_cuda_kernel_backward(
+    wp::launch_bounds_t dim,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
+    wp::array_t<bool> var_soft_has_constraint,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_target_dof,
+    wp::float64 var_weight,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_grad,
+    wp::int32 var_affine_verts_num,
+    wp::array_t<wp::float64> var_soft_verts_mass,
+    wp::array_t<wp::int32> var_node2env,
+    wp::array_t<wp::int32> var_env_states,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_x,
+    wp::array_t<bool> adj_soft_has_constraint,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_soft_target_dof,
+    wp::float64 adj_weight,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_soft_grad,
+    wp::int32 adj_affine_verts_num,
+    wp::array_t<wp::float64> adj_soft_verts_mass,
+    wp::array_t<wp::int32> adj_node2env,
+    wp::array_t<wp::int32> adj_env_states)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        wp::int32 var_1;
+        wp::int32* var_2;
+        wp::int32* var_3;
+        wp::int32 var_4;
+        const wp::int32 var_5 = 1;
+        bool var_6;
+        wp::int32 var_7;
+        wp::int32 var_8;
+        wp::int32* var_9;
+        wp::int32* var_10;
+        wp::int32 var_11;
+        const wp::int32 var_12 = 2;
+        bool var_13;
+        wp::int32 var_14;
+        bool var_15;
+        wp::float64* var_16;
+        wp::float64 var_17;
+        wp::float64 var_18;
+        bool* var_19;
+        bool var_20;
+        bool var_21;
+        wp::float64 var_22;
+        wp::int32 var_23;
+        wp::vec_t<3,wp::float64>* var_24;
+        wp::vec_t<3,wp::float64>* var_25;
+        wp::vec_t<3,wp::float64> var_26;
+        wp::vec_t<3,wp::float64> var_27;
+        wp::vec_t<3,wp::float64> var_28;
+        wp::vec_t<3,wp::float64> var_29;
+        wp::vec_t<3,wp::float64> var_30;
+        //---------
+        // dual vars
+        wp::int32 adj_0 = {};
+        wp::int32 adj_1 = {};
+        wp::int32 adj_2 = {};
+        wp::int32 adj_3 = {};
+        wp::int32 adj_4 = {};
+        wp::int32 adj_5 = {};
+        bool adj_6 = {};
+        wp::int32 adj_7 = {};
+        wp::int32 adj_8 = {};
+        wp::int32 adj_9 = {};
+        wp::int32 adj_10 = {};
+        wp::int32 adj_11 = {};
+        wp::int32 adj_12 = {};
+        bool adj_13 = {};
+        wp::int32 adj_14 = {};
+        bool adj_15 = {};
+        wp::float64 adj_16 = {};
+        wp::float64 adj_17 = {};
+        wp::float64 adj_18 = {};
+        bool adj_19 = {};
+        bool adj_20 = {};
+        bool adj_21 = {};
+        wp::float64 adj_22 = {};
+        wp::int32 adj_23 = {};
+        wp::vec_t<3,wp::float64> adj_24 = {};
+        wp::vec_t<3,wp::float64> adj_25 = {};
+        wp::vec_t<3,wp::float64> adj_26 = {};
+        wp::vec_t<3,wp::float64> adj_27 = {};
+        wp::vec_t<3,wp::float64> adj_28 = {};
+        wp::vec_t<3,wp::float64> adj_29 = {};
+        wp::vec_t<3,wp::float64> adj_30 = {};
+        //---------
+        // forward
+        // def compute_soft_kinematic_grad(                                                       <L 163>
+        // tid = wp.tid()                                                                         <L 174>
+        var_0 = builtin_tid1d();
+        // if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:       <L 175>
+        var_1 = wp::add(var_0, var_affine_verts_num);
+        var_2 = wp::address(var_node2env, var_1);
+        var_4 = wp::load(var_2);
+        var_3 = wp::address(var_env_states, var_4);
+        var_7 = wp::load(var_3);
+        var_6 = (var_7 == var_5);
+        var_8 = wp::add(var_0, var_affine_verts_num);
+        var_9 = wp::address(var_node2env, var_8);
+        var_11 = wp::load(var_9);
+        var_10 = wp::address(var_env_states, var_11);
+        var_14 = wp::load(var_10);
+        var_13 = (var_14 == var_12);
+        var_15 = var_6 || var_13;
+        if (var_15) {
+            // return                                                                             <L 176>
+            goto label0;
+        }
+        // mass = soft_verts_mass[tid]                                                            <L 177>
+        var_16 = wp::address(var_soft_verts_mass, var_0);
+        var_18 = wp::load(var_16);
+        var_17 = wp::copy(var_18);
+        // has_constraint = soft_has_constraint[tid]                                              <L 178>
+        var_19 = wp::address(var_soft_has_constraint, var_0);
+        var_21 = wp::load(var_19);
+        var_20 = wp::copy(var_21);
+        // if has_constraint:                                                                     <L 179>
+        if (var_20) {
+            // wp.atomic_add(                                                                     <L 180>
+            // soft_grad,                                                                         <L 181>
+            // tid,                                                                               <L 182>
+            // weight * mass * (x[tid + affine_verts_num] - soft_target_dof[tid]),                <L 183>
+            var_22 = wp::mul(var_weight, var_17);
+            var_23 = wp::add(var_0, var_affine_verts_num);
+            var_24 = wp::address(var_x, var_23);
+            var_25 = wp::address(var_soft_target_dof, var_0);
+            var_27 = wp::load(var_24);
+            var_28 = wp::load(var_25);
+            var_26 = wp::sub(var_27, var_28);
+            var_29 = wp::mul(var_22, var_26);
+            // var_30 = wp::atomic_add(var_soft_grad, var_0, var_29);
+        }
+        //---------
+        // reverse
+        if (var_20) {
+            wp::adj_atomic_add(var_soft_grad, var_0, var_29, adj_soft_grad, adj_0, adj_29, adj_30);
+            wp::adj_mul(var_22, var_26, adj_22, adj_26, adj_29);
+            wp::adj_sub(var_27, var_28, adj_24, adj_25, adj_26);
+            wp::adj_load(var_25, adj_25, adj_28);
+            wp::adj_load(var_24, adj_24, adj_27);
+            wp::adj_address(var_soft_target_dof, var_0, adj_soft_target_dof, adj_0, adj_25);
+            wp::adj_address(var_x, var_23, adj_x, adj_23, adj_24);
+            wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_23);
+            wp::adj_mul(var_weight, var_17, adj_weight, adj_17, adj_22);
+            // adj: weight * mass * (x[tid + affine_verts_num] - soft_target_dof[tid]),           <L 183>
+            // adj: tid,                                                                          <L 182>
+            // adj: soft_grad,                                                                    <L 181>
+            // adj: wp.atomic_add(                                                                <L 180>
+        }
+        // adj: if has_constraint:                                                                <L 179>
+        wp::adj_copy(var_21, adj_19, adj_20);
+        wp::adj_load(var_19, adj_19, adj_21);
+        wp::adj_address(var_soft_has_constraint, var_0, adj_soft_has_constraint, adj_0, adj_19);
+        // adj: has_constraint = soft_has_constraint[tid]                                         <L 178>
+        wp::adj_copy(var_18, adj_16, adj_17);
+        wp::adj_load(var_16, adj_16, adj_18);
+        wp::adj_address(var_soft_verts_mass, var_0, adj_soft_verts_mass, adj_0, adj_16);
+        // adj: mass = soft_verts_mass[tid]                                                       <L 177>
+        if (var_15) {
+            label0:;
+            // adj: return                                                                        <L 176>
+        }
+        wp::adj_load(var_10, adj_10, adj_14);
+        wp::adj_address(var_env_states, var_11, adj_env_states, adj_9, adj_10);
+        wp::adj_load(var_9, adj_9, adj_11);
+        wp::adj_address(var_node2env, var_8, adj_node2env, adj_8, adj_9);
+        wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_8);
+        wp::adj_load(var_3, adj_3, adj_7);
+        wp::adj_address(var_env_states, var_4, adj_env_states, adj_2, adj_3);
+        wp::adj_load(var_2, adj_2, adj_4);
+        wp::adj_address(var_node2env, var_1, adj_node2env, adj_1, adj_2);
+        wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_1);
+        // adj: if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:  <L 175>
+        // adj: tid = wp.tid()                                                                    <L 174>
+        // adj: def compute_soft_kinematic_grad(                                                  <L 163>
+        continue;
+    }
+}
+
+
+
+extern "C" __global__ void init_affine_kinematic_target_kernel_cuda_kernel_forward(
+    wp::launch_bounds_t dim,
+    wp::array_t<bool> var_affine_has_constraint,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_affine_kinematic_target_pose,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_affine_target_dof,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_virtual_object_centers,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_ABD_centers)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        bool* var_1;
+        const bool var_2 = false;
+        bool var_3;
+        bool var_4;
+        wp::vec_t<12,wp::float64>* var_5;
+        wp::vec_t<12,wp::float64> var_6;
+        wp::vec_t<12,wp::float64> var_7;
+        wp::vec_t<3,wp::float64>* var_8;
+        wp::vec_t<3,wp::float64> var_9;
+        wp::vec_t<3,wp::float64> var_10;
+        const wp::float32 var_11 = 0.0;
+        wp::float64 var_12;
+        const wp::float32 var_13 = 1.0;
+        wp::float64 var_14;
+        wp::vec_t<3,wp::float64>* var_15;
+        wp::vec_t<3,wp::float64> var_16;
+        wp::vec_t<3,wp::float64> var_17;
+        wp::vec_t<3,wp::float64> var_18;
+        wp::vec_t<3,wp::float64> var_19;
+        wp::vec_t<3,wp::float64> var_20;
+        wp::vec_t<3,wp::float64> var_21;
+        wp::vec_t<3,wp::float64> var_22;
+        wp::vec_t<3,wp::float64> var_23;
+        const wp::int32 var_24 = 0;
+        wp::float64 var_25;
+        const wp::int32 var_26 = 1;
+        wp::float64 var_27;
+        const wp::int32 var_28 = 2;
+        wp::float64 var_29;
+        const wp::int32 var_30 = 3;
+        wp::float64 var_31;
+        const wp::int32 var_32 = 4;
+        wp::float64 var_33;
+        const wp::int32 var_34 = 5;
+        wp::float64 var_35;
+        const wp::int32 var_36 = 6;
+        wp::float64 var_37;
+        const wp::int32 var_38 = 7;
+        wp::float64 var_39;
+        const wp::int32 var_40 = 8;
+        wp::float64 var_41;
+        wp::mat_t<3,3,wp::float64> var_42;
+        const wp::int32 var_43 = 9;
+        wp::float64 var_44;
+        const wp::int32 var_45 = 10;
+        wp::float64 var_46;
+        const wp::int32 var_47 = 11;
+        wp::float64 var_48;
+        wp::vec_t<3,wp::float64> var_49;
+        wp::vec_t<3,wp::float64> var_50;
+        wp::vec_t<3,wp::float64> var_51;
+        wp::vec_t<3,wp::float64> var_52;
+        wp::vec_t<3,wp::float64> var_53;
+        wp::vec_t<3,wp::float64> var_54;
+        wp::vec_t<3,wp::float64> var_55;
+        wp::vec_t<3,wp::float64> var_56;
+        wp::vec_t<3,wp::float64> var_57;
+        wp::vec_t<3,wp::float64> var_58;
+        wp::vec_t<3,wp::float64> var_59;
+        wp::vec_t<3,wp::float64> var_60;
+        wp::vec_t<3,wp::float64> var_61;
+        wp::vec_t<3,wp::float64> var_62;
+        wp::vec_t<3,wp::float64> var_63;
+        wp::vec_t<3,wp::float64> var_64;
+        wp::vec_t<3,wp::float64> var_65;
+        const wp::int32 var_66 = 0;
+        wp::float64 var_67;
+        const wp::int32 var_68 = 1;
+        wp::float64 var_69;
+        const wp::int32 var_70 = 2;
+        wp::float64 var_71;
+        const wp::int32 var_72 = 0;
+        wp::float64 var_73;
+        const wp::int32 var_74 = 1;
+        wp::float64 var_75;
+        const wp::int32 var_76 = 2;
+        wp::float64 var_77;
+        const wp::int32 var_78 = 0;
+        wp::float64 var_79;
+        const wp::int32 var_80 = 1;
+        wp::float64 var_81;
+        const wp::int32 var_82 = 2;
+        wp::float64 var_83;
+        const wp::int32 var_84 = 0;
+        wp::float64 var_85;
+        const wp::int32 var_86 = 1;
+        wp::float64 var_87;
+        const wp::int32 var_88 = 2;
+        wp::float64 var_89;
+        wp::vec_t<12,wp::float64> var_90;
+        //---------
+        // forward
+        // def init_affine_kinematic_target_kernel(                                               <L 16>
+        // tid = wp.tid()                                                                         <L 23>
+        var_0 = builtin_tid1d();
+        // if affine_has_constraint[tid] == False:                                                <L 24>
+        var_1 = wp::address(var_affine_has_constraint, var_0);
+        var_4 = wp::load(var_1);
+        var_3 = (var_4 == var_2);
+        if (var_3) {
+            // return                                                                             <L 25>
+            continue;
+        }
+        // target_state = affine_kinematic_target_pose[tid]                                       <L 26>
+        var_5 = wp::address(var_affine_kinematic_target_pose, var_0);
+        var_7 = wp::load(var_5);
+        var_6 = wp::copy(var_7);
+        // virtual_center = virtual_object_centers[tid]                                           <L 27>
+        var_8 = wp::address(var_virtual_object_centers, var_0);
+        var_10 = wp::load(var_8);
+        var_9 = wp::copy(var_10);
+        // _0 = wp.float64(0.0)                                                                   <L 28>
+        var_12 = wp::float64(var_11);
+        // _1 = wp.float64(1.0)                                                                   <L 29>
+        var_14 = wp::float64(var_13);
+        // rest_O = ABD_centers[tid]                                                              <L 30>
+        var_15 = wp::address(var_ABD_centers, var_0);
+        var_17 = wp::load(var_15);
+        var_16 = wp::copy(var_17);
+        // rest_A = rest_O + wp.vec3d(_1, _0, _0)                                                 <L 31>
+        var_18 = wp::vec_t<3,wp::float64>(var_14, var_12, var_12);
+        var_19 = wp::add(var_16, var_18);
+        // rest_B = rest_O + wp.vec3d(_0, _1, _0)                                                 <L 32>
+        var_20 = wp::vec_t<3,wp::float64>(var_12, var_14, var_12);
+        var_21 = wp::add(var_16, var_20);
+        // rest_C = rest_O + wp.vec3d(_0, _0, _1)                                                 <L 33>
+        var_22 = wp::vec_t<3,wp::float64>(var_12, var_12, var_14);
+        var_23 = wp::add(var_16, var_22);
+        // R = wp.mat33d(                                                                         <L 34>
+        // target_state[0],                                                                       <L 35>
+        var_25 = wp::extract(var_6, var_24);
+        // target_state[1],                                                                       <L 36>
+        var_27 = wp::extract(var_6, var_26);
+        // target_state[2],                                                                       <L 37>
+        var_29 = wp::extract(var_6, var_28);
+        // target_state[3],                                                                       <L 38>
+        var_31 = wp::extract(var_6, var_30);
+        // target_state[4],                                                                       <L 39>
+        var_33 = wp::extract(var_6, var_32);
+        // target_state[5],                                                                       <L 40>
+        var_35 = wp::extract(var_6, var_34);
+        // target_state[6],                                                                       <L 41>
+        var_37 = wp::extract(var_6, var_36);
+        // target_state[7],                                                                       <L 42>
+        var_39 = wp::extract(var_6, var_38);
+        // target_state[8],                                                                       <L 43>
+        var_41 = wp::extract(var_6, var_40);
+        var_42 = wp::mat_t<3,3,wp::float64>(var_25, var_27, var_29, var_31, var_33, var_35, var_37, var_39, var_41);
+        // t = wp.vec3d(target_state[9], target_state[10], target_state[11])                      <L 45>
+        var_44 = wp::extract(var_6, var_43);
+        var_46 = wp::extract(var_6, var_45);
+        var_48 = wp::extract(var_6, var_47);
+        var_49 = wp::vec_t<3,wp::float64>(var_44, var_46, var_48);
+        // O = R @ (rest_O - virtual_center) + virtual_center + t                                 <L 46>
+        var_50 = wp::sub(var_16, var_9);
+        var_51 = wp::mul(var_42, var_50);
+        var_52 = wp::add(var_51, var_9);
+        var_53 = wp::add(var_52, var_49);
+        // A = R @ (rest_A - virtual_center) + virtual_center + t                                 <L 47>
+        var_54 = wp::sub(var_19, var_9);
+        var_55 = wp::mul(var_42, var_54);
+        var_56 = wp::add(var_55, var_9);
+        var_57 = wp::add(var_56, var_49);
+        // B = R @ (rest_B - virtual_center) + virtual_center + t                                 <L 48>
+        var_58 = wp::sub(var_21, var_9);
+        var_59 = wp::mul(var_42, var_58);
+        var_60 = wp::add(var_59, var_9);
+        var_61 = wp::add(var_60, var_49);
+        // C = R @ (rest_C - virtual_center) + virtual_center + t                                 <L 49>
+        var_62 = wp::sub(var_23, var_9);
+        var_63 = wp::mul(var_42, var_62);
+        var_64 = wp::add(var_63, var_9);
+        var_65 = wp::add(var_64, var_49);
+        // affine_target_dof[tid] = vec12d(O[0], O[1], O[2], A[0], A[1], A[2], B[0], B[1], B[2], C[0], C[1], C[2])       <L 50>
+        var_67 = wp::extract(var_53, var_66);
+        var_69 = wp::extract(var_53, var_68);
+        var_71 = wp::extract(var_53, var_70);
+        var_73 = wp::extract(var_57, var_72);
+        var_75 = wp::extract(var_57, var_74);
+        var_77 = wp::extract(var_57, var_76);
+        var_79 = wp::extract(var_61, var_78);
+        var_81 = wp::extract(var_61, var_80);
+        var_83 = wp::extract(var_61, var_82);
+        var_85 = wp::extract(var_65, var_84);
+        var_87 = wp::extract(var_65, var_86);
+        var_89 = wp::extract(var_65, var_88);
+        var_90 = wp::vec_t<12,wp::float64>({var_67, var_69, var_71, var_73, var_75, var_77, var_79, var_81, var_83, var_85, var_87, var_89});
+        wp::array_store(var_affine_target_dof, var_0, var_90);
+    }
+}
+
+
+
+extern "C" __global__ void init_affine_kinematic_target_kernel_cuda_kernel_backward(
+    wp::launch_bounds_t dim,
+    wp::array_t<bool> var_affine_has_constraint,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_affine_kinematic_target_pose,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_affine_target_dof,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_virtual_object_centers,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_ABD_centers,
+    wp::array_t<bool> adj_affine_has_constraint,
+    wp::array_t<wp::vec_t<12,wp::float64>> adj_affine_kinematic_target_pose,
+    wp::array_t<wp::vec_t<12,wp::float64>> adj_affine_target_dof,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_virtual_object_centers,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_ABD_centers)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        bool* var_1;
+        const bool var_2 = false;
+        bool var_3;
+        bool var_4;
+        wp::vec_t<12,wp::float64>* var_5;
+        wp::vec_t<12,wp::float64> var_6;
+        wp::vec_t<12,wp::float64> var_7;
+        wp::vec_t<3,wp::float64>* var_8;
+        wp::vec_t<3,wp::float64> var_9;
+        wp::vec_t<3,wp::float64> var_10;
+        const wp::float32 var_11 = 0.0;
+        wp::float64 var_12;
+        const wp::float32 var_13 = 1.0;
+        wp::float64 var_14;
+        wp::vec_t<3,wp::float64>* var_15;
+        wp::vec_t<3,wp::float64> var_16;
+        wp::vec_t<3,wp::float64> var_17;
+        wp::vec_t<3,wp::float64> var_18;
+        wp::vec_t<3,wp::float64> var_19;
+        wp::vec_t<3,wp::float64> var_20;
+        wp::vec_t<3,wp::float64> var_21;
+        wp::vec_t<3,wp::float64> var_22;
+        wp::vec_t<3,wp::float64> var_23;
+        const wp::int32 var_24 = 0;
+        wp::float64 var_25;
+        const wp::int32 var_26 = 1;
+        wp::float64 var_27;
+        const wp::int32 var_28 = 2;
+        wp::float64 var_29;
+        const wp::int32 var_30 = 3;
+        wp::float64 var_31;
+        const wp::int32 var_32 = 4;
+        wp::float64 var_33;
+        const wp::int32 var_34 = 5;
+        wp::float64 var_35;
+        const wp::int32 var_36 = 6;
+        wp::float64 var_37;
+        const wp::int32 var_38 = 7;
+        wp::float64 var_39;
+        const wp::int32 var_40 = 8;
+        wp::float64 var_41;
+        wp::mat_t<3,3,wp::float64> var_42;
+        const wp::int32 var_43 = 9;
+        wp::float64 var_44;
+        const wp::int32 var_45 = 10;
+        wp::float64 var_46;
+        const wp::int32 var_47 = 11;
+        wp::float64 var_48;
+        wp::vec_t<3,wp::float64> var_49;
+        wp::vec_t<3,wp::float64> var_50;
+        wp::vec_t<3,wp::float64> var_51;
+        wp::vec_t<3,wp::float64> var_52;
+        wp::vec_t<3,wp::float64> var_53;
+        wp::vec_t<3,wp::float64> var_54;
+        wp::vec_t<3,wp::float64> var_55;
+        wp::vec_t<3,wp::float64> var_56;
+        wp::vec_t<3,wp::float64> var_57;
+        wp::vec_t<3,wp::float64> var_58;
+        wp::vec_t<3,wp::float64> var_59;
+        wp::vec_t<3,wp::float64> var_60;
+        wp::vec_t<3,wp::float64> var_61;
+        wp::vec_t<3,wp::float64> var_62;
+        wp::vec_t<3,wp::float64> var_63;
+        wp::vec_t<3,wp::float64> var_64;
+        wp::vec_t<3,wp::float64> var_65;
+        const wp::int32 var_66 = 0;
+        wp::float64 var_67;
+        const wp::int32 var_68 = 1;
+        wp::float64 var_69;
+        const wp::int32 var_70 = 2;
+        wp::float64 var_71;
+        const wp::int32 var_72 = 0;
+        wp::float64 var_73;
+        const wp::int32 var_74 = 1;
+        wp::float64 var_75;
+        const wp::int32 var_76 = 2;
+        wp::float64 var_77;
+        const wp::int32 var_78 = 0;
+        wp::float64 var_79;
+        const wp::int32 var_80 = 1;
+        wp::float64 var_81;
+        const wp::int32 var_82 = 2;
+        wp::float64 var_83;
+        const wp::int32 var_84 = 0;
+        wp::float64 var_85;
+        const wp::int32 var_86 = 1;
+        wp::float64 var_87;
+        const wp::int32 var_88 = 2;
+        wp::float64 var_89;
+        wp::vec_t<12,wp::float64> var_90;
+        //---------
+        // dual vars
+        wp::int32 adj_0 = {};
+        bool adj_1 = {};
+        bool adj_2 = {};
+        bool adj_3 = {};
+        bool adj_4 = {};
+        wp::vec_t<12,wp::float64> adj_5 = {};
+        wp::vec_t<12,wp::float64> adj_6 = {};
+        wp::vec_t<12,wp::float64> adj_7 = {};
+        wp::vec_t<3,wp::float64> adj_8 = {};
+        wp::vec_t<3,wp::float64> adj_9 = {};
+        wp::vec_t<3,wp::float64> adj_10 = {};
+        wp::float32 adj_11 = {};
+        wp::float64 adj_12 = {};
+        wp::float32 adj_13 = {};
+        wp::float64 adj_14 = {};
+        wp::vec_t<3,wp::float64> adj_15 = {};
+        wp::vec_t<3,wp::float64> adj_16 = {};
+        wp::vec_t<3,wp::float64> adj_17 = {};
+        wp::vec_t<3,wp::float64> adj_18 = {};
+        wp::vec_t<3,wp::float64> adj_19 = {};
+        wp::vec_t<3,wp::float64> adj_20 = {};
+        wp::vec_t<3,wp::float64> adj_21 = {};
+        wp::vec_t<3,wp::float64> adj_22 = {};
+        wp::vec_t<3,wp::float64> adj_23 = {};
+        wp::int32 adj_24 = {};
+        wp::float64 adj_25 = {};
+        wp::int32 adj_26 = {};
+        wp::float64 adj_27 = {};
+        wp::int32 adj_28 = {};
+        wp::float64 adj_29 = {};
+        wp::int32 adj_30 = {};
+        wp::float64 adj_31 = {};
+        wp::int32 adj_32 = {};
+        wp::float64 adj_33 = {};
+        wp::int32 adj_34 = {};
+        wp::float64 adj_35 = {};
+        wp::int32 adj_36 = {};
+        wp::float64 adj_37 = {};
+        wp::int32 adj_38 = {};
+        wp::float64 adj_39 = {};
+        wp::int32 adj_40 = {};
+        wp::float64 adj_41 = {};
+        wp::mat_t<3,3,wp::float64> adj_42 = {};
+        wp::int32 adj_43 = {};
+        wp::float64 adj_44 = {};
+        wp::int32 adj_45 = {};
+        wp::float64 adj_46 = {};
+        wp::int32 adj_47 = {};
+        wp::float64 adj_48 = {};
+        wp::vec_t<3,wp::float64> adj_49 = {};
+        wp::vec_t<3,wp::float64> adj_50 = {};
+        wp::vec_t<3,wp::float64> adj_51 = {};
+        wp::vec_t<3,wp::float64> adj_52 = {};
+        wp::vec_t<3,wp::float64> adj_53 = {};
+        wp::vec_t<3,wp::float64> adj_54 = {};
+        wp::vec_t<3,wp::float64> adj_55 = {};
+        wp::vec_t<3,wp::float64> adj_56 = {};
+        wp::vec_t<3,wp::float64> adj_57 = {};
+        wp::vec_t<3,wp::float64> adj_58 = {};
+        wp::vec_t<3,wp::float64> adj_59 = {};
+        wp::vec_t<3,wp::float64> adj_60 = {};
+        wp::vec_t<3,wp::float64> adj_61 = {};
+        wp::vec_t<3,wp::float64> adj_62 = {};
+        wp::vec_t<3,wp::float64> adj_63 = {};
+        wp::vec_t<3,wp::float64> adj_64 = {};
+        wp::vec_t<3,wp::float64> adj_65 = {};
+        wp::int32 adj_66 = {};
+        wp::float64 adj_67 = {};
+        wp::int32 adj_68 = {};
+        wp::float64 adj_69 = {};
+        wp::int32 adj_70 = {};
+        wp::float64 adj_71 = {};
+        wp::int32 adj_72 = {};
+        wp::float64 adj_73 = {};
+        wp::int32 adj_74 = {};
+        wp::float64 adj_75 = {};
+        wp::int32 adj_76 = {};
+        wp::float64 adj_77 = {};
+        wp::int32 adj_78 = {};
+        wp::float64 adj_79 = {};
+        wp::int32 adj_80 = {};
+        wp::float64 adj_81 = {};
+        wp::int32 adj_82 = {};
+        wp::float64 adj_83 = {};
+        wp::int32 adj_84 = {};
+        wp::float64 adj_85 = {};
+        wp::int32 adj_86 = {};
+        wp::float64 adj_87 = {};
+        wp::int32 adj_88 = {};
+        wp::float64 adj_89 = {};
+        wp::vec_t<12,wp::float64> adj_90 = {};
+        //---------
+        // forward
+        // def init_affine_kinematic_target_kernel(                                               <L 16>
+        // tid = wp.tid()                                                                         <L 23>
+        var_0 = builtin_tid1d();
+        // if affine_has_constraint[tid] == False:                                                <L 24>
+        var_1 = wp::address(var_affine_has_constraint, var_0);
+        var_4 = wp::load(var_1);
+        var_3 = (var_4 == var_2);
+        if (var_3) {
+            // return                                                                             <L 25>
+            goto label0;
+        }
+        // target_state = affine_kinematic_target_pose[tid]                                       <L 26>
+        var_5 = wp::address(var_affine_kinematic_target_pose, var_0);
+        var_7 = wp::load(var_5);
+        var_6 = wp::copy(var_7);
+        // virtual_center = virtual_object_centers[tid]                                           <L 27>
+        var_8 = wp::address(var_virtual_object_centers, var_0);
+        var_10 = wp::load(var_8);
+        var_9 = wp::copy(var_10);
+        // _0 = wp.float64(0.0)                                                                   <L 28>
+        var_12 = wp::float64(var_11);
+        // _1 = wp.float64(1.0)                                                                   <L 29>
+        var_14 = wp::float64(var_13);
+        // rest_O = ABD_centers[tid]                                                              <L 30>
+        var_15 = wp::address(var_ABD_centers, var_0);
+        var_17 = wp::load(var_15);
+        var_16 = wp::copy(var_17);
+        // rest_A = rest_O + wp.vec3d(_1, _0, _0)                                                 <L 31>
+        var_18 = wp::vec_t<3,wp::float64>(var_14, var_12, var_12);
+        var_19 = wp::add(var_16, var_18);
+        // rest_B = rest_O + wp.vec3d(_0, _1, _0)                                                 <L 32>
+        var_20 = wp::vec_t<3,wp::float64>(var_12, var_14, var_12);
+        var_21 = wp::add(var_16, var_20);
+        // rest_C = rest_O + wp.vec3d(_0, _0, _1)                                                 <L 33>
+        var_22 = wp::vec_t<3,wp::float64>(var_12, var_12, var_14);
+        var_23 = wp::add(var_16, var_22);
+        // R = wp.mat33d(                                                                         <L 34>
+        // target_state[0],                                                                       <L 35>
+        var_25 = wp::extract(var_6, var_24);
+        // target_state[1],                                                                       <L 36>
+        var_27 = wp::extract(var_6, var_26);
+        // target_state[2],                                                                       <L 37>
+        var_29 = wp::extract(var_6, var_28);
+        // target_state[3],                                                                       <L 38>
+        var_31 = wp::extract(var_6, var_30);
+        // target_state[4],                                                                       <L 39>
+        var_33 = wp::extract(var_6, var_32);
+        // target_state[5],                                                                       <L 40>
+        var_35 = wp::extract(var_6, var_34);
+        // target_state[6],                                                                       <L 41>
+        var_37 = wp::extract(var_6, var_36);
+        // target_state[7],                                                                       <L 42>
+        var_39 = wp::extract(var_6, var_38);
+        // target_state[8],                                                                       <L 43>
+        var_41 = wp::extract(var_6, var_40);
+        var_42 = wp::mat_t<3,3,wp::float64>(var_25, var_27, var_29, var_31, var_33, var_35, var_37, var_39, var_41);
+        // t = wp.vec3d(target_state[9], target_state[10], target_state[11])                      <L 45>
+        var_44 = wp::extract(var_6, var_43);
+        var_46 = wp::extract(var_6, var_45);
+        var_48 = wp::extract(var_6, var_47);
+        var_49 = wp::vec_t<3,wp::float64>(var_44, var_46, var_48);
+        // O = R @ (rest_O - virtual_center) + virtual_center + t                                 <L 46>
+        var_50 = wp::sub(var_16, var_9);
+        var_51 = wp::mul(var_42, var_50);
+        var_52 = wp::add(var_51, var_9);
+        var_53 = wp::add(var_52, var_49);
+        // A = R @ (rest_A - virtual_center) + virtual_center + t                                 <L 47>
+        var_54 = wp::sub(var_19, var_9);
+        var_55 = wp::mul(var_42, var_54);
+        var_56 = wp::add(var_55, var_9);
+        var_57 = wp::add(var_56, var_49);
+        // B = R @ (rest_B - virtual_center) + virtual_center + t                                 <L 48>
+        var_58 = wp::sub(var_21, var_9);
+        var_59 = wp::mul(var_42, var_58);
+        var_60 = wp::add(var_59, var_9);
+        var_61 = wp::add(var_60, var_49);
+        // C = R @ (rest_C - virtual_center) + virtual_center + t                                 <L 49>
+        var_62 = wp::sub(var_23, var_9);
+        var_63 = wp::mul(var_42, var_62);
+        var_64 = wp::add(var_63, var_9);
+        var_65 = wp::add(var_64, var_49);
+        // affine_target_dof[tid] = vec12d(O[0], O[1], O[2], A[0], A[1], A[2], B[0], B[1], B[2], C[0], C[1], C[2])       <L 50>
+        var_67 = wp::extract(var_53, var_66);
+        var_69 = wp::extract(var_53, var_68);
+        var_71 = wp::extract(var_53, var_70);
+        var_73 = wp::extract(var_57, var_72);
+        var_75 = wp::extract(var_57, var_74);
+        var_77 = wp::extract(var_57, var_76);
+        var_79 = wp::extract(var_61, var_78);
+        var_81 = wp::extract(var_61, var_80);
+        var_83 = wp::extract(var_61, var_82);
+        var_85 = wp::extract(var_65, var_84);
+        var_87 = wp::extract(var_65, var_86);
+        var_89 = wp::extract(var_65, var_88);
+        var_90 = wp::vec_t<12,wp::float64>({var_67, var_69, var_71, var_73, var_75, var_77, var_79, var_81, var_83, var_85, var_87, var_89});
+        // wp::array_store(var_affine_target_dof, var_0, var_90);
+        //---------
+        // reverse
+        wp::adj_array_store(var_affine_target_dof, var_0, var_90, adj_affine_target_dof, adj_0, adj_90);
+        wp::adj_vec_t({var_67, var_69, var_71, var_73, var_75, var_77, var_79, var_81, var_83, var_85, var_87, var_89}, {&adj_67, &adj_69, &adj_71, &adj_73, &adj_75, &adj_77, &adj_79, &adj_81, &adj_83, &adj_85, &adj_87, &adj_89}, adj_90);
+        wp::adj_extract(var_65, var_88, adj_65, adj_88, adj_89);
+        wp::adj_extract(var_65, var_86, adj_65, adj_86, adj_87);
+        wp::adj_extract(var_65, var_84, adj_65, adj_84, adj_85);
+        wp::adj_extract(var_61, var_82, adj_61, adj_82, adj_83);
+        wp::adj_extract(var_61, var_80, adj_61, adj_80, adj_81);
+        wp::adj_extract(var_61, var_78, adj_61, adj_78, adj_79);
+        wp::adj_extract(var_57, var_76, adj_57, adj_76, adj_77);
+        wp::adj_extract(var_57, var_74, adj_57, adj_74, adj_75);
+        wp::adj_extract(var_57, var_72, adj_57, adj_72, adj_73);
+        wp::adj_extract(var_53, var_70, adj_53, adj_70, adj_71);
+        wp::adj_extract(var_53, var_68, adj_53, adj_68, adj_69);
+        wp::adj_extract(var_53, var_66, adj_53, adj_66, adj_67);
+        // adj: affine_target_dof[tid] = vec12d(O[0], O[1], O[2], A[0], A[1], A[2], B[0], B[1], B[2], C[0], C[1], C[2])  <L 50>
+        wp::adj_add(var_64, var_49, adj_64, adj_49, adj_65);
+        wp::adj_add(var_63, var_9, adj_63, adj_9, adj_64);
+        wp::adj_mul(var_42, var_62, adj_42, adj_62, adj_63);
+        wp::adj_sub(var_23, var_9, adj_23, adj_9, adj_62);
+        // adj: C = R @ (rest_C - virtual_center) + virtual_center + t                            <L 49>
+        wp::adj_add(var_60, var_49, adj_60, adj_49, adj_61);
+        wp::adj_add(var_59, var_9, adj_59, adj_9, adj_60);
+        wp::adj_mul(var_42, var_58, adj_42, adj_58, adj_59);
+        wp::adj_sub(var_21, var_9, adj_21, adj_9, adj_58);
+        // adj: B = R @ (rest_B - virtual_center) + virtual_center + t                            <L 48>
+        wp::adj_add(var_56, var_49, adj_56, adj_49, adj_57);
+        wp::adj_add(var_55, var_9, adj_55, adj_9, adj_56);
+        wp::adj_mul(var_42, var_54, adj_42, adj_54, adj_55);
+        wp::adj_sub(var_19, var_9, adj_19, adj_9, adj_54);
+        // adj: A = R @ (rest_A - virtual_center) + virtual_center + t                            <L 47>
+        wp::adj_add(var_52, var_49, adj_52, adj_49, adj_53);
+        wp::adj_add(var_51, var_9, adj_51, adj_9, adj_52);
+        wp::adj_mul(var_42, var_50, adj_42, adj_50, adj_51);
+        wp::adj_sub(var_16, var_9, adj_16, adj_9, adj_50);
+        // adj: O = R @ (rest_O - virtual_center) + virtual_center + t                            <L 46>
+        wp::adj_vec_t(var_44, var_46, var_48, adj_44, adj_46, adj_48, adj_49);
+        wp::adj_extract(var_6, var_47, adj_6, adj_47, adj_48);
+        wp::adj_extract(var_6, var_45, adj_6, adj_45, adj_46);
+        wp::adj_extract(var_6, var_43, adj_6, adj_43, adj_44);
+        // adj: t = wp.vec3d(target_state[9], target_state[10], target_state[11])                 <L 45>
+        wp::adj_mat_t(var_25, var_27, var_29, var_31, var_33, var_35, var_37, var_39, var_41, adj_25, adj_27, adj_29, adj_31, adj_33, adj_35, adj_37, adj_39, adj_41, adj_42);
+        wp::adj_extract(var_6, var_40, adj_6, adj_40, adj_41);
+        // adj: target_state[8],                                                                  <L 43>
+        wp::adj_extract(var_6, var_38, adj_6, adj_38, adj_39);
+        // adj: target_state[7],                                                                  <L 42>
+        wp::adj_extract(var_6, var_36, adj_6, adj_36, adj_37);
+        // adj: target_state[6],                                                                  <L 41>
+        wp::adj_extract(var_6, var_34, adj_6, adj_34, adj_35);
+        // adj: target_state[5],                                                                  <L 40>
+        wp::adj_extract(var_6, var_32, adj_6, adj_32, adj_33);
+        // adj: target_state[4],                                                                  <L 39>
+        wp::adj_extract(var_6, var_30, adj_6, adj_30, adj_31);
+        // adj: target_state[3],                                                                  <L 38>
+        wp::adj_extract(var_6, var_28, adj_6, adj_28, adj_29);
+        // adj: target_state[2],                                                                  <L 37>
+        wp::adj_extract(var_6, var_26, adj_6, adj_26, adj_27);
+        // adj: target_state[1],                                                                  <L 36>
+        wp::adj_extract(var_6, var_24, adj_6, adj_24, adj_25);
+        // adj: target_state[0],                                                                  <L 35>
+        // adj: R = wp.mat33d(                                                                    <L 34>
+        wp::adj_add(var_16, var_22, adj_16, adj_22, adj_23);
+        wp::adj_vec_t(var_12, var_12, var_14, adj_12, adj_12, adj_14, adj_22);
+        // adj: rest_C = rest_O + wp.vec3d(_0, _0, _1)                                            <L 33>
+        wp::adj_add(var_16, var_20, adj_16, adj_20, adj_21);
+        wp::adj_vec_t(var_12, var_14, var_12, adj_12, adj_14, adj_12, adj_20);
+        // adj: rest_B = rest_O + wp.vec3d(_0, _1, _0)                                            <L 32>
+        wp::adj_add(var_16, var_18, adj_16, adj_18, adj_19);
+        wp::adj_vec_t(var_14, var_12, var_12, adj_14, adj_12, adj_12, adj_18);
+        // adj: rest_A = rest_O + wp.vec3d(_1, _0, _0)                                            <L 31>
+        wp::adj_copy(var_17, adj_15, adj_16);
+        wp::adj_load(var_15, adj_15, adj_17);
+        wp::adj_address(var_ABD_centers, var_0, adj_ABD_centers, adj_0, adj_15);
+        // adj: rest_O = ABD_centers[tid]                                                         <L 30>
+        wp::adj_float64(var_13, adj_13, adj_14);
+        // adj: _1 = wp.float64(1.0)                                                              <L 29>
+        wp::adj_float64(var_11, adj_11, adj_12);
+        // adj: _0 = wp.float64(0.0)                                                              <L 28>
+        wp::adj_copy(var_10, adj_8, adj_9);
+        wp::adj_load(var_8, adj_8, adj_10);
+        wp::adj_address(var_virtual_object_centers, var_0, adj_virtual_object_centers, adj_0, adj_8);
+        // adj: virtual_center = virtual_object_centers[tid]                                      <L 27>
+        wp::adj_copy(var_7, adj_5, adj_6);
+        wp::adj_load(var_5, adj_5, adj_7);
+        wp::adj_address(var_affine_kinematic_target_pose, var_0, adj_affine_kinematic_target_pose, adj_0, adj_5);
+        // adj: target_state = affine_kinematic_target_pose[tid]                                  <L 26>
+        if (var_3) {
+            label0:;
+            // adj: return                                                                        <L 25>
+        }
+        wp::adj_load(var_1, adj_1, adj_4);
+        wp::adj_address(var_affine_has_constraint, var_0, adj_affine_has_constraint, adj_0, adj_1);
+        // adj: if affine_has_constraint[tid] == False:                                           <L 24>
+        // adj: tid = wp.tid()                                                                    <L 23>
+        // adj: def init_affine_kinematic_target_kernel(                                          <L 16>
         continue;
     }
 }
@@ -2819,623 +3436,6 @@ extern "C" __global__ void compute_affine_kinematic_hess_cuda_kernel_backward(
         // adj: if env_states[body_env_id[tid]] == ENV_STATE_INVALID or env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED:  <L 263>
         // adj: tid = wp.tid()                                                                    <L 262>
         // adj: def compute_affine_kinematic_hess(                                                <L 254>
-        continue;
-    }
-}
-
-
-
-extern "C" __global__ void init_affine_kinematic_target_kernel_cuda_kernel_forward(
-    wp::launch_bounds_t dim,
-    wp::array_t<bool> var_affine_has_constraint,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_affine_kinematic_target_pose,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_affine_target_dof,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_virtual_object_centers,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_ABD_centers)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        bool* var_1;
-        const bool var_2 = false;
-        bool var_3;
-        bool var_4;
-        wp::vec_t<12,wp::float64>* var_5;
-        wp::vec_t<12,wp::float64> var_6;
-        wp::vec_t<12,wp::float64> var_7;
-        wp::vec_t<3,wp::float64>* var_8;
-        wp::vec_t<3,wp::float64> var_9;
-        wp::vec_t<3,wp::float64> var_10;
-        const wp::float32 var_11 = 0.0;
-        wp::float64 var_12;
-        const wp::float32 var_13 = 1.0;
-        wp::float64 var_14;
-        wp::vec_t<3,wp::float64>* var_15;
-        wp::vec_t<3,wp::float64> var_16;
-        wp::vec_t<3,wp::float64> var_17;
-        wp::vec_t<3,wp::float64> var_18;
-        wp::vec_t<3,wp::float64> var_19;
-        wp::vec_t<3,wp::float64> var_20;
-        wp::vec_t<3,wp::float64> var_21;
-        wp::vec_t<3,wp::float64> var_22;
-        wp::vec_t<3,wp::float64> var_23;
-        const wp::int32 var_24 = 0;
-        wp::float64 var_25;
-        const wp::int32 var_26 = 1;
-        wp::float64 var_27;
-        const wp::int32 var_28 = 2;
-        wp::float64 var_29;
-        const wp::int32 var_30 = 3;
-        wp::float64 var_31;
-        const wp::int32 var_32 = 4;
-        wp::float64 var_33;
-        const wp::int32 var_34 = 5;
-        wp::float64 var_35;
-        const wp::int32 var_36 = 6;
-        wp::float64 var_37;
-        const wp::int32 var_38 = 7;
-        wp::float64 var_39;
-        const wp::int32 var_40 = 8;
-        wp::float64 var_41;
-        wp::mat_t<3,3,wp::float64> var_42;
-        const wp::int32 var_43 = 9;
-        wp::float64 var_44;
-        const wp::int32 var_45 = 10;
-        wp::float64 var_46;
-        const wp::int32 var_47 = 11;
-        wp::float64 var_48;
-        wp::vec_t<3,wp::float64> var_49;
-        wp::vec_t<3,wp::float64> var_50;
-        wp::vec_t<3,wp::float64> var_51;
-        wp::vec_t<3,wp::float64> var_52;
-        wp::vec_t<3,wp::float64> var_53;
-        wp::vec_t<3,wp::float64> var_54;
-        wp::vec_t<3,wp::float64> var_55;
-        wp::vec_t<3,wp::float64> var_56;
-        wp::vec_t<3,wp::float64> var_57;
-        wp::vec_t<3,wp::float64> var_58;
-        wp::vec_t<3,wp::float64> var_59;
-        wp::vec_t<3,wp::float64> var_60;
-        wp::vec_t<3,wp::float64> var_61;
-        wp::vec_t<3,wp::float64> var_62;
-        wp::vec_t<3,wp::float64> var_63;
-        wp::vec_t<3,wp::float64> var_64;
-        wp::vec_t<3,wp::float64> var_65;
-        const wp::int32 var_66 = 0;
-        wp::float64 var_67;
-        const wp::int32 var_68 = 1;
-        wp::float64 var_69;
-        const wp::int32 var_70 = 2;
-        wp::float64 var_71;
-        const wp::int32 var_72 = 0;
-        wp::float64 var_73;
-        const wp::int32 var_74 = 1;
-        wp::float64 var_75;
-        const wp::int32 var_76 = 2;
-        wp::float64 var_77;
-        const wp::int32 var_78 = 0;
-        wp::float64 var_79;
-        const wp::int32 var_80 = 1;
-        wp::float64 var_81;
-        const wp::int32 var_82 = 2;
-        wp::float64 var_83;
-        const wp::int32 var_84 = 0;
-        wp::float64 var_85;
-        const wp::int32 var_86 = 1;
-        wp::float64 var_87;
-        const wp::int32 var_88 = 2;
-        wp::float64 var_89;
-        wp::vec_t<12,wp::float64> var_90;
-        //---------
-        // forward
-        // def init_affine_kinematic_target_kernel(                                               <L 16>
-        // tid = wp.tid()                                                                         <L 23>
-        var_0 = builtin_tid1d();
-        // if affine_has_constraint[tid] == False:                                                <L 24>
-        var_1 = wp::address(var_affine_has_constraint, var_0);
-        var_4 = wp::load(var_1);
-        var_3 = (var_4 == var_2);
-        if (var_3) {
-            // return                                                                             <L 25>
-            continue;
-        }
-        // target_state = affine_kinematic_target_pose[tid]                                       <L 26>
-        var_5 = wp::address(var_affine_kinematic_target_pose, var_0);
-        var_7 = wp::load(var_5);
-        var_6 = wp::copy(var_7);
-        // virtual_center = virtual_object_centers[tid]                                           <L 27>
-        var_8 = wp::address(var_virtual_object_centers, var_0);
-        var_10 = wp::load(var_8);
-        var_9 = wp::copy(var_10);
-        // _0 = wp.float64(0.0)                                                                   <L 28>
-        var_12 = wp::float64(var_11);
-        // _1 = wp.float64(1.0)                                                                   <L 29>
-        var_14 = wp::float64(var_13);
-        // rest_O = ABD_centers[tid]                                                              <L 30>
-        var_15 = wp::address(var_ABD_centers, var_0);
-        var_17 = wp::load(var_15);
-        var_16 = wp::copy(var_17);
-        // rest_A = rest_O + wp.vec3d(_1, _0, _0)                                                 <L 31>
-        var_18 = wp::vec_t<3,wp::float64>(var_14, var_12, var_12);
-        var_19 = wp::add(var_16, var_18);
-        // rest_B = rest_O + wp.vec3d(_0, _1, _0)                                                 <L 32>
-        var_20 = wp::vec_t<3,wp::float64>(var_12, var_14, var_12);
-        var_21 = wp::add(var_16, var_20);
-        // rest_C = rest_O + wp.vec3d(_0, _0, _1)                                                 <L 33>
-        var_22 = wp::vec_t<3,wp::float64>(var_12, var_12, var_14);
-        var_23 = wp::add(var_16, var_22);
-        // R = wp.mat33d(                                                                         <L 34>
-        // target_state[0],                                                                       <L 35>
-        var_25 = wp::extract(var_6, var_24);
-        // target_state[1],                                                                       <L 36>
-        var_27 = wp::extract(var_6, var_26);
-        // target_state[2],                                                                       <L 37>
-        var_29 = wp::extract(var_6, var_28);
-        // target_state[3],                                                                       <L 38>
-        var_31 = wp::extract(var_6, var_30);
-        // target_state[4],                                                                       <L 39>
-        var_33 = wp::extract(var_6, var_32);
-        // target_state[5],                                                                       <L 40>
-        var_35 = wp::extract(var_6, var_34);
-        // target_state[6],                                                                       <L 41>
-        var_37 = wp::extract(var_6, var_36);
-        // target_state[7],                                                                       <L 42>
-        var_39 = wp::extract(var_6, var_38);
-        // target_state[8],                                                                       <L 43>
-        var_41 = wp::extract(var_6, var_40);
-        var_42 = wp::mat_t<3,3,wp::float64>(var_25, var_27, var_29, var_31, var_33, var_35, var_37, var_39, var_41);
-        // t = wp.vec3d(target_state[9], target_state[10], target_state[11])                      <L 45>
-        var_44 = wp::extract(var_6, var_43);
-        var_46 = wp::extract(var_6, var_45);
-        var_48 = wp::extract(var_6, var_47);
-        var_49 = wp::vec_t<3,wp::float64>(var_44, var_46, var_48);
-        // O = R @ (rest_O - virtual_center) + virtual_center + t                                 <L 46>
-        var_50 = wp::sub(var_16, var_9);
-        var_51 = wp::mul(var_42, var_50);
-        var_52 = wp::add(var_51, var_9);
-        var_53 = wp::add(var_52, var_49);
-        // A = R @ (rest_A - virtual_center) + virtual_center + t                                 <L 47>
-        var_54 = wp::sub(var_19, var_9);
-        var_55 = wp::mul(var_42, var_54);
-        var_56 = wp::add(var_55, var_9);
-        var_57 = wp::add(var_56, var_49);
-        // B = R @ (rest_B - virtual_center) + virtual_center + t                                 <L 48>
-        var_58 = wp::sub(var_21, var_9);
-        var_59 = wp::mul(var_42, var_58);
-        var_60 = wp::add(var_59, var_9);
-        var_61 = wp::add(var_60, var_49);
-        // C = R @ (rest_C - virtual_center) + virtual_center + t                                 <L 49>
-        var_62 = wp::sub(var_23, var_9);
-        var_63 = wp::mul(var_42, var_62);
-        var_64 = wp::add(var_63, var_9);
-        var_65 = wp::add(var_64, var_49);
-        // affine_target_dof[tid] = vec12d(O[0], O[1], O[2], A[0], A[1], A[2], B[0], B[1], B[2], C[0], C[1], C[2])       <L 50>
-        var_67 = wp::extract(var_53, var_66);
-        var_69 = wp::extract(var_53, var_68);
-        var_71 = wp::extract(var_53, var_70);
-        var_73 = wp::extract(var_57, var_72);
-        var_75 = wp::extract(var_57, var_74);
-        var_77 = wp::extract(var_57, var_76);
-        var_79 = wp::extract(var_61, var_78);
-        var_81 = wp::extract(var_61, var_80);
-        var_83 = wp::extract(var_61, var_82);
-        var_85 = wp::extract(var_65, var_84);
-        var_87 = wp::extract(var_65, var_86);
-        var_89 = wp::extract(var_65, var_88);
-        var_90 = wp::vec_t<12,wp::float64>({var_67, var_69, var_71, var_73, var_75, var_77, var_79, var_81, var_83, var_85, var_87, var_89});
-        wp::array_store(var_affine_target_dof, var_0, var_90);
-    }
-}
-
-
-
-extern "C" __global__ void init_affine_kinematic_target_kernel_cuda_kernel_backward(
-    wp::launch_bounds_t dim,
-    wp::array_t<bool> var_affine_has_constraint,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_affine_kinematic_target_pose,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_affine_target_dof,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_virtual_object_centers,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_ABD_centers,
-    wp::array_t<bool> adj_affine_has_constraint,
-    wp::array_t<wp::vec_t<12,wp::float64>> adj_affine_kinematic_target_pose,
-    wp::array_t<wp::vec_t<12,wp::float64>> adj_affine_target_dof,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_virtual_object_centers,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_ABD_centers)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        bool* var_1;
-        const bool var_2 = false;
-        bool var_3;
-        bool var_4;
-        wp::vec_t<12,wp::float64>* var_5;
-        wp::vec_t<12,wp::float64> var_6;
-        wp::vec_t<12,wp::float64> var_7;
-        wp::vec_t<3,wp::float64>* var_8;
-        wp::vec_t<3,wp::float64> var_9;
-        wp::vec_t<3,wp::float64> var_10;
-        const wp::float32 var_11 = 0.0;
-        wp::float64 var_12;
-        const wp::float32 var_13 = 1.0;
-        wp::float64 var_14;
-        wp::vec_t<3,wp::float64>* var_15;
-        wp::vec_t<3,wp::float64> var_16;
-        wp::vec_t<3,wp::float64> var_17;
-        wp::vec_t<3,wp::float64> var_18;
-        wp::vec_t<3,wp::float64> var_19;
-        wp::vec_t<3,wp::float64> var_20;
-        wp::vec_t<3,wp::float64> var_21;
-        wp::vec_t<3,wp::float64> var_22;
-        wp::vec_t<3,wp::float64> var_23;
-        const wp::int32 var_24 = 0;
-        wp::float64 var_25;
-        const wp::int32 var_26 = 1;
-        wp::float64 var_27;
-        const wp::int32 var_28 = 2;
-        wp::float64 var_29;
-        const wp::int32 var_30 = 3;
-        wp::float64 var_31;
-        const wp::int32 var_32 = 4;
-        wp::float64 var_33;
-        const wp::int32 var_34 = 5;
-        wp::float64 var_35;
-        const wp::int32 var_36 = 6;
-        wp::float64 var_37;
-        const wp::int32 var_38 = 7;
-        wp::float64 var_39;
-        const wp::int32 var_40 = 8;
-        wp::float64 var_41;
-        wp::mat_t<3,3,wp::float64> var_42;
-        const wp::int32 var_43 = 9;
-        wp::float64 var_44;
-        const wp::int32 var_45 = 10;
-        wp::float64 var_46;
-        const wp::int32 var_47 = 11;
-        wp::float64 var_48;
-        wp::vec_t<3,wp::float64> var_49;
-        wp::vec_t<3,wp::float64> var_50;
-        wp::vec_t<3,wp::float64> var_51;
-        wp::vec_t<3,wp::float64> var_52;
-        wp::vec_t<3,wp::float64> var_53;
-        wp::vec_t<3,wp::float64> var_54;
-        wp::vec_t<3,wp::float64> var_55;
-        wp::vec_t<3,wp::float64> var_56;
-        wp::vec_t<3,wp::float64> var_57;
-        wp::vec_t<3,wp::float64> var_58;
-        wp::vec_t<3,wp::float64> var_59;
-        wp::vec_t<3,wp::float64> var_60;
-        wp::vec_t<3,wp::float64> var_61;
-        wp::vec_t<3,wp::float64> var_62;
-        wp::vec_t<3,wp::float64> var_63;
-        wp::vec_t<3,wp::float64> var_64;
-        wp::vec_t<3,wp::float64> var_65;
-        const wp::int32 var_66 = 0;
-        wp::float64 var_67;
-        const wp::int32 var_68 = 1;
-        wp::float64 var_69;
-        const wp::int32 var_70 = 2;
-        wp::float64 var_71;
-        const wp::int32 var_72 = 0;
-        wp::float64 var_73;
-        const wp::int32 var_74 = 1;
-        wp::float64 var_75;
-        const wp::int32 var_76 = 2;
-        wp::float64 var_77;
-        const wp::int32 var_78 = 0;
-        wp::float64 var_79;
-        const wp::int32 var_80 = 1;
-        wp::float64 var_81;
-        const wp::int32 var_82 = 2;
-        wp::float64 var_83;
-        const wp::int32 var_84 = 0;
-        wp::float64 var_85;
-        const wp::int32 var_86 = 1;
-        wp::float64 var_87;
-        const wp::int32 var_88 = 2;
-        wp::float64 var_89;
-        wp::vec_t<12,wp::float64> var_90;
-        //---------
-        // dual vars
-        wp::int32 adj_0 = {};
-        bool adj_1 = {};
-        bool adj_2 = {};
-        bool adj_3 = {};
-        bool adj_4 = {};
-        wp::vec_t<12,wp::float64> adj_5 = {};
-        wp::vec_t<12,wp::float64> adj_6 = {};
-        wp::vec_t<12,wp::float64> adj_7 = {};
-        wp::vec_t<3,wp::float64> adj_8 = {};
-        wp::vec_t<3,wp::float64> adj_9 = {};
-        wp::vec_t<3,wp::float64> adj_10 = {};
-        wp::float32 adj_11 = {};
-        wp::float64 adj_12 = {};
-        wp::float32 adj_13 = {};
-        wp::float64 adj_14 = {};
-        wp::vec_t<3,wp::float64> adj_15 = {};
-        wp::vec_t<3,wp::float64> adj_16 = {};
-        wp::vec_t<3,wp::float64> adj_17 = {};
-        wp::vec_t<3,wp::float64> adj_18 = {};
-        wp::vec_t<3,wp::float64> adj_19 = {};
-        wp::vec_t<3,wp::float64> adj_20 = {};
-        wp::vec_t<3,wp::float64> adj_21 = {};
-        wp::vec_t<3,wp::float64> adj_22 = {};
-        wp::vec_t<3,wp::float64> adj_23 = {};
-        wp::int32 adj_24 = {};
-        wp::float64 adj_25 = {};
-        wp::int32 adj_26 = {};
-        wp::float64 adj_27 = {};
-        wp::int32 adj_28 = {};
-        wp::float64 adj_29 = {};
-        wp::int32 adj_30 = {};
-        wp::float64 adj_31 = {};
-        wp::int32 adj_32 = {};
-        wp::float64 adj_33 = {};
-        wp::int32 adj_34 = {};
-        wp::float64 adj_35 = {};
-        wp::int32 adj_36 = {};
-        wp::float64 adj_37 = {};
-        wp::int32 adj_38 = {};
-        wp::float64 adj_39 = {};
-        wp::int32 adj_40 = {};
-        wp::float64 adj_41 = {};
-        wp::mat_t<3,3,wp::float64> adj_42 = {};
-        wp::int32 adj_43 = {};
-        wp::float64 adj_44 = {};
-        wp::int32 adj_45 = {};
-        wp::float64 adj_46 = {};
-        wp::int32 adj_47 = {};
-        wp::float64 adj_48 = {};
-        wp::vec_t<3,wp::float64> adj_49 = {};
-        wp::vec_t<3,wp::float64> adj_50 = {};
-        wp::vec_t<3,wp::float64> adj_51 = {};
-        wp::vec_t<3,wp::float64> adj_52 = {};
-        wp::vec_t<3,wp::float64> adj_53 = {};
-        wp::vec_t<3,wp::float64> adj_54 = {};
-        wp::vec_t<3,wp::float64> adj_55 = {};
-        wp::vec_t<3,wp::float64> adj_56 = {};
-        wp::vec_t<3,wp::float64> adj_57 = {};
-        wp::vec_t<3,wp::float64> adj_58 = {};
-        wp::vec_t<3,wp::float64> adj_59 = {};
-        wp::vec_t<3,wp::float64> adj_60 = {};
-        wp::vec_t<3,wp::float64> adj_61 = {};
-        wp::vec_t<3,wp::float64> adj_62 = {};
-        wp::vec_t<3,wp::float64> adj_63 = {};
-        wp::vec_t<3,wp::float64> adj_64 = {};
-        wp::vec_t<3,wp::float64> adj_65 = {};
-        wp::int32 adj_66 = {};
-        wp::float64 adj_67 = {};
-        wp::int32 adj_68 = {};
-        wp::float64 adj_69 = {};
-        wp::int32 adj_70 = {};
-        wp::float64 adj_71 = {};
-        wp::int32 adj_72 = {};
-        wp::float64 adj_73 = {};
-        wp::int32 adj_74 = {};
-        wp::float64 adj_75 = {};
-        wp::int32 adj_76 = {};
-        wp::float64 adj_77 = {};
-        wp::int32 adj_78 = {};
-        wp::float64 adj_79 = {};
-        wp::int32 adj_80 = {};
-        wp::float64 adj_81 = {};
-        wp::int32 adj_82 = {};
-        wp::float64 adj_83 = {};
-        wp::int32 adj_84 = {};
-        wp::float64 adj_85 = {};
-        wp::int32 adj_86 = {};
-        wp::float64 adj_87 = {};
-        wp::int32 adj_88 = {};
-        wp::float64 adj_89 = {};
-        wp::vec_t<12,wp::float64> adj_90 = {};
-        //---------
-        // forward
-        // def init_affine_kinematic_target_kernel(                                               <L 16>
-        // tid = wp.tid()                                                                         <L 23>
-        var_0 = builtin_tid1d();
-        // if affine_has_constraint[tid] == False:                                                <L 24>
-        var_1 = wp::address(var_affine_has_constraint, var_0);
-        var_4 = wp::load(var_1);
-        var_3 = (var_4 == var_2);
-        if (var_3) {
-            // return                                                                             <L 25>
-            goto label0;
-        }
-        // target_state = affine_kinematic_target_pose[tid]                                       <L 26>
-        var_5 = wp::address(var_affine_kinematic_target_pose, var_0);
-        var_7 = wp::load(var_5);
-        var_6 = wp::copy(var_7);
-        // virtual_center = virtual_object_centers[tid]                                           <L 27>
-        var_8 = wp::address(var_virtual_object_centers, var_0);
-        var_10 = wp::load(var_8);
-        var_9 = wp::copy(var_10);
-        // _0 = wp.float64(0.0)                                                                   <L 28>
-        var_12 = wp::float64(var_11);
-        // _1 = wp.float64(1.0)                                                                   <L 29>
-        var_14 = wp::float64(var_13);
-        // rest_O = ABD_centers[tid]                                                              <L 30>
-        var_15 = wp::address(var_ABD_centers, var_0);
-        var_17 = wp::load(var_15);
-        var_16 = wp::copy(var_17);
-        // rest_A = rest_O + wp.vec3d(_1, _0, _0)                                                 <L 31>
-        var_18 = wp::vec_t<3,wp::float64>(var_14, var_12, var_12);
-        var_19 = wp::add(var_16, var_18);
-        // rest_B = rest_O + wp.vec3d(_0, _1, _0)                                                 <L 32>
-        var_20 = wp::vec_t<3,wp::float64>(var_12, var_14, var_12);
-        var_21 = wp::add(var_16, var_20);
-        // rest_C = rest_O + wp.vec3d(_0, _0, _1)                                                 <L 33>
-        var_22 = wp::vec_t<3,wp::float64>(var_12, var_12, var_14);
-        var_23 = wp::add(var_16, var_22);
-        // R = wp.mat33d(                                                                         <L 34>
-        // target_state[0],                                                                       <L 35>
-        var_25 = wp::extract(var_6, var_24);
-        // target_state[1],                                                                       <L 36>
-        var_27 = wp::extract(var_6, var_26);
-        // target_state[2],                                                                       <L 37>
-        var_29 = wp::extract(var_6, var_28);
-        // target_state[3],                                                                       <L 38>
-        var_31 = wp::extract(var_6, var_30);
-        // target_state[4],                                                                       <L 39>
-        var_33 = wp::extract(var_6, var_32);
-        // target_state[5],                                                                       <L 40>
-        var_35 = wp::extract(var_6, var_34);
-        // target_state[6],                                                                       <L 41>
-        var_37 = wp::extract(var_6, var_36);
-        // target_state[7],                                                                       <L 42>
-        var_39 = wp::extract(var_6, var_38);
-        // target_state[8],                                                                       <L 43>
-        var_41 = wp::extract(var_6, var_40);
-        var_42 = wp::mat_t<3,3,wp::float64>(var_25, var_27, var_29, var_31, var_33, var_35, var_37, var_39, var_41);
-        // t = wp.vec3d(target_state[9], target_state[10], target_state[11])                      <L 45>
-        var_44 = wp::extract(var_6, var_43);
-        var_46 = wp::extract(var_6, var_45);
-        var_48 = wp::extract(var_6, var_47);
-        var_49 = wp::vec_t<3,wp::float64>(var_44, var_46, var_48);
-        // O = R @ (rest_O - virtual_center) + virtual_center + t                                 <L 46>
-        var_50 = wp::sub(var_16, var_9);
-        var_51 = wp::mul(var_42, var_50);
-        var_52 = wp::add(var_51, var_9);
-        var_53 = wp::add(var_52, var_49);
-        // A = R @ (rest_A - virtual_center) + virtual_center + t                                 <L 47>
-        var_54 = wp::sub(var_19, var_9);
-        var_55 = wp::mul(var_42, var_54);
-        var_56 = wp::add(var_55, var_9);
-        var_57 = wp::add(var_56, var_49);
-        // B = R @ (rest_B - virtual_center) + virtual_center + t                                 <L 48>
-        var_58 = wp::sub(var_21, var_9);
-        var_59 = wp::mul(var_42, var_58);
-        var_60 = wp::add(var_59, var_9);
-        var_61 = wp::add(var_60, var_49);
-        // C = R @ (rest_C - virtual_center) + virtual_center + t                                 <L 49>
-        var_62 = wp::sub(var_23, var_9);
-        var_63 = wp::mul(var_42, var_62);
-        var_64 = wp::add(var_63, var_9);
-        var_65 = wp::add(var_64, var_49);
-        // affine_target_dof[tid] = vec12d(O[0], O[1], O[2], A[0], A[1], A[2], B[0], B[1], B[2], C[0], C[1], C[2])       <L 50>
-        var_67 = wp::extract(var_53, var_66);
-        var_69 = wp::extract(var_53, var_68);
-        var_71 = wp::extract(var_53, var_70);
-        var_73 = wp::extract(var_57, var_72);
-        var_75 = wp::extract(var_57, var_74);
-        var_77 = wp::extract(var_57, var_76);
-        var_79 = wp::extract(var_61, var_78);
-        var_81 = wp::extract(var_61, var_80);
-        var_83 = wp::extract(var_61, var_82);
-        var_85 = wp::extract(var_65, var_84);
-        var_87 = wp::extract(var_65, var_86);
-        var_89 = wp::extract(var_65, var_88);
-        var_90 = wp::vec_t<12,wp::float64>({var_67, var_69, var_71, var_73, var_75, var_77, var_79, var_81, var_83, var_85, var_87, var_89});
-        // wp::array_store(var_affine_target_dof, var_0, var_90);
-        //---------
-        // reverse
-        wp::adj_array_store(var_affine_target_dof, var_0, var_90, adj_affine_target_dof, adj_0, adj_90);
-        wp::adj_vec_t({var_67, var_69, var_71, var_73, var_75, var_77, var_79, var_81, var_83, var_85, var_87, var_89}, {&adj_67, &adj_69, &adj_71, &adj_73, &adj_75, &adj_77, &adj_79, &adj_81, &adj_83, &adj_85, &adj_87, &adj_89}, adj_90);
-        wp::adj_extract(var_65, var_88, adj_65, adj_88, adj_89);
-        wp::adj_extract(var_65, var_86, adj_65, adj_86, adj_87);
-        wp::adj_extract(var_65, var_84, adj_65, adj_84, adj_85);
-        wp::adj_extract(var_61, var_82, adj_61, adj_82, adj_83);
-        wp::adj_extract(var_61, var_80, adj_61, adj_80, adj_81);
-        wp::adj_extract(var_61, var_78, adj_61, adj_78, adj_79);
-        wp::adj_extract(var_57, var_76, adj_57, adj_76, adj_77);
-        wp::adj_extract(var_57, var_74, adj_57, adj_74, adj_75);
-        wp::adj_extract(var_57, var_72, adj_57, adj_72, adj_73);
-        wp::adj_extract(var_53, var_70, adj_53, adj_70, adj_71);
-        wp::adj_extract(var_53, var_68, adj_53, adj_68, adj_69);
-        wp::adj_extract(var_53, var_66, adj_53, adj_66, adj_67);
-        // adj: affine_target_dof[tid] = vec12d(O[0], O[1], O[2], A[0], A[1], A[2], B[0], B[1], B[2], C[0], C[1], C[2])  <L 50>
-        wp::adj_add(var_64, var_49, adj_64, adj_49, adj_65);
-        wp::adj_add(var_63, var_9, adj_63, adj_9, adj_64);
-        wp::adj_mul(var_42, var_62, adj_42, adj_62, adj_63);
-        wp::adj_sub(var_23, var_9, adj_23, adj_9, adj_62);
-        // adj: C = R @ (rest_C - virtual_center) + virtual_center + t                            <L 49>
-        wp::adj_add(var_60, var_49, adj_60, adj_49, adj_61);
-        wp::adj_add(var_59, var_9, adj_59, adj_9, adj_60);
-        wp::adj_mul(var_42, var_58, adj_42, adj_58, adj_59);
-        wp::adj_sub(var_21, var_9, adj_21, adj_9, adj_58);
-        // adj: B = R @ (rest_B - virtual_center) + virtual_center + t                            <L 48>
-        wp::adj_add(var_56, var_49, adj_56, adj_49, adj_57);
-        wp::adj_add(var_55, var_9, adj_55, adj_9, adj_56);
-        wp::adj_mul(var_42, var_54, adj_42, adj_54, adj_55);
-        wp::adj_sub(var_19, var_9, adj_19, adj_9, adj_54);
-        // adj: A = R @ (rest_A - virtual_center) + virtual_center + t                            <L 47>
-        wp::adj_add(var_52, var_49, adj_52, adj_49, adj_53);
-        wp::adj_add(var_51, var_9, adj_51, adj_9, adj_52);
-        wp::adj_mul(var_42, var_50, adj_42, adj_50, adj_51);
-        wp::adj_sub(var_16, var_9, adj_16, adj_9, adj_50);
-        // adj: O = R @ (rest_O - virtual_center) + virtual_center + t                            <L 46>
-        wp::adj_vec_t(var_44, var_46, var_48, adj_44, adj_46, adj_48, adj_49);
-        wp::adj_extract(var_6, var_47, adj_6, adj_47, adj_48);
-        wp::adj_extract(var_6, var_45, adj_6, adj_45, adj_46);
-        wp::adj_extract(var_6, var_43, adj_6, adj_43, adj_44);
-        // adj: t = wp.vec3d(target_state[9], target_state[10], target_state[11])                 <L 45>
-        wp::adj_mat_t(var_25, var_27, var_29, var_31, var_33, var_35, var_37, var_39, var_41, adj_25, adj_27, adj_29, adj_31, adj_33, adj_35, adj_37, adj_39, adj_41, adj_42);
-        wp::adj_extract(var_6, var_40, adj_6, adj_40, adj_41);
-        // adj: target_state[8],                                                                  <L 43>
-        wp::adj_extract(var_6, var_38, adj_6, adj_38, adj_39);
-        // adj: target_state[7],                                                                  <L 42>
-        wp::adj_extract(var_6, var_36, adj_6, adj_36, adj_37);
-        // adj: target_state[6],                                                                  <L 41>
-        wp::adj_extract(var_6, var_34, adj_6, adj_34, adj_35);
-        // adj: target_state[5],                                                                  <L 40>
-        wp::adj_extract(var_6, var_32, adj_6, adj_32, adj_33);
-        // adj: target_state[4],                                                                  <L 39>
-        wp::adj_extract(var_6, var_30, adj_6, adj_30, adj_31);
-        // adj: target_state[3],                                                                  <L 38>
-        wp::adj_extract(var_6, var_28, adj_6, adj_28, adj_29);
-        // adj: target_state[2],                                                                  <L 37>
-        wp::adj_extract(var_6, var_26, adj_6, adj_26, adj_27);
-        // adj: target_state[1],                                                                  <L 36>
-        wp::adj_extract(var_6, var_24, adj_6, adj_24, adj_25);
-        // adj: target_state[0],                                                                  <L 35>
-        // adj: R = wp.mat33d(                                                                    <L 34>
-        wp::adj_add(var_16, var_22, adj_16, adj_22, adj_23);
-        wp::adj_vec_t(var_12, var_12, var_14, adj_12, adj_12, adj_14, adj_22);
-        // adj: rest_C = rest_O + wp.vec3d(_0, _0, _1)                                            <L 33>
-        wp::adj_add(var_16, var_20, adj_16, adj_20, adj_21);
-        wp::adj_vec_t(var_12, var_14, var_12, adj_12, adj_14, adj_12, adj_20);
-        // adj: rest_B = rest_O + wp.vec3d(_0, _1, _0)                                            <L 32>
-        wp::adj_add(var_16, var_18, adj_16, adj_18, adj_19);
-        wp::adj_vec_t(var_14, var_12, var_12, adj_14, adj_12, adj_12, adj_18);
-        // adj: rest_A = rest_O + wp.vec3d(_1, _0, _0)                                            <L 31>
-        wp::adj_copy(var_17, adj_15, adj_16);
-        wp::adj_load(var_15, adj_15, adj_17);
-        wp::adj_address(var_ABD_centers, var_0, adj_ABD_centers, adj_0, adj_15);
-        // adj: rest_O = ABD_centers[tid]                                                         <L 30>
-        wp::adj_float64(var_13, adj_13, adj_14);
-        // adj: _1 = wp.float64(1.0)                                                              <L 29>
-        wp::adj_float64(var_11, adj_11, adj_12);
-        // adj: _0 = wp.float64(0.0)                                                              <L 28>
-        wp::adj_copy(var_10, adj_8, adj_9);
-        wp::adj_load(var_8, adj_8, adj_10);
-        wp::adj_address(var_virtual_object_centers, var_0, adj_virtual_object_centers, adj_0, adj_8);
-        // adj: virtual_center = virtual_object_centers[tid]                                      <L 27>
-        wp::adj_copy(var_7, adj_5, adj_6);
-        wp::adj_load(var_5, adj_5, adj_7);
-        wp::adj_address(var_affine_kinematic_target_pose, var_0, adj_affine_kinematic_target_pose, adj_0, adj_5);
-        // adj: target_state = affine_kinematic_target_pose[tid]                                  <L 26>
-        if (var_3) {
-            label0:;
-            // adj: return                                                                        <L 25>
-        }
-        wp::adj_load(var_1, adj_1, adj_4);
-        wp::adj_address(var_affine_has_constraint, var_0, adj_affine_has_constraint, adj_0, adj_1);
-        // adj: if affine_has_constraint[tid] == False:                                           <L 24>
-        // adj: tid = wp.tid()                                                                    <L 23>
-        // adj: def init_affine_kinematic_target_kernel(                                          <L 16>
         continue;
     }
 }

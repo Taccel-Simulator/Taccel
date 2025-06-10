@@ -1,0 +1,5 @@
+<project toolsVersion="5.0">
+  <dependency name="linbuild" linkPath="../_build/host-deps/linbuild">
+    <package name="linbuild" version="3.3.3-${platform}" platforms="linux-x86_64 linux-aarch64" />
+  </dependency>
+</project>

@@ -1,0 +1,100 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# This CODEOWNERS file is only used on the internal GitLab
+# Ordering matters: https://docs.gitlab.com/ee/user/project/codeowners/#define-more-specific-owners-for-more-specifically-defined-files-or-directories
+
+# At present this is the only required approval. The rest are optional (^).
+[Public API] @mmacklin
+/warp/__init__.py
+/warp/stubs.py
+/warp/constants.py
+
+^[CI/CD] @ershi @ncapens
+/.github/
+/.gitlab/
+/warp/thirdparty/unittest_parallel.py
+/.gitlab-ci.yml
+/.pre-commit-config.yaml
+.gitignore
+.gitattributes
+
+^[Docs and Examples] @mmacklin @ershi
+/docs/
+/warp/examples/
+/licenses/
+/README.md
+/SECURITY.md
+
+^[Code Generation] @ncapens @mmacklin
+/warp/codegen.py
+
+^[Build and Deployment] @ncapens @lwawrzyniak
+/warp/build.py
+/warp/build_dll.py
+/CONTRIBUTING.md
+/build_docs.py
+/build_lib.py
+/build_llvm.py
+/PACKAGING.md
+/pyproject.toml
+/repo.toml
+/setup.py
+/VERSION.md
+/tools/
+/deps/
+
+^[Simulation Module] @eheiden @mmacklin
+/warp/sim/
+/warp/examples/sim/
+/warp/optim/sgd.py
+/warp/render/render_opengl.py
+/warp/render/utils.py
+
+^[FEM Module] @gdaviet
+/warp/fem/
+/warp/examples/fem/
+/warp/tests/test_fem.py
+
+^[Linear Algebra] @gdaviet
+/warp/optim/linear.py
+/warp/sparse.py
+/warp/tests/test_linear_solvers.py
+/warp/tests/test_sparse.py
+
+^[Native C++/CUDA] @mmacklin @lwawrzyniak @ncapens
+/warp/native/
+
+^[Volumes] @gdaviet @gklar
+/warp/native/nanovdb/
+/warp/native/volume*
+/warp/tests/test_volume_write.py
+/warp/tests/test_volume.py
+
+^[Kit Extensions] @ccrouzet @zcorse
+/exts/
+/warp/render/render_usd.py
+
+^[Interoperability] @lwawrzyniak @zcorse
+/warp/dlpack.py
+/warp/jax_experimental.py
+/warp/jax.py
+/warp/fabric.py
+/warp/torch.py
+/warp/thirdparty/dlpack.py
+/warp/tests/test_dlpack.py
+/warp/tests/test_jax.py
+/warp/tests/test_torch.py
+/warp/tests/test_fabricarray.py

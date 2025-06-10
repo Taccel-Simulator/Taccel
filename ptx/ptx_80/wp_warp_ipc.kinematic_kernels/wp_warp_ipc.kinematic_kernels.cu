@@ -414,495 +414,6 @@ extern "C" __global__ void update_dof_satisfied_kernel_cuda_kernel_backward(
 
 
 
-extern "C" __global__ void check_is_satisfied_kernel_cuda_kernel_forward(
-    wp::launch_bounds_t dim,
-    wp::array_t<bool> var_y_target_reached,
-    wp::array_t<bool> var_y_has_constraint,
-    wp::array_t<bool> var_x_target_reached,
-    wp::array_t<bool> var_x_has_constraint,
-    wp::array_t<bool> var_satisfied_val,
-    wp::int32 var_affine_verts_num,
-    wp::array_t<wp::int32> var_body_env_id,
-    wp::array_t<wp::int32> var_node2env,
-    wp::array_t<wp::int32> var_env_states)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        const wp::int32 var_1 = 0;
-        wp::shape_t* var_2;
-        wp::int32 var_3;
-        wp::shape_t var_4;
-        bool var_5;
-        bool* var_6;
-        bool var_7;
-        bool var_8;
-        wp::int32* var_9;
-        wp::int32* var_10;
-        wp::int32 var_11;
-        const wp::int32 var_12 = 1;
-        bool var_13;
-        wp::int32 var_14;
-        wp::int32* var_15;
-        wp::int32* var_16;
-        wp::int32 var_17;
-        const wp::int32 var_18 = 2;
-        bool var_19;
-        wp::int32 var_20;
-        bool var_21;
-        bool var_22;
-        bool* var_23;
-        bool var_24;
-        bool var_25;
-        const bool var_26 = false;
-        wp::int32* var_27;
-        wp::int32 var_28;
-        const wp::int32 var_29 = 0;
-        wp::shape_t* var_30;
-        wp::int32 var_31;
-        wp::shape_t var_32;
-        wp::int32 var_33;
-        bool* var_34;
-        bool var_35;
-        bool var_36;
-        wp::int32 var_37;
-        wp::int32* var_38;
-        wp::int32* var_39;
-        wp::int32 var_40;
-        bool var_41;
-        wp::int32 var_42;
-        wp::int32 var_43;
-        wp::int32* var_44;
-        wp::int32* var_45;
-        wp::int32 var_46;
-        bool var_47;
-        wp::int32 var_48;
-        bool var_49;
-        bool var_50;
-        bool* var_51;
-        bool var_52;
-        bool var_53;
-        const bool var_54 = false;
-        wp::int32 var_55;
-        wp::int32* var_56;
-        wp::int32 var_57;
-        wp::int32 var_58;
-        //---------
-        // forward
-        // def check_is_satisfied_kernel(                                                         <L 67>
-        // tid = wp.tid()                                                                         <L 78>
-        var_0 = builtin_tid1d();
-        // if tid < y_target_reached.shape[0]:                                                    <L 79>
-        var_2 = &(var_y_target_reached.shape);
-        var_4 = wp::load(var_2);
-        var_3 = wp::extract(var_4, var_1);
-        var_5 = (var_0 < var_3);
-        if (var_5) {
-            // if not y_has_constraint[tid] or (                                                  <L 80>
-            var_6 = wp::address(var_y_has_constraint, var_0);
-            var_8 = wp::load(var_6);
-            var_7 = wp::unot(var_8);
-            // (env_states[body_env_id[tid]] == ENV_STATE_INVALID) or (env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED)       <L 81>
-            var_9 = wp::address(var_body_env_id, var_0);
-            var_11 = wp::load(var_9);
-            var_10 = wp::address(var_env_states, var_11);
-            var_14 = wp::load(var_10);
-            var_13 = (var_14 == var_12);
-            var_15 = wp::address(var_body_env_id, var_0);
-            var_17 = wp::load(var_15);
-            var_16 = wp::address(var_env_states, var_17);
-            var_20 = wp::load(var_16);
-            var_19 = (var_20 == var_18);
-            var_21 = var_13 || var_19;
-            var_22 = var_7 || var_21;
-            if (var_22) {
-                // return                                                                         <L 83>
-                continue;
-            }
-            // if not y_target_reached[tid]:                                                      <L 84>
-            var_23 = wp::address(var_y_target_reached, var_0);
-            var_25 = wp::load(var_23);
-            var_24 = wp::unot(var_25);
-            if (var_24) {
-                // satisfied_val[body_env_id[tid]] = False                                        <L 85>
-                var_27 = wp::address(var_body_env_id, var_0);
-                var_28 = wp::load(var_27);
-                wp::array_store(var_satisfied_val, var_28, var_26);
-            }
-        }
-        if (!var_5) {
-            // tid -= y_target_reached.shape[0]                                                   <L 87>
-            var_30 = &(var_y_target_reached.shape);
-            var_32 = wp::load(var_30);
-            var_31 = wp::extract(var_32, var_29);
-            var_33 = wp::sub(var_0, var_31);
-            // if not x_has_constraint[tid] or (                                                  <L 88>
-            var_34 = wp::address(var_x_has_constraint, var_33);
-            var_36 = wp::load(var_34);
-            var_35 = wp::unot(var_36);
-            // (env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID)                <L 89>
-            var_37 = wp::add(var_33, var_affine_verts_num);
-            var_38 = wp::address(var_node2env, var_37);
-            var_40 = wp::load(var_38);
-            var_39 = wp::address(var_env_states, var_40);
-            var_42 = wp::load(var_39);
-            var_41 = (var_42 == var_12);
-            // or (env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED)       <L 90>
-            var_43 = wp::add(var_33, var_affine_verts_num);
-            var_44 = wp::address(var_node2env, var_43);
-            var_46 = wp::load(var_44);
-            var_45 = wp::address(var_env_states, var_46);
-            var_48 = wp::load(var_45);
-            var_47 = (var_48 == var_18);
-            var_49 = var_41 || var_47;
-            var_50 = var_35 || var_49;
-            if (var_50) {
-                // return                                                                         <L 92>
-                continue;
-            }
-            // if not x_target_reached[tid]:                                                      <L 93>
-            var_51 = wp::address(var_x_target_reached, var_33);
-            var_53 = wp::load(var_51);
-            var_52 = wp::unot(var_53);
-            if (var_52) {
-                // satisfied_val[node2env[tid + affine_verts_num]] = False                        <L 94>
-                var_55 = wp::add(var_33, var_affine_verts_num);
-                var_56 = wp::address(var_node2env, var_55);
-                var_57 = wp::load(var_56);
-                wp::array_store(var_satisfied_val, var_57, var_54);
-            }
-        }
-        var_58 = wp::where(var_5, var_0, var_33);
-    }
-}
-
-
-
-extern "C" __global__ void check_is_satisfied_kernel_cuda_kernel_backward(
-    wp::launch_bounds_t dim,
-    wp::array_t<bool> var_y_target_reached,
-    wp::array_t<bool> var_y_has_constraint,
-    wp::array_t<bool> var_x_target_reached,
-    wp::array_t<bool> var_x_has_constraint,
-    wp::array_t<bool> var_satisfied_val,
-    wp::int32 var_affine_verts_num,
-    wp::array_t<wp::int32> var_body_env_id,
-    wp::array_t<wp::int32> var_node2env,
-    wp::array_t<wp::int32> var_env_states,
-    wp::array_t<bool> adj_y_target_reached,
-    wp::array_t<bool> adj_y_has_constraint,
-    wp::array_t<bool> adj_x_target_reached,
-    wp::array_t<bool> adj_x_has_constraint,
-    wp::array_t<bool> adj_satisfied_val,
-    wp::int32 adj_affine_verts_num,
-    wp::array_t<wp::int32> adj_body_env_id,
-    wp::array_t<wp::int32> adj_node2env,
-    wp::array_t<wp::int32> adj_env_states)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        const wp::int32 var_1 = 0;
-        wp::shape_t* var_2;
-        wp::int32 var_3;
-        wp::shape_t var_4;
-        bool var_5;
-        bool* var_6;
-        bool var_7;
-        bool var_8;
-        wp::int32* var_9;
-        wp::int32* var_10;
-        wp::int32 var_11;
-        const wp::int32 var_12 = 1;
-        bool var_13;
-        wp::int32 var_14;
-        wp::int32* var_15;
-        wp::int32* var_16;
-        wp::int32 var_17;
-        const wp::int32 var_18 = 2;
-        bool var_19;
-        wp::int32 var_20;
-        bool var_21;
-        bool var_22;
-        bool* var_23;
-        bool var_24;
-        bool var_25;
-        const bool var_26 = false;
-        wp::int32* var_27;
-        wp::int32 var_28;
-        const wp::int32 var_29 = 0;
-        wp::shape_t* var_30;
-        wp::int32 var_31;
-        wp::shape_t var_32;
-        wp::int32 var_33;
-        bool* var_34;
-        bool var_35;
-        bool var_36;
-        wp::int32 var_37;
-        wp::int32* var_38;
-        wp::int32* var_39;
-        wp::int32 var_40;
-        bool var_41;
-        wp::int32 var_42;
-        wp::int32 var_43;
-        wp::int32* var_44;
-        wp::int32* var_45;
-        wp::int32 var_46;
-        bool var_47;
-        wp::int32 var_48;
-        bool var_49;
-        bool var_50;
-        bool* var_51;
-        bool var_52;
-        bool var_53;
-        const bool var_54 = false;
-        wp::int32 var_55;
-        wp::int32* var_56;
-        wp::int32 var_57;
-        wp::int32 var_58;
-        //---------
-        // dual vars
-        wp::int32 adj_0 = {};
-        wp::int32 adj_1 = {};
-        wp::shape_t adj_2 = {};
-        wp::int32 adj_3 = {};
-        wp::shape_t adj_4 = {};
-        bool adj_5 = {};
-        bool adj_6 = {};
-        bool adj_7 = {};
-        bool adj_8 = {};
-        wp::int32 adj_9 = {};
-        wp::int32 adj_10 = {};
-        wp::int32 adj_11 = {};
-        wp::int32 adj_12 = {};
-        bool adj_13 = {};
-        wp::int32 adj_14 = {};
-        wp::int32 adj_15 = {};
-        wp::int32 adj_16 = {};
-        wp::int32 adj_17 = {};
-        wp::int32 adj_18 = {};
-        bool adj_19 = {};
-        wp::int32 adj_20 = {};
-        bool adj_21 = {};
-        bool adj_22 = {};
-        bool adj_23 = {};
-        bool adj_24 = {};
-        bool adj_25 = {};
-        bool adj_26 = {};
-        wp::int32 adj_27 = {};
-        wp::int32 adj_28 = {};
-        wp::int32 adj_29 = {};
-        wp::shape_t adj_30 = {};
-        wp::int32 adj_31 = {};
-        wp::shape_t adj_32 = {};
-        wp::int32 adj_33 = {};
-        bool adj_34 = {};
-        bool adj_35 = {};
-        bool adj_36 = {};
-        wp::int32 adj_37 = {};
-        wp::int32 adj_38 = {};
-        wp::int32 adj_39 = {};
-        wp::int32 adj_40 = {};
-        bool adj_41 = {};
-        wp::int32 adj_42 = {};
-        wp::int32 adj_43 = {};
-        wp::int32 adj_44 = {};
-        wp::int32 adj_45 = {};
-        wp::int32 adj_46 = {};
-        bool adj_47 = {};
-        wp::int32 adj_48 = {};
-        bool adj_49 = {};
-        bool adj_50 = {};
-        bool adj_51 = {};
-        bool adj_52 = {};
-        bool adj_53 = {};
-        bool adj_54 = {};
-        wp::int32 adj_55 = {};
-        wp::int32 adj_56 = {};
-        wp::int32 adj_57 = {};
-        wp::int32 adj_58 = {};
-        //---------
-        // forward
-        // def check_is_satisfied_kernel(                                                         <L 67>
-        // tid = wp.tid()                                                                         <L 78>
-        var_0 = builtin_tid1d();
-        // if tid < y_target_reached.shape[0]:                                                    <L 79>
-        var_2 = &(var_y_target_reached.shape);
-        var_4 = wp::load(var_2);
-        var_3 = wp::extract(var_4, var_1);
-        var_5 = (var_0 < var_3);
-        if (var_5) {
-            // if not y_has_constraint[tid] or (                                                  <L 80>
-            var_6 = wp::address(var_y_has_constraint, var_0);
-            var_8 = wp::load(var_6);
-            var_7 = wp::unot(var_8);
-            // (env_states[body_env_id[tid]] == ENV_STATE_INVALID) or (env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED)       <L 81>
-            var_9 = wp::address(var_body_env_id, var_0);
-            var_11 = wp::load(var_9);
-            var_10 = wp::address(var_env_states, var_11);
-            var_14 = wp::load(var_10);
-            var_13 = (var_14 == var_12);
-            var_15 = wp::address(var_body_env_id, var_0);
-            var_17 = wp::load(var_15);
-            var_16 = wp::address(var_env_states, var_17);
-            var_20 = wp::load(var_16);
-            var_19 = (var_20 == var_18);
-            var_21 = var_13 || var_19;
-            var_22 = var_7 || var_21;
-            if (var_22) {
-                // return                                                                         <L 83>
-                goto label0;
-            }
-            // if not y_target_reached[tid]:                                                      <L 84>
-            var_23 = wp::address(var_y_target_reached, var_0);
-            var_25 = wp::load(var_23);
-            var_24 = wp::unot(var_25);
-            if (var_24) {
-                // satisfied_val[body_env_id[tid]] = False                                        <L 85>
-                var_27 = wp::address(var_body_env_id, var_0);
-                var_28 = wp::load(var_27);
-                // wp::array_store(var_satisfied_val, var_28, var_26);
-            }
-        }
-        if (!var_5) {
-            // tid -= y_target_reached.shape[0]                                                   <L 87>
-            var_30 = &(var_y_target_reached.shape);
-            var_32 = wp::load(var_30);
-            var_31 = wp::extract(var_32, var_29);
-            var_33 = wp::sub(var_0, var_31);
-            // if not x_has_constraint[tid] or (                                                  <L 88>
-            var_34 = wp::address(var_x_has_constraint, var_33);
-            var_36 = wp::load(var_34);
-            var_35 = wp::unot(var_36);
-            // (env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID)                <L 89>
-            var_37 = wp::add(var_33, var_affine_verts_num);
-            var_38 = wp::address(var_node2env, var_37);
-            var_40 = wp::load(var_38);
-            var_39 = wp::address(var_env_states, var_40);
-            var_42 = wp::load(var_39);
-            var_41 = (var_42 == var_12);
-            // or (env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED)       <L 90>
-            var_43 = wp::add(var_33, var_affine_verts_num);
-            var_44 = wp::address(var_node2env, var_43);
-            var_46 = wp::load(var_44);
-            var_45 = wp::address(var_env_states, var_46);
-            var_48 = wp::load(var_45);
-            var_47 = (var_48 == var_18);
-            var_49 = var_41 || var_47;
-            var_50 = var_35 || var_49;
-            if (var_50) {
-                // return                                                                         <L 92>
-                goto label1;
-            }
-            // if not x_target_reached[tid]:                                                      <L 93>
-            var_51 = wp::address(var_x_target_reached, var_33);
-            var_53 = wp::load(var_51);
-            var_52 = wp::unot(var_53);
-            if (var_52) {
-                // satisfied_val[node2env[tid + affine_verts_num]] = False                        <L 94>
-                var_55 = wp::add(var_33, var_affine_verts_num);
-                var_56 = wp::address(var_node2env, var_55);
-                var_57 = wp::load(var_56);
-                // wp::array_store(var_satisfied_val, var_57, var_54);
-            }
-        }
-        var_58 = wp::where(var_5, var_0, var_33);
-        //---------
-        // reverse
-        wp::adj_where(var_5, var_0, var_33, adj_5, adj_0, adj_33, adj_58);
-        if (!var_5) {
-            if (var_52) {
-                wp::adj_array_store(var_satisfied_val, var_57, var_54, adj_satisfied_val, adj_56, adj_54);
-                wp::adj_load(var_56, adj_56, adj_57);
-                wp::adj_address(var_node2env, var_55, adj_node2env, adj_55, adj_56);
-                wp::adj_add(var_33, var_affine_verts_num, adj_33, adj_affine_verts_num, adj_55);
-                // adj: satisfied_val[node2env[tid + affine_verts_num]] = False                   <L 94>
-            }
-            wp::adj_unot(var_53, adj_51, adj_52);
-            wp::adj_load(var_51, adj_51, adj_53);
-            wp::adj_address(var_x_target_reached, var_33, adj_x_target_reached, adj_33, adj_51);
-            // adj: if not x_target_reached[tid]:                                                 <L 93>
-            if (var_50) {
-                label1:;
-                // adj: return                                                                    <L 92>
-            }
-            wp::adj_load(var_45, adj_45, adj_48);
-            wp::adj_address(var_env_states, var_46, adj_env_states, adj_44, adj_45);
-            wp::adj_load(var_44, adj_44, adj_46);
-            wp::adj_address(var_node2env, var_43, adj_node2env, adj_43, adj_44);
-            wp::adj_add(var_33, var_affine_verts_num, adj_33, adj_affine_verts_num, adj_43);
-            // adj: or (env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED)  <L 90>
-            wp::adj_load(var_39, adj_39, adj_42);
-            wp::adj_address(var_env_states, var_40, adj_env_states, adj_38, adj_39);
-            wp::adj_load(var_38, adj_38, adj_40);
-            wp::adj_address(var_node2env, var_37, adj_node2env, adj_37, adj_38);
-            wp::adj_add(var_33, var_affine_verts_num, adj_33, adj_affine_verts_num, adj_37);
-            // adj: (env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID)           <L 89>
-            wp::adj_unot(var_36, adj_34, adj_35);
-            wp::adj_load(var_34, adj_34, adj_36);
-            wp::adj_address(var_x_has_constraint, var_33, adj_x_has_constraint, adj_33, adj_34);
-            // adj: if not x_has_constraint[tid] or (                                             <L 88>
-            wp::adj_sub(var_0, var_31, adj_0, adj_31, adj_33);
-            wp::adj_extract(var_32, var_29, adj_30, adj_29, adj_31);
-            wp::adj_load(var_30, adj_30, adj_32);
-            adj_y_target_reached.shape = adj_30;
-            // adj: tid -= y_target_reached.shape[0]                                              <L 87>
-        }
-        if (var_5) {
-            if (var_24) {
-                wp::adj_array_store(var_satisfied_val, var_28, var_26, adj_satisfied_val, adj_27, adj_26);
-                wp::adj_load(var_27, adj_27, adj_28);
-                wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_27);
-                // adj: satisfied_val[body_env_id[tid]] = False                                   <L 85>
-            }
-            wp::adj_unot(var_25, adj_23, adj_24);
-            wp::adj_load(var_23, adj_23, adj_25);
-            wp::adj_address(var_y_target_reached, var_0, adj_y_target_reached, adj_0, adj_23);
-            // adj: if not y_target_reached[tid]:                                                 <L 84>
-            if (var_22) {
-                label0:;
-                // adj: return                                                                    <L 83>
-            }
-            wp::adj_load(var_16, adj_16, adj_20);
-            wp::adj_address(var_env_states, var_17, adj_env_states, adj_15, adj_16);
-            wp::adj_load(var_15, adj_15, adj_17);
-            wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_15);
-            wp::adj_load(var_10, adj_10, adj_14);
-            wp::adj_address(var_env_states, var_11, adj_env_states, adj_9, adj_10);
-            wp::adj_load(var_9, adj_9, adj_11);
-            wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_9);
-            // adj: (env_states[body_env_id[tid]] == ENV_STATE_INVALID) or (env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED)  <L 81>
-            wp::adj_unot(var_8, adj_6, adj_7);
-            wp::adj_load(var_6, adj_6, adj_8);
-            wp::adj_address(var_y_has_constraint, var_0, adj_y_has_constraint, adj_0, adj_6);
-            // adj: if not y_has_constraint[tid] or (                                             <L 80>
-        }
-        wp::adj_extract(var_4, var_1, adj_2, adj_1, adj_3);
-        wp::adj_load(var_2, adj_2, adj_4);
-        adj_y_target_reached.shape = adj_2;
-        // adj: if tid < y_target_reached.shape[0]:                                               <L 79>
-        // adj: tid = wp.tid()                                                                    <L 78>
-        // adj: def check_is_satisfied_kernel(                                                    <L 67>
-        continue;
-    }
-}
-
-
-
 extern "C" __global__ void project_system_kernel_cuda_kernel_forward(
     wp::launch_bounds_t dim,
     wp::array_t<wp::int32> var_offsets,
@@ -1542,6 +1053,495 @@ extern "C" __global__ void project_system_kernel_cuda_kernel_backward(
         // adj: project_row = wp.bool(0)                                                          <L 42>
         // adj: row_idx = wp.tid()                                                                <L 41>
         // adj: def project_system_kernel(                                                        <L 33>
+        continue;
+    }
+}
+
+
+
+extern "C" __global__ void check_is_satisfied_kernel_cuda_kernel_forward(
+    wp::launch_bounds_t dim,
+    wp::array_t<bool> var_y_target_reached,
+    wp::array_t<bool> var_y_has_constraint,
+    wp::array_t<bool> var_x_target_reached,
+    wp::array_t<bool> var_x_has_constraint,
+    wp::array_t<bool> var_satisfied_val,
+    wp::int32 var_affine_verts_num,
+    wp::array_t<wp::int32> var_body_env_id,
+    wp::array_t<wp::int32> var_node2env,
+    wp::array_t<wp::int32> var_env_states)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        const wp::int32 var_1 = 0;
+        wp::shape_t* var_2;
+        wp::int32 var_3;
+        wp::shape_t var_4;
+        bool var_5;
+        bool* var_6;
+        bool var_7;
+        bool var_8;
+        wp::int32* var_9;
+        wp::int32* var_10;
+        wp::int32 var_11;
+        const wp::int32 var_12 = 1;
+        bool var_13;
+        wp::int32 var_14;
+        wp::int32* var_15;
+        wp::int32* var_16;
+        wp::int32 var_17;
+        const wp::int32 var_18 = 2;
+        bool var_19;
+        wp::int32 var_20;
+        bool var_21;
+        bool var_22;
+        bool* var_23;
+        bool var_24;
+        bool var_25;
+        const bool var_26 = false;
+        wp::int32* var_27;
+        wp::int32 var_28;
+        const wp::int32 var_29 = 0;
+        wp::shape_t* var_30;
+        wp::int32 var_31;
+        wp::shape_t var_32;
+        wp::int32 var_33;
+        bool* var_34;
+        bool var_35;
+        bool var_36;
+        wp::int32 var_37;
+        wp::int32* var_38;
+        wp::int32* var_39;
+        wp::int32 var_40;
+        bool var_41;
+        wp::int32 var_42;
+        wp::int32 var_43;
+        wp::int32* var_44;
+        wp::int32* var_45;
+        wp::int32 var_46;
+        bool var_47;
+        wp::int32 var_48;
+        bool var_49;
+        bool var_50;
+        bool* var_51;
+        bool var_52;
+        bool var_53;
+        const bool var_54 = false;
+        wp::int32 var_55;
+        wp::int32* var_56;
+        wp::int32 var_57;
+        wp::int32 var_58;
+        //---------
+        // forward
+        // def check_is_satisfied_kernel(                                                         <L 67>
+        // tid = wp.tid()                                                                         <L 78>
+        var_0 = builtin_tid1d();
+        // if tid < y_target_reached.shape[0]:                                                    <L 79>
+        var_2 = &(var_y_target_reached.shape);
+        var_4 = wp::load(var_2);
+        var_3 = wp::extract(var_4, var_1);
+        var_5 = (var_0 < var_3);
+        if (var_5) {
+            // if not y_has_constraint[tid] or (                                                  <L 80>
+            var_6 = wp::address(var_y_has_constraint, var_0);
+            var_8 = wp::load(var_6);
+            var_7 = wp::unot(var_8);
+            // (env_states[body_env_id[tid]] == ENV_STATE_INVALID) or (env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED)       <L 81>
+            var_9 = wp::address(var_body_env_id, var_0);
+            var_11 = wp::load(var_9);
+            var_10 = wp::address(var_env_states, var_11);
+            var_14 = wp::load(var_10);
+            var_13 = (var_14 == var_12);
+            var_15 = wp::address(var_body_env_id, var_0);
+            var_17 = wp::load(var_15);
+            var_16 = wp::address(var_env_states, var_17);
+            var_20 = wp::load(var_16);
+            var_19 = (var_20 == var_18);
+            var_21 = var_13 || var_19;
+            var_22 = var_7 || var_21;
+            if (var_22) {
+                // return                                                                         <L 83>
+                continue;
+            }
+            // if not y_target_reached[tid]:                                                      <L 84>
+            var_23 = wp::address(var_y_target_reached, var_0);
+            var_25 = wp::load(var_23);
+            var_24 = wp::unot(var_25);
+            if (var_24) {
+                // satisfied_val[body_env_id[tid]] = False                                        <L 85>
+                var_27 = wp::address(var_body_env_id, var_0);
+                var_28 = wp::load(var_27);
+                wp::array_store(var_satisfied_val, var_28, var_26);
+            }
+        }
+        if (!var_5) {
+            // tid -= y_target_reached.shape[0]                                                   <L 87>
+            var_30 = &(var_y_target_reached.shape);
+            var_32 = wp::load(var_30);
+            var_31 = wp::extract(var_32, var_29);
+            var_33 = wp::sub(var_0, var_31);
+            // if not x_has_constraint[tid] or (                                                  <L 88>
+            var_34 = wp::address(var_x_has_constraint, var_33);
+            var_36 = wp::load(var_34);
+            var_35 = wp::unot(var_36);
+            // (env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID)                <L 89>
+            var_37 = wp::add(var_33, var_affine_verts_num);
+            var_38 = wp::address(var_node2env, var_37);
+            var_40 = wp::load(var_38);
+            var_39 = wp::address(var_env_states, var_40);
+            var_42 = wp::load(var_39);
+            var_41 = (var_42 == var_12);
+            // or (env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED)       <L 90>
+            var_43 = wp::add(var_33, var_affine_verts_num);
+            var_44 = wp::address(var_node2env, var_43);
+            var_46 = wp::load(var_44);
+            var_45 = wp::address(var_env_states, var_46);
+            var_48 = wp::load(var_45);
+            var_47 = (var_48 == var_18);
+            var_49 = var_41 || var_47;
+            var_50 = var_35 || var_49;
+            if (var_50) {
+                // return                                                                         <L 92>
+                continue;
+            }
+            // if not x_target_reached[tid]:                                                      <L 93>
+            var_51 = wp::address(var_x_target_reached, var_33);
+            var_53 = wp::load(var_51);
+            var_52 = wp::unot(var_53);
+            if (var_52) {
+                // satisfied_val[node2env[tid + affine_verts_num]] = False                        <L 94>
+                var_55 = wp::add(var_33, var_affine_verts_num);
+                var_56 = wp::address(var_node2env, var_55);
+                var_57 = wp::load(var_56);
+                wp::array_store(var_satisfied_val, var_57, var_54);
+            }
+        }
+        var_58 = wp::where(var_5, var_0, var_33);
+    }
+}
+
+
+
+extern "C" __global__ void check_is_satisfied_kernel_cuda_kernel_backward(
+    wp::launch_bounds_t dim,
+    wp::array_t<bool> var_y_target_reached,
+    wp::array_t<bool> var_y_has_constraint,
+    wp::array_t<bool> var_x_target_reached,
+    wp::array_t<bool> var_x_has_constraint,
+    wp::array_t<bool> var_satisfied_val,
+    wp::int32 var_affine_verts_num,
+    wp::array_t<wp::int32> var_body_env_id,
+    wp::array_t<wp::int32> var_node2env,
+    wp::array_t<wp::int32> var_env_states,
+    wp::array_t<bool> adj_y_target_reached,
+    wp::array_t<bool> adj_y_has_constraint,
+    wp::array_t<bool> adj_x_target_reached,
+    wp::array_t<bool> adj_x_has_constraint,
+    wp::array_t<bool> adj_satisfied_val,
+    wp::int32 adj_affine_verts_num,
+    wp::array_t<wp::int32> adj_body_env_id,
+    wp::array_t<wp::int32> adj_node2env,
+    wp::array_t<wp::int32> adj_env_states)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        const wp::int32 var_1 = 0;
+        wp::shape_t* var_2;
+        wp::int32 var_3;
+        wp::shape_t var_4;
+        bool var_5;
+        bool* var_6;
+        bool var_7;
+        bool var_8;
+        wp::int32* var_9;
+        wp::int32* var_10;
+        wp::int32 var_11;
+        const wp::int32 var_12 = 1;
+        bool var_13;
+        wp::int32 var_14;
+        wp::int32* var_15;
+        wp::int32* var_16;
+        wp::int32 var_17;
+        const wp::int32 var_18 = 2;
+        bool var_19;
+        wp::int32 var_20;
+        bool var_21;
+        bool var_22;
+        bool* var_23;
+        bool var_24;
+        bool var_25;
+        const bool var_26 = false;
+        wp::int32* var_27;
+        wp::int32 var_28;
+        const wp::int32 var_29 = 0;
+        wp::shape_t* var_30;
+        wp::int32 var_31;
+        wp::shape_t var_32;
+        wp::int32 var_33;
+        bool* var_34;
+        bool var_35;
+        bool var_36;
+        wp::int32 var_37;
+        wp::int32* var_38;
+        wp::int32* var_39;
+        wp::int32 var_40;
+        bool var_41;
+        wp::int32 var_42;
+        wp::int32 var_43;
+        wp::int32* var_44;
+        wp::int32* var_45;
+        wp::int32 var_46;
+        bool var_47;
+        wp::int32 var_48;
+        bool var_49;
+        bool var_50;
+        bool* var_51;
+        bool var_52;
+        bool var_53;
+        const bool var_54 = false;
+        wp::int32 var_55;
+        wp::int32* var_56;
+        wp::int32 var_57;
+        wp::int32 var_58;
+        //---------
+        // dual vars
+        wp::int32 adj_0 = {};
+        wp::int32 adj_1 = {};
+        wp::shape_t adj_2 = {};
+        wp::int32 adj_3 = {};
+        wp::shape_t adj_4 = {};
+        bool adj_5 = {};
+        bool adj_6 = {};
+        bool adj_7 = {};
+        bool adj_8 = {};
+        wp::int32 adj_9 = {};
+        wp::int32 adj_10 = {};
+        wp::int32 adj_11 = {};
+        wp::int32 adj_12 = {};
+        bool adj_13 = {};
+        wp::int32 adj_14 = {};
+        wp::int32 adj_15 = {};
+        wp::int32 adj_16 = {};
+        wp::int32 adj_17 = {};
+        wp::int32 adj_18 = {};
+        bool adj_19 = {};
+        wp::int32 adj_20 = {};
+        bool adj_21 = {};
+        bool adj_22 = {};
+        bool adj_23 = {};
+        bool adj_24 = {};
+        bool adj_25 = {};
+        bool adj_26 = {};
+        wp::int32 adj_27 = {};
+        wp::int32 adj_28 = {};
+        wp::int32 adj_29 = {};
+        wp::shape_t adj_30 = {};
+        wp::int32 adj_31 = {};
+        wp::shape_t adj_32 = {};
+        wp::int32 adj_33 = {};
+        bool adj_34 = {};
+        bool adj_35 = {};
+        bool adj_36 = {};
+        wp::int32 adj_37 = {};
+        wp::int32 adj_38 = {};
+        wp::int32 adj_39 = {};
+        wp::int32 adj_40 = {};
+        bool adj_41 = {};
+        wp::int32 adj_42 = {};
+        wp::int32 adj_43 = {};
+        wp::int32 adj_44 = {};
+        wp::int32 adj_45 = {};
+        wp::int32 adj_46 = {};
+        bool adj_47 = {};
+        wp::int32 adj_48 = {};
+        bool adj_49 = {};
+        bool adj_50 = {};
+        bool adj_51 = {};
+        bool adj_52 = {};
+        bool adj_53 = {};
+        bool adj_54 = {};
+        wp::int32 adj_55 = {};
+        wp::int32 adj_56 = {};
+        wp::int32 adj_57 = {};
+        wp::int32 adj_58 = {};
+        //---------
+        // forward
+        // def check_is_satisfied_kernel(                                                         <L 67>
+        // tid = wp.tid()                                                                         <L 78>
+        var_0 = builtin_tid1d();
+        // if tid < y_target_reached.shape[0]:                                                    <L 79>
+        var_2 = &(var_y_target_reached.shape);
+        var_4 = wp::load(var_2);
+        var_3 = wp::extract(var_4, var_1);
+        var_5 = (var_0 < var_3);
+        if (var_5) {
+            // if not y_has_constraint[tid] or (                                                  <L 80>
+            var_6 = wp::address(var_y_has_constraint, var_0);
+            var_8 = wp::load(var_6);
+            var_7 = wp::unot(var_8);
+            // (env_states[body_env_id[tid]] == ENV_STATE_INVALID) or (env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED)       <L 81>
+            var_9 = wp::address(var_body_env_id, var_0);
+            var_11 = wp::load(var_9);
+            var_10 = wp::address(var_env_states, var_11);
+            var_14 = wp::load(var_10);
+            var_13 = (var_14 == var_12);
+            var_15 = wp::address(var_body_env_id, var_0);
+            var_17 = wp::load(var_15);
+            var_16 = wp::address(var_env_states, var_17);
+            var_20 = wp::load(var_16);
+            var_19 = (var_20 == var_18);
+            var_21 = var_13 || var_19;
+            var_22 = var_7 || var_21;
+            if (var_22) {
+                // return                                                                         <L 83>
+                goto label0;
+            }
+            // if not y_target_reached[tid]:                                                      <L 84>
+            var_23 = wp::address(var_y_target_reached, var_0);
+            var_25 = wp::load(var_23);
+            var_24 = wp::unot(var_25);
+            if (var_24) {
+                // satisfied_val[body_env_id[tid]] = False                                        <L 85>
+                var_27 = wp::address(var_body_env_id, var_0);
+                var_28 = wp::load(var_27);
+                // wp::array_store(var_satisfied_val, var_28, var_26);
+            }
+        }
+        if (!var_5) {
+            // tid -= y_target_reached.shape[0]                                                   <L 87>
+            var_30 = &(var_y_target_reached.shape);
+            var_32 = wp::load(var_30);
+            var_31 = wp::extract(var_32, var_29);
+            var_33 = wp::sub(var_0, var_31);
+            // if not x_has_constraint[tid] or (                                                  <L 88>
+            var_34 = wp::address(var_x_has_constraint, var_33);
+            var_36 = wp::load(var_34);
+            var_35 = wp::unot(var_36);
+            // (env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID)                <L 89>
+            var_37 = wp::add(var_33, var_affine_verts_num);
+            var_38 = wp::address(var_node2env, var_37);
+            var_40 = wp::load(var_38);
+            var_39 = wp::address(var_env_states, var_40);
+            var_42 = wp::load(var_39);
+            var_41 = (var_42 == var_12);
+            // or (env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED)       <L 90>
+            var_43 = wp::add(var_33, var_affine_verts_num);
+            var_44 = wp::address(var_node2env, var_43);
+            var_46 = wp::load(var_44);
+            var_45 = wp::address(var_env_states, var_46);
+            var_48 = wp::load(var_45);
+            var_47 = (var_48 == var_18);
+            var_49 = var_41 || var_47;
+            var_50 = var_35 || var_49;
+            if (var_50) {
+                // return                                                                         <L 92>
+                goto label1;
+            }
+            // if not x_target_reached[tid]:                                                      <L 93>
+            var_51 = wp::address(var_x_target_reached, var_33);
+            var_53 = wp::load(var_51);
+            var_52 = wp::unot(var_53);
+            if (var_52) {
+                // satisfied_val[node2env[tid + affine_verts_num]] = False                        <L 94>
+                var_55 = wp::add(var_33, var_affine_verts_num);
+                var_56 = wp::address(var_node2env, var_55);
+                var_57 = wp::load(var_56);
+                // wp::array_store(var_satisfied_val, var_57, var_54);
+            }
+        }
+        var_58 = wp::where(var_5, var_0, var_33);
+        //---------
+        // reverse
+        wp::adj_where(var_5, var_0, var_33, adj_5, adj_0, adj_33, adj_58);
+        if (!var_5) {
+            if (var_52) {
+                wp::adj_array_store(var_satisfied_val, var_57, var_54, adj_satisfied_val, adj_56, adj_54);
+                wp::adj_load(var_56, adj_56, adj_57);
+                wp::adj_address(var_node2env, var_55, adj_node2env, adj_55, adj_56);
+                wp::adj_add(var_33, var_affine_verts_num, adj_33, adj_affine_verts_num, adj_55);
+                // adj: satisfied_val[node2env[tid + affine_verts_num]] = False                   <L 94>
+            }
+            wp::adj_unot(var_53, adj_51, adj_52);
+            wp::adj_load(var_51, adj_51, adj_53);
+            wp::adj_address(var_x_target_reached, var_33, adj_x_target_reached, adj_33, adj_51);
+            // adj: if not x_target_reached[tid]:                                                 <L 93>
+            if (var_50) {
+                label1:;
+                // adj: return                                                                    <L 92>
+            }
+            wp::adj_load(var_45, adj_45, adj_48);
+            wp::adj_address(var_env_states, var_46, adj_env_states, adj_44, adj_45);
+            wp::adj_load(var_44, adj_44, adj_46);
+            wp::adj_address(var_node2env, var_43, adj_node2env, adj_43, adj_44);
+            wp::adj_add(var_33, var_affine_verts_num, adj_33, adj_affine_verts_num, adj_43);
+            // adj: or (env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED)  <L 90>
+            wp::adj_load(var_39, adj_39, adj_42);
+            wp::adj_address(var_env_states, var_40, adj_env_states, adj_38, adj_39);
+            wp::adj_load(var_38, adj_38, adj_40);
+            wp::adj_address(var_node2env, var_37, adj_node2env, adj_37, adj_38);
+            wp::adj_add(var_33, var_affine_verts_num, adj_33, adj_affine_verts_num, adj_37);
+            // adj: (env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID)           <L 89>
+            wp::adj_unot(var_36, adj_34, adj_35);
+            wp::adj_load(var_34, adj_34, adj_36);
+            wp::adj_address(var_x_has_constraint, var_33, adj_x_has_constraint, adj_33, adj_34);
+            // adj: if not x_has_constraint[tid] or (                                             <L 88>
+            wp::adj_sub(var_0, var_31, adj_0, adj_31, adj_33);
+            wp::adj_extract(var_32, var_29, adj_30, adj_29, adj_31);
+            wp::adj_load(var_30, adj_30, adj_32);
+            adj_y_target_reached.shape = adj_30;
+            // adj: tid -= y_target_reached.shape[0]                                              <L 87>
+        }
+        if (var_5) {
+            if (var_24) {
+                wp::adj_array_store(var_satisfied_val, var_28, var_26, adj_satisfied_val, adj_27, adj_26);
+                wp::adj_load(var_27, adj_27, adj_28);
+                wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_27);
+                // adj: satisfied_val[body_env_id[tid]] = False                                   <L 85>
+            }
+            wp::adj_unot(var_25, adj_23, adj_24);
+            wp::adj_load(var_23, adj_23, adj_25);
+            wp::adj_address(var_y_target_reached, var_0, adj_y_target_reached, adj_0, adj_23);
+            // adj: if not y_target_reached[tid]:                                                 <L 84>
+            if (var_22) {
+                label0:;
+                // adj: return                                                                    <L 83>
+            }
+            wp::adj_load(var_16, adj_16, adj_20);
+            wp::adj_address(var_env_states, var_17, adj_env_states, adj_15, adj_16);
+            wp::adj_load(var_15, adj_15, adj_17);
+            wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_15);
+            wp::adj_load(var_10, adj_10, adj_14);
+            wp::adj_address(var_env_states, var_11, adj_env_states, adj_9, adj_10);
+            wp::adj_load(var_9, adj_9, adj_11);
+            wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_9);
+            // adj: (env_states[body_env_id[tid]] == ENV_STATE_INVALID) or (env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED)  <L 81>
+            wp::adj_unot(var_8, adj_6, adj_7);
+            wp::adj_load(var_6, adj_6, adj_8);
+            wp::adj_address(var_y_has_constraint, var_0, adj_y_has_constraint, adj_0, adj_6);
+            // adj: if not y_has_constraint[tid] or (                                             <L 80>
+        }
+        wp::adj_extract(var_4, var_1, adj_2, adj_1, adj_3);
+        wp::adj_load(var_2, adj_2, adj_4);
+        adj_y_target_reached.shape = adj_2;
+        // adj: if tid < y_target_reached.shape[0]:                                               <L 79>
+        // adj: tid = wp.tid()                                                                    <L 78>
+        // adj: def check_is_satisfied_kernel(                                                    <L 67>
         continue;
     }
 }

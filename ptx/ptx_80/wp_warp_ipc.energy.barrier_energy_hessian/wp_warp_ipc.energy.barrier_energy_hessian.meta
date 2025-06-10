@@ -1,1 +1,1 @@
-{"hess_collisions_cuda_kernel_forward_smem_bytes": 0, "hess_collisions_cuda_kernel_backward_smem_bytes": 0, "hess_hs_cuda_kernel_forward_smem_bytes": 0, "hess_hs_cuda_kernel_backward_smem_bytes": 0}
+{"hess_hs_cuda_kernel_forward_smem_bytes": 0, "hess_hs_cuda_kernel_backward_smem_bytes": 0, "hess_collisions_cuda_kernel_forward_smem_bytes": 0, "hess_collisions_cuda_kernel_backward_smem_bytes": 0}

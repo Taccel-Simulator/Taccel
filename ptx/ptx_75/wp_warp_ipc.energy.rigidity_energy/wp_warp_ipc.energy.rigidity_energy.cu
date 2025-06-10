@@ -96,7 +96,7 @@ CUDA_CALLABLE void adj_atomic_add(COOMatrix3x3_0df4b45d* p, COOMatrix3x3_0df4b45
 
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:13
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:13
 static CUDA_CALLABLE void eigh_0(
     wp::int32 var_n,
     wp::mat_t<9,9,wp::float64> var_A,
@@ -569,7 +569,7 @@ static CUDA_CALLABLE void eigh_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:13
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:13
 static CUDA_CALLABLE void adj_eigh_0(
     wp::int32 var_n,
     wp::mat_t<9,9,wp::float64> var_A,
@@ -1600,7 +1600,7 @@ static CUDA_CALLABLE void adj_eigh_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:72
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:72
 static CUDA_CALLABLE wp::mat_t<9,9,wp::float64> make_pd_0(
     wp::int32 var_n,
     wp::mat_t<9,9,wp::float64> var_A)
@@ -1660,7 +1660,7 @@ static CUDA_CALLABLE wp::mat_t<9,9,wp::float64> make_pd_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:72
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:72
 static CUDA_CALLABLE void adj_make_pd_0(
     wp::int32 var_n,
     wp::mat_t<9,9,wp::float64> var_A,
@@ -1774,7 +1774,7 @@ static CUDA_CALLABLE void adj_make_pd_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:92
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:92
 static CUDA_CALLABLE wp::mat_t<9,9,wp::float64> make_pd_9x9_0(
     wp::mat_t<9,9,wp::float64> var_A)
 {
@@ -1791,7 +1791,7 @@ static CUDA_CALLABLE wp::mat_t<9,9,wp::float64> make_pd_9x9_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:92
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:92
 static CUDA_CALLABLE void adj_make_pd_9x9_0(
     wp::mat_t<9,9,wp::float64> var_A,
     wp::mat_t<9,9,wp::float64> & adj_A,
@@ -1822,7 +1822,7 @@ static CUDA_CALLABLE void adj_make_pd_9x9_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:13
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:13
 static CUDA_CALLABLE void eigh_0(
     wp::int32 var_n,
     wp::mat_t<12,12,wp::float64> var_A,
@@ -2295,7 +2295,7 @@ static CUDA_CALLABLE void eigh_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:13
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:13
 static CUDA_CALLABLE void adj_eigh_0(
     wp::int32 var_n,
     wp::mat_t<12,12,wp::float64> var_A,
@@ -3326,7 +3326,7 @@ static CUDA_CALLABLE void adj_eigh_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:72
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:72
 static CUDA_CALLABLE wp::mat_t<12,12,wp::float64> make_pd_0(
     wp::int32 var_n,
     wp::mat_t<12,12,wp::float64> var_A)
@@ -3386,7 +3386,7 @@ static CUDA_CALLABLE wp::mat_t<12,12,wp::float64> make_pd_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:72
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:72
 static CUDA_CALLABLE void adj_make_pd_0(
     wp::int32 var_n,
     wp::mat_t<12,12,wp::float64> var_A,
@@ -3500,7 +3500,7 @@ static CUDA_CALLABLE void adj_make_pd_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:97
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:97
 static CUDA_CALLABLE wp::mat_t<12,12,wp::float64> make_pd_12x12_0(
     wp::mat_t<12,12,wp::float64> var_A)
 {
@@ -3517,7 +3517,7 @@ static CUDA_CALLABLE wp::mat_t<12,12,wp::float64> make_pd_12x12_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:97
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/make_pd.py:97
 static CUDA_CALLABLE void adj_make_pd_12x12_0(
     wp::mat_t<12,12,wp::float64> var_A,
     wp::mat_t<12,12,wp::float64> & adj_A,
@@ -3548,7 +3548,7 @@ static CUDA_CALLABLE void adj_make_pd_12x12_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/matrix.py:152
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/matrix.py:152
 static CUDA_CALLABLE void COOMatrix3x3_atomic_add_0(
     COOMatrix3x3_0df4b45d var_mat,
     wp::int32 var_block_index,
@@ -3597,7 +3597,7 @@ static CUDA_CALLABLE void COOMatrix3x3_atomic_add_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/matrix.py:152
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/matrix.py:152
 static CUDA_CALLABLE void adj_COOMatrix3x3_atomic_add_0(
     COOMatrix3x3_0df4b45d var_mat,
     wp::int32 var_block_index,
@@ -5445,5261 +5445,6 @@ extern "C" __global__ void compute_rigidity_energy_val_cuda_kernel_backward(
         // adj: if affine_has_constraint[tid]:                                                    <L 27>
         // adj: tid = wp.tid()                                                                    <L 26>
         // adj: def compute_rigidity_energy_val(                                                  <L 18>
-        continue;
-    }
-}
-
-
-
-extern "C" __global__ void compute_rigidity_energy_grad_cuda_kernel_forward(
-    wp::launch_bounds_t dim,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_gradient,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_y,
-    wp::array_t<wp::float64> var_vol_body,
-    wp::array_t<wp::float64> var_E_body,
-    wp::float64 var_scale,
-    wp::array_t<bool> var_affine_has_constraint,
-    wp::array_t<wp::int32> var_body_env_id,
-    wp::array_t<wp::int32> var_env_states)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        bool* var_1;
-        wp::int32* var_2;
-        wp::int32* var_3;
-        wp::int32 var_4;
-        const wp::int32 var_5 = 1;
-        bool var_6;
-        wp::int32 var_7;
-        wp::int32* var_8;
-        wp::int32* var_9;
-        wp::int32 var_10;
-        const wp::int32 var_11 = 2;
-        bool var_12;
-        wp::int32 var_13;
-        bool var_14;
-        bool var_15;
-        bool var_16;
-        const wp::int32 var_17 = 3;
-        wp::mat_t<3,3,wp::float64> var_18;
-        const wp::int32 var_19 = 3;
-        const wp::int32 var_20 = 0;
-        wp::int32 var_21;
-        wp::vec_t<12,wp::float64>* var_22;
-        wp::float64 var_23;
-        wp::vec_t<12,wp::float64> var_24;
-        const wp::int32 var_25 = 0;
-        wp::vec_t<12,wp::float64>* var_26;
-        wp::float64 var_27;
-        wp::vec_t<12,wp::float64> var_28;
-        wp::float64 var_29;
-        const wp::int32 var_30 = 0;
-        const wp::int32 var_31 = 0;
-        const wp::int32 var_32 = 3;
-        const wp::int32 var_33 = 1;
-        wp::int32 var_34;
-        wp::vec_t<12,wp::float64>* var_35;
-        wp::float64 var_36;
-        wp::vec_t<12,wp::float64> var_37;
-        const wp::int32 var_38 = 1;
-        wp::vec_t<12,wp::float64>* var_39;
-        wp::float64 var_40;
-        wp::vec_t<12,wp::float64> var_41;
-        wp::float64 var_42;
-        const wp::int32 var_43 = 1;
-        const wp::int32 var_44 = 0;
-        const wp::int32 var_45 = 3;
-        const wp::int32 var_46 = 2;
-        wp::int32 var_47;
-        wp::vec_t<12,wp::float64>* var_48;
-        wp::float64 var_49;
-        wp::vec_t<12,wp::float64> var_50;
-        const wp::int32 var_51 = 2;
-        wp::vec_t<12,wp::float64>* var_52;
-        wp::float64 var_53;
-        wp::vec_t<12,wp::float64> var_54;
-        wp::float64 var_55;
-        const wp::int32 var_56 = 2;
-        const wp::int32 var_57 = 0;
-        const wp::int32 var_58 = 6;
-        const wp::int32 var_59 = 0;
-        wp::int32 var_60;
-        wp::vec_t<12,wp::float64>* var_61;
-        wp::float64 var_62;
-        wp::vec_t<12,wp::float64> var_63;
-        const wp::int32 var_64 = 0;
-        wp::vec_t<12,wp::float64>* var_65;
-        wp::float64 var_66;
-        wp::vec_t<12,wp::float64> var_67;
-        wp::float64 var_68;
-        const wp::int32 var_69 = 0;
-        const wp::int32 var_70 = 1;
-        const wp::int32 var_71 = 6;
-        const wp::int32 var_72 = 1;
-        wp::int32 var_73;
-        wp::vec_t<12,wp::float64>* var_74;
-        wp::float64 var_75;
-        wp::vec_t<12,wp::float64> var_76;
-        const wp::int32 var_77 = 1;
-        wp::vec_t<12,wp::float64>* var_78;
-        wp::float64 var_79;
-        wp::vec_t<12,wp::float64> var_80;
-        wp::float64 var_81;
-        const wp::int32 var_82 = 1;
-        const wp::int32 var_83 = 1;
-        const wp::int32 var_84 = 6;
-        const wp::int32 var_85 = 2;
-        wp::int32 var_86;
-        wp::vec_t<12,wp::float64>* var_87;
-        wp::float64 var_88;
-        wp::vec_t<12,wp::float64> var_89;
-        const wp::int32 var_90 = 2;
-        wp::vec_t<12,wp::float64>* var_91;
-        wp::float64 var_92;
-        wp::vec_t<12,wp::float64> var_93;
-        wp::float64 var_94;
-        const wp::int32 var_95 = 2;
-        const wp::int32 var_96 = 1;
-        const wp::int32 var_97 = 9;
-        const wp::int32 var_98 = 0;
-        wp::int32 var_99;
-        wp::vec_t<12,wp::float64>* var_100;
-        wp::float64 var_101;
-        wp::vec_t<12,wp::float64> var_102;
-        const wp::int32 var_103 = 0;
-        wp::vec_t<12,wp::float64>* var_104;
-        wp::float64 var_105;
-        wp::vec_t<12,wp::float64> var_106;
-        wp::float64 var_107;
-        const wp::int32 var_108 = 0;
-        const wp::int32 var_109 = 2;
-        const wp::int32 var_110 = 9;
-        const wp::int32 var_111 = 1;
-        wp::int32 var_112;
-        wp::vec_t<12,wp::float64>* var_113;
-        wp::float64 var_114;
-        wp::vec_t<12,wp::float64> var_115;
-        const wp::int32 var_116 = 1;
-        wp::vec_t<12,wp::float64>* var_117;
-        wp::float64 var_118;
-        wp::vec_t<12,wp::float64> var_119;
-        wp::float64 var_120;
-        const wp::int32 var_121 = 1;
-        const wp::int32 var_122 = 2;
-        const wp::int32 var_123 = 9;
-        const wp::int32 var_124 = 2;
-        wp::int32 var_125;
-        wp::vec_t<12,wp::float64>* var_126;
-        wp::float64 var_127;
-        wp::vec_t<12,wp::float64> var_128;
-        const wp::int32 var_129 = 2;
-        wp::vec_t<12,wp::float64>* var_130;
-        wp::float64 var_131;
-        wp::vec_t<12,wp::float64> var_132;
-        wp::float64 var_133;
-        const wp::int32 var_134 = 2;
-        const wp::int32 var_135 = 2;
-        wp::mat_t<3,3,wp::float64> var_136;
-        const wp::int32 var_137 = 0;
-        const wp::int32 var_138 = 0;
-        const wp::float32 var_139 = 0.0;
-        wp::float64 var_140;
-        const wp::int32 var_141 = 1;
-        const wp::float32 var_142 = 0.0;
-        wp::float64 var_143;
-        const wp::int32 var_144 = 2;
-        const wp::float32 var_145 = 0.0;
-        wp::float64 var_146;
-        const wp::int32 var_147 = 1;
-        const wp::int32 var_148 = 0;
-        const wp::float32 var_149 = 0.0;
-        wp::float64 var_150;
-        const wp::int32 var_151 = 1;
-        const wp::float32 var_152 = 0.0;
-        wp::float64 var_153;
-        const wp::int32 var_154 = 2;
-        const wp::float32 var_155 = 0.0;
-        wp::float64 var_156;
-        const wp::int32 var_157 = 2;
-        const wp::int32 var_158 = 0;
-        const wp::float32 var_159 = 0.0;
-        wp::float64 var_160;
-        const wp::int32 var_161 = 1;
-        const wp::float32 var_162 = 0.0;
-        wp::float64 var_163;
-        const wp::int32 var_164 = 2;
-        const wp::float32 var_165 = 0.0;
-        wp::float64 var_166;
-        const wp::int32 var_167 = 0;
-        const wp::int32 var_168 = 0;
-        const wp::int32 var_169 = 0;
-        wp::float64 var_170;
-        const wp::int32 var_171 = 0;
-        wp::float64 var_172;
-        wp::float64 var_173;
-        const wp::int32 var_174 = 1;
-        wp::float64 var_175;
-        const wp::int32 var_176 = 1;
-        wp::float64 var_177;
-        wp::float64 var_178;
-        wp::float64 var_179;
-        const wp::int32 var_180 = 2;
-        wp::float64 var_181;
-        const wp::int32 var_182 = 2;
-        wp::float64 var_183;
-        wp::float64 var_184;
-        wp::float64 var_185;
-        bool var_186;
-        const wp::float32 var_187 = 4.0;
-        wp::float64 var_188;
-        const wp::float32 var_189 = 1.0;
-        wp::float64 var_190;
-        wp::float64 var_191;
-        wp::float64 var_192;
-        const wp::int32 var_193 = 0;
-        wp::float64 var_194;
-        wp::float64 var_195;
-        const wp::int32 var_196 = 0;
-        const wp::float32 var_197 = 4.0;
-        wp::float64 var_198;
-        const wp::float32 var_199 = 1.0;
-        wp::float64 var_200;
-        wp::float64 var_201;
-        wp::float64 var_202;
-        const wp::int32 var_203 = 1;
-        wp::float64 var_204;
-        wp::float64 var_205;
-        const wp::int32 var_206 = 1;
-        const wp::float32 var_207 = 4.0;
-        wp::float64 var_208;
-        const wp::float32 var_209 = 1.0;
-        wp::float64 var_210;
-        wp::float64 var_211;
-        wp::float64 var_212;
-        const wp::int32 var_213 = 2;
-        wp::float64 var_214;
-        wp::float64 var_215;
-        const wp::int32 var_216 = 2;
-        const wp::float32 var_217 = 4.0;
-        wp::float64 var_218;
-        wp::float64 var_219;
-        const wp::int32 var_220 = 0;
-        wp::float64 var_221;
-        wp::float64 var_222;
-        const wp::int32 var_223 = 0;
-        const wp::float32 var_224 = 4.0;
-        wp::float64 var_225;
-        wp::float64 var_226;
-        const wp::int32 var_227 = 1;
-        wp::float64 var_228;
-        wp::float64 var_229;
-        const wp::int32 var_230 = 1;
-        const wp::float32 var_231 = 4.0;
-        wp::float64 var_232;
-        wp::float64 var_233;
-        const wp::int32 var_234 = 2;
-        wp::float64 var_235;
-        wp::float64 var_236;
-        const wp::int32 var_237 = 2;
-        const wp::int32 var_238 = 1;
-        const wp::int32 var_239 = 0;
-        wp::float64 var_240;
-        const wp::int32 var_241 = 0;
-        wp::float64 var_242;
-        wp::float64 var_243;
-        const wp::int32 var_244 = 1;
-        wp::float64 var_245;
-        const wp::int32 var_246 = 1;
-        wp::float64 var_247;
-        wp::float64 var_248;
-        wp::float64 var_249;
-        const wp::int32 var_250 = 2;
-        wp::float64 var_251;
-        const wp::int32 var_252 = 2;
-        wp::float64 var_253;
-        wp::float64 var_254;
-        wp::float64 var_255;
-        bool var_256;
-        const wp::float32 var_257 = 4.0;
-        wp::float64 var_258;
-        const wp::float32 var_259 = 1.0;
-        wp::float64 var_260;
-        wp::float64 var_261;
-        wp::float64 var_262;
-        const wp::int32 var_263 = 0;
-        wp::float64 var_264;
-        wp::float64 var_265;
-        const wp::int32 var_266 = 0;
-        const wp::float32 var_267 = 4.0;
-        wp::float64 var_268;
-        const wp::float32 var_269 = 1.0;
-        wp::float64 var_270;
-        wp::float64 var_271;
-        wp::float64 var_272;
-        const wp::int32 var_273 = 1;
-        wp::float64 var_274;
-        wp::float64 var_275;
-        const wp::int32 var_276 = 1;
-        const wp::float32 var_277 = 4.0;
-        wp::float64 var_278;
-        const wp::float32 var_279 = 1.0;
-        wp::float64 var_280;
-        wp::float64 var_281;
-        wp::float64 var_282;
-        const wp::int32 var_283 = 2;
-        wp::float64 var_284;
-        wp::float64 var_285;
-        const wp::int32 var_286 = 2;
-        const wp::float32 var_287 = 4.0;
-        wp::float64 var_288;
-        wp::float64 var_289;
-        const wp::int32 var_290 = 0;
-        wp::float64 var_291;
-        wp::float64 var_292;
-        const wp::int32 var_293 = 0;
-        const wp::float32 var_294 = 4.0;
-        wp::float64 var_295;
-        wp::float64 var_296;
-        const wp::int32 var_297 = 1;
-        wp::float64 var_298;
-        wp::float64 var_299;
-        const wp::int32 var_300 = 1;
-        const wp::float32 var_301 = 4.0;
-        wp::float64 var_302;
-        wp::float64 var_303;
-        const wp::int32 var_304 = 2;
-        wp::float64 var_305;
-        wp::float64 var_306;
-        const wp::int32 var_307 = 2;
-        const wp::int32 var_308 = 2;
-        const wp::int32 var_309 = 0;
-        wp::float64 var_310;
-        const wp::int32 var_311 = 0;
-        wp::float64 var_312;
-        wp::float64 var_313;
-        const wp::int32 var_314 = 1;
-        wp::float64 var_315;
-        const wp::int32 var_316 = 1;
-        wp::float64 var_317;
-        wp::float64 var_318;
-        wp::float64 var_319;
-        const wp::int32 var_320 = 2;
-        wp::float64 var_321;
-        const wp::int32 var_322 = 2;
-        wp::float64 var_323;
-        wp::float64 var_324;
-        wp::float64 var_325;
-        bool var_326;
-        const wp::float32 var_327 = 4.0;
-        wp::float64 var_328;
-        const wp::float32 var_329 = 1.0;
-        wp::float64 var_330;
-        wp::float64 var_331;
-        wp::float64 var_332;
-        const wp::int32 var_333 = 0;
-        wp::float64 var_334;
-        wp::float64 var_335;
-        const wp::int32 var_336 = 0;
-        const wp::float32 var_337 = 4.0;
-        wp::float64 var_338;
-        const wp::float32 var_339 = 1.0;
-        wp::float64 var_340;
-        wp::float64 var_341;
-        wp::float64 var_342;
-        const wp::int32 var_343 = 1;
-        wp::float64 var_344;
-        wp::float64 var_345;
-        const wp::int32 var_346 = 1;
-        const wp::float32 var_347 = 4.0;
-        wp::float64 var_348;
-        const wp::float32 var_349 = 1.0;
-        wp::float64 var_350;
-        wp::float64 var_351;
-        wp::float64 var_352;
-        const wp::int32 var_353 = 2;
-        wp::float64 var_354;
-        wp::float64 var_355;
-        const wp::int32 var_356 = 2;
-        const wp::float32 var_357 = 4.0;
-        wp::float64 var_358;
-        wp::float64 var_359;
-        const wp::int32 var_360 = 0;
-        wp::float64 var_361;
-        wp::float64 var_362;
-        const wp::int32 var_363 = 0;
-        const wp::float32 var_364 = 4.0;
-        wp::float64 var_365;
-        wp::float64 var_366;
-        const wp::int32 var_367 = 1;
-        wp::float64 var_368;
-        wp::float64 var_369;
-        const wp::int32 var_370 = 1;
-        const wp::float32 var_371 = 4.0;
-        wp::float64 var_372;
-        wp::float64 var_373;
-        const wp::int32 var_374 = 2;
-        wp::float64 var_375;
-        wp::float64 var_376;
-        const wp::int32 var_377 = 2;
-        const wp::int32 var_378 = 1;
-        const wp::int32 var_379 = 0;
-        const wp::int32 var_380 = 0;
-        wp::float64 var_381;
-        const wp::int32 var_382 = 0;
-        wp::float64 var_383;
-        wp::float64 var_384;
-        const wp::int32 var_385 = 1;
-        wp::float64 var_386;
-        const wp::int32 var_387 = 1;
-        wp::float64 var_388;
-        wp::float64 var_389;
-        wp::float64 var_390;
-        const wp::int32 var_391 = 2;
-        wp::float64 var_392;
-        const wp::int32 var_393 = 2;
-        wp::float64 var_394;
-        wp::float64 var_395;
-        wp::float64 var_396;
-        bool var_397;
-        const wp::float32 var_398 = 4.0;
-        wp::float64 var_399;
-        const wp::float32 var_400 = 1.0;
-        wp::float64 var_401;
-        wp::float64 var_402;
-        wp::float64 var_403;
-        const wp::int32 var_404 = 0;
-        wp::float64 var_405;
-        wp::float64 var_406;
-        const wp::int32 var_407 = 0;
-        const wp::float32 var_408 = 4.0;
-        wp::float64 var_409;
-        const wp::float32 var_410 = 1.0;
-        wp::float64 var_411;
-        wp::float64 var_412;
-        wp::float64 var_413;
-        const wp::int32 var_414 = 1;
-        wp::float64 var_415;
-        wp::float64 var_416;
-        const wp::int32 var_417 = 1;
-        const wp::float32 var_418 = 4.0;
-        wp::float64 var_419;
-        const wp::float32 var_420 = 1.0;
-        wp::float64 var_421;
-        wp::float64 var_422;
-        wp::float64 var_423;
-        const wp::int32 var_424 = 2;
-        wp::float64 var_425;
-        wp::float64 var_426;
-        const wp::int32 var_427 = 2;
-        const wp::float32 var_428 = 4.0;
-        wp::float64 var_429;
-        wp::float64 var_430;
-        const wp::int32 var_431 = 0;
-        wp::float64 var_432;
-        wp::float64 var_433;
-        const wp::int32 var_434 = 0;
-        const wp::float32 var_435 = 4.0;
-        wp::float64 var_436;
-        wp::float64 var_437;
-        const wp::int32 var_438 = 1;
-        wp::float64 var_439;
-        wp::float64 var_440;
-        const wp::int32 var_441 = 1;
-        const wp::float32 var_442 = 4.0;
-        wp::float64 var_443;
-        wp::float64 var_444;
-        const wp::int32 var_445 = 2;
-        wp::float64 var_446;
-        wp::float64 var_447;
-        const wp::int32 var_448 = 2;
-        const wp::int32 var_449 = 1;
-        const wp::int32 var_450 = 0;
-        wp::float64 var_451;
-        const wp::int32 var_452 = 0;
-        wp::float64 var_453;
-        wp::float64 var_454;
-        const wp::int32 var_455 = 1;
-        wp::float64 var_456;
-        const wp::int32 var_457 = 1;
-        wp::float64 var_458;
-        wp::float64 var_459;
-        wp::float64 var_460;
-        const wp::int32 var_461 = 2;
-        wp::float64 var_462;
-        const wp::int32 var_463 = 2;
-        wp::float64 var_464;
-        wp::float64 var_465;
-        wp::float64 var_466;
-        bool var_467;
-        const wp::float32 var_468 = 4.0;
-        wp::float64 var_469;
-        const wp::float32 var_470 = 1.0;
-        wp::float64 var_471;
-        wp::float64 var_472;
-        wp::float64 var_473;
-        const wp::int32 var_474 = 0;
-        wp::float64 var_475;
-        wp::float64 var_476;
-        const wp::int32 var_477 = 0;
-        const wp::float32 var_478 = 4.0;
-        wp::float64 var_479;
-        const wp::float32 var_480 = 1.0;
-        wp::float64 var_481;
-        wp::float64 var_482;
-        wp::float64 var_483;
-        const wp::int32 var_484 = 1;
-        wp::float64 var_485;
-        wp::float64 var_486;
-        const wp::int32 var_487 = 1;
-        const wp::float32 var_488 = 4.0;
-        wp::float64 var_489;
-        const wp::float32 var_490 = 1.0;
-        wp::float64 var_491;
-        wp::float64 var_492;
-        wp::float64 var_493;
-        const wp::int32 var_494 = 2;
-        wp::float64 var_495;
-        wp::float64 var_496;
-        const wp::int32 var_497 = 2;
-        const wp::float32 var_498 = 4.0;
-        wp::float64 var_499;
-        wp::float64 var_500;
-        const wp::int32 var_501 = 0;
-        wp::float64 var_502;
-        wp::float64 var_503;
-        const wp::int32 var_504 = 0;
-        const wp::float32 var_505 = 4.0;
-        wp::float64 var_506;
-        wp::float64 var_507;
-        const wp::int32 var_508 = 1;
-        wp::float64 var_509;
-        wp::float64 var_510;
-        const wp::int32 var_511 = 1;
-        const wp::float32 var_512 = 4.0;
-        wp::float64 var_513;
-        wp::float64 var_514;
-        const wp::int32 var_515 = 2;
-        wp::float64 var_516;
-        wp::float64 var_517;
-        const wp::int32 var_518 = 2;
-        const wp::int32 var_519 = 2;
-        const wp::int32 var_520 = 0;
-        wp::float64 var_521;
-        const wp::int32 var_522 = 0;
-        wp::float64 var_523;
-        wp::float64 var_524;
-        const wp::int32 var_525 = 1;
-        wp::float64 var_526;
-        const wp::int32 var_527 = 1;
-        wp::float64 var_528;
-        wp::float64 var_529;
-        wp::float64 var_530;
-        const wp::int32 var_531 = 2;
-        wp::float64 var_532;
-        const wp::int32 var_533 = 2;
-        wp::float64 var_534;
-        wp::float64 var_535;
-        wp::float64 var_536;
-        bool var_537;
-        const wp::float32 var_538 = 4.0;
-        wp::float64 var_539;
-        const wp::float32 var_540 = 1.0;
-        wp::float64 var_541;
-        wp::float64 var_542;
-        wp::float64 var_543;
-        const wp::int32 var_544 = 0;
-        wp::float64 var_545;
-        wp::float64 var_546;
-        const wp::int32 var_547 = 0;
-        const wp::float32 var_548 = 4.0;
-        wp::float64 var_549;
-        const wp::float32 var_550 = 1.0;
-        wp::float64 var_551;
-        wp::float64 var_552;
-        wp::float64 var_553;
-        const wp::int32 var_554 = 1;
-        wp::float64 var_555;
-        wp::float64 var_556;
-        const wp::int32 var_557 = 1;
-        const wp::float32 var_558 = 4.0;
-        wp::float64 var_559;
-        const wp::float32 var_560 = 1.0;
-        wp::float64 var_561;
-        wp::float64 var_562;
-        wp::float64 var_563;
-        const wp::int32 var_564 = 2;
-        wp::float64 var_565;
-        wp::float64 var_566;
-        const wp::int32 var_567 = 2;
-        const wp::float32 var_568 = 4.0;
-        wp::float64 var_569;
-        wp::float64 var_570;
-        const wp::int32 var_571 = 0;
-        wp::float64 var_572;
-        wp::float64 var_573;
-        const wp::int32 var_574 = 0;
-        const wp::float32 var_575 = 4.0;
-        wp::float64 var_576;
-        wp::float64 var_577;
-        const wp::int32 var_578 = 1;
-        wp::float64 var_579;
-        wp::float64 var_580;
-        const wp::int32 var_581 = 1;
-        const wp::float32 var_582 = 4.0;
-        wp::float64 var_583;
-        wp::float64 var_584;
-        const wp::int32 var_585 = 2;
-        wp::float64 var_586;
-        wp::float64 var_587;
-        const wp::int32 var_588 = 2;
-        const wp::int32 var_589 = 2;
-        const wp::int32 var_590 = 0;
-        const wp::int32 var_591 = 0;
-        wp::float64 var_592;
-        const wp::int32 var_593 = 0;
-        wp::float64 var_594;
-        wp::float64 var_595;
-        const wp::int32 var_596 = 1;
-        wp::float64 var_597;
-        const wp::int32 var_598 = 1;
-        wp::float64 var_599;
-        wp::float64 var_600;
-        wp::float64 var_601;
-        const wp::int32 var_602 = 2;
-        wp::float64 var_603;
-        const wp::int32 var_604 = 2;
-        wp::float64 var_605;
-        wp::float64 var_606;
-        wp::float64 var_607;
-        bool var_608;
-        const wp::float32 var_609 = 4.0;
-        wp::float64 var_610;
-        const wp::float32 var_611 = 1.0;
-        wp::float64 var_612;
-        wp::float64 var_613;
-        wp::float64 var_614;
-        const wp::int32 var_615 = 0;
-        wp::float64 var_616;
-        wp::float64 var_617;
-        const wp::int32 var_618 = 0;
-        const wp::float32 var_619 = 4.0;
-        wp::float64 var_620;
-        const wp::float32 var_621 = 1.0;
-        wp::float64 var_622;
-        wp::float64 var_623;
-        wp::float64 var_624;
-        const wp::int32 var_625 = 1;
-        wp::float64 var_626;
-        wp::float64 var_627;
-        const wp::int32 var_628 = 1;
-        const wp::float32 var_629 = 4.0;
-        wp::float64 var_630;
-        const wp::float32 var_631 = 1.0;
-        wp::float64 var_632;
-        wp::float64 var_633;
-        wp::float64 var_634;
-        const wp::int32 var_635 = 2;
-        wp::float64 var_636;
-        wp::float64 var_637;
-        const wp::int32 var_638 = 2;
-        const wp::float32 var_639 = 4.0;
-        wp::float64 var_640;
-        wp::float64 var_641;
-        const wp::int32 var_642 = 0;
-        wp::float64 var_643;
-        wp::float64 var_644;
-        const wp::int32 var_645 = 0;
-        const wp::float32 var_646 = 4.0;
-        wp::float64 var_647;
-        wp::float64 var_648;
-        const wp::int32 var_649 = 1;
-        wp::float64 var_650;
-        wp::float64 var_651;
-        const wp::int32 var_652 = 1;
-        const wp::float32 var_653 = 4.0;
-        wp::float64 var_654;
-        wp::float64 var_655;
-        const wp::int32 var_656 = 2;
-        wp::float64 var_657;
-        wp::float64 var_658;
-        const wp::int32 var_659 = 2;
-        const wp::int32 var_660 = 1;
-        const wp::int32 var_661 = 0;
-        wp::float64 var_662;
-        const wp::int32 var_663 = 0;
-        wp::float64 var_664;
-        wp::float64 var_665;
-        const wp::int32 var_666 = 1;
-        wp::float64 var_667;
-        const wp::int32 var_668 = 1;
-        wp::float64 var_669;
-        wp::float64 var_670;
-        wp::float64 var_671;
-        const wp::int32 var_672 = 2;
-        wp::float64 var_673;
-        const wp::int32 var_674 = 2;
-        wp::float64 var_675;
-        wp::float64 var_676;
-        wp::float64 var_677;
-        bool var_678;
-        const wp::float32 var_679 = 4.0;
-        wp::float64 var_680;
-        const wp::float32 var_681 = 1.0;
-        wp::float64 var_682;
-        wp::float64 var_683;
-        wp::float64 var_684;
-        const wp::int32 var_685 = 0;
-        wp::float64 var_686;
-        wp::float64 var_687;
-        const wp::int32 var_688 = 0;
-        const wp::float32 var_689 = 4.0;
-        wp::float64 var_690;
-        const wp::float32 var_691 = 1.0;
-        wp::float64 var_692;
-        wp::float64 var_693;
-        wp::float64 var_694;
-        const wp::int32 var_695 = 1;
-        wp::float64 var_696;
-        wp::float64 var_697;
-        const wp::int32 var_698 = 1;
-        const wp::float32 var_699 = 4.0;
-        wp::float64 var_700;
-        const wp::float32 var_701 = 1.0;
-        wp::float64 var_702;
-        wp::float64 var_703;
-        wp::float64 var_704;
-        const wp::int32 var_705 = 2;
-        wp::float64 var_706;
-        wp::float64 var_707;
-        const wp::int32 var_708 = 2;
-        const wp::float32 var_709 = 4.0;
-        wp::float64 var_710;
-        wp::float64 var_711;
-        const wp::int32 var_712 = 0;
-        wp::float64 var_713;
-        wp::float64 var_714;
-        const wp::int32 var_715 = 0;
-        const wp::float32 var_716 = 4.0;
-        wp::float64 var_717;
-        wp::float64 var_718;
-        const wp::int32 var_719 = 1;
-        wp::float64 var_720;
-        wp::float64 var_721;
-        const wp::int32 var_722 = 1;
-        const wp::float32 var_723 = 4.0;
-        wp::float64 var_724;
-        wp::float64 var_725;
-        const wp::int32 var_726 = 2;
-        wp::float64 var_727;
-        wp::float64 var_728;
-        const wp::int32 var_729 = 2;
-        const wp::int32 var_730 = 2;
-        const wp::int32 var_731 = 0;
-        wp::float64 var_732;
-        const wp::int32 var_733 = 0;
-        wp::float64 var_734;
-        wp::float64 var_735;
-        const wp::int32 var_736 = 1;
-        wp::float64 var_737;
-        const wp::int32 var_738 = 1;
-        wp::float64 var_739;
-        wp::float64 var_740;
-        wp::float64 var_741;
-        const wp::int32 var_742 = 2;
-        wp::float64 var_743;
-        const wp::int32 var_744 = 2;
-        wp::float64 var_745;
-        wp::float64 var_746;
-        wp::float64 var_747;
-        bool var_748;
-        const wp::float32 var_749 = 4.0;
-        wp::float64 var_750;
-        const wp::float32 var_751 = 1.0;
-        wp::float64 var_752;
-        wp::float64 var_753;
-        wp::float64 var_754;
-        const wp::int32 var_755 = 0;
-        wp::float64 var_756;
-        wp::float64 var_757;
-        const wp::int32 var_758 = 0;
-        const wp::float32 var_759 = 4.0;
-        wp::float64 var_760;
-        const wp::float32 var_761 = 1.0;
-        wp::float64 var_762;
-        wp::float64 var_763;
-        wp::float64 var_764;
-        const wp::int32 var_765 = 1;
-        wp::float64 var_766;
-        wp::float64 var_767;
-        const wp::int32 var_768 = 1;
-        const wp::float32 var_769 = 4.0;
-        wp::float64 var_770;
-        const wp::float32 var_771 = 1.0;
-        wp::float64 var_772;
-        wp::float64 var_773;
-        wp::float64 var_774;
-        const wp::int32 var_775 = 2;
-        wp::float64 var_776;
-        wp::float64 var_777;
-        const wp::int32 var_778 = 2;
-        const wp::float32 var_779 = 4.0;
-        wp::float64 var_780;
-        wp::float64 var_781;
-        const wp::int32 var_782 = 0;
-        wp::float64 var_783;
-        wp::float64 var_784;
-        const wp::int32 var_785 = 0;
-        const wp::float32 var_786 = 4.0;
-        wp::float64 var_787;
-        wp::float64 var_788;
-        const wp::int32 var_789 = 1;
-        wp::float64 var_790;
-        wp::float64 var_791;
-        const wp::int32 var_792 = 1;
-        const wp::float32 var_793 = 4.0;
-        wp::float64 var_794;
-        wp::float64 var_795;
-        const wp::int32 var_796 = 2;
-        wp::float64 var_797;
-        wp::float64 var_798;
-        const wp::int32 var_799 = 2;
-        wp::float64* var_800;
-        wp::float64* var_801;
-        wp::float64 var_802;
-        wp::float64 var_803;
-        wp::float64 var_804;
-        wp::float64 var_805;
-        const wp::float32 var_806 = 8.0;
-        wp::float64 var_807;
-        wp::float64 var_808;
-        const wp::int32 var_809 = 0;
-        const wp::int32 var_810 = 0;
-        wp::float64 var_811;
-        wp::float64 var_812;
-        const wp::int32 var_813 = 1;
-        wp::float64 var_814;
-        wp::float64 var_815;
-        const wp::int32 var_816 = 2;
-        wp::float64 var_817;
-        wp::float64 var_818;
-        const wp::int32 var_819 = 1;
-        const wp::int32 var_820 = 0;
-        wp::float64 var_821;
-        wp::float64 var_822;
-        const wp::int32 var_823 = 1;
-        wp::float64 var_824;
-        wp::float64 var_825;
-        const wp::int32 var_826 = 2;
-        wp::float64 var_827;
-        wp::float64 var_828;
-        const wp::int32 var_829 = 2;
-        const wp::int32 var_830 = 0;
-        wp::float64 var_831;
-        wp::float64 var_832;
-        const wp::int32 var_833 = 1;
-        wp::float64 var_834;
-        wp::float64 var_835;
-        const wp::int32 var_836 = 2;
-        wp::float64 var_837;
-        wp::float64 var_838;
-        wp::vec_t<12,wp::float64> var_839;
-        const wp::int32 var_840 = 0;
-        const wp::int32 var_841 = 0;
-        wp::float64 var_842;
-        wp::float64 var_843;
-        const wp::int32 var_844 = 1;
-        wp::float64 var_845;
-        wp::float64 var_846;
-        const wp::int32 var_847 = 2;
-        wp::float64 var_848;
-        wp::float64 var_849;
-        const wp::int32 var_850 = 0;
-        wp::int32 var_851;
-        wp::int32 var_852;
-        const wp::int32 var_853 = 0;
-        wp::float64 var_854;
-        const wp::int32 var_855 = 1;
-        wp::int32 var_856;
-        wp::int32 var_857;
-        const wp::int32 var_858 = 1;
-        wp::float64 var_859;
-        const wp::int32 var_860 = 2;
-        wp::int32 var_861;
-        wp::int32 var_862;
-        const wp::int32 var_863 = 2;
-        wp::float64 var_864;
-        const wp::int32 var_865 = 3;
-        wp::int32 var_866;
-        wp::int32 var_867;
-        const wp::int32 var_868 = 1;
-        const wp::int32 var_869 = 0;
-        wp::float64 var_870;
-        wp::float64 var_871;
-        const wp::int32 var_872 = 1;
-        wp::float64 var_873;
-        wp::float64 var_874;
-        const wp::int32 var_875 = 2;
-        wp::float64 var_876;
-        wp::float64 var_877;
-        const wp::int32 var_878 = 0;
-        wp::int32 var_879;
-        wp::int32 var_880;
-        const wp::int32 var_881 = 0;
-        wp::float64 var_882;
-        const wp::int32 var_883 = 1;
-        wp::int32 var_884;
-        wp::int32 var_885;
-        const wp::int32 var_886 = 1;
-        wp::float64 var_887;
-        const wp::int32 var_888 = 2;
-        wp::int32 var_889;
-        wp::int32 var_890;
-        const wp::int32 var_891 = 2;
-        wp::float64 var_892;
-        const wp::int32 var_893 = 3;
-        wp::int32 var_894;
-        wp::int32 var_895;
-        const wp::int32 var_896 = 2;
-        const wp::int32 var_897 = 0;
-        wp::float64 var_898;
-        wp::float64 var_899;
-        const wp::int32 var_900 = 1;
-        wp::float64 var_901;
-        wp::float64 var_902;
-        const wp::int32 var_903 = 2;
-        wp::float64 var_904;
-        wp::float64 var_905;
-        const wp::int32 var_906 = 0;
-        wp::int32 var_907;
-        wp::int32 var_908;
-        const wp::int32 var_909 = 0;
-        wp::float64 var_910;
-        const wp::int32 var_911 = 1;
-        wp::int32 var_912;
-        wp::int32 var_913;
-        const wp::int32 var_914 = 1;
-        wp::float64 var_915;
-        const wp::int32 var_916 = 2;
-        wp::int32 var_917;
-        wp::int32 var_918;
-        const wp::int32 var_919 = 2;
-        wp::float64 var_920;
-        const wp::int32 var_921 = 3;
-        wp::int32 var_922;
-        wp::int32 var_923;
-        wp::vec_t<12,wp::float64> var_924;
-        //---------
-        // forward
-        // def compute_rigidity_energy_grad(                                                      <L 78>
-        // tid = wp.tid()                                                                         <L 88>
-        var_0 = builtin_tid1d();
-        // if affine_has_constraint[tid] or (                                                     <L 89>
-        var_1 = wp::address(var_affine_has_constraint, var_0);
-        // (env_states[body_env_id[tid]] == ENV_STATE_INVALID) or (env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED)       <L 90>
-        var_2 = wp::address(var_body_env_id, var_0);
-        var_4 = wp::load(var_2);
-        var_3 = wp::address(var_env_states, var_4);
-        var_7 = wp::load(var_3);
-        var_6 = (var_7 == var_5);
-        var_8 = wp::address(var_body_env_id, var_0);
-        var_10 = wp::load(var_8);
-        var_9 = wp::address(var_env_states, var_10);
-        var_13 = wp::load(var_9);
-        var_12 = (var_13 == var_11);
-        var_14 = var_6 || var_12;
-        var_15 = wp::load(var_1);
-        var_16 = var_15 || var_14;
-        if (var_16) {
-            // return                                                                             <L 92>
-            continue;
-        }
-        // dim = 3                                                                                <L 93>
-        // F = wp.mat33d()                                                                        <L 94>
-        var_18 = wp::mat_t<3,3,wp::float64>();
-        // F[0, 0] = y[tid][3 + 0] - y[tid][0]                                                    <L 95>
-        var_21 = wp::add(var_19, var_20);
-        var_22 = wp::address(var_y, var_0);
-        var_24 = wp::load(var_22);
-        var_23 = wp::extract(var_24, var_21);
-        var_26 = wp::address(var_y, var_0);
-        var_28 = wp::load(var_26);
-        var_27 = wp::extract(var_28, var_25);
-        var_29 = wp::sub(var_23, var_27);
-        wp::assign_inplace(var_18, var_30, var_31, var_29);
-        // F[1, 0] = y[tid][3 + 1] - y[tid][1]                                                    <L 96>
-        var_34 = wp::add(var_32, var_33);
-        var_35 = wp::address(var_y, var_0);
-        var_37 = wp::load(var_35);
-        var_36 = wp::extract(var_37, var_34);
-        var_39 = wp::address(var_y, var_0);
-        var_41 = wp::load(var_39);
-        var_40 = wp::extract(var_41, var_38);
-        var_42 = wp::sub(var_36, var_40);
-        wp::assign_inplace(var_18, var_43, var_44, var_42);
-        // F[2, 0] = y[tid][3 + 2] - y[tid][2]                                                    <L 97>
-        var_47 = wp::add(var_45, var_46);
-        var_48 = wp::address(var_y, var_0);
-        var_50 = wp::load(var_48);
-        var_49 = wp::extract(var_50, var_47);
-        var_52 = wp::address(var_y, var_0);
-        var_54 = wp::load(var_52);
-        var_53 = wp::extract(var_54, var_51);
-        var_55 = wp::sub(var_49, var_53);
-        wp::assign_inplace(var_18, var_56, var_57, var_55);
-        // F[0, 1] = y[tid][6 + 0] - y[tid][0]                                                    <L 98>
-        var_60 = wp::add(var_58, var_59);
-        var_61 = wp::address(var_y, var_0);
-        var_63 = wp::load(var_61);
-        var_62 = wp::extract(var_63, var_60);
-        var_65 = wp::address(var_y, var_0);
-        var_67 = wp::load(var_65);
-        var_66 = wp::extract(var_67, var_64);
-        var_68 = wp::sub(var_62, var_66);
-        wp::assign_inplace(var_18, var_69, var_70, var_68);
-        // F[1, 1] = y[tid][6 + 1] - y[tid][1]                                                    <L 99>
-        var_73 = wp::add(var_71, var_72);
-        var_74 = wp::address(var_y, var_0);
-        var_76 = wp::load(var_74);
-        var_75 = wp::extract(var_76, var_73);
-        var_78 = wp::address(var_y, var_0);
-        var_80 = wp::load(var_78);
-        var_79 = wp::extract(var_80, var_77);
-        var_81 = wp::sub(var_75, var_79);
-        wp::assign_inplace(var_18, var_82, var_83, var_81);
-        // F[2, 1] = y[tid][6 + 2] - y[tid][2]                                                    <L 100>
-        var_86 = wp::add(var_84, var_85);
-        var_87 = wp::address(var_y, var_0);
-        var_89 = wp::load(var_87);
-        var_88 = wp::extract(var_89, var_86);
-        var_91 = wp::address(var_y, var_0);
-        var_93 = wp::load(var_91);
-        var_92 = wp::extract(var_93, var_90);
-        var_94 = wp::sub(var_88, var_92);
-        wp::assign_inplace(var_18, var_95, var_96, var_94);
-        // F[0, 2] = y[tid][9 + 0] - y[tid][0]                                                    <L 101>
-        var_99 = wp::add(var_97, var_98);
-        var_100 = wp::address(var_y, var_0);
-        var_102 = wp::load(var_100);
-        var_101 = wp::extract(var_102, var_99);
-        var_104 = wp::address(var_y, var_0);
-        var_106 = wp::load(var_104);
-        var_105 = wp::extract(var_106, var_103);
-        var_107 = wp::sub(var_101, var_105);
-        wp::assign_inplace(var_18, var_108, var_109, var_107);
-        // F[1, 2] = y[tid][9 + 1] - y[tid][1]                                                    <L 102>
-        var_112 = wp::add(var_110, var_111);
-        var_113 = wp::address(var_y, var_0);
-        var_115 = wp::load(var_113);
-        var_114 = wp::extract(var_115, var_112);
-        var_117 = wp::address(var_y, var_0);
-        var_119 = wp::load(var_117);
-        var_118 = wp::extract(var_119, var_116);
-        var_120 = wp::sub(var_114, var_118);
-        wp::assign_inplace(var_18, var_121, var_122, var_120);
-        // F[2, 2] = y[tid][9 + 2] - y[tid][2]                                                    <L 103>
-        var_125 = wp::add(var_123, var_124);
-        var_126 = wp::address(var_y, var_0);
-        var_128 = wp::load(var_126);
-        var_127 = wp::extract(var_128, var_125);
-        var_130 = wp::address(var_y, var_0);
-        var_132 = wp::load(var_130);
-        var_131 = wp::extract(var_132, var_129);
-        var_133 = wp::sub(var_127, var_131);
-        wp::assign_inplace(var_18, var_134, var_135, var_133);
-        // g_F = wp.mat33d()                                                                      <L 104>
-        var_136 = wp::mat_t<3,3,wp::float64>();
-        // for i in range(dim):                                                                   <L 105>
-        // for j in range(dim):                                                                   <L 106>
-        // g_F[i, j] = wp.float64(0.0)                                                            <L 107>
-        var_140 = wp::float64(var_139);
-        wp::assign_inplace(var_136, var_137, var_138, var_140);
-        var_143 = wp::float64(var_142);
-        wp::assign_inplace(var_136, var_137, var_141, var_143);
-        var_146 = wp::float64(var_145);
-        wp::assign_inplace(var_136, var_137, var_144, var_146);
-        // for j in range(dim):                                                                   <L 106>
-        // g_F[i, j] = wp.float64(0.0)                                                            <L 107>
-        var_150 = wp::float64(var_149);
-        wp::assign_inplace(var_136, var_147, var_148, var_150);
-        var_153 = wp::float64(var_152);
-        wp::assign_inplace(var_136, var_147, var_151, var_153);
-        var_156 = wp::float64(var_155);
-        wp::assign_inplace(var_136, var_147, var_154, var_156);
-        // for j in range(dim):                                                                   <L 106>
-        // g_F[i, j] = wp.float64(0.0)                                                            <L 107>
-        var_160 = wp::float64(var_159);
-        wp::assign_inplace(var_136, var_157, var_158, var_160);
-        var_163 = wp::float64(var_162);
-        wp::assign_inplace(var_136, var_157, var_161, var_163);
-        var_166 = wp::float64(var_165);
-        wp::assign_inplace(var_136, var_157, var_164, var_166);
-        // for i in range(dim):                                                                   <L 109>
-        // for j in range(dim):                                                                   <L 110>
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_170 = wp::extract(var_18, var_169, var_167);
-        var_172 = wp::extract(var_18, var_171, var_168);
-        var_173 = wp::mul(var_170, var_172);
-        var_175 = wp::extract(var_18, var_174, var_167);
-        var_177 = wp::extract(var_18, var_176, var_168);
-        var_178 = wp::mul(var_175, var_177);
-        var_179 = wp::add(var_173, var_178);
-        var_181 = wp::extract(var_18, var_180, var_167);
-        var_183 = wp::extract(var_18, var_182, var_168);
-        var_184 = wp::mul(var_181, var_183);
-        var_185 = wp::add(var_179, var_184);
-        // if i == j:                                                                             <L 112>
-        var_186 = (var_167 == var_168);
-        if (var_186) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_188 = wp::float64(var_187);
-            var_190 = wp::float64(var_189);
-            var_191 = wp::sub(var_185, var_190);
-            var_192 = wp::mul(var_188, var_191);
-            var_194 = wp::extract(var_18, var_193, var_167);
-            var_195 = wp::mul(var_192, var_194);
-            wp::add_inplace(var_136, var_196, var_167, var_195);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_198 = wp::float64(var_197);
-            var_200 = wp::float64(var_199);
-            var_201 = wp::sub(var_185, var_200);
-            var_202 = wp::mul(var_198, var_201);
-            var_204 = wp::extract(var_18, var_203, var_167);
-            var_205 = wp::mul(var_202, var_204);
-            wp::add_inplace(var_136, var_206, var_167, var_205);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_208 = wp::float64(var_207);
-            var_210 = wp::float64(var_209);
-            var_211 = wp::sub(var_185, var_210);
-            var_212 = wp::mul(var_208, var_211);
-            var_214 = wp::extract(var_18, var_213, var_167);
-            var_215 = wp::mul(var_212, var_214);
-            wp::add_inplace(var_136, var_216, var_167, var_215);
-        }
-        if (!var_186) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_218 = wp::float64(var_217);
-            var_219 = wp::mul(var_218, var_185);
-            var_221 = wp::extract(var_18, var_220, var_168);
-            var_222 = wp::mul(var_219, var_221);
-            wp::add_inplace(var_136, var_223, var_167, var_222);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_225 = wp::float64(var_224);
-            var_226 = wp::mul(var_225, var_185);
-            var_228 = wp::extract(var_18, var_227, var_168);
-            var_229 = wp::mul(var_226, var_228);
-            wp::add_inplace(var_136, var_230, var_167, var_229);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_232 = wp::float64(var_231);
-            var_233 = wp::mul(var_232, var_185);
-            var_235 = wp::extract(var_18, var_234, var_168);
-            var_236 = wp::mul(var_233, var_235);
-            wp::add_inplace(var_136, var_237, var_167, var_236);
-        }
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_240 = wp::extract(var_18, var_239, var_167);
-        var_242 = wp::extract(var_18, var_241, var_238);
-        var_243 = wp::mul(var_240, var_242);
-        var_245 = wp::extract(var_18, var_244, var_167);
-        var_247 = wp::extract(var_18, var_246, var_238);
-        var_248 = wp::mul(var_245, var_247);
-        var_249 = wp::add(var_243, var_248);
-        var_251 = wp::extract(var_18, var_250, var_167);
-        var_253 = wp::extract(var_18, var_252, var_238);
-        var_254 = wp::mul(var_251, var_253);
-        var_255 = wp::add(var_249, var_254);
-        // if i == j:                                                                             <L 112>
-        var_256 = (var_167 == var_238);
-        if (var_256) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_258 = wp::float64(var_257);
-            var_260 = wp::float64(var_259);
-            var_261 = wp::sub(var_255, var_260);
-            var_262 = wp::mul(var_258, var_261);
-            var_264 = wp::extract(var_18, var_263, var_167);
-            var_265 = wp::mul(var_262, var_264);
-            wp::add_inplace(var_136, var_266, var_167, var_265);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_268 = wp::float64(var_267);
-            var_270 = wp::float64(var_269);
-            var_271 = wp::sub(var_255, var_270);
-            var_272 = wp::mul(var_268, var_271);
-            var_274 = wp::extract(var_18, var_273, var_167);
-            var_275 = wp::mul(var_272, var_274);
-            wp::add_inplace(var_136, var_276, var_167, var_275);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_278 = wp::float64(var_277);
-            var_280 = wp::float64(var_279);
-            var_281 = wp::sub(var_255, var_280);
-            var_282 = wp::mul(var_278, var_281);
-            var_284 = wp::extract(var_18, var_283, var_167);
-            var_285 = wp::mul(var_282, var_284);
-            wp::add_inplace(var_136, var_286, var_167, var_285);
-        }
-        if (!var_256) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_288 = wp::float64(var_287);
-            var_289 = wp::mul(var_288, var_255);
-            var_291 = wp::extract(var_18, var_290, var_238);
-            var_292 = wp::mul(var_289, var_291);
-            wp::add_inplace(var_136, var_293, var_167, var_292);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_295 = wp::float64(var_294);
-            var_296 = wp::mul(var_295, var_255);
-            var_298 = wp::extract(var_18, var_297, var_238);
-            var_299 = wp::mul(var_296, var_298);
-            wp::add_inplace(var_136, var_300, var_167, var_299);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_302 = wp::float64(var_301);
-            var_303 = wp::mul(var_302, var_255);
-            var_305 = wp::extract(var_18, var_304, var_238);
-            var_306 = wp::mul(var_303, var_305);
-            wp::add_inplace(var_136, var_307, var_167, var_306);
-        }
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_310 = wp::extract(var_18, var_309, var_167);
-        var_312 = wp::extract(var_18, var_311, var_308);
-        var_313 = wp::mul(var_310, var_312);
-        var_315 = wp::extract(var_18, var_314, var_167);
-        var_317 = wp::extract(var_18, var_316, var_308);
-        var_318 = wp::mul(var_315, var_317);
-        var_319 = wp::add(var_313, var_318);
-        var_321 = wp::extract(var_18, var_320, var_167);
-        var_323 = wp::extract(var_18, var_322, var_308);
-        var_324 = wp::mul(var_321, var_323);
-        var_325 = wp::add(var_319, var_324);
-        // if i == j:                                                                             <L 112>
-        var_326 = (var_167 == var_308);
-        if (var_326) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_328 = wp::float64(var_327);
-            var_330 = wp::float64(var_329);
-            var_331 = wp::sub(var_325, var_330);
-            var_332 = wp::mul(var_328, var_331);
-            var_334 = wp::extract(var_18, var_333, var_167);
-            var_335 = wp::mul(var_332, var_334);
-            wp::add_inplace(var_136, var_336, var_167, var_335);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_338 = wp::float64(var_337);
-            var_340 = wp::float64(var_339);
-            var_341 = wp::sub(var_325, var_340);
-            var_342 = wp::mul(var_338, var_341);
-            var_344 = wp::extract(var_18, var_343, var_167);
-            var_345 = wp::mul(var_342, var_344);
-            wp::add_inplace(var_136, var_346, var_167, var_345);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_348 = wp::float64(var_347);
-            var_350 = wp::float64(var_349);
-            var_351 = wp::sub(var_325, var_350);
-            var_352 = wp::mul(var_348, var_351);
-            var_354 = wp::extract(var_18, var_353, var_167);
-            var_355 = wp::mul(var_352, var_354);
-            wp::add_inplace(var_136, var_356, var_167, var_355);
-        }
-        if (!var_326) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_358 = wp::float64(var_357);
-            var_359 = wp::mul(var_358, var_325);
-            var_361 = wp::extract(var_18, var_360, var_308);
-            var_362 = wp::mul(var_359, var_361);
-            wp::add_inplace(var_136, var_363, var_167, var_362);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_365 = wp::float64(var_364);
-            var_366 = wp::mul(var_365, var_325);
-            var_368 = wp::extract(var_18, var_367, var_308);
-            var_369 = wp::mul(var_366, var_368);
-            wp::add_inplace(var_136, var_370, var_167, var_369);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_372 = wp::float64(var_371);
-            var_373 = wp::mul(var_372, var_325);
-            var_375 = wp::extract(var_18, var_374, var_308);
-            var_376 = wp::mul(var_373, var_375);
-            wp::add_inplace(var_136, var_377, var_167, var_376);
-        }
-        // for j in range(dim):                                                                   <L 110>
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_381 = wp::extract(var_18, var_380, var_378);
-        var_383 = wp::extract(var_18, var_382, var_379);
-        var_384 = wp::mul(var_381, var_383);
-        var_386 = wp::extract(var_18, var_385, var_378);
-        var_388 = wp::extract(var_18, var_387, var_379);
-        var_389 = wp::mul(var_386, var_388);
-        var_390 = wp::add(var_384, var_389);
-        var_392 = wp::extract(var_18, var_391, var_378);
-        var_394 = wp::extract(var_18, var_393, var_379);
-        var_395 = wp::mul(var_392, var_394);
-        var_396 = wp::add(var_390, var_395);
-        // if i == j:                                                                             <L 112>
-        var_397 = (var_378 == var_379);
-        if (var_397) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_399 = wp::float64(var_398);
-            var_401 = wp::float64(var_400);
-            var_402 = wp::sub(var_396, var_401);
-            var_403 = wp::mul(var_399, var_402);
-            var_405 = wp::extract(var_18, var_404, var_378);
-            var_406 = wp::mul(var_403, var_405);
-            wp::add_inplace(var_136, var_407, var_378, var_406);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_409 = wp::float64(var_408);
-            var_411 = wp::float64(var_410);
-            var_412 = wp::sub(var_396, var_411);
-            var_413 = wp::mul(var_409, var_412);
-            var_415 = wp::extract(var_18, var_414, var_378);
-            var_416 = wp::mul(var_413, var_415);
-            wp::add_inplace(var_136, var_417, var_378, var_416);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_419 = wp::float64(var_418);
-            var_421 = wp::float64(var_420);
-            var_422 = wp::sub(var_396, var_421);
-            var_423 = wp::mul(var_419, var_422);
-            var_425 = wp::extract(var_18, var_424, var_378);
-            var_426 = wp::mul(var_423, var_425);
-            wp::add_inplace(var_136, var_427, var_378, var_426);
-        }
-        if (!var_397) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_429 = wp::float64(var_428);
-            var_430 = wp::mul(var_429, var_396);
-            var_432 = wp::extract(var_18, var_431, var_379);
-            var_433 = wp::mul(var_430, var_432);
-            wp::add_inplace(var_136, var_434, var_378, var_433);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_436 = wp::float64(var_435);
-            var_437 = wp::mul(var_436, var_396);
-            var_439 = wp::extract(var_18, var_438, var_379);
-            var_440 = wp::mul(var_437, var_439);
-            wp::add_inplace(var_136, var_441, var_378, var_440);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_443 = wp::float64(var_442);
-            var_444 = wp::mul(var_443, var_396);
-            var_446 = wp::extract(var_18, var_445, var_379);
-            var_447 = wp::mul(var_444, var_446);
-            wp::add_inplace(var_136, var_448, var_378, var_447);
-        }
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_451 = wp::extract(var_18, var_450, var_378);
-        var_453 = wp::extract(var_18, var_452, var_449);
-        var_454 = wp::mul(var_451, var_453);
-        var_456 = wp::extract(var_18, var_455, var_378);
-        var_458 = wp::extract(var_18, var_457, var_449);
-        var_459 = wp::mul(var_456, var_458);
-        var_460 = wp::add(var_454, var_459);
-        var_462 = wp::extract(var_18, var_461, var_378);
-        var_464 = wp::extract(var_18, var_463, var_449);
-        var_465 = wp::mul(var_462, var_464);
-        var_466 = wp::add(var_460, var_465);
-        // if i == j:                                                                             <L 112>
-        var_467 = (var_378 == var_449);
-        if (var_467) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_469 = wp::float64(var_468);
-            var_471 = wp::float64(var_470);
-            var_472 = wp::sub(var_466, var_471);
-            var_473 = wp::mul(var_469, var_472);
-            var_475 = wp::extract(var_18, var_474, var_378);
-            var_476 = wp::mul(var_473, var_475);
-            wp::add_inplace(var_136, var_477, var_378, var_476);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_479 = wp::float64(var_478);
-            var_481 = wp::float64(var_480);
-            var_482 = wp::sub(var_466, var_481);
-            var_483 = wp::mul(var_479, var_482);
-            var_485 = wp::extract(var_18, var_484, var_378);
-            var_486 = wp::mul(var_483, var_485);
-            wp::add_inplace(var_136, var_487, var_378, var_486);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_489 = wp::float64(var_488);
-            var_491 = wp::float64(var_490);
-            var_492 = wp::sub(var_466, var_491);
-            var_493 = wp::mul(var_489, var_492);
-            var_495 = wp::extract(var_18, var_494, var_378);
-            var_496 = wp::mul(var_493, var_495);
-            wp::add_inplace(var_136, var_497, var_378, var_496);
-        }
-        if (!var_467) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_499 = wp::float64(var_498);
-            var_500 = wp::mul(var_499, var_466);
-            var_502 = wp::extract(var_18, var_501, var_449);
-            var_503 = wp::mul(var_500, var_502);
-            wp::add_inplace(var_136, var_504, var_378, var_503);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_506 = wp::float64(var_505);
-            var_507 = wp::mul(var_506, var_466);
-            var_509 = wp::extract(var_18, var_508, var_449);
-            var_510 = wp::mul(var_507, var_509);
-            wp::add_inplace(var_136, var_511, var_378, var_510);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_513 = wp::float64(var_512);
-            var_514 = wp::mul(var_513, var_466);
-            var_516 = wp::extract(var_18, var_515, var_449);
-            var_517 = wp::mul(var_514, var_516);
-            wp::add_inplace(var_136, var_518, var_378, var_517);
-        }
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_521 = wp::extract(var_18, var_520, var_378);
-        var_523 = wp::extract(var_18, var_522, var_519);
-        var_524 = wp::mul(var_521, var_523);
-        var_526 = wp::extract(var_18, var_525, var_378);
-        var_528 = wp::extract(var_18, var_527, var_519);
-        var_529 = wp::mul(var_526, var_528);
-        var_530 = wp::add(var_524, var_529);
-        var_532 = wp::extract(var_18, var_531, var_378);
-        var_534 = wp::extract(var_18, var_533, var_519);
-        var_535 = wp::mul(var_532, var_534);
-        var_536 = wp::add(var_530, var_535);
-        // if i == j:                                                                             <L 112>
-        var_537 = (var_378 == var_519);
-        if (var_537) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_539 = wp::float64(var_538);
-            var_541 = wp::float64(var_540);
-            var_542 = wp::sub(var_536, var_541);
-            var_543 = wp::mul(var_539, var_542);
-            var_545 = wp::extract(var_18, var_544, var_378);
-            var_546 = wp::mul(var_543, var_545);
-            wp::add_inplace(var_136, var_547, var_378, var_546);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_549 = wp::float64(var_548);
-            var_551 = wp::float64(var_550);
-            var_552 = wp::sub(var_536, var_551);
-            var_553 = wp::mul(var_549, var_552);
-            var_555 = wp::extract(var_18, var_554, var_378);
-            var_556 = wp::mul(var_553, var_555);
-            wp::add_inplace(var_136, var_557, var_378, var_556);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_559 = wp::float64(var_558);
-            var_561 = wp::float64(var_560);
-            var_562 = wp::sub(var_536, var_561);
-            var_563 = wp::mul(var_559, var_562);
-            var_565 = wp::extract(var_18, var_564, var_378);
-            var_566 = wp::mul(var_563, var_565);
-            wp::add_inplace(var_136, var_567, var_378, var_566);
-        }
-        if (!var_537) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_569 = wp::float64(var_568);
-            var_570 = wp::mul(var_569, var_536);
-            var_572 = wp::extract(var_18, var_571, var_519);
-            var_573 = wp::mul(var_570, var_572);
-            wp::add_inplace(var_136, var_574, var_378, var_573);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_576 = wp::float64(var_575);
-            var_577 = wp::mul(var_576, var_536);
-            var_579 = wp::extract(var_18, var_578, var_519);
-            var_580 = wp::mul(var_577, var_579);
-            wp::add_inplace(var_136, var_581, var_378, var_580);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_583 = wp::float64(var_582);
-            var_584 = wp::mul(var_583, var_536);
-            var_586 = wp::extract(var_18, var_585, var_519);
-            var_587 = wp::mul(var_584, var_586);
-            wp::add_inplace(var_136, var_588, var_378, var_587);
-        }
-        // for j in range(dim):                                                                   <L 110>
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_592 = wp::extract(var_18, var_591, var_589);
-        var_594 = wp::extract(var_18, var_593, var_590);
-        var_595 = wp::mul(var_592, var_594);
-        var_597 = wp::extract(var_18, var_596, var_589);
-        var_599 = wp::extract(var_18, var_598, var_590);
-        var_600 = wp::mul(var_597, var_599);
-        var_601 = wp::add(var_595, var_600);
-        var_603 = wp::extract(var_18, var_602, var_589);
-        var_605 = wp::extract(var_18, var_604, var_590);
-        var_606 = wp::mul(var_603, var_605);
-        var_607 = wp::add(var_601, var_606);
-        // if i == j:                                                                             <L 112>
-        var_608 = (var_589 == var_590);
-        if (var_608) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_610 = wp::float64(var_609);
-            var_612 = wp::float64(var_611);
-            var_613 = wp::sub(var_607, var_612);
-            var_614 = wp::mul(var_610, var_613);
-            var_616 = wp::extract(var_18, var_615, var_589);
-            var_617 = wp::mul(var_614, var_616);
-            wp::add_inplace(var_136, var_618, var_589, var_617);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_620 = wp::float64(var_619);
-            var_622 = wp::float64(var_621);
-            var_623 = wp::sub(var_607, var_622);
-            var_624 = wp::mul(var_620, var_623);
-            var_626 = wp::extract(var_18, var_625, var_589);
-            var_627 = wp::mul(var_624, var_626);
-            wp::add_inplace(var_136, var_628, var_589, var_627);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_630 = wp::float64(var_629);
-            var_632 = wp::float64(var_631);
-            var_633 = wp::sub(var_607, var_632);
-            var_634 = wp::mul(var_630, var_633);
-            var_636 = wp::extract(var_18, var_635, var_589);
-            var_637 = wp::mul(var_634, var_636);
-            wp::add_inplace(var_136, var_638, var_589, var_637);
-        }
-        if (!var_608) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_640 = wp::float64(var_639);
-            var_641 = wp::mul(var_640, var_607);
-            var_643 = wp::extract(var_18, var_642, var_590);
-            var_644 = wp::mul(var_641, var_643);
-            wp::add_inplace(var_136, var_645, var_589, var_644);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_647 = wp::float64(var_646);
-            var_648 = wp::mul(var_647, var_607);
-            var_650 = wp::extract(var_18, var_649, var_590);
-            var_651 = wp::mul(var_648, var_650);
-            wp::add_inplace(var_136, var_652, var_589, var_651);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_654 = wp::float64(var_653);
-            var_655 = wp::mul(var_654, var_607);
-            var_657 = wp::extract(var_18, var_656, var_590);
-            var_658 = wp::mul(var_655, var_657);
-            wp::add_inplace(var_136, var_659, var_589, var_658);
-        }
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_662 = wp::extract(var_18, var_661, var_589);
-        var_664 = wp::extract(var_18, var_663, var_660);
-        var_665 = wp::mul(var_662, var_664);
-        var_667 = wp::extract(var_18, var_666, var_589);
-        var_669 = wp::extract(var_18, var_668, var_660);
-        var_670 = wp::mul(var_667, var_669);
-        var_671 = wp::add(var_665, var_670);
-        var_673 = wp::extract(var_18, var_672, var_589);
-        var_675 = wp::extract(var_18, var_674, var_660);
-        var_676 = wp::mul(var_673, var_675);
-        var_677 = wp::add(var_671, var_676);
-        // if i == j:                                                                             <L 112>
-        var_678 = (var_589 == var_660);
-        if (var_678) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_680 = wp::float64(var_679);
-            var_682 = wp::float64(var_681);
-            var_683 = wp::sub(var_677, var_682);
-            var_684 = wp::mul(var_680, var_683);
-            var_686 = wp::extract(var_18, var_685, var_589);
-            var_687 = wp::mul(var_684, var_686);
-            wp::add_inplace(var_136, var_688, var_589, var_687);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_690 = wp::float64(var_689);
-            var_692 = wp::float64(var_691);
-            var_693 = wp::sub(var_677, var_692);
-            var_694 = wp::mul(var_690, var_693);
-            var_696 = wp::extract(var_18, var_695, var_589);
-            var_697 = wp::mul(var_694, var_696);
-            wp::add_inplace(var_136, var_698, var_589, var_697);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_700 = wp::float64(var_699);
-            var_702 = wp::float64(var_701);
-            var_703 = wp::sub(var_677, var_702);
-            var_704 = wp::mul(var_700, var_703);
-            var_706 = wp::extract(var_18, var_705, var_589);
-            var_707 = wp::mul(var_704, var_706);
-            wp::add_inplace(var_136, var_708, var_589, var_707);
-        }
-        if (!var_678) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_710 = wp::float64(var_709);
-            var_711 = wp::mul(var_710, var_677);
-            var_713 = wp::extract(var_18, var_712, var_660);
-            var_714 = wp::mul(var_711, var_713);
-            wp::add_inplace(var_136, var_715, var_589, var_714);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_717 = wp::float64(var_716);
-            var_718 = wp::mul(var_717, var_677);
-            var_720 = wp::extract(var_18, var_719, var_660);
-            var_721 = wp::mul(var_718, var_720);
-            wp::add_inplace(var_136, var_722, var_589, var_721);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_724 = wp::float64(var_723);
-            var_725 = wp::mul(var_724, var_677);
-            var_727 = wp::extract(var_18, var_726, var_660);
-            var_728 = wp::mul(var_725, var_727);
-            wp::add_inplace(var_136, var_729, var_589, var_728);
-        }
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_732 = wp::extract(var_18, var_731, var_589);
-        var_734 = wp::extract(var_18, var_733, var_730);
-        var_735 = wp::mul(var_732, var_734);
-        var_737 = wp::extract(var_18, var_736, var_589);
-        var_739 = wp::extract(var_18, var_738, var_730);
-        var_740 = wp::mul(var_737, var_739);
-        var_741 = wp::add(var_735, var_740);
-        var_743 = wp::extract(var_18, var_742, var_589);
-        var_745 = wp::extract(var_18, var_744, var_730);
-        var_746 = wp::mul(var_743, var_745);
-        var_747 = wp::add(var_741, var_746);
-        // if i == j:                                                                             <L 112>
-        var_748 = (var_589 == var_730);
-        if (var_748) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_750 = wp::float64(var_749);
-            var_752 = wp::float64(var_751);
-            var_753 = wp::sub(var_747, var_752);
-            var_754 = wp::mul(var_750, var_753);
-            var_756 = wp::extract(var_18, var_755, var_589);
-            var_757 = wp::mul(var_754, var_756);
-            wp::add_inplace(var_136, var_758, var_589, var_757);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_760 = wp::float64(var_759);
-            var_762 = wp::float64(var_761);
-            var_763 = wp::sub(var_747, var_762);
-            var_764 = wp::mul(var_760, var_763);
-            var_766 = wp::extract(var_18, var_765, var_589);
-            var_767 = wp::mul(var_764, var_766);
-            wp::add_inplace(var_136, var_768, var_589, var_767);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_770 = wp::float64(var_769);
-            var_772 = wp::float64(var_771);
-            var_773 = wp::sub(var_747, var_772);
-            var_774 = wp::mul(var_770, var_773);
-            var_776 = wp::extract(var_18, var_775, var_589);
-            var_777 = wp::mul(var_774, var_776);
-            wp::add_inplace(var_136, var_778, var_589, var_777);
-        }
-        if (!var_748) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_780 = wp::float64(var_779);
-            var_781 = wp::mul(var_780, var_747);
-            var_783 = wp::extract(var_18, var_782, var_730);
-            var_784 = wp::mul(var_781, var_783);
-            wp::add_inplace(var_136, var_785, var_589, var_784);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_787 = wp::float64(var_786);
-            var_788 = wp::mul(var_787, var_747);
-            var_790 = wp::extract(var_18, var_789, var_730);
-            var_791 = wp::mul(var_788, var_790);
-            wp::add_inplace(var_136, var_792, var_589, var_791);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_794 = wp::float64(var_793);
-            var_795 = wp::mul(var_794, var_747);
-            var_797 = wp::extract(var_18, var_796, var_730);
-            var_798 = wp::mul(var_795, var_797);
-            wp::add_inplace(var_136, var_799, var_589, var_798);
-        }
-        // coeff = vol_body[tid] * E_body[tid] * scale / wp.float64(8.0)                          <L 121>
-        var_800 = wp::address(var_vol_body, var_0);
-        var_801 = wp::address(var_E_body, var_0);
-        var_803 = wp::load(var_800);
-        var_804 = wp::load(var_801);
-        var_802 = wp::mul(var_803, var_804);
-        var_805 = wp::mul(var_802, var_scale);
-        var_807 = wp::float64(var_806);
-        var_808 = wp::div(var_805, var_807);
-        // for i in range(dim):                                                                   <L 122>
-        // for j in range(dim):                                                                   <L 123>
-        // g_F[i, j] *= coeff                                                                     <L 124>
-        var_811 = wp::extract(var_136, var_809, var_810);
-        var_812 = wp::mul(var_811, var_808);
-        wp::assign_inplace(var_136, var_809, var_810, var_812);
-        var_814 = wp::extract(var_136, var_809, var_813);
-        var_815 = wp::mul(var_814, var_808);
-        wp::assign_inplace(var_136, var_809, var_813, var_815);
-        var_817 = wp::extract(var_136, var_809, var_816);
-        var_818 = wp::mul(var_817, var_808);
-        wp::assign_inplace(var_136, var_809, var_816, var_818);
-        // for j in range(dim):                                                                   <L 123>
-        // g_F[i, j] *= coeff                                                                     <L 124>
-        var_821 = wp::extract(var_136, var_819, var_820);
-        var_822 = wp::mul(var_821, var_808);
-        wp::assign_inplace(var_136, var_819, var_820, var_822);
-        var_824 = wp::extract(var_136, var_819, var_823);
-        var_825 = wp::mul(var_824, var_808);
-        wp::assign_inplace(var_136, var_819, var_823, var_825);
-        var_827 = wp::extract(var_136, var_819, var_826);
-        var_828 = wp::mul(var_827, var_808);
-        wp::assign_inplace(var_136, var_819, var_826, var_828);
-        // for j in range(dim):                                                                   <L 123>
-        // g_F[i, j] *= coeff                                                                     <L 124>
-        var_831 = wp::extract(var_136, var_829, var_830);
-        var_832 = wp::mul(var_831, var_808);
-        wp::assign_inplace(var_136, var_829, var_830, var_832);
-        var_834 = wp::extract(var_136, var_829, var_833);
-        var_835 = wp::mul(var_834, var_808);
-        wp::assign_inplace(var_136, var_829, var_833, var_835);
-        var_837 = wp::extract(var_136, var_829, var_836);
-        var_838 = wp::mul(var_837, var_808);
-        wp::assign_inplace(var_136, var_829, var_836, var_838);
-        // local_gradient = vec12d()                                                              <L 126>
-        var_839 = wp::vec_t<12,wp::float64>();
-        // for d in range(dim):                                                                   <L 127>
-        // local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                      <L 128>
-        var_842 = wp::extract(var_136, var_840, var_841);
-        var_843 = wp::neg(var_842);
-        var_845 = wp::extract(var_136, var_840, var_844);
-        var_846 = wp::sub(var_843, var_845);
-        var_848 = wp::extract(var_136, var_840, var_847);
-        var_849 = wp::sub(var_846, var_848);
-        var_851 = wp::mul(var_850, var_17);
-        var_852 = wp::add(var_851, var_840);
-        wp::add_inplace(var_839, var_852, var_849);
-        // local_gradient[1 * dim + d] += g_F[d, 0]                                               <L 129>
-        var_854 = wp::extract(var_136, var_840, var_853);
-        var_856 = wp::mul(var_855, var_17);
-        var_857 = wp::add(var_856, var_840);
-        wp::add_inplace(var_839, var_857, var_854);
-        // local_gradient[2 * dim + d] += g_F[d, 1]                                               <L 130>
-        var_859 = wp::extract(var_136, var_840, var_858);
-        var_861 = wp::mul(var_860, var_17);
-        var_862 = wp::add(var_861, var_840);
-        wp::add_inplace(var_839, var_862, var_859);
-        // local_gradient[3 * dim + d] += g_F[d, 2]                                               <L 131>
-        var_864 = wp::extract(var_136, var_840, var_863);
-        var_866 = wp::mul(var_865, var_17);
-        var_867 = wp::add(var_866, var_840);
-        wp::add_inplace(var_839, var_867, var_864);
-        // local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                      <L 128>
-        var_870 = wp::extract(var_136, var_868, var_869);
-        var_871 = wp::neg(var_870);
-        var_873 = wp::extract(var_136, var_868, var_872);
-        var_874 = wp::sub(var_871, var_873);
-        var_876 = wp::extract(var_136, var_868, var_875);
-        var_877 = wp::sub(var_874, var_876);
-        var_879 = wp::mul(var_878, var_17);
-        var_880 = wp::add(var_879, var_868);
-        wp::add_inplace(var_839, var_880, var_877);
-        // local_gradient[1 * dim + d] += g_F[d, 0]                                               <L 129>
-        var_882 = wp::extract(var_136, var_868, var_881);
-        var_884 = wp::mul(var_883, var_17);
-        var_885 = wp::add(var_884, var_868);
-        wp::add_inplace(var_839, var_885, var_882);
-        // local_gradient[2 * dim + d] += g_F[d, 1]                                               <L 130>
-        var_887 = wp::extract(var_136, var_868, var_886);
-        var_889 = wp::mul(var_888, var_17);
-        var_890 = wp::add(var_889, var_868);
-        wp::add_inplace(var_839, var_890, var_887);
-        // local_gradient[3 * dim + d] += g_F[d, 2]                                               <L 131>
-        var_892 = wp::extract(var_136, var_868, var_891);
-        var_894 = wp::mul(var_893, var_17);
-        var_895 = wp::add(var_894, var_868);
-        wp::add_inplace(var_839, var_895, var_892);
-        // local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                      <L 128>
-        var_898 = wp::extract(var_136, var_896, var_897);
-        var_899 = wp::neg(var_898);
-        var_901 = wp::extract(var_136, var_896, var_900);
-        var_902 = wp::sub(var_899, var_901);
-        var_904 = wp::extract(var_136, var_896, var_903);
-        var_905 = wp::sub(var_902, var_904);
-        var_907 = wp::mul(var_906, var_17);
-        var_908 = wp::add(var_907, var_896);
-        wp::add_inplace(var_839, var_908, var_905);
-        // local_gradient[1 * dim + d] += g_F[d, 0]                                               <L 129>
-        var_910 = wp::extract(var_136, var_896, var_909);
-        var_912 = wp::mul(var_911, var_17);
-        var_913 = wp::add(var_912, var_896);
-        wp::add_inplace(var_839, var_913, var_910);
-        // local_gradient[2 * dim + d] += g_F[d, 1]                                               <L 130>
-        var_915 = wp::extract(var_136, var_896, var_914);
-        var_917 = wp::mul(var_916, var_17);
-        var_918 = wp::add(var_917, var_896);
-        wp::add_inplace(var_839, var_918, var_915);
-        // local_gradient[3 * dim + d] += g_F[d, 2]                                               <L 131>
-        var_920 = wp::extract(var_136, var_896, var_919);
-        var_922 = wp::mul(var_921, var_17);
-        var_923 = wp::add(var_922, var_896);
-        wp::add_inplace(var_839, var_923, var_920);
-        // gradient[tid] += local_gradient                                                        <L 132>
-        var_924 = wp::atomic_add(var_gradient, var_0, var_839);
-    }
-}
-
-
-
-extern "C" __global__ void compute_rigidity_energy_grad_cuda_kernel_backward(
-    wp::launch_bounds_t dim,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_gradient,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_y,
-    wp::array_t<wp::float64> var_vol_body,
-    wp::array_t<wp::float64> var_E_body,
-    wp::float64 var_scale,
-    wp::array_t<bool> var_affine_has_constraint,
-    wp::array_t<wp::int32> var_body_env_id,
-    wp::array_t<wp::int32> var_env_states,
-    wp::array_t<wp::vec_t<12,wp::float64>> adj_gradient,
-    wp::array_t<wp::vec_t<12,wp::float64>> adj_y,
-    wp::array_t<wp::float64> adj_vol_body,
-    wp::array_t<wp::float64> adj_E_body,
-    wp::float64 adj_scale,
-    wp::array_t<bool> adj_affine_has_constraint,
-    wp::array_t<wp::int32> adj_body_env_id,
-    wp::array_t<wp::int32> adj_env_states)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        bool* var_1;
-        wp::int32* var_2;
-        wp::int32* var_3;
-        wp::int32 var_4;
-        const wp::int32 var_5 = 1;
-        bool var_6;
-        wp::int32 var_7;
-        wp::int32* var_8;
-        wp::int32* var_9;
-        wp::int32 var_10;
-        const wp::int32 var_11 = 2;
-        bool var_12;
-        wp::int32 var_13;
-        bool var_14;
-        bool var_15;
-        bool var_16;
-        const wp::int32 var_17 = 3;
-        wp::mat_t<3,3,wp::float64> var_18;
-        const wp::int32 var_19 = 3;
-        const wp::int32 var_20 = 0;
-        wp::int32 var_21;
-        wp::vec_t<12,wp::float64>* var_22;
-        wp::float64 var_23;
-        wp::vec_t<12,wp::float64> var_24;
-        const wp::int32 var_25 = 0;
-        wp::vec_t<12,wp::float64>* var_26;
-        wp::float64 var_27;
-        wp::vec_t<12,wp::float64> var_28;
-        wp::float64 var_29;
-        const wp::int32 var_30 = 0;
-        const wp::int32 var_31 = 0;
-        const wp::int32 var_32 = 3;
-        const wp::int32 var_33 = 1;
-        wp::int32 var_34;
-        wp::vec_t<12,wp::float64>* var_35;
-        wp::float64 var_36;
-        wp::vec_t<12,wp::float64> var_37;
-        const wp::int32 var_38 = 1;
-        wp::vec_t<12,wp::float64>* var_39;
-        wp::float64 var_40;
-        wp::vec_t<12,wp::float64> var_41;
-        wp::float64 var_42;
-        const wp::int32 var_43 = 1;
-        const wp::int32 var_44 = 0;
-        const wp::int32 var_45 = 3;
-        const wp::int32 var_46 = 2;
-        wp::int32 var_47;
-        wp::vec_t<12,wp::float64>* var_48;
-        wp::float64 var_49;
-        wp::vec_t<12,wp::float64> var_50;
-        const wp::int32 var_51 = 2;
-        wp::vec_t<12,wp::float64>* var_52;
-        wp::float64 var_53;
-        wp::vec_t<12,wp::float64> var_54;
-        wp::float64 var_55;
-        const wp::int32 var_56 = 2;
-        const wp::int32 var_57 = 0;
-        const wp::int32 var_58 = 6;
-        const wp::int32 var_59 = 0;
-        wp::int32 var_60;
-        wp::vec_t<12,wp::float64>* var_61;
-        wp::float64 var_62;
-        wp::vec_t<12,wp::float64> var_63;
-        const wp::int32 var_64 = 0;
-        wp::vec_t<12,wp::float64>* var_65;
-        wp::float64 var_66;
-        wp::vec_t<12,wp::float64> var_67;
-        wp::float64 var_68;
-        const wp::int32 var_69 = 0;
-        const wp::int32 var_70 = 1;
-        const wp::int32 var_71 = 6;
-        const wp::int32 var_72 = 1;
-        wp::int32 var_73;
-        wp::vec_t<12,wp::float64>* var_74;
-        wp::float64 var_75;
-        wp::vec_t<12,wp::float64> var_76;
-        const wp::int32 var_77 = 1;
-        wp::vec_t<12,wp::float64>* var_78;
-        wp::float64 var_79;
-        wp::vec_t<12,wp::float64> var_80;
-        wp::float64 var_81;
-        const wp::int32 var_82 = 1;
-        const wp::int32 var_83 = 1;
-        const wp::int32 var_84 = 6;
-        const wp::int32 var_85 = 2;
-        wp::int32 var_86;
-        wp::vec_t<12,wp::float64>* var_87;
-        wp::float64 var_88;
-        wp::vec_t<12,wp::float64> var_89;
-        const wp::int32 var_90 = 2;
-        wp::vec_t<12,wp::float64>* var_91;
-        wp::float64 var_92;
-        wp::vec_t<12,wp::float64> var_93;
-        wp::float64 var_94;
-        const wp::int32 var_95 = 2;
-        const wp::int32 var_96 = 1;
-        const wp::int32 var_97 = 9;
-        const wp::int32 var_98 = 0;
-        wp::int32 var_99;
-        wp::vec_t<12,wp::float64>* var_100;
-        wp::float64 var_101;
-        wp::vec_t<12,wp::float64> var_102;
-        const wp::int32 var_103 = 0;
-        wp::vec_t<12,wp::float64>* var_104;
-        wp::float64 var_105;
-        wp::vec_t<12,wp::float64> var_106;
-        wp::float64 var_107;
-        const wp::int32 var_108 = 0;
-        const wp::int32 var_109 = 2;
-        const wp::int32 var_110 = 9;
-        const wp::int32 var_111 = 1;
-        wp::int32 var_112;
-        wp::vec_t<12,wp::float64>* var_113;
-        wp::float64 var_114;
-        wp::vec_t<12,wp::float64> var_115;
-        const wp::int32 var_116 = 1;
-        wp::vec_t<12,wp::float64>* var_117;
-        wp::float64 var_118;
-        wp::vec_t<12,wp::float64> var_119;
-        wp::float64 var_120;
-        const wp::int32 var_121 = 1;
-        const wp::int32 var_122 = 2;
-        const wp::int32 var_123 = 9;
-        const wp::int32 var_124 = 2;
-        wp::int32 var_125;
-        wp::vec_t<12,wp::float64>* var_126;
-        wp::float64 var_127;
-        wp::vec_t<12,wp::float64> var_128;
-        const wp::int32 var_129 = 2;
-        wp::vec_t<12,wp::float64>* var_130;
-        wp::float64 var_131;
-        wp::vec_t<12,wp::float64> var_132;
-        wp::float64 var_133;
-        const wp::int32 var_134 = 2;
-        const wp::int32 var_135 = 2;
-        wp::mat_t<3,3,wp::float64> var_136;
-        const wp::int32 var_137 = 0;
-        const wp::int32 var_138 = 0;
-        const wp::float32 var_139 = 0.0;
-        wp::float64 var_140;
-        const wp::int32 var_141 = 1;
-        const wp::float32 var_142 = 0.0;
-        wp::float64 var_143;
-        const wp::int32 var_144 = 2;
-        const wp::float32 var_145 = 0.0;
-        wp::float64 var_146;
-        const wp::int32 var_147 = 1;
-        const wp::int32 var_148 = 0;
-        const wp::float32 var_149 = 0.0;
-        wp::float64 var_150;
-        const wp::int32 var_151 = 1;
-        const wp::float32 var_152 = 0.0;
-        wp::float64 var_153;
-        const wp::int32 var_154 = 2;
-        const wp::float32 var_155 = 0.0;
-        wp::float64 var_156;
-        const wp::int32 var_157 = 2;
-        const wp::int32 var_158 = 0;
-        const wp::float32 var_159 = 0.0;
-        wp::float64 var_160;
-        const wp::int32 var_161 = 1;
-        const wp::float32 var_162 = 0.0;
-        wp::float64 var_163;
-        const wp::int32 var_164 = 2;
-        const wp::float32 var_165 = 0.0;
-        wp::float64 var_166;
-        const wp::int32 var_167 = 0;
-        const wp::int32 var_168 = 0;
-        const wp::int32 var_169 = 0;
-        wp::float64 var_170;
-        const wp::int32 var_171 = 0;
-        wp::float64 var_172;
-        wp::float64 var_173;
-        const wp::int32 var_174 = 1;
-        wp::float64 var_175;
-        const wp::int32 var_176 = 1;
-        wp::float64 var_177;
-        wp::float64 var_178;
-        wp::float64 var_179;
-        const wp::int32 var_180 = 2;
-        wp::float64 var_181;
-        const wp::int32 var_182 = 2;
-        wp::float64 var_183;
-        wp::float64 var_184;
-        wp::float64 var_185;
-        bool var_186;
-        const wp::float32 var_187 = 4.0;
-        wp::float64 var_188;
-        const wp::float32 var_189 = 1.0;
-        wp::float64 var_190;
-        wp::float64 var_191;
-        wp::float64 var_192;
-        const wp::int32 var_193 = 0;
-        wp::float64 var_194;
-        wp::float64 var_195;
-        const wp::int32 var_196 = 0;
-        const wp::float32 var_197 = 4.0;
-        wp::float64 var_198;
-        const wp::float32 var_199 = 1.0;
-        wp::float64 var_200;
-        wp::float64 var_201;
-        wp::float64 var_202;
-        const wp::int32 var_203 = 1;
-        wp::float64 var_204;
-        wp::float64 var_205;
-        const wp::int32 var_206 = 1;
-        const wp::float32 var_207 = 4.0;
-        wp::float64 var_208;
-        const wp::float32 var_209 = 1.0;
-        wp::float64 var_210;
-        wp::float64 var_211;
-        wp::float64 var_212;
-        const wp::int32 var_213 = 2;
-        wp::float64 var_214;
-        wp::float64 var_215;
-        const wp::int32 var_216 = 2;
-        const wp::float32 var_217 = 4.0;
-        wp::float64 var_218;
-        wp::float64 var_219;
-        const wp::int32 var_220 = 0;
-        wp::float64 var_221;
-        wp::float64 var_222;
-        const wp::int32 var_223 = 0;
-        const wp::float32 var_224 = 4.0;
-        wp::float64 var_225;
-        wp::float64 var_226;
-        const wp::int32 var_227 = 1;
-        wp::float64 var_228;
-        wp::float64 var_229;
-        const wp::int32 var_230 = 1;
-        const wp::float32 var_231 = 4.0;
-        wp::float64 var_232;
-        wp::float64 var_233;
-        const wp::int32 var_234 = 2;
-        wp::float64 var_235;
-        wp::float64 var_236;
-        const wp::int32 var_237 = 2;
-        const wp::int32 var_238 = 1;
-        const wp::int32 var_239 = 0;
-        wp::float64 var_240;
-        const wp::int32 var_241 = 0;
-        wp::float64 var_242;
-        wp::float64 var_243;
-        const wp::int32 var_244 = 1;
-        wp::float64 var_245;
-        const wp::int32 var_246 = 1;
-        wp::float64 var_247;
-        wp::float64 var_248;
-        wp::float64 var_249;
-        const wp::int32 var_250 = 2;
-        wp::float64 var_251;
-        const wp::int32 var_252 = 2;
-        wp::float64 var_253;
-        wp::float64 var_254;
-        wp::float64 var_255;
-        bool var_256;
-        const wp::float32 var_257 = 4.0;
-        wp::float64 var_258;
-        const wp::float32 var_259 = 1.0;
-        wp::float64 var_260;
-        wp::float64 var_261;
-        wp::float64 var_262;
-        const wp::int32 var_263 = 0;
-        wp::float64 var_264;
-        wp::float64 var_265;
-        const wp::int32 var_266 = 0;
-        const wp::float32 var_267 = 4.0;
-        wp::float64 var_268;
-        const wp::float32 var_269 = 1.0;
-        wp::float64 var_270;
-        wp::float64 var_271;
-        wp::float64 var_272;
-        const wp::int32 var_273 = 1;
-        wp::float64 var_274;
-        wp::float64 var_275;
-        const wp::int32 var_276 = 1;
-        const wp::float32 var_277 = 4.0;
-        wp::float64 var_278;
-        const wp::float32 var_279 = 1.0;
-        wp::float64 var_280;
-        wp::float64 var_281;
-        wp::float64 var_282;
-        const wp::int32 var_283 = 2;
-        wp::float64 var_284;
-        wp::float64 var_285;
-        const wp::int32 var_286 = 2;
-        const wp::float32 var_287 = 4.0;
-        wp::float64 var_288;
-        wp::float64 var_289;
-        const wp::int32 var_290 = 0;
-        wp::float64 var_291;
-        wp::float64 var_292;
-        const wp::int32 var_293 = 0;
-        const wp::float32 var_294 = 4.0;
-        wp::float64 var_295;
-        wp::float64 var_296;
-        const wp::int32 var_297 = 1;
-        wp::float64 var_298;
-        wp::float64 var_299;
-        const wp::int32 var_300 = 1;
-        const wp::float32 var_301 = 4.0;
-        wp::float64 var_302;
-        wp::float64 var_303;
-        const wp::int32 var_304 = 2;
-        wp::float64 var_305;
-        wp::float64 var_306;
-        const wp::int32 var_307 = 2;
-        const wp::int32 var_308 = 2;
-        const wp::int32 var_309 = 0;
-        wp::float64 var_310;
-        const wp::int32 var_311 = 0;
-        wp::float64 var_312;
-        wp::float64 var_313;
-        const wp::int32 var_314 = 1;
-        wp::float64 var_315;
-        const wp::int32 var_316 = 1;
-        wp::float64 var_317;
-        wp::float64 var_318;
-        wp::float64 var_319;
-        const wp::int32 var_320 = 2;
-        wp::float64 var_321;
-        const wp::int32 var_322 = 2;
-        wp::float64 var_323;
-        wp::float64 var_324;
-        wp::float64 var_325;
-        bool var_326;
-        const wp::float32 var_327 = 4.0;
-        wp::float64 var_328;
-        const wp::float32 var_329 = 1.0;
-        wp::float64 var_330;
-        wp::float64 var_331;
-        wp::float64 var_332;
-        const wp::int32 var_333 = 0;
-        wp::float64 var_334;
-        wp::float64 var_335;
-        const wp::int32 var_336 = 0;
-        const wp::float32 var_337 = 4.0;
-        wp::float64 var_338;
-        const wp::float32 var_339 = 1.0;
-        wp::float64 var_340;
-        wp::float64 var_341;
-        wp::float64 var_342;
-        const wp::int32 var_343 = 1;
-        wp::float64 var_344;
-        wp::float64 var_345;
-        const wp::int32 var_346 = 1;
-        const wp::float32 var_347 = 4.0;
-        wp::float64 var_348;
-        const wp::float32 var_349 = 1.0;
-        wp::float64 var_350;
-        wp::float64 var_351;
-        wp::float64 var_352;
-        const wp::int32 var_353 = 2;
-        wp::float64 var_354;
-        wp::float64 var_355;
-        const wp::int32 var_356 = 2;
-        const wp::float32 var_357 = 4.0;
-        wp::float64 var_358;
-        wp::float64 var_359;
-        const wp::int32 var_360 = 0;
-        wp::float64 var_361;
-        wp::float64 var_362;
-        const wp::int32 var_363 = 0;
-        const wp::float32 var_364 = 4.0;
-        wp::float64 var_365;
-        wp::float64 var_366;
-        const wp::int32 var_367 = 1;
-        wp::float64 var_368;
-        wp::float64 var_369;
-        const wp::int32 var_370 = 1;
-        const wp::float32 var_371 = 4.0;
-        wp::float64 var_372;
-        wp::float64 var_373;
-        const wp::int32 var_374 = 2;
-        wp::float64 var_375;
-        wp::float64 var_376;
-        const wp::int32 var_377 = 2;
-        const wp::int32 var_378 = 1;
-        const wp::int32 var_379 = 0;
-        const wp::int32 var_380 = 0;
-        wp::float64 var_381;
-        const wp::int32 var_382 = 0;
-        wp::float64 var_383;
-        wp::float64 var_384;
-        const wp::int32 var_385 = 1;
-        wp::float64 var_386;
-        const wp::int32 var_387 = 1;
-        wp::float64 var_388;
-        wp::float64 var_389;
-        wp::float64 var_390;
-        const wp::int32 var_391 = 2;
-        wp::float64 var_392;
-        const wp::int32 var_393 = 2;
-        wp::float64 var_394;
-        wp::float64 var_395;
-        wp::float64 var_396;
-        bool var_397;
-        const wp::float32 var_398 = 4.0;
-        wp::float64 var_399;
-        const wp::float32 var_400 = 1.0;
-        wp::float64 var_401;
-        wp::float64 var_402;
-        wp::float64 var_403;
-        const wp::int32 var_404 = 0;
-        wp::float64 var_405;
-        wp::float64 var_406;
-        const wp::int32 var_407 = 0;
-        const wp::float32 var_408 = 4.0;
-        wp::float64 var_409;
-        const wp::float32 var_410 = 1.0;
-        wp::float64 var_411;
-        wp::float64 var_412;
-        wp::float64 var_413;
-        const wp::int32 var_414 = 1;
-        wp::float64 var_415;
-        wp::float64 var_416;
-        const wp::int32 var_417 = 1;
-        const wp::float32 var_418 = 4.0;
-        wp::float64 var_419;
-        const wp::float32 var_420 = 1.0;
-        wp::float64 var_421;
-        wp::float64 var_422;
-        wp::float64 var_423;
-        const wp::int32 var_424 = 2;
-        wp::float64 var_425;
-        wp::float64 var_426;
-        const wp::int32 var_427 = 2;
-        const wp::float32 var_428 = 4.0;
-        wp::float64 var_429;
-        wp::float64 var_430;
-        const wp::int32 var_431 = 0;
-        wp::float64 var_432;
-        wp::float64 var_433;
-        const wp::int32 var_434 = 0;
-        const wp::float32 var_435 = 4.0;
-        wp::float64 var_436;
-        wp::float64 var_437;
-        const wp::int32 var_438 = 1;
-        wp::float64 var_439;
-        wp::float64 var_440;
-        const wp::int32 var_441 = 1;
-        const wp::float32 var_442 = 4.0;
-        wp::float64 var_443;
-        wp::float64 var_444;
-        const wp::int32 var_445 = 2;
-        wp::float64 var_446;
-        wp::float64 var_447;
-        const wp::int32 var_448 = 2;
-        const wp::int32 var_449 = 1;
-        const wp::int32 var_450 = 0;
-        wp::float64 var_451;
-        const wp::int32 var_452 = 0;
-        wp::float64 var_453;
-        wp::float64 var_454;
-        const wp::int32 var_455 = 1;
-        wp::float64 var_456;
-        const wp::int32 var_457 = 1;
-        wp::float64 var_458;
-        wp::float64 var_459;
-        wp::float64 var_460;
-        const wp::int32 var_461 = 2;
-        wp::float64 var_462;
-        const wp::int32 var_463 = 2;
-        wp::float64 var_464;
-        wp::float64 var_465;
-        wp::float64 var_466;
-        bool var_467;
-        const wp::float32 var_468 = 4.0;
-        wp::float64 var_469;
-        const wp::float32 var_470 = 1.0;
-        wp::float64 var_471;
-        wp::float64 var_472;
-        wp::float64 var_473;
-        const wp::int32 var_474 = 0;
-        wp::float64 var_475;
-        wp::float64 var_476;
-        const wp::int32 var_477 = 0;
-        const wp::float32 var_478 = 4.0;
-        wp::float64 var_479;
-        const wp::float32 var_480 = 1.0;
-        wp::float64 var_481;
-        wp::float64 var_482;
-        wp::float64 var_483;
-        const wp::int32 var_484 = 1;
-        wp::float64 var_485;
-        wp::float64 var_486;
-        const wp::int32 var_487 = 1;
-        const wp::float32 var_488 = 4.0;
-        wp::float64 var_489;
-        const wp::float32 var_490 = 1.0;
-        wp::float64 var_491;
-        wp::float64 var_492;
-        wp::float64 var_493;
-        const wp::int32 var_494 = 2;
-        wp::float64 var_495;
-        wp::float64 var_496;
-        const wp::int32 var_497 = 2;
-        const wp::float32 var_498 = 4.0;
-        wp::float64 var_499;
-        wp::float64 var_500;
-        const wp::int32 var_501 = 0;
-        wp::float64 var_502;
-        wp::float64 var_503;
-        const wp::int32 var_504 = 0;
-        const wp::float32 var_505 = 4.0;
-        wp::float64 var_506;
-        wp::float64 var_507;
-        const wp::int32 var_508 = 1;
-        wp::float64 var_509;
-        wp::float64 var_510;
-        const wp::int32 var_511 = 1;
-        const wp::float32 var_512 = 4.0;
-        wp::float64 var_513;
-        wp::float64 var_514;
-        const wp::int32 var_515 = 2;
-        wp::float64 var_516;
-        wp::float64 var_517;
-        const wp::int32 var_518 = 2;
-        const wp::int32 var_519 = 2;
-        const wp::int32 var_520 = 0;
-        wp::float64 var_521;
-        const wp::int32 var_522 = 0;
-        wp::float64 var_523;
-        wp::float64 var_524;
-        const wp::int32 var_525 = 1;
-        wp::float64 var_526;
-        const wp::int32 var_527 = 1;
-        wp::float64 var_528;
-        wp::float64 var_529;
-        wp::float64 var_530;
-        const wp::int32 var_531 = 2;
-        wp::float64 var_532;
-        const wp::int32 var_533 = 2;
-        wp::float64 var_534;
-        wp::float64 var_535;
-        wp::float64 var_536;
-        bool var_537;
-        const wp::float32 var_538 = 4.0;
-        wp::float64 var_539;
-        const wp::float32 var_540 = 1.0;
-        wp::float64 var_541;
-        wp::float64 var_542;
-        wp::float64 var_543;
-        const wp::int32 var_544 = 0;
-        wp::float64 var_545;
-        wp::float64 var_546;
-        const wp::int32 var_547 = 0;
-        const wp::float32 var_548 = 4.0;
-        wp::float64 var_549;
-        const wp::float32 var_550 = 1.0;
-        wp::float64 var_551;
-        wp::float64 var_552;
-        wp::float64 var_553;
-        const wp::int32 var_554 = 1;
-        wp::float64 var_555;
-        wp::float64 var_556;
-        const wp::int32 var_557 = 1;
-        const wp::float32 var_558 = 4.0;
-        wp::float64 var_559;
-        const wp::float32 var_560 = 1.0;
-        wp::float64 var_561;
-        wp::float64 var_562;
-        wp::float64 var_563;
-        const wp::int32 var_564 = 2;
-        wp::float64 var_565;
-        wp::float64 var_566;
-        const wp::int32 var_567 = 2;
-        const wp::float32 var_568 = 4.0;
-        wp::float64 var_569;
-        wp::float64 var_570;
-        const wp::int32 var_571 = 0;
-        wp::float64 var_572;
-        wp::float64 var_573;
-        const wp::int32 var_574 = 0;
-        const wp::float32 var_575 = 4.0;
-        wp::float64 var_576;
-        wp::float64 var_577;
-        const wp::int32 var_578 = 1;
-        wp::float64 var_579;
-        wp::float64 var_580;
-        const wp::int32 var_581 = 1;
-        const wp::float32 var_582 = 4.0;
-        wp::float64 var_583;
-        wp::float64 var_584;
-        const wp::int32 var_585 = 2;
-        wp::float64 var_586;
-        wp::float64 var_587;
-        const wp::int32 var_588 = 2;
-        const wp::int32 var_589 = 2;
-        const wp::int32 var_590 = 0;
-        const wp::int32 var_591 = 0;
-        wp::float64 var_592;
-        const wp::int32 var_593 = 0;
-        wp::float64 var_594;
-        wp::float64 var_595;
-        const wp::int32 var_596 = 1;
-        wp::float64 var_597;
-        const wp::int32 var_598 = 1;
-        wp::float64 var_599;
-        wp::float64 var_600;
-        wp::float64 var_601;
-        const wp::int32 var_602 = 2;
-        wp::float64 var_603;
-        const wp::int32 var_604 = 2;
-        wp::float64 var_605;
-        wp::float64 var_606;
-        wp::float64 var_607;
-        bool var_608;
-        const wp::float32 var_609 = 4.0;
-        wp::float64 var_610;
-        const wp::float32 var_611 = 1.0;
-        wp::float64 var_612;
-        wp::float64 var_613;
-        wp::float64 var_614;
-        const wp::int32 var_615 = 0;
-        wp::float64 var_616;
-        wp::float64 var_617;
-        const wp::int32 var_618 = 0;
-        const wp::float32 var_619 = 4.0;
-        wp::float64 var_620;
-        const wp::float32 var_621 = 1.0;
-        wp::float64 var_622;
-        wp::float64 var_623;
-        wp::float64 var_624;
-        const wp::int32 var_625 = 1;
-        wp::float64 var_626;
-        wp::float64 var_627;
-        const wp::int32 var_628 = 1;
-        const wp::float32 var_629 = 4.0;
-        wp::float64 var_630;
-        const wp::float32 var_631 = 1.0;
-        wp::float64 var_632;
-        wp::float64 var_633;
-        wp::float64 var_634;
-        const wp::int32 var_635 = 2;
-        wp::float64 var_636;
-        wp::float64 var_637;
-        const wp::int32 var_638 = 2;
-        const wp::float32 var_639 = 4.0;
-        wp::float64 var_640;
-        wp::float64 var_641;
-        const wp::int32 var_642 = 0;
-        wp::float64 var_643;
-        wp::float64 var_644;
-        const wp::int32 var_645 = 0;
-        const wp::float32 var_646 = 4.0;
-        wp::float64 var_647;
-        wp::float64 var_648;
-        const wp::int32 var_649 = 1;
-        wp::float64 var_650;
-        wp::float64 var_651;
-        const wp::int32 var_652 = 1;
-        const wp::float32 var_653 = 4.0;
-        wp::float64 var_654;
-        wp::float64 var_655;
-        const wp::int32 var_656 = 2;
-        wp::float64 var_657;
-        wp::float64 var_658;
-        const wp::int32 var_659 = 2;
-        const wp::int32 var_660 = 1;
-        const wp::int32 var_661 = 0;
-        wp::float64 var_662;
-        const wp::int32 var_663 = 0;
-        wp::float64 var_664;
-        wp::float64 var_665;
-        const wp::int32 var_666 = 1;
-        wp::float64 var_667;
-        const wp::int32 var_668 = 1;
-        wp::float64 var_669;
-        wp::float64 var_670;
-        wp::float64 var_671;
-        const wp::int32 var_672 = 2;
-        wp::float64 var_673;
-        const wp::int32 var_674 = 2;
-        wp::float64 var_675;
-        wp::float64 var_676;
-        wp::float64 var_677;
-        bool var_678;
-        const wp::float32 var_679 = 4.0;
-        wp::float64 var_680;
-        const wp::float32 var_681 = 1.0;
-        wp::float64 var_682;
-        wp::float64 var_683;
-        wp::float64 var_684;
-        const wp::int32 var_685 = 0;
-        wp::float64 var_686;
-        wp::float64 var_687;
-        const wp::int32 var_688 = 0;
-        const wp::float32 var_689 = 4.0;
-        wp::float64 var_690;
-        const wp::float32 var_691 = 1.0;
-        wp::float64 var_692;
-        wp::float64 var_693;
-        wp::float64 var_694;
-        const wp::int32 var_695 = 1;
-        wp::float64 var_696;
-        wp::float64 var_697;
-        const wp::int32 var_698 = 1;
-        const wp::float32 var_699 = 4.0;
-        wp::float64 var_700;
-        const wp::float32 var_701 = 1.0;
-        wp::float64 var_702;
-        wp::float64 var_703;
-        wp::float64 var_704;
-        const wp::int32 var_705 = 2;
-        wp::float64 var_706;
-        wp::float64 var_707;
-        const wp::int32 var_708 = 2;
-        const wp::float32 var_709 = 4.0;
-        wp::float64 var_710;
-        wp::float64 var_711;
-        const wp::int32 var_712 = 0;
-        wp::float64 var_713;
-        wp::float64 var_714;
-        const wp::int32 var_715 = 0;
-        const wp::float32 var_716 = 4.0;
-        wp::float64 var_717;
-        wp::float64 var_718;
-        const wp::int32 var_719 = 1;
-        wp::float64 var_720;
-        wp::float64 var_721;
-        const wp::int32 var_722 = 1;
-        const wp::float32 var_723 = 4.0;
-        wp::float64 var_724;
-        wp::float64 var_725;
-        const wp::int32 var_726 = 2;
-        wp::float64 var_727;
-        wp::float64 var_728;
-        const wp::int32 var_729 = 2;
-        const wp::int32 var_730 = 2;
-        const wp::int32 var_731 = 0;
-        wp::float64 var_732;
-        const wp::int32 var_733 = 0;
-        wp::float64 var_734;
-        wp::float64 var_735;
-        const wp::int32 var_736 = 1;
-        wp::float64 var_737;
-        const wp::int32 var_738 = 1;
-        wp::float64 var_739;
-        wp::float64 var_740;
-        wp::float64 var_741;
-        const wp::int32 var_742 = 2;
-        wp::float64 var_743;
-        const wp::int32 var_744 = 2;
-        wp::float64 var_745;
-        wp::float64 var_746;
-        wp::float64 var_747;
-        bool var_748;
-        const wp::float32 var_749 = 4.0;
-        wp::float64 var_750;
-        const wp::float32 var_751 = 1.0;
-        wp::float64 var_752;
-        wp::float64 var_753;
-        wp::float64 var_754;
-        const wp::int32 var_755 = 0;
-        wp::float64 var_756;
-        wp::float64 var_757;
-        const wp::int32 var_758 = 0;
-        const wp::float32 var_759 = 4.0;
-        wp::float64 var_760;
-        const wp::float32 var_761 = 1.0;
-        wp::float64 var_762;
-        wp::float64 var_763;
-        wp::float64 var_764;
-        const wp::int32 var_765 = 1;
-        wp::float64 var_766;
-        wp::float64 var_767;
-        const wp::int32 var_768 = 1;
-        const wp::float32 var_769 = 4.0;
-        wp::float64 var_770;
-        const wp::float32 var_771 = 1.0;
-        wp::float64 var_772;
-        wp::float64 var_773;
-        wp::float64 var_774;
-        const wp::int32 var_775 = 2;
-        wp::float64 var_776;
-        wp::float64 var_777;
-        const wp::int32 var_778 = 2;
-        const wp::float32 var_779 = 4.0;
-        wp::float64 var_780;
-        wp::float64 var_781;
-        const wp::int32 var_782 = 0;
-        wp::float64 var_783;
-        wp::float64 var_784;
-        const wp::int32 var_785 = 0;
-        const wp::float32 var_786 = 4.0;
-        wp::float64 var_787;
-        wp::float64 var_788;
-        const wp::int32 var_789 = 1;
-        wp::float64 var_790;
-        wp::float64 var_791;
-        const wp::int32 var_792 = 1;
-        const wp::float32 var_793 = 4.0;
-        wp::float64 var_794;
-        wp::float64 var_795;
-        const wp::int32 var_796 = 2;
-        wp::float64 var_797;
-        wp::float64 var_798;
-        const wp::int32 var_799 = 2;
-        wp::float64* var_800;
-        wp::float64* var_801;
-        wp::float64 var_802;
-        wp::float64 var_803;
-        wp::float64 var_804;
-        wp::float64 var_805;
-        const wp::float32 var_806 = 8.0;
-        wp::float64 var_807;
-        wp::float64 var_808;
-        const wp::int32 var_809 = 0;
-        const wp::int32 var_810 = 0;
-        wp::float64 var_811;
-        wp::float64 var_812;
-        const wp::int32 var_813 = 1;
-        wp::float64 var_814;
-        wp::float64 var_815;
-        const wp::int32 var_816 = 2;
-        wp::float64 var_817;
-        wp::float64 var_818;
-        const wp::int32 var_819 = 1;
-        const wp::int32 var_820 = 0;
-        wp::float64 var_821;
-        wp::float64 var_822;
-        const wp::int32 var_823 = 1;
-        wp::float64 var_824;
-        wp::float64 var_825;
-        const wp::int32 var_826 = 2;
-        wp::float64 var_827;
-        wp::float64 var_828;
-        const wp::int32 var_829 = 2;
-        const wp::int32 var_830 = 0;
-        wp::float64 var_831;
-        wp::float64 var_832;
-        const wp::int32 var_833 = 1;
-        wp::float64 var_834;
-        wp::float64 var_835;
-        const wp::int32 var_836 = 2;
-        wp::float64 var_837;
-        wp::float64 var_838;
-        wp::vec_t<12,wp::float64> var_839;
-        const wp::int32 var_840 = 0;
-        const wp::int32 var_841 = 0;
-        wp::float64 var_842;
-        wp::float64 var_843;
-        const wp::int32 var_844 = 1;
-        wp::float64 var_845;
-        wp::float64 var_846;
-        const wp::int32 var_847 = 2;
-        wp::float64 var_848;
-        wp::float64 var_849;
-        const wp::int32 var_850 = 0;
-        wp::int32 var_851;
-        wp::int32 var_852;
-        const wp::int32 var_853 = 0;
-        wp::float64 var_854;
-        const wp::int32 var_855 = 1;
-        wp::int32 var_856;
-        wp::int32 var_857;
-        const wp::int32 var_858 = 1;
-        wp::float64 var_859;
-        const wp::int32 var_860 = 2;
-        wp::int32 var_861;
-        wp::int32 var_862;
-        const wp::int32 var_863 = 2;
-        wp::float64 var_864;
-        const wp::int32 var_865 = 3;
-        wp::int32 var_866;
-        wp::int32 var_867;
-        const wp::int32 var_868 = 1;
-        const wp::int32 var_869 = 0;
-        wp::float64 var_870;
-        wp::float64 var_871;
-        const wp::int32 var_872 = 1;
-        wp::float64 var_873;
-        wp::float64 var_874;
-        const wp::int32 var_875 = 2;
-        wp::float64 var_876;
-        wp::float64 var_877;
-        const wp::int32 var_878 = 0;
-        wp::int32 var_879;
-        wp::int32 var_880;
-        const wp::int32 var_881 = 0;
-        wp::float64 var_882;
-        const wp::int32 var_883 = 1;
-        wp::int32 var_884;
-        wp::int32 var_885;
-        const wp::int32 var_886 = 1;
-        wp::float64 var_887;
-        const wp::int32 var_888 = 2;
-        wp::int32 var_889;
-        wp::int32 var_890;
-        const wp::int32 var_891 = 2;
-        wp::float64 var_892;
-        const wp::int32 var_893 = 3;
-        wp::int32 var_894;
-        wp::int32 var_895;
-        const wp::int32 var_896 = 2;
-        const wp::int32 var_897 = 0;
-        wp::float64 var_898;
-        wp::float64 var_899;
-        const wp::int32 var_900 = 1;
-        wp::float64 var_901;
-        wp::float64 var_902;
-        const wp::int32 var_903 = 2;
-        wp::float64 var_904;
-        wp::float64 var_905;
-        const wp::int32 var_906 = 0;
-        wp::int32 var_907;
-        wp::int32 var_908;
-        const wp::int32 var_909 = 0;
-        wp::float64 var_910;
-        const wp::int32 var_911 = 1;
-        wp::int32 var_912;
-        wp::int32 var_913;
-        const wp::int32 var_914 = 1;
-        wp::float64 var_915;
-        const wp::int32 var_916 = 2;
-        wp::int32 var_917;
-        wp::int32 var_918;
-        const wp::int32 var_919 = 2;
-        wp::float64 var_920;
-        const wp::int32 var_921 = 3;
-        wp::int32 var_922;
-        wp::int32 var_923;
-        wp::vec_t<12,wp::float64> var_924;
-        //---------
-        // dual vars
-        wp::int32 adj_0 = {};
-        bool adj_1 = {};
-        wp::int32 adj_2 = {};
-        wp::int32 adj_3 = {};
-        wp::int32 adj_4 = {};
-        wp::int32 adj_5 = {};
-        bool adj_6 = {};
-        wp::int32 adj_7 = {};
-        wp::int32 adj_8 = {};
-        wp::int32 adj_9 = {};
-        wp::int32 adj_10 = {};
-        wp::int32 adj_11 = {};
-        bool adj_12 = {};
-        wp::int32 adj_13 = {};
-        bool adj_14 = {};
-        bool adj_15 = {};
-        bool adj_16 = {};
-        wp::int32 adj_17 = {};
-        wp::mat_t<3,3,wp::float64> adj_18 = {};
-        wp::int32 adj_19 = {};
-        wp::int32 adj_20 = {};
-        wp::int32 adj_21 = {};
-        wp::vec_t<12,wp::float64> adj_22 = {};
-        wp::float64 adj_23 = {};
-        wp::vec_t<12,wp::float64> adj_24 = {};
-        wp::int32 adj_25 = {};
-        wp::vec_t<12,wp::float64> adj_26 = {};
-        wp::float64 adj_27 = {};
-        wp::vec_t<12,wp::float64> adj_28 = {};
-        wp::float64 adj_29 = {};
-        wp::int32 adj_30 = {};
-        wp::int32 adj_31 = {};
-        wp::int32 adj_32 = {};
-        wp::int32 adj_33 = {};
-        wp::int32 adj_34 = {};
-        wp::vec_t<12,wp::float64> adj_35 = {};
-        wp::float64 adj_36 = {};
-        wp::vec_t<12,wp::float64> adj_37 = {};
-        wp::int32 adj_38 = {};
-        wp::vec_t<12,wp::float64> adj_39 = {};
-        wp::float64 adj_40 = {};
-        wp::vec_t<12,wp::float64> adj_41 = {};
-        wp::float64 adj_42 = {};
-        wp::int32 adj_43 = {};
-        wp::int32 adj_44 = {};
-        wp::int32 adj_45 = {};
-        wp::int32 adj_46 = {};
-        wp::int32 adj_47 = {};
-        wp::vec_t<12,wp::float64> adj_48 = {};
-        wp::float64 adj_49 = {};
-        wp::vec_t<12,wp::float64> adj_50 = {};
-        wp::int32 adj_51 = {};
-        wp::vec_t<12,wp::float64> adj_52 = {};
-        wp::float64 adj_53 = {};
-        wp::vec_t<12,wp::float64> adj_54 = {};
-        wp::float64 adj_55 = {};
-        wp::int32 adj_56 = {};
-        wp::int32 adj_57 = {};
-        wp::int32 adj_58 = {};
-        wp::int32 adj_59 = {};
-        wp::int32 adj_60 = {};
-        wp::vec_t<12,wp::float64> adj_61 = {};
-        wp::float64 adj_62 = {};
-        wp::vec_t<12,wp::float64> adj_63 = {};
-        wp::int32 adj_64 = {};
-        wp::vec_t<12,wp::float64> adj_65 = {};
-        wp::float64 adj_66 = {};
-        wp::vec_t<12,wp::float64> adj_67 = {};
-        wp::float64 adj_68 = {};
-        wp::int32 adj_69 = {};
-        wp::int32 adj_70 = {};
-        wp::int32 adj_71 = {};
-        wp::int32 adj_72 = {};
-        wp::int32 adj_73 = {};
-        wp::vec_t<12,wp::float64> adj_74 = {};
-        wp::float64 adj_75 = {};
-        wp::vec_t<12,wp::float64> adj_76 = {};
-        wp::int32 adj_77 = {};
-        wp::vec_t<12,wp::float64> adj_78 = {};
-        wp::float64 adj_79 = {};
-        wp::vec_t<12,wp::float64> adj_80 = {};
-        wp::float64 adj_81 = {};
-        wp::int32 adj_82 = {};
-        wp::int32 adj_83 = {};
-        wp::int32 adj_84 = {};
-        wp::int32 adj_85 = {};
-        wp::int32 adj_86 = {};
-        wp::vec_t<12,wp::float64> adj_87 = {};
-        wp::float64 adj_88 = {};
-        wp::vec_t<12,wp::float64> adj_89 = {};
-        wp::int32 adj_90 = {};
-        wp::vec_t<12,wp::float64> adj_91 = {};
-        wp::float64 adj_92 = {};
-        wp::vec_t<12,wp::float64> adj_93 = {};
-        wp::float64 adj_94 = {};
-        wp::int32 adj_95 = {};
-        wp::int32 adj_96 = {};
-        wp::int32 adj_97 = {};
-        wp::int32 adj_98 = {};
-        wp::int32 adj_99 = {};
-        wp::vec_t<12,wp::float64> adj_100 = {};
-        wp::float64 adj_101 = {};
-        wp::vec_t<12,wp::float64> adj_102 = {};
-        wp::int32 adj_103 = {};
-        wp::vec_t<12,wp::float64> adj_104 = {};
-        wp::float64 adj_105 = {};
-        wp::vec_t<12,wp::float64> adj_106 = {};
-        wp::float64 adj_107 = {};
-        wp::int32 adj_108 = {};
-        wp::int32 adj_109 = {};
-        wp::int32 adj_110 = {};
-        wp::int32 adj_111 = {};
-        wp::int32 adj_112 = {};
-        wp::vec_t<12,wp::float64> adj_113 = {};
-        wp::float64 adj_114 = {};
-        wp::vec_t<12,wp::float64> adj_115 = {};
-        wp::int32 adj_116 = {};
-        wp::vec_t<12,wp::float64> adj_117 = {};
-        wp::float64 adj_118 = {};
-        wp::vec_t<12,wp::float64> adj_119 = {};
-        wp::float64 adj_120 = {};
-        wp::int32 adj_121 = {};
-        wp::int32 adj_122 = {};
-        wp::int32 adj_123 = {};
-        wp::int32 adj_124 = {};
-        wp::int32 adj_125 = {};
-        wp::vec_t<12,wp::float64> adj_126 = {};
-        wp::float64 adj_127 = {};
-        wp::vec_t<12,wp::float64> adj_128 = {};
-        wp::int32 adj_129 = {};
-        wp::vec_t<12,wp::float64> adj_130 = {};
-        wp::float64 adj_131 = {};
-        wp::vec_t<12,wp::float64> adj_132 = {};
-        wp::float64 adj_133 = {};
-        wp::int32 adj_134 = {};
-        wp::int32 adj_135 = {};
-        wp::mat_t<3,3,wp::float64> adj_136 = {};
-        wp::int32 adj_137 = {};
-        wp::int32 adj_138 = {};
-        wp::float32 adj_139 = {};
-        wp::float64 adj_140 = {};
-        wp::int32 adj_141 = {};
-        wp::float32 adj_142 = {};
-        wp::float64 adj_143 = {};
-        wp::int32 adj_144 = {};
-        wp::float32 adj_145 = {};
-        wp::float64 adj_146 = {};
-        wp::int32 adj_147 = {};
-        wp::int32 adj_148 = {};
-        wp::float32 adj_149 = {};
-        wp::float64 adj_150 = {};
-        wp::int32 adj_151 = {};
-        wp::float32 adj_152 = {};
-        wp::float64 adj_153 = {};
-        wp::int32 adj_154 = {};
-        wp::float32 adj_155 = {};
-        wp::float64 adj_156 = {};
-        wp::int32 adj_157 = {};
-        wp::int32 adj_158 = {};
-        wp::float32 adj_159 = {};
-        wp::float64 adj_160 = {};
-        wp::int32 adj_161 = {};
-        wp::float32 adj_162 = {};
-        wp::float64 adj_163 = {};
-        wp::int32 adj_164 = {};
-        wp::float32 adj_165 = {};
-        wp::float64 adj_166 = {};
-        wp::int32 adj_167 = {};
-        wp::int32 adj_168 = {};
-        wp::int32 adj_169 = {};
-        wp::float64 adj_170 = {};
-        wp::int32 adj_171 = {};
-        wp::float64 adj_172 = {};
-        wp::float64 adj_173 = {};
-        wp::int32 adj_174 = {};
-        wp::float64 adj_175 = {};
-        wp::int32 adj_176 = {};
-        wp::float64 adj_177 = {};
-        wp::float64 adj_178 = {};
-        wp::float64 adj_179 = {};
-        wp::int32 adj_180 = {};
-        wp::float64 adj_181 = {};
-        wp::int32 adj_182 = {};
-        wp::float64 adj_183 = {};
-        wp::float64 adj_184 = {};
-        wp::float64 adj_185 = {};
-        bool adj_186 = {};
-        wp::float32 adj_187 = {};
-        wp::float64 adj_188 = {};
-        wp::float32 adj_189 = {};
-        wp::float64 adj_190 = {};
-        wp::float64 adj_191 = {};
-        wp::float64 adj_192 = {};
-        wp::int32 adj_193 = {};
-        wp::float64 adj_194 = {};
-        wp::float64 adj_195 = {};
-        wp::int32 adj_196 = {};
-        wp::float32 adj_197 = {};
-        wp::float64 adj_198 = {};
-        wp::float32 adj_199 = {};
-        wp::float64 adj_200 = {};
-        wp::float64 adj_201 = {};
-        wp::float64 adj_202 = {};
-        wp::int32 adj_203 = {};
-        wp::float64 adj_204 = {};
-        wp::float64 adj_205 = {};
-        wp::int32 adj_206 = {};
-        wp::float32 adj_207 = {};
-        wp::float64 adj_208 = {};
-        wp::float32 adj_209 = {};
-        wp::float64 adj_210 = {};
-        wp::float64 adj_211 = {};
-        wp::float64 adj_212 = {};
-        wp::int32 adj_213 = {};
-        wp::float64 adj_214 = {};
-        wp::float64 adj_215 = {};
-        wp::int32 adj_216 = {};
-        wp::float32 adj_217 = {};
-        wp::float64 adj_218 = {};
-        wp::float64 adj_219 = {};
-        wp::int32 adj_220 = {};
-        wp::float64 adj_221 = {};
-        wp::float64 adj_222 = {};
-        wp::int32 adj_223 = {};
-        wp::float32 adj_224 = {};
-        wp::float64 adj_225 = {};
-        wp::float64 adj_226 = {};
-        wp::int32 adj_227 = {};
-        wp::float64 adj_228 = {};
-        wp::float64 adj_229 = {};
-        wp::int32 adj_230 = {};
-        wp::float32 adj_231 = {};
-        wp::float64 adj_232 = {};
-        wp::float64 adj_233 = {};
-        wp::int32 adj_234 = {};
-        wp::float64 adj_235 = {};
-        wp::float64 adj_236 = {};
-        wp::int32 adj_237 = {};
-        wp::int32 adj_238 = {};
-        wp::int32 adj_239 = {};
-        wp::float64 adj_240 = {};
-        wp::int32 adj_241 = {};
-        wp::float64 adj_242 = {};
-        wp::float64 adj_243 = {};
-        wp::int32 adj_244 = {};
-        wp::float64 adj_245 = {};
-        wp::int32 adj_246 = {};
-        wp::float64 adj_247 = {};
-        wp::float64 adj_248 = {};
-        wp::float64 adj_249 = {};
-        wp::int32 adj_250 = {};
-        wp::float64 adj_251 = {};
-        wp::int32 adj_252 = {};
-        wp::float64 adj_253 = {};
-        wp::float64 adj_254 = {};
-        wp::float64 adj_255 = {};
-        bool adj_256 = {};
-        wp::float32 adj_257 = {};
-        wp::float64 adj_258 = {};
-        wp::float32 adj_259 = {};
-        wp::float64 adj_260 = {};
-        wp::float64 adj_261 = {};
-        wp::float64 adj_262 = {};
-        wp::int32 adj_263 = {};
-        wp::float64 adj_264 = {};
-        wp::float64 adj_265 = {};
-        wp::int32 adj_266 = {};
-        wp::float32 adj_267 = {};
-        wp::float64 adj_268 = {};
-        wp::float32 adj_269 = {};
-        wp::float64 adj_270 = {};
-        wp::float64 adj_271 = {};
-        wp::float64 adj_272 = {};
-        wp::int32 adj_273 = {};
-        wp::float64 adj_274 = {};
-        wp::float64 adj_275 = {};
-        wp::int32 adj_276 = {};
-        wp::float32 adj_277 = {};
-        wp::float64 adj_278 = {};
-        wp::float32 adj_279 = {};
-        wp::float64 adj_280 = {};
-        wp::float64 adj_281 = {};
-        wp::float64 adj_282 = {};
-        wp::int32 adj_283 = {};
-        wp::float64 adj_284 = {};
-        wp::float64 adj_285 = {};
-        wp::int32 adj_286 = {};
-        wp::float32 adj_287 = {};
-        wp::float64 adj_288 = {};
-        wp::float64 adj_289 = {};
-        wp::int32 adj_290 = {};
-        wp::float64 adj_291 = {};
-        wp::float64 adj_292 = {};
-        wp::int32 adj_293 = {};
-        wp::float32 adj_294 = {};
-        wp::float64 adj_295 = {};
-        wp::float64 adj_296 = {};
-        wp::int32 adj_297 = {};
-        wp::float64 adj_298 = {};
-        wp::float64 adj_299 = {};
-        wp::int32 adj_300 = {};
-        wp::float32 adj_301 = {};
-        wp::float64 adj_302 = {};
-        wp::float64 adj_303 = {};
-        wp::int32 adj_304 = {};
-        wp::float64 adj_305 = {};
-        wp::float64 adj_306 = {};
-        wp::int32 adj_307 = {};
-        wp::int32 adj_308 = {};
-        wp::int32 adj_309 = {};
-        wp::float64 adj_310 = {};
-        wp::int32 adj_311 = {};
-        wp::float64 adj_312 = {};
-        wp::float64 adj_313 = {};
-        wp::int32 adj_314 = {};
-        wp::float64 adj_315 = {};
-        wp::int32 adj_316 = {};
-        wp::float64 adj_317 = {};
-        wp::float64 adj_318 = {};
-        wp::float64 adj_319 = {};
-        wp::int32 adj_320 = {};
-        wp::float64 adj_321 = {};
-        wp::int32 adj_322 = {};
-        wp::float64 adj_323 = {};
-        wp::float64 adj_324 = {};
-        wp::float64 adj_325 = {};
-        bool adj_326 = {};
-        wp::float32 adj_327 = {};
-        wp::float64 adj_328 = {};
-        wp::float32 adj_329 = {};
-        wp::float64 adj_330 = {};
-        wp::float64 adj_331 = {};
-        wp::float64 adj_332 = {};
-        wp::int32 adj_333 = {};
-        wp::float64 adj_334 = {};
-        wp::float64 adj_335 = {};
-        wp::int32 adj_336 = {};
-        wp::float32 adj_337 = {};
-        wp::float64 adj_338 = {};
-        wp::float32 adj_339 = {};
-        wp::float64 adj_340 = {};
-        wp::float64 adj_341 = {};
-        wp::float64 adj_342 = {};
-        wp::int32 adj_343 = {};
-        wp::float64 adj_344 = {};
-        wp::float64 adj_345 = {};
-        wp::int32 adj_346 = {};
-        wp::float32 adj_347 = {};
-        wp::float64 adj_348 = {};
-        wp::float32 adj_349 = {};
-        wp::float64 adj_350 = {};
-        wp::float64 adj_351 = {};
-        wp::float64 adj_352 = {};
-        wp::int32 adj_353 = {};
-        wp::float64 adj_354 = {};
-        wp::float64 adj_355 = {};
-        wp::int32 adj_356 = {};
-        wp::float32 adj_357 = {};
-        wp::float64 adj_358 = {};
-        wp::float64 adj_359 = {};
-        wp::int32 adj_360 = {};
-        wp::float64 adj_361 = {};
-        wp::float64 adj_362 = {};
-        wp::int32 adj_363 = {};
-        wp::float32 adj_364 = {};
-        wp::float64 adj_365 = {};
-        wp::float64 adj_366 = {};
-        wp::int32 adj_367 = {};
-        wp::float64 adj_368 = {};
-        wp::float64 adj_369 = {};
-        wp::int32 adj_370 = {};
-        wp::float32 adj_371 = {};
-        wp::float64 adj_372 = {};
-        wp::float64 adj_373 = {};
-        wp::int32 adj_374 = {};
-        wp::float64 adj_375 = {};
-        wp::float64 adj_376 = {};
-        wp::int32 adj_377 = {};
-        wp::int32 adj_378 = {};
-        wp::int32 adj_379 = {};
-        wp::int32 adj_380 = {};
-        wp::float64 adj_381 = {};
-        wp::int32 adj_382 = {};
-        wp::float64 adj_383 = {};
-        wp::float64 adj_384 = {};
-        wp::int32 adj_385 = {};
-        wp::float64 adj_386 = {};
-        wp::int32 adj_387 = {};
-        wp::float64 adj_388 = {};
-        wp::float64 adj_389 = {};
-        wp::float64 adj_390 = {};
-        wp::int32 adj_391 = {};
-        wp::float64 adj_392 = {};
-        wp::int32 adj_393 = {};
-        wp::float64 adj_394 = {};
-        wp::float64 adj_395 = {};
-        wp::float64 adj_396 = {};
-        bool adj_397 = {};
-        wp::float32 adj_398 = {};
-        wp::float64 adj_399 = {};
-        wp::float32 adj_400 = {};
-        wp::float64 adj_401 = {};
-        wp::float64 adj_402 = {};
-        wp::float64 adj_403 = {};
-        wp::int32 adj_404 = {};
-        wp::float64 adj_405 = {};
-        wp::float64 adj_406 = {};
-        wp::int32 adj_407 = {};
-        wp::float32 adj_408 = {};
-        wp::float64 adj_409 = {};
-        wp::float32 adj_410 = {};
-        wp::float64 adj_411 = {};
-        wp::float64 adj_412 = {};
-        wp::float64 adj_413 = {};
-        wp::int32 adj_414 = {};
-        wp::float64 adj_415 = {};
-        wp::float64 adj_416 = {};
-        wp::int32 adj_417 = {};
-        wp::float32 adj_418 = {};
-        wp::float64 adj_419 = {};
-        wp::float32 adj_420 = {};
-        wp::float64 adj_421 = {};
-        wp::float64 adj_422 = {};
-        wp::float64 adj_423 = {};
-        wp::int32 adj_424 = {};
-        wp::float64 adj_425 = {};
-        wp::float64 adj_426 = {};
-        wp::int32 adj_427 = {};
-        wp::float32 adj_428 = {};
-        wp::float64 adj_429 = {};
-        wp::float64 adj_430 = {};
-        wp::int32 adj_431 = {};
-        wp::float64 adj_432 = {};
-        wp::float64 adj_433 = {};
-        wp::int32 adj_434 = {};
-        wp::float32 adj_435 = {};
-        wp::float64 adj_436 = {};
-        wp::float64 adj_437 = {};
-        wp::int32 adj_438 = {};
-        wp::float64 adj_439 = {};
-        wp::float64 adj_440 = {};
-        wp::int32 adj_441 = {};
-        wp::float32 adj_442 = {};
-        wp::float64 adj_443 = {};
-        wp::float64 adj_444 = {};
-        wp::int32 adj_445 = {};
-        wp::float64 adj_446 = {};
-        wp::float64 adj_447 = {};
-        wp::int32 adj_448 = {};
-        wp::int32 adj_449 = {};
-        wp::int32 adj_450 = {};
-        wp::float64 adj_451 = {};
-        wp::int32 adj_452 = {};
-        wp::float64 adj_453 = {};
-        wp::float64 adj_454 = {};
-        wp::int32 adj_455 = {};
-        wp::float64 adj_456 = {};
-        wp::int32 adj_457 = {};
-        wp::float64 adj_458 = {};
-        wp::float64 adj_459 = {};
-        wp::float64 adj_460 = {};
-        wp::int32 adj_461 = {};
-        wp::float64 adj_462 = {};
-        wp::int32 adj_463 = {};
-        wp::float64 adj_464 = {};
-        wp::float64 adj_465 = {};
-        wp::float64 adj_466 = {};
-        bool adj_467 = {};
-        wp::float32 adj_468 = {};
-        wp::float64 adj_469 = {};
-        wp::float32 adj_470 = {};
-        wp::float64 adj_471 = {};
-        wp::float64 adj_472 = {};
-        wp::float64 adj_473 = {};
-        wp::int32 adj_474 = {};
-        wp::float64 adj_475 = {};
-        wp::float64 adj_476 = {};
-        wp::int32 adj_477 = {};
-        wp::float32 adj_478 = {};
-        wp::float64 adj_479 = {};
-        wp::float32 adj_480 = {};
-        wp::float64 adj_481 = {};
-        wp::float64 adj_482 = {};
-        wp::float64 adj_483 = {};
-        wp::int32 adj_484 = {};
-        wp::float64 adj_485 = {};
-        wp::float64 adj_486 = {};
-        wp::int32 adj_487 = {};
-        wp::float32 adj_488 = {};
-        wp::float64 adj_489 = {};
-        wp::float32 adj_490 = {};
-        wp::float64 adj_491 = {};
-        wp::float64 adj_492 = {};
-        wp::float64 adj_493 = {};
-        wp::int32 adj_494 = {};
-        wp::float64 adj_495 = {};
-        wp::float64 adj_496 = {};
-        wp::int32 adj_497 = {};
-        wp::float32 adj_498 = {};
-        wp::float64 adj_499 = {};
-        wp::float64 adj_500 = {};
-        wp::int32 adj_501 = {};
-        wp::float64 adj_502 = {};
-        wp::float64 adj_503 = {};
-        wp::int32 adj_504 = {};
-        wp::float32 adj_505 = {};
-        wp::float64 adj_506 = {};
-        wp::float64 adj_507 = {};
-        wp::int32 adj_508 = {};
-        wp::float64 adj_509 = {};
-        wp::float64 adj_510 = {};
-        wp::int32 adj_511 = {};
-        wp::float32 adj_512 = {};
-        wp::float64 adj_513 = {};
-        wp::float64 adj_514 = {};
-        wp::int32 adj_515 = {};
-        wp::float64 adj_516 = {};
-        wp::float64 adj_517 = {};
-        wp::int32 adj_518 = {};
-        wp::int32 adj_519 = {};
-        wp::int32 adj_520 = {};
-        wp::float64 adj_521 = {};
-        wp::int32 adj_522 = {};
-        wp::float64 adj_523 = {};
-        wp::float64 adj_524 = {};
-        wp::int32 adj_525 = {};
-        wp::float64 adj_526 = {};
-        wp::int32 adj_527 = {};
-        wp::float64 adj_528 = {};
-        wp::float64 adj_529 = {};
-        wp::float64 adj_530 = {};
-        wp::int32 adj_531 = {};
-        wp::float64 adj_532 = {};
-        wp::int32 adj_533 = {};
-        wp::float64 adj_534 = {};
-        wp::float64 adj_535 = {};
-        wp::float64 adj_536 = {};
-        bool adj_537 = {};
-        wp::float32 adj_538 = {};
-        wp::float64 adj_539 = {};
-        wp::float32 adj_540 = {};
-        wp::float64 adj_541 = {};
-        wp::float64 adj_542 = {};
-        wp::float64 adj_543 = {};
-        wp::int32 adj_544 = {};
-        wp::float64 adj_545 = {};
-        wp::float64 adj_546 = {};
-        wp::int32 adj_547 = {};
-        wp::float32 adj_548 = {};
-        wp::float64 adj_549 = {};
-        wp::float32 adj_550 = {};
-        wp::float64 adj_551 = {};
-        wp::float64 adj_552 = {};
-        wp::float64 adj_553 = {};
-        wp::int32 adj_554 = {};
-        wp::float64 adj_555 = {};
-        wp::float64 adj_556 = {};
-        wp::int32 adj_557 = {};
-        wp::float32 adj_558 = {};
-        wp::float64 adj_559 = {};
-        wp::float32 adj_560 = {};
-        wp::float64 adj_561 = {};
-        wp::float64 adj_562 = {};
-        wp::float64 adj_563 = {};
-        wp::int32 adj_564 = {};
-        wp::float64 adj_565 = {};
-        wp::float64 adj_566 = {};
-        wp::int32 adj_567 = {};
-        wp::float32 adj_568 = {};
-        wp::float64 adj_569 = {};
-        wp::float64 adj_570 = {};
-        wp::int32 adj_571 = {};
-        wp::float64 adj_572 = {};
-        wp::float64 adj_573 = {};
-        wp::int32 adj_574 = {};
-        wp::float32 adj_575 = {};
-        wp::float64 adj_576 = {};
-        wp::float64 adj_577 = {};
-        wp::int32 adj_578 = {};
-        wp::float64 adj_579 = {};
-        wp::float64 adj_580 = {};
-        wp::int32 adj_581 = {};
-        wp::float32 adj_582 = {};
-        wp::float64 adj_583 = {};
-        wp::float64 adj_584 = {};
-        wp::int32 adj_585 = {};
-        wp::float64 adj_586 = {};
-        wp::float64 adj_587 = {};
-        wp::int32 adj_588 = {};
-        wp::int32 adj_589 = {};
-        wp::int32 adj_590 = {};
-        wp::int32 adj_591 = {};
-        wp::float64 adj_592 = {};
-        wp::int32 adj_593 = {};
-        wp::float64 adj_594 = {};
-        wp::float64 adj_595 = {};
-        wp::int32 adj_596 = {};
-        wp::float64 adj_597 = {};
-        wp::int32 adj_598 = {};
-        wp::float64 adj_599 = {};
-        wp::float64 adj_600 = {};
-        wp::float64 adj_601 = {};
-        wp::int32 adj_602 = {};
-        wp::float64 adj_603 = {};
-        wp::int32 adj_604 = {};
-        wp::float64 adj_605 = {};
-        wp::float64 adj_606 = {};
-        wp::float64 adj_607 = {};
-        bool adj_608 = {};
-        wp::float32 adj_609 = {};
-        wp::float64 adj_610 = {};
-        wp::float32 adj_611 = {};
-        wp::float64 adj_612 = {};
-        wp::float64 adj_613 = {};
-        wp::float64 adj_614 = {};
-        wp::int32 adj_615 = {};
-        wp::float64 adj_616 = {};
-        wp::float64 adj_617 = {};
-        wp::int32 adj_618 = {};
-        wp::float32 adj_619 = {};
-        wp::float64 adj_620 = {};
-        wp::float32 adj_621 = {};
-        wp::float64 adj_622 = {};
-        wp::float64 adj_623 = {};
-        wp::float64 adj_624 = {};
-        wp::int32 adj_625 = {};
-        wp::float64 adj_626 = {};
-        wp::float64 adj_627 = {};
-        wp::int32 adj_628 = {};
-        wp::float32 adj_629 = {};
-        wp::float64 adj_630 = {};
-        wp::float32 adj_631 = {};
-        wp::float64 adj_632 = {};
-        wp::float64 adj_633 = {};
-        wp::float64 adj_634 = {};
-        wp::int32 adj_635 = {};
-        wp::float64 adj_636 = {};
-        wp::float64 adj_637 = {};
-        wp::int32 adj_638 = {};
-        wp::float32 adj_639 = {};
-        wp::float64 adj_640 = {};
-        wp::float64 adj_641 = {};
-        wp::int32 adj_642 = {};
-        wp::float64 adj_643 = {};
-        wp::float64 adj_644 = {};
-        wp::int32 adj_645 = {};
-        wp::float32 adj_646 = {};
-        wp::float64 adj_647 = {};
-        wp::float64 adj_648 = {};
-        wp::int32 adj_649 = {};
-        wp::float64 adj_650 = {};
-        wp::float64 adj_651 = {};
-        wp::int32 adj_652 = {};
-        wp::float32 adj_653 = {};
-        wp::float64 adj_654 = {};
-        wp::float64 adj_655 = {};
-        wp::int32 adj_656 = {};
-        wp::float64 adj_657 = {};
-        wp::float64 adj_658 = {};
-        wp::int32 adj_659 = {};
-        wp::int32 adj_660 = {};
-        wp::int32 adj_661 = {};
-        wp::float64 adj_662 = {};
-        wp::int32 adj_663 = {};
-        wp::float64 adj_664 = {};
-        wp::float64 adj_665 = {};
-        wp::int32 adj_666 = {};
-        wp::float64 adj_667 = {};
-        wp::int32 adj_668 = {};
-        wp::float64 adj_669 = {};
-        wp::float64 adj_670 = {};
-        wp::float64 adj_671 = {};
-        wp::int32 adj_672 = {};
-        wp::float64 adj_673 = {};
-        wp::int32 adj_674 = {};
-        wp::float64 adj_675 = {};
-        wp::float64 adj_676 = {};
-        wp::float64 adj_677 = {};
-        bool adj_678 = {};
-        wp::float32 adj_679 = {};
-        wp::float64 adj_680 = {};
-        wp::float32 adj_681 = {};
-        wp::float64 adj_682 = {};
-        wp::float64 adj_683 = {};
-        wp::float64 adj_684 = {};
-        wp::int32 adj_685 = {};
-        wp::float64 adj_686 = {};
-        wp::float64 adj_687 = {};
-        wp::int32 adj_688 = {};
-        wp::float32 adj_689 = {};
-        wp::float64 adj_690 = {};
-        wp::float32 adj_691 = {};
-        wp::float64 adj_692 = {};
-        wp::float64 adj_693 = {};
-        wp::float64 adj_694 = {};
-        wp::int32 adj_695 = {};
-        wp::float64 adj_696 = {};
-        wp::float64 adj_697 = {};
-        wp::int32 adj_698 = {};
-        wp::float32 adj_699 = {};
-        wp::float64 adj_700 = {};
-        wp::float32 adj_701 = {};
-        wp::float64 adj_702 = {};
-        wp::float64 adj_703 = {};
-        wp::float64 adj_704 = {};
-        wp::int32 adj_705 = {};
-        wp::float64 adj_706 = {};
-        wp::float64 adj_707 = {};
-        wp::int32 adj_708 = {};
-        wp::float32 adj_709 = {};
-        wp::float64 adj_710 = {};
-        wp::float64 adj_711 = {};
-        wp::int32 adj_712 = {};
-        wp::float64 adj_713 = {};
-        wp::float64 adj_714 = {};
-        wp::int32 adj_715 = {};
-        wp::float32 adj_716 = {};
-        wp::float64 adj_717 = {};
-        wp::float64 adj_718 = {};
-        wp::int32 adj_719 = {};
-        wp::float64 adj_720 = {};
-        wp::float64 adj_721 = {};
-        wp::int32 adj_722 = {};
-        wp::float32 adj_723 = {};
-        wp::float64 adj_724 = {};
-        wp::float64 adj_725 = {};
-        wp::int32 adj_726 = {};
-        wp::float64 adj_727 = {};
-        wp::float64 adj_728 = {};
-        wp::int32 adj_729 = {};
-        wp::int32 adj_730 = {};
-        wp::int32 adj_731 = {};
-        wp::float64 adj_732 = {};
-        wp::int32 adj_733 = {};
-        wp::float64 adj_734 = {};
-        wp::float64 adj_735 = {};
-        wp::int32 adj_736 = {};
-        wp::float64 adj_737 = {};
-        wp::int32 adj_738 = {};
-        wp::float64 adj_739 = {};
-        wp::float64 adj_740 = {};
-        wp::float64 adj_741 = {};
-        wp::int32 adj_742 = {};
-        wp::float64 adj_743 = {};
-        wp::int32 adj_744 = {};
-        wp::float64 adj_745 = {};
-        wp::float64 adj_746 = {};
-        wp::float64 adj_747 = {};
-        bool adj_748 = {};
-        wp::float32 adj_749 = {};
-        wp::float64 adj_750 = {};
-        wp::float32 adj_751 = {};
-        wp::float64 adj_752 = {};
-        wp::float64 adj_753 = {};
-        wp::float64 adj_754 = {};
-        wp::int32 adj_755 = {};
-        wp::float64 adj_756 = {};
-        wp::float64 adj_757 = {};
-        wp::int32 adj_758 = {};
-        wp::float32 adj_759 = {};
-        wp::float64 adj_760 = {};
-        wp::float32 adj_761 = {};
-        wp::float64 adj_762 = {};
-        wp::float64 adj_763 = {};
-        wp::float64 adj_764 = {};
-        wp::int32 adj_765 = {};
-        wp::float64 adj_766 = {};
-        wp::float64 adj_767 = {};
-        wp::int32 adj_768 = {};
-        wp::float32 adj_769 = {};
-        wp::float64 adj_770 = {};
-        wp::float32 adj_771 = {};
-        wp::float64 adj_772 = {};
-        wp::float64 adj_773 = {};
-        wp::float64 adj_774 = {};
-        wp::int32 adj_775 = {};
-        wp::float64 adj_776 = {};
-        wp::float64 adj_777 = {};
-        wp::int32 adj_778 = {};
-        wp::float32 adj_779 = {};
-        wp::float64 adj_780 = {};
-        wp::float64 adj_781 = {};
-        wp::int32 adj_782 = {};
-        wp::float64 adj_783 = {};
-        wp::float64 adj_784 = {};
-        wp::int32 adj_785 = {};
-        wp::float32 adj_786 = {};
-        wp::float64 adj_787 = {};
-        wp::float64 adj_788 = {};
-        wp::int32 adj_789 = {};
-        wp::float64 adj_790 = {};
-        wp::float64 adj_791 = {};
-        wp::int32 adj_792 = {};
-        wp::float32 adj_793 = {};
-        wp::float64 adj_794 = {};
-        wp::float64 adj_795 = {};
-        wp::int32 adj_796 = {};
-        wp::float64 adj_797 = {};
-        wp::float64 adj_798 = {};
-        wp::int32 adj_799 = {};
-        wp::float64 adj_800 = {};
-        wp::float64 adj_801 = {};
-        wp::float64 adj_802 = {};
-        wp::float64 adj_803 = {};
-        wp::float64 adj_804 = {};
-        wp::float64 adj_805 = {};
-        wp::float32 adj_806 = {};
-        wp::float64 adj_807 = {};
-        wp::float64 adj_808 = {};
-        wp::int32 adj_809 = {};
-        wp::int32 adj_810 = {};
-        wp::float64 adj_811 = {};
-        wp::float64 adj_812 = {};
-        wp::int32 adj_813 = {};
-        wp::float64 adj_814 = {};
-        wp::float64 adj_815 = {};
-        wp::int32 adj_816 = {};
-        wp::float64 adj_817 = {};
-        wp::float64 adj_818 = {};
-        wp::int32 adj_819 = {};
-        wp::int32 adj_820 = {};
-        wp::float64 adj_821 = {};
-        wp::float64 adj_822 = {};
-        wp::int32 adj_823 = {};
-        wp::float64 adj_824 = {};
-        wp::float64 adj_825 = {};
-        wp::int32 adj_826 = {};
-        wp::float64 adj_827 = {};
-        wp::float64 adj_828 = {};
-        wp::int32 adj_829 = {};
-        wp::int32 adj_830 = {};
-        wp::float64 adj_831 = {};
-        wp::float64 adj_832 = {};
-        wp::int32 adj_833 = {};
-        wp::float64 adj_834 = {};
-        wp::float64 adj_835 = {};
-        wp::int32 adj_836 = {};
-        wp::float64 adj_837 = {};
-        wp::float64 adj_838 = {};
-        wp::vec_t<12,wp::float64> adj_839 = {};
-        wp::int32 adj_840 = {};
-        wp::int32 adj_841 = {};
-        wp::float64 adj_842 = {};
-        wp::float64 adj_843 = {};
-        wp::int32 adj_844 = {};
-        wp::float64 adj_845 = {};
-        wp::float64 adj_846 = {};
-        wp::int32 adj_847 = {};
-        wp::float64 adj_848 = {};
-        wp::float64 adj_849 = {};
-        wp::int32 adj_850 = {};
-        wp::int32 adj_851 = {};
-        wp::int32 adj_852 = {};
-        wp::int32 adj_853 = {};
-        wp::float64 adj_854 = {};
-        wp::int32 adj_855 = {};
-        wp::int32 adj_856 = {};
-        wp::int32 adj_857 = {};
-        wp::int32 adj_858 = {};
-        wp::float64 adj_859 = {};
-        wp::int32 adj_860 = {};
-        wp::int32 adj_861 = {};
-        wp::int32 adj_862 = {};
-        wp::int32 adj_863 = {};
-        wp::float64 adj_864 = {};
-        wp::int32 adj_865 = {};
-        wp::int32 adj_866 = {};
-        wp::int32 adj_867 = {};
-        wp::int32 adj_868 = {};
-        wp::int32 adj_869 = {};
-        wp::float64 adj_870 = {};
-        wp::float64 adj_871 = {};
-        wp::int32 adj_872 = {};
-        wp::float64 adj_873 = {};
-        wp::float64 adj_874 = {};
-        wp::int32 adj_875 = {};
-        wp::float64 adj_876 = {};
-        wp::float64 adj_877 = {};
-        wp::int32 adj_878 = {};
-        wp::int32 adj_879 = {};
-        wp::int32 adj_880 = {};
-        wp::int32 adj_881 = {};
-        wp::float64 adj_882 = {};
-        wp::int32 adj_883 = {};
-        wp::int32 adj_884 = {};
-        wp::int32 adj_885 = {};
-        wp::int32 adj_886 = {};
-        wp::float64 adj_887 = {};
-        wp::int32 adj_888 = {};
-        wp::int32 adj_889 = {};
-        wp::int32 adj_890 = {};
-        wp::int32 adj_891 = {};
-        wp::float64 adj_892 = {};
-        wp::int32 adj_893 = {};
-        wp::int32 adj_894 = {};
-        wp::int32 adj_895 = {};
-        wp::int32 adj_896 = {};
-        wp::int32 adj_897 = {};
-        wp::float64 adj_898 = {};
-        wp::float64 adj_899 = {};
-        wp::int32 adj_900 = {};
-        wp::float64 adj_901 = {};
-        wp::float64 adj_902 = {};
-        wp::int32 adj_903 = {};
-        wp::float64 adj_904 = {};
-        wp::float64 adj_905 = {};
-        wp::int32 adj_906 = {};
-        wp::int32 adj_907 = {};
-        wp::int32 adj_908 = {};
-        wp::int32 adj_909 = {};
-        wp::float64 adj_910 = {};
-        wp::int32 adj_911 = {};
-        wp::int32 adj_912 = {};
-        wp::int32 adj_913 = {};
-        wp::int32 adj_914 = {};
-        wp::float64 adj_915 = {};
-        wp::int32 adj_916 = {};
-        wp::int32 adj_917 = {};
-        wp::int32 adj_918 = {};
-        wp::int32 adj_919 = {};
-        wp::float64 adj_920 = {};
-        wp::int32 adj_921 = {};
-        wp::int32 adj_922 = {};
-        wp::int32 adj_923 = {};
-        wp::vec_t<12,wp::float64> adj_924 = {};
-        //---------
-        // forward
-        // def compute_rigidity_energy_grad(                                                      <L 78>
-        // tid = wp.tid()                                                                         <L 88>
-        var_0 = builtin_tid1d();
-        // if affine_has_constraint[tid] or (                                                     <L 89>
-        var_1 = wp::address(var_affine_has_constraint, var_0);
-        // (env_states[body_env_id[tid]] == ENV_STATE_INVALID) or (env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED)       <L 90>
-        var_2 = wp::address(var_body_env_id, var_0);
-        var_4 = wp::load(var_2);
-        var_3 = wp::address(var_env_states, var_4);
-        var_7 = wp::load(var_3);
-        var_6 = (var_7 == var_5);
-        var_8 = wp::address(var_body_env_id, var_0);
-        var_10 = wp::load(var_8);
-        var_9 = wp::address(var_env_states, var_10);
-        var_13 = wp::load(var_9);
-        var_12 = (var_13 == var_11);
-        var_14 = var_6 || var_12;
-        var_15 = wp::load(var_1);
-        var_16 = var_15 || var_14;
-        if (var_16) {
-            // return                                                                             <L 92>
-            goto label0;
-        }
-        // dim = 3                                                                                <L 93>
-        // F = wp.mat33d()                                                                        <L 94>
-        var_18 = wp::mat_t<3,3,wp::float64>();
-        // F[0, 0] = y[tid][3 + 0] - y[tid][0]                                                    <L 95>
-        var_21 = wp::add(var_19, var_20);
-        var_22 = wp::address(var_y, var_0);
-        var_24 = wp::load(var_22);
-        var_23 = wp::extract(var_24, var_21);
-        var_26 = wp::address(var_y, var_0);
-        var_28 = wp::load(var_26);
-        var_27 = wp::extract(var_28, var_25);
-        var_29 = wp::sub(var_23, var_27);
-        wp::assign_inplace(var_18, var_30, var_31, var_29);
-        // F[1, 0] = y[tid][3 + 1] - y[tid][1]                                                    <L 96>
-        var_34 = wp::add(var_32, var_33);
-        var_35 = wp::address(var_y, var_0);
-        var_37 = wp::load(var_35);
-        var_36 = wp::extract(var_37, var_34);
-        var_39 = wp::address(var_y, var_0);
-        var_41 = wp::load(var_39);
-        var_40 = wp::extract(var_41, var_38);
-        var_42 = wp::sub(var_36, var_40);
-        wp::assign_inplace(var_18, var_43, var_44, var_42);
-        // F[2, 0] = y[tid][3 + 2] - y[tid][2]                                                    <L 97>
-        var_47 = wp::add(var_45, var_46);
-        var_48 = wp::address(var_y, var_0);
-        var_50 = wp::load(var_48);
-        var_49 = wp::extract(var_50, var_47);
-        var_52 = wp::address(var_y, var_0);
-        var_54 = wp::load(var_52);
-        var_53 = wp::extract(var_54, var_51);
-        var_55 = wp::sub(var_49, var_53);
-        wp::assign_inplace(var_18, var_56, var_57, var_55);
-        // F[0, 1] = y[tid][6 + 0] - y[tid][0]                                                    <L 98>
-        var_60 = wp::add(var_58, var_59);
-        var_61 = wp::address(var_y, var_0);
-        var_63 = wp::load(var_61);
-        var_62 = wp::extract(var_63, var_60);
-        var_65 = wp::address(var_y, var_0);
-        var_67 = wp::load(var_65);
-        var_66 = wp::extract(var_67, var_64);
-        var_68 = wp::sub(var_62, var_66);
-        wp::assign_inplace(var_18, var_69, var_70, var_68);
-        // F[1, 1] = y[tid][6 + 1] - y[tid][1]                                                    <L 99>
-        var_73 = wp::add(var_71, var_72);
-        var_74 = wp::address(var_y, var_0);
-        var_76 = wp::load(var_74);
-        var_75 = wp::extract(var_76, var_73);
-        var_78 = wp::address(var_y, var_0);
-        var_80 = wp::load(var_78);
-        var_79 = wp::extract(var_80, var_77);
-        var_81 = wp::sub(var_75, var_79);
-        wp::assign_inplace(var_18, var_82, var_83, var_81);
-        // F[2, 1] = y[tid][6 + 2] - y[tid][2]                                                    <L 100>
-        var_86 = wp::add(var_84, var_85);
-        var_87 = wp::address(var_y, var_0);
-        var_89 = wp::load(var_87);
-        var_88 = wp::extract(var_89, var_86);
-        var_91 = wp::address(var_y, var_0);
-        var_93 = wp::load(var_91);
-        var_92 = wp::extract(var_93, var_90);
-        var_94 = wp::sub(var_88, var_92);
-        wp::assign_inplace(var_18, var_95, var_96, var_94);
-        // F[0, 2] = y[tid][9 + 0] - y[tid][0]                                                    <L 101>
-        var_99 = wp::add(var_97, var_98);
-        var_100 = wp::address(var_y, var_0);
-        var_102 = wp::load(var_100);
-        var_101 = wp::extract(var_102, var_99);
-        var_104 = wp::address(var_y, var_0);
-        var_106 = wp::load(var_104);
-        var_105 = wp::extract(var_106, var_103);
-        var_107 = wp::sub(var_101, var_105);
-        wp::assign_inplace(var_18, var_108, var_109, var_107);
-        // F[1, 2] = y[tid][9 + 1] - y[tid][1]                                                    <L 102>
-        var_112 = wp::add(var_110, var_111);
-        var_113 = wp::address(var_y, var_0);
-        var_115 = wp::load(var_113);
-        var_114 = wp::extract(var_115, var_112);
-        var_117 = wp::address(var_y, var_0);
-        var_119 = wp::load(var_117);
-        var_118 = wp::extract(var_119, var_116);
-        var_120 = wp::sub(var_114, var_118);
-        wp::assign_inplace(var_18, var_121, var_122, var_120);
-        // F[2, 2] = y[tid][9 + 2] - y[tid][2]                                                    <L 103>
-        var_125 = wp::add(var_123, var_124);
-        var_126 = wp::address(var_y, var_0);
-        var_128 = wp::load(var_126);
-        var_127 = wp::extract(var_128, var_125);
-        var_130 = wp::address(var_y, var_0);
-        var_132 = wp::load(var_130);
-        var_131 = wp::extract(var_132, var_129);
-        var_133 = wp::sub(var_127, var_131);
-        wp::assign_inplace(var_18, var_134, var_135, var_133);
-        // g_F = wp.mat33d()                                                                      <L 104>
-        var_136 = wp::mat_t<3,3,wp::float64>();
-        // for i in range(dim):                                                                   <L 105>
-        // for j in range(dim):                                                                   <L 106>
-        // g_F[i, j] = wp.float64(0.0)                                                            <L 107>
-        var_140 = wp::float64(var_139);
-        wp::assign_inplace(var_136, var_137, var_138, var_140);
-        var_143 = wp::float64(var_142);
-        wp::assign_inplace(var_136, var_137, var_141, var_143);
-        var_146 = wp::float64(var_145);
-        wp::assign_inplace(var_136, var_137, var_144, var_146);
-        // for j in range(dim):                                                                   <L 106>
-        // g_F[i, j] = wp.float64(0.0)                                                            <L 107>
-        var_150 = wp::float64(var_149);
-        wp::assign_inplace(var_136, var_147, var_148, var_150);
-        var_153 = wp::float64(var_152);
-        wp::assign_inplace(var_136, var_147, var_151, var_153);
-        var_156 = wp::float64(var_155);
-        wp::assign_inplace(var_136, var_147, var_154, var_156);
-        // for j in range(dim):                                                                   <L 106>
-        // g_F[i, j] = wp.float64(0.0)                                                            <L 107>
-        var_160 = wp::float64(var_159);
-        wp::assign_inplace(var_136, var_157, var_158, var_160);
-        var_163 = wp::float64(var_162);
-        wp::assign_inplace(var_136, var_157, var_161, var_163);
-        var_166 = wp::float64(var_165);
-        wp::assign_inplace(var_136, var_157, var_164, var_166);
-        // for i in range(dim):                                                                   <L 109>
-        // for j in range(dim):                                                                   <L 110>
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_170 = wp::extract(var_18, var_169, var_167);
-        var_172 = wp::extract(var_18, var_171, var_168);
-        var_173 = wp::mul(var_170, var_172);
-        var_175 = wp::extract(var_18, var_174, var_167);
-        var_177 = wp::extract(var_18, var_176, var_168);
-        var_178 = wp::mul(var_175, var_177);
-        var_179 = wp::add(var_173, var_178);
-        var_181 = wp::extract(var_18, var_180, var_167);
-        var_183 = wp::extract(var_18, var_182, var_168);
-        var_184 = wp::mul(var_181, var_183);
-        var_185 = wp::add(var_179, var_184);
-        // if i == j:                                                                             <L 112>
-        var_186 = (var_167 == var_168);
-        if (var_186) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_188 = wp::float64(var_187);
-            var_190 = wp::float64(var_189);
-            var_191 = wp::sub(var_185, var_190);
-            var_192 = wp::mul(var_188, var_191);
-            var_194 = wp::extract(var_18, var_193, var_167);
-            var_195 = wp::mul(var_192, var_194);
-            wp::add_inplace(var_136, var_196, var_167, var_195);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_198 = wp::float64(var_197);
-            var_200 = wp::float64(var_199);
-            var_201 = wp::sub(var_185, var_200);
-            var_202 = wp::mul(var_198, var_201);
-            var_204 = wp::extract(var_18, var_203, var_167);
-            var_205 = wp::mul(var_202, var_204);
-            wp::add_inplace(var_136, var_206, var_167, var_205);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_208 = wp::float64(var_207);
-            var_210 = wp::float64(var_209);
-            var_211 = wp::sub(var_185, var_210);
-            var_212 = wp::mul(var_208, var_211);
-            var_214 = wp::extract(var_18, var_213, var_167);
-            var_215 = wp::mul(var_212, var_214);
-            wp::add_inplace(var_136, var_216, var_167, var_215);
-        }
-        if (!var_186) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_218 = wp::float64(var_217);
-            var_219 = wp::mul(var_218, var_185);
-            var_221 = wp::extract(var_18, var_220, var_168);
-            var_222 = wp::mul(var_219, var_221);
-            wp::add_inplace(var_136, var_223, var_167, var_222);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_225 = wp::float64(var_224);
-            var_226 = wp::mul(var_225, var_185);
-            var_228 = wp::extract(var_18, var_227, var_168);
-            var_229 = wp::mul(var_226, var_228);
-            wp::add_inplace(var_136, var_230, var_167, var_229);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_232 = wp::float64(var_231);
-            var_233 = wp::mul(var_232, var_185);
-            var_235 = wp::extract(var_18, var_234, var_168);
-            var_236 = wp::mul(var_233, var_235);
-            wp::add_inplace(var_136, var_237, var_167, var_236);
-        }
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_240 = wp::extract(var_18, var_239, var_167);
-        var_242 = wp::extract(var_18, var_241, var_238);
-        var_243 = wp::mul(var_240, var_242);
-        var_245 = wp::extract(var_18, var_244, var_167);
-        var_247 = wp::extract(var_18, var_246, var_238);
-        var_248 = wp::mul(var_245, var_247);
-        var_249 = wp::add(var_243, var_248);
-        var_251 = wp::extract(var_18, var_250, var_167);
-        var_253 = wp::extract(var_18, var_252, var_238);
-        var_254 = wp::mul(var_251, var_253);
-        var_255 = wp::add(var_249, var_254);
-        // if i == j:                                                                             <L 112>
-        var_256 = (var_167 == var_238);
-        if (var_256) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_258 = wp::float64(var_257);
-            var_260 = wp::float64(var_259);
-            var_261 = wp::sub(var_255, var_260);
-            var_262 = wp::mul(var_258, var_261);
-            var_264 = wp::extract(var_18, var_263, var_167);
-            var_265 = wp::mul(var_262, var_264);
-            wp::add_inplace(var_136, var_266, var_167, var_265);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_268 = wp::float64(var_267);
-            var_270 = wp::float64(var_269);
-            var_271 = wp::sub(var_255, var_270);
-            var_272 = wp::mul(var_268, var_271);
-            var_274 = wp::extract(var_18, var_273, var_167);
-            var_275 = wp::mul(var_272, var_274);
-            wp::add_inplace(var_136, var_276, var_167, var_275);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_278 = wp::float64(var_277);
-            var_280 = wp::float64(var_279);
-            var_281 = wp::sub(var_255, var_280);
-            var_282 = wp::mul(var_278, var_281);
-            var_284 = wp::extract(var_18, var_283, var_167);
-            var_285 = wp::mul(var_282, var_284);
-            wp::add_inplace(var_136, var_286, var_167, var_285);
-        }
-        if (!var_256) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_288 = wp::float64(var_287);
-            var_289 = wp::mul(var_288, var_255);
-            var_291 = wp::extract(var_18, var_290, var_238);
-            var_292 = wp::mul(var_289, var_291);
-            wp::add_inplace(var_136, var_293, var_167, var_292);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_295 = wp::float64(var_294);
-            var_296 = wp::mul(var_295, var_255);
-            var_298 = wp::extract(var_18, var_297, var_238);
-            var_299 = wp::mul(var_296, var_298);
-            wp::add_inplace(var_136, var_300, var_167, var_299);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_302 = wp::float64(var_301);
-            var_303 = wp::mul(var_302, var_255);
-            var_305 = wp::extract(var_18, var_304, var_238);
-            var_306 = wp::mul(var_303, var_305);
-            wp::add_inplace(var_136, var_307, var_167, var_306);
-        }
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_310 = wp::extract(var_18, var_309, var_167);
-        var_312 = wp::extract(var_18, var_311, var_308);
-        var_313 = wp::mul(var_310, var_312);
-        var_315 = wp::extract(var_18, var_314, var_167);
-        var_317 = wp::extract(var_18, var_316, var_308);
-        var_318 = wp::mul(var_315, var_317);
-        var_319 = wp::add(var_313, var_318);
-        var_321 = wp::extract(var_18, var_320, var_167);
-        var_323 = wp::extract(var_18, var_322, var_308);
-        var_324 = wp::mul(var_321, var_323);
-        var_325 = wp::add(var_319, var_324);
-        // if i == j:                                                                             <L 112>
-        var_326 = (var_167 == var_308);
-        if (var_326) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_328 = wp::float64(var_327);
-            var_330 = wp::float64(var_329);
-            var_331 = wp::sub(var_325, var_330);
-            var_332 = wp::mul(var_328, var_331);
-            var_334 = wp::extract(var_18, var_333, var_167);
-            var_335 = wp::mul(var_332, var_334);
-            wp::add_inplace(var_136, var_336, var_167, var_335);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_338 = wp::float64(var_337);
-            var_340 = wp::float64(var_339);
-            var_341 = wp::sub(var_325, var_340);
-            var_342 = wp::mul(var_338, var_341);
-            var_344 = wp::extract(var_18, var_343, var_167);
-            var_345 = wp::mul(var_342, var_344);
-            wp::add_inplace(var_136, var_346, var_167, var_345);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_348 = wp::float64(var_347);
-            var_350 = wp::float64(var_349);
-            var_351 = wp::sub(var_325, var_350);
-            var_352 = wp::mul(var_348, var_351);
-            var_354 = wp::extract(var_18, var_353, var_167);
-            var_355 = wp::mul(var_352, var_354);
-            wp::add_inplace(var_136, var_356, var_167, var_355);
-        }
-        if (!var_326) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_358 = wp::float64(var_357);
-            var_359 = wp::mul(var_358, var_325);
-            var_361 = wp::extract(var_18, var_360, var_308);
-            var_362 = wp::mul(var_359, var_361);
-            wp::add_inplace(var_136, var_363, var_167, var_362);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_365 = wp::float64(var_364);
-            var_366 = wp::mul(var_365, var_325);
-            var_368 = wp::extract(var_18, var_367, var_308);
-            var_369 = wp::mul(var_366, var_368);
-            wp::add_inplace(var_136, var_370, var_167, var_369);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_372 = wp::float64(var_371);
-            var_373 = wp::mul(var_372, var_325);
-            var_375 = wp::extract(var_18, var_374, var_308);
-            var_376 = wp::mul(var_373, var_375);
-            wp::add_inplace(var_136, var_377, var_167, var_376);
-        }
-        // for j in range(dim):                                                                   <L 110>
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_381 = wp::extract(var_18, var_380, var_378);
-        var_383 = wp::extract(var_18, var_382, var_379);
-        var_384 = wp::mul(var_381, var_383);
-        var_386 = wp::extract(var_18, var_385, var_378);
-        var_388 = wp::extract(var_18, var_387, var_379);
-        var_389 = wp::mul(var_386, var_388);
-        var_390 = wp::add(var_384, var_389);
-        var_392 = wp::extract(var_18, var_391, var_378);
-        var_394 = wp::extract(var_18, var_393, var_379);
-        var_395 = wp::mul(var_392, var_394);
-        var_396 = wp::add(var_390, var_395);
-        // if i == j:                                                                             <L 112>
-        var_397 = (var_378 == var_379);
-        if (var_397) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_399 = wp::float64(var_398);
-            var_401 = wp::float64(var_400);
-            var_402 = wp::sub(var_396, var_401);
-            var_403 = wp::mul(var_399, var_402);
-            var_405 = wp::extract(var_18, var_404, var_378);
-            var_406 = wp::mul(var_403, var_405);
-            wp::add_inplace(var_136, var_407, var_378, var_406);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_409 = wp::float64(var_408);
-            var_411 = wp::float64(var_410);
-            var_412 = wp::sub(var_396, var_411);
-            var_413 = wp::mul(var_409, var_412);
-            var_415 = wp::extract(var_18, var_414, var_378);
-            var_416 = wp::mul(var_413, var_415);
-            wp::add_inplace(var_136, var_417, var_378, var_416);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_419 = wp::float64(var_418);
-            var_421 = wp::float64(var_420);
-            var_422 = wp::sub(var_396, var_421);
-            var_423 = wp::mul(var_419, var_422);
-            var_425 = wp::extract(var_18, var_424, var_378);
-            var_426 = wp::mul(var_423, var_425);
-            wp::add_inplace(var_136, var_427, var_378, var_426);
-        }
-        if (!var_397) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_429 = wp::float64(var_428);
-            var_430 = wp::mul(var_429, var_396);
-            var_432 = wp::extract(var_18, var_431, var_379);
-            var_433 = wp::mul(var_430, var_432);
-            wp::add_inplace(var_136, var_434, var_378, var_433);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_436 = wp::float64(var_435);
-            var_437 = wp::mul(var_436, var_396);
-            var_439 = wp::extract(var_18, var_438, var_379);
-            var_440 = wp::mul(var_437, var_439);
-            wp::add_inplace(var_136, var_441, var_378, var_440);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_443 = wp::float64(var_442);
-            var_444 = wp::mul(var_443, var_396);
-            var_446 = wp::extract(var_18, var_445, var_379);
-            var_447 = wp::mul(var_444, var_446);
-            wp::add_inplace(var_136, var_448, var_378, var_447);
-        }
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_451 = wp::extract(var_18, var_450, var_378);
-        var_453 = wp::extract(var_18, var_452, var_449);
-        var_454 = wp::mul(var_451, var_453);
-        var_456 = wp::extract(var_18, var_455, var_378);
-        var_458 = wp::extract(var_18, var_457, var_449);
-        var_459 = wp::mul(var_456, var_458);
-        var_460 = wp::add(var_454, var_459);
-        var_462 = wp::extract(var_18, var_461, var_378);
-        var_464 = wp::extract(var_18, var_463, var_449);
-        var_465 = wp::mul(var_462, var_464);
-        var_466 = wp::add(var_460, var_465);
-        // if i == j:                                                                             <L 112>
-        var_467 = (var_378 == var_449);
-        if (var_467) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_469 = wp::float64(var_468);
-            var_471 = wp::float64(var_470);
-            var_472 = wp::sub(var_466, var_471);
-            var_473 = wp::mul(var_469, var_472);
-            var_475 = wp::extract(var_18, var_474, var_378);
-            var_476 = wp::mul(var_473, var_475);
-            wp::add_inplace(var_136, var_477, var_378, var_476);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_479 = wp::float64(var_478);
-            var_481 = wp::float64(var_480);
-            var_482 = wp::sub(var_466, var_481);
-            var_483 = wp::mul(var_479, var_482);
-            var_485 = wp::extract(var_18, var_484, var_378);
-            var_486 = wp::mul(var_483, var_485);
-            wp::add_inplace(var_136, var_487, var_378, var_486);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_489 = wp::float64(var_488);
-            var_491 = wp::float64(var_490);
-            var_492 = wp::sub(var_466, var_491);
-            var_493 = wp::mul(var_489, var_492);
-            var_495 = wp::extract(var_18, var_494, var_378);
-            var_496 = wp::mul(var_493, var_495);
-            wp::add_inplace(var_136, var_497, var_378, var_496);
-        }
-        if (!var_467) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_499 = wp::float64(var_498);
-            var_500 = wp::mul(var_499, var_466);
-            var_502 = wp::extract(var_18, var_501, var_449);
-            var_503 = wp::mul(var_500, var_502);
-            wp::add_inplace(var_136, var_504, var_378, var_503);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_506 = wp::float64(var_505);
-            var_507 = wp::mul(var_506, var_466);
-            var_509 = wp::extract(var_18, var_508, var_449);
-            var_510 = wp::mul(var_507, var_509);
-            wp::add_inplace(var_136, var_511, var_378, var_510);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_513 = wp::float64(var_512);
-            var_514 = wp::mul(var_513, var_466);
-            var_516 = wp::extract(var_18, var_515, var_449);
-            var_517 = wp::mul(var_514, var_516);
-            wp::add_inplace(var_136, var_518, var_378, var_517);
-        }
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_521 = wp::extract(var_18, var_520, var_378);
-        var_523 = wp::extract(var_18, var_522, var_519);
-        var_524 = wp::mul(var_521, var_523);
-        var_526 = wp::extract(var_18, var_525, var_378);
-        var_528 = wp::extract(var_18, var_527, var_519);
-        var_529 = wp::mul(var_526, var_528);
-        var_530 = wp::add(var_524, var_529);
-        var_532 = wp::extract(var_18, var_531, var_378);
-        var_534 = wp::extract(var_18, var_533, var_519);
-        var_535 = wp::mul(var_532, var_534);
-        var_536 = wp::add(var_530, var_535);
-        // if i == j:                                                                             <L 112>
-        var_537 = (var_378 == var_519);
-        if (var_537) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_539 = wp::float64(var_538);
-            var_541 = wp::float64(var_540);
-            var_542 = wp::sub(var_536, var_541);
-            var_543 = wp::mul(var_539, var_542);
-            var_545 = wp::extract(var_18, var_544, var_378);
-            var_546 = wp::mul(var_543, var_545);
-            wp::add_inplace(var_136, var_547, var_378, var_546);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_549 = wp::float64(var_548);
-            var_551 = wp::float64(var_550);
-            var_552 = wp::sub(var_536, var_551);
-            var_553 = wp::mul(var_549, var_552);
-            var_555 = wp::extract(var_18, var_554, var_378);
-            var_556 = wp::mul(var_553, var_555);
-            wp::add_inplace(var_136, var_557, var_378, var_556);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_559 = wp::float64(var_558);
-            var_561 = wp::float64(var_560);
-            var_562 = wp::sub(var_536, var_561);
-            var_563 = wp::mul(var_559, var_562);
-            var_565 = wp::extract(var_18, var_564, var_378);
-            var_566 = wp::mul(var_563, var_565);
-            wp::add_inplace(var_136, var_567, var_378, var_566);
-        }
-        if (!var_537) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_569 = wp::float64(var_568);
-            var_570 = wp::mul(var_569, var_536);
-            var_572 = wp::extract(var_18, var_571, var_519);
-            var_573 = wp::mul(var_570, var_572);
-            wp::add_inplace(var_136, var_574, var_378, var_573);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_576 = wp::float64(var_575);
-            var_577 = wp::mul(var_576, var_536);
-            var_579 = wp::extract(var_18, var_578, var_519);
-            var_580 = wp::mul(var_577, var_579);
-            wp::add_inplace(var_136, var_581, var_378, var_580);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_583 = wp::float64(var_582);
-            var_584 = wp::mul(var_583, var_536);
-            var_586 = wp::extract(var_18, var_585, var_519);
-            var_587 = wp::mul(var_584, var_586);
-            wp::add_inplace(var_136, var_588, var_378, var_587);
-        }
-        // for j in range(dim):                                                                   <L 110>
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_592 = wp::extract(var_18, var_591, var_589);
-        var_594 = wp::extract(var_18, var_593, var_590);
-        var_595 = wp::mul(var_592, var_594);
-        var_597 = wp::extract(var_18, var_596, var_589);
-        var_599 = wp::extract(var_18, var_598, var_590);
-        var_600 = wp::mul(var_597, var_599);
-        var_601 = wp::add(var_595, var_600);
-        var_603 = wp::extract(var_18, var_602, var_589);
-        var_605 = wp::extract(var_18, var_604, var_590);
-        var_606 = wp::mul(var_603, var_605);
-        var_607 = wp::add(var_601, var_606);
-        // if i == j:                                                                             <L 112>
-        var_608 = (var_589 == var_590);
-        if (var_608) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_610 = wp::float64(var_609);
-            var_612 = wp::float64(var_611);
-            var_613 = wp::sub(var_607, var_612);
-            var_614 = wp::mul(var_610, var_613);
-            var_616 = wp::extract(var_18, var_615, var_589);
-            var_617 = wp::mul(var_614, var_616);
-            wp::add_inplace(var_136, var_618, var_589, var_617);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_620 = wp::float64(var_619);
-            var_622 = wp::float64(var_621);
-            var_623 = wp::sub(var_607, var_622);
-            var_624 = wp::mul(var_620, var_623);
-            var_626 = wp::extract(var_18, var_625, var_589);
-            var_627 = wp::mul(var_624, var_626);
-            wp::add_inplace(var_136, var_628, var_589, var_627);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_630 = wp::float64(var_629);
-            var_632 = wp::float64(var_631);
-            var_633 = wp::sub(var_607, var_632);
-            var_634 = wp::mul(var_630, var_633);
-            var_636 = wp::extract(var_18, var_635, var_589);
-            var_637 = wp::mul(var_634, var_636);
-            wp::add_inplace(var_136, var_638, var_589, var_637);
-        }
-        if (!var_608) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_640 = wp::float64(var_639);
-            var_641 = wp::mul(var_640, var_607);
-            var_643 = wp::extract(var_18, var_642, var_590);
-            var_644 = wp::mul(var_641, var_643);
-            wp::add_inplace(var_136, var_645, var_589, var_644);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_647 = wp::float64(var_646);
-            var_648 = wp::mul(var_647, var_607);
-            var_650 = wp::extract(var_18, var_649, var_590);
-            var_651 = wp::mul(var_648, var_650);
-            wp::add_inplace(var_136, var_652, var_589, var_651);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_654 = wp::float64(var_653);
-            var_655 = wp::mul(var_654, var_607);
-            var_657 = wp::extract(var_18, var_656, var_590);
-            var_658 = wp::mul(var_655, var_657);
-            wp::add_inplace(var_136, var_659, var_589, var_658);
-        }
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_662 = wp::extract(var_18, var_661, var_589);
-        var_664 = wp::extract(var_18, var_663, var_660);
-        var_665 = wp::mul(var_662, var_664);
-        var_667 = wp::extract(var_18, var_666, var_589);
-        var_669 = wp::extract(var_18, var_668, var_660);
-        var_670 = wp::mul(var_667, var_669);
-        var_671 = wp::add(var_665, var_670);
-        var_673 = wp::extract(var_18, var_672, var_589);
-        var_675 = wp::extract(var_18, var_674, var_660);
-        var_676 = wp::mul(var_673, var_675);
-        var_677 = wp::add(var_671, var_676);
-        // if i == j:                                                                             <L 112>
-        var_678 = (var_589 == var_660);
-        if (var_678) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_680 = wp::float64(var_679);
-            var_682 = wp::float64(var_681);
-            var_683 = wp::sub(var_677, var_682);
-            var_684 = wp::mul(var_680, var_683);
-            var_686 = wp::extract(var_18, var_685, var_589);
-            var_687 = wp::mul(var_684, var_686);
-            wp::add_inplace(var_136, var_688, var_589, var_687);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_690 = wp::float64(var_689);
-            var_692 = wp::float64(var_691);
-            var_693 = wp::sub(var_677, var_692);
-            var_694 = wp::mul(var_690, var_693);
-            var_696 = wp::extract(var_18, var_695, var_589);
-            var_697 = wp::mul(var_694, var_696);
-            wp::add_inplace(var_136, var_698, var_589, var_697);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_700 = wp::float64(var_699);
-            var_702 = wp::float64(var_701);
-            var_703 = wp::sub(var_677, var_702);
-            var_704 = wp::mul(var_700, var_703);
-            var_706 = wp::extract(var_18, var_705, var_589);
-            var_707 = wp::mul(var_704, var_706);
-            wp::add_inplace(var_136, var_708, var_589, var_707);
-        }
-        if (!var_678) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_710 = wp::float64(var_709);
-            var_711 = wp::mul(var_710, var_677);
-            var_713 = wp::extract(var_18, var_712, var_660);
-            var_714 = wp::mul(var_711, var_713);
-            wp::add_inplace(var_136, var_715, var_589, var_714);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_717 = wp::float64(var_716);
-            var_718 = wp::mul(var_717, var_677);
-            var_720 = wp::extract(var_18, var_719, var_660);
-            var_721 = wp::mul(var_718, var_720);
-            wp::add_inplace(var_136, var_722, var_589, var_721);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_724 = wp::float64(var_723);
-            var_725 = wp::mul(var_724, var_677);
-            var_727 = wp::extract(var_18, var_726, var_660);
-            var_728 = wp::mul(var_725, var_727);
-            wp::add_inplace(var_136, var_729, var_589, var_728);
-        }
-        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
-        var_732 = wp::extract(var_18, var_731, var_589);
-        var_734 = wp::extract(var_18, var_733, var_730);
-        var_735 = wp::mul(var_732, var_734);
-        var_737 = wp::extract(var_18, var_736, var_589);
-        var_739 = wp::extract(var_18, var_738, var_730);
-        var_740 = wp::mul(var_737, var_739);
-        var_741 = wp::add(var_735, var_740);
-        var_743 = wp::extract(var_18, var_742, var_589);
-        var_745 = wp::extract(var_18, var_744, var_730);
-        var_746 = wp::mul(var_743, var_745);
-        var_747 = wp::add(var_741, var_746);
-        // if i == j:                                                                             <L 112>
-        var_748 = (var_589 == var_730);
-        if (var_748) {
-            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
-            var_750 = wp::float64(var_749);
-            var_752 = wp::float64(var_751);
-            var_753 = wp::sub(var_747, var_752);
-            var_754 = wp::mul(var_750, var_753);
-            var_756 = wp::extract(var_18, var_755, var_589);
-            var_757 = wp::mul(var_754, var_756);
-            wp::add_inplace(var_136, var_758, var_589, var_757);
-            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
-            var_760 = wp::float64(var_759);
-            var_762 = wp::float64(var_761);
-            var_763 = wp::sub(var_747, var_762);
-            var_764 = wp::mul(var_760, var_763);
-            var_766 = wp::extract(var_18, var_765, var_589);
-            var_767 = wp::mul(var_764, var_766);
-            wp::add_inplace(var_136, var_768, var_589, var_767);
-            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
-            var_770 = wp::float64(var_769);
-            var_772 = wp::float64(var_771);
-            var_773 = wp::sub(var_747, var_772);
-            var_774 = wp::mul(var_770, var_773);
-            var_776 = wp::extract(var_18, var_775, var_589);
-            var_777 = wp::mul(var_774, var_776);
-            wp::add_inplace(var_136, var_778, var_589, var_777);
-        }
-        if (!var_748) {
-            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
-            var_780 = wp::float64(var_779);
-            var_781 = wp::mul(var_780, var_747);
-            var_783 = wp::extract(var_18, var_782, var_730);
-            var_784 = wp::mul(var_781, var_783);
-            wp::add_inplace(var_136, var_785, var_589, var_784);
-            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
-            var_787 = wp::float64(var_786);
-            var_788 = wp::mul(var_787, var_747);
-            var_790 = wp::extract(var_18, var_789, var_730);
-            var_791 = wp::mul(var_788, var_790);
-            wp::add_inplace(var_136, var_792, var_589, var_791);
-            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
-            var_794 = wp::float64(var_793);
-            var_795 = wp::mul(var_794, var_747);
-            var_797 = wp::extract(var_18, var_796, var_730);
-            var_798 = wp::mul(var_795, var_797);
-            wp::add_inplace(var_136, var_799, var_589, var_798);
-        }
-        // coeff = vol_body[tid] * E_body[tid] * scale / wp.float64(8.0)                          <L 121>
-        var_800 = wp::address(var_vol_body, var_0);
-        var_801 = wp::address(var_E_body, var_0);
-        var_803 = wp::load(var_800);
-        var_804 = wp::load(var_801);
-        var_802 = wp::mul(var_803, var_804);
-        var_805 = wp::mul(var_802, var_scale);
-        var_807 = wp::float64(var_806);
-        var_808 = wp::div(var_805, var_807);
-        // for i in range(dim):                                                                   <L 122>
-        // for j in range(dim):                                                                   <L 123>
-        // g_F[i, j] *= coeff                                                                     <L 124>
-        var_811 = wp::extract(var_136, var_809, var_810);
-        var_812 = wp::mul(var_811, var_808);
-        wp::assign_inplace(var_136, var_809, var_810, var_812);
-        var_814 = wp::extract(var_136, var_809, var_813);
-        var_815 = wp::mul(var_814, var_808);
-        wp::assign_inplace(var_136, var_809, var_813, var_815);
-        var_817 = wp::extract(var_136, var_809, var_816);
-        var_818 = wp::mul(var_817, var_808);
-        wp::assign_inplace(var_136, var_809, var_816, var_818);
-        // for j in range(dim):                                                                   <L 123>
-        // g_F[i, j] *= coeff                                                                     <L 124>
-        var_821 = wp::extract(var_136, var_819, var_820);
-        var_822 = wp::mul(var_821, var_808);
-        wp::assign_inplace(var_136, var_819, var_820, var_822);
-        var_824 = wp::extract(var_136, var_819, var_823);
-        var_825 = wp::mul(var_824, var_808);
-        wp::assign_inplace(var_136, var_819, var_823, var_825);
-        var_827 = wp::extract(var_136, var_819, var_826);
-        var_828 = wp::mul(var_827, var_808);
-        wp::assign_inplace(var_136, var_819, var_826, var_828);
-        // for j in range(dim):                                                                   <L 123>
-        // g_F[i, j] *= coeff                                                                     <L 124>
-        var_831 = wp::extract(var_136, var_829, var_830);
-        var_832 = wp::mul(var_831, var_808);
-        wp::assign_inplace(var_136, var_829, var_830, var_832);
-        var_834 = wp::extract(var_136, var_829, var_833);
-        var_835 = wp::mul(var_834, var_808);
-        wp::assign_inplace(var_136, var_829, var_833, var_835);
-        var_837 = wp::extract(var_136, var_829, var_836);
-        var_838 = wp::mul(var_837, var_808);
-        wp::assign_inplace(var_136, var_829, var_836, var_838);
-        // local_gradient = vec12d()                                                              <L 126>
-        var_839 = wp::vec_t<12,wp::float64>();
-        // for d in range(dim):                                                                   <L 127>
-        // local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                      <L 128>
-        var_842 = wp::extract(var_136, var_840, var_841);
-        var_843 = wp::neg(var_842);
-        var_845 = wp::extract(var_136, var_840, var_844);
-        var_846 = wp::sub(var_843, var_845);
-        var_848 = wp::extract(var_136, var_840, var_847);
-        var_849 = wp::sub(var_846, var_848);
-        var_851 = wp::mul(var_850, var_17);
-        var_852 = wp::add(var_851, var_840);
-        wp::add_inplace(var_839, var_852, var_849);
-        // local_gradient[1 * dim + d] += g_F[d, 0]                                               <L 129>
-        var_854 = wp::extract(var_136, var_840, var_853);
-        var_856 = wp::mul(var_855, var_17);
-        var_857 = wp::add(var_856, var_840);
-        wp::add_inplace(var_839, var_857, var_854);
-        // local_gradient[2 * dim + d] += g_F[d, 1]                                               <L 130>
-        var_859 = wp::extract(var_136, var_840, var_858);
-        var_861 = wp::mul(var_860, var_17);
-        var_862 = wp::add(var_861, var_840);
-        wp::add_inplace(var_839, var_862, var_859);
-        // local_gradient[3 * dim + d] += g_F[d, 2]                                               <L 131>
-        var_864 = wp::extract(var_136, var_840, var_863);
-        var_866 = wp::mul(var_865, var_17);
-        var_867 = wp::add(var_866, var_840);
-        wp::add_inplace(var_839, var_867, var_864);
-        // local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                      <L 128>
-        var_870 = wp::extract(var_136, var_868, var_869);
-        var_871 = wp::neg(var_870);
-        var_873 = wp::extract(var_136, var_868, var_872);
-        var_874 = wp::sub(var_871, var_873);
-        var_876 = wp::extract(var_136, var_868, var_875);
-        var_877 = wp::sub(var_874, var_876);
-        var_879 = wp::mul(var_878, var_17);
-        var_880 = wp::add(var_879, var_868);
-        wp::add_inplace(var_839, var_880, var_877);
-        // local_gradient[1 * dim + d] += g_F[d, 0]                                               <L 129>
-        var_882 = wp::extract(var_136, var_868, var_881);
-        var_884 = wp::mul(var_883, var_17);
-        var_885 = wp::add(var_884, var_868);
-        wp::add_inplace(var_839, var_885, var_882);
-        // local_gradient[2 * dim + d] += g_F[d, 1]                                               <L 130>
-        var_887 = wp::extract(var_136, var_868, var_886);
-        var_889 = wp::mul(var_888, var_17);
-        var_890 = wp::add(var_889, var_868);
-        wp::add_inplace(var_839, var_890, var_887);
-        // local_gradient[3 * dim + d] += g_F[d, 2]                                               <L 131>
-        var_892 = wp::extract(var_136, var_868, var_891);
-        var_894 = wp::mul(var_893, var_17);
-        var_895 = wp::add(var_894, var_868);
-        wp::add_inplace(var_839, var_895, var_892);
-        // local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                      <L 128>
-        var_898 = wp::extract(var_136, var_896, var_897);
-        var_899 = wp::neg(var_898);
-        var_901 = wp::extract(var_136, var_896, var_900);
-        var_902 = wp::sub(var_899, var_901);
-        var_904 = wp::extract(var_136, var_896, var_903);
-        var_905 = wp::sub(var_902, var_904);
-        var_907 = wp::mul(var_906, var_17);
-        var_908 = wp::add(var_907, var_896);
-        wp::add_inplace(var_839, var_908, var_905);
-        // local_gradient[1 * dim + d] += g_F[d, 0]                                               <L 129>
-        var_910 = wp::extract(var_136, var_896, var_909);
-        var_912 = wp::mul(var_911, var_17);
-        var_913 = wp::add(var_912, var_896);
-        wp::add_inplace(var_839, var_913, var_910);
-        // local_gradient[2 * dim + d] += g_F[d, 1]                                               <L 130>
-        var_915 = wp::extract(var_136, var_896, var_914);
-        var_917 = wp::mul(var_916, var_17);
-        var_918 = wp::add(var_917, var_896);
-        wp::add_inplace(var_839, var_918, var_915);
-        // local_gradient[3 * dim + d] += g_F[d, 2]                                               <L 131>
-        var_920 = wp::extract(var_136, var_896, var_919);
-        var_922 = wp::mul(var_921, var_17);
-        var_923 = wp::add(var_922, var_896);
-        wp::add_inplace(var_839, var_923, var_920);
-        // gradient[tid] += local_gradient                                                        <L 132>
-        // var_924 = wp::atomic_add(var_gradient, var_0, var_839);
-        //---------
-        // reverse
-        wp::adj_atomic_add(var_gradient, var_0, var_839, adj_gradient, adj_0, adj_839, adj_924);
-        // adj: gradient[tid] += local_gradient                                                   <L 132>
-        wp::adj_add_inplace(var_839, var_923, var_920, adj_839, adj_923, adj_920);
-        wp::adj_add(var_922, var_896, adj_922, adj_896, adj_923);
-        wp::adj_mul(var_921, var_17, adj_921, adj_17, adj_922);
-        wp::adj_extract(var_136, var_896, var_919, adj_136, adj_896, adj_919, adj_920);
-        // adj: local_gradient[3 * dim + d] += g_F[d, 2]                                          <L 131>
-        wp::adj_add_inplace(var_839, var_918, var_915, adj_839, adj_918, adj_915);
-        wp::adj_add(var_917, var_896, adj_917, adj_896, adj_918);
-        wp::adj_mul(var_916, var_17, adj_916, adj_17, adj_917);
-        wp::adj_extract(var_136, var_896, var_914, adj_136, adj_896, adj_914, adj_915);
-        // adj: local_gradient[2 * dim + d] += g_F[d, 1]                                          <L 130>
-        wp::adj_add_inplace(var_839, var_913, var_910, adj_839, adj_913, adj_910);
-        wp::adj_add(var_912, var_896, adj_912, adj_896, adj_913);
-        wp::adj_mul(var_911, var_17, adj_911, adj_17, adj_912);
-        wp::adj_extract(var_136, var_896, var_909, adj_136, adj_896, adj_909, adj_910);
-        // adj: local_gradient[1 * dim + d] += g_F[d, 0]                                          <L 129>
-        wp::adj_add_inplace(var_839, var_908, var_905, adj_839, adj_908, adj_905);
-        wp::adj_add(var_907, var_896, adj_907, adj_896, adj_908);
-        wp::adj_mul(var_906, var_17, adj_906, adj_17, adj_907);
-        wp::adj_sub(var_902, var_904, adj_902, adj_904, adj_905);
-        wp::adj_extract(var_136, var_896, var_903, adj_136, adj_896, adj_903, adj_904);
-        wp::adj_sub(var_899, var_901, adj_899, adj_901, adj_902);
-        wp::adj_extract(var_136, var_896, var_900, adj_136, adj_896, adj_900, adj_901);
-        wp::adj_neg(var_898, adj_898, adj_899);
-        wp::adj_extract(var_136, var_896, var_897, adj_136, adj_896, adj_897, adj_898);
-        // adj: local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                 <L 128>
-        wp::adj_add_inplace(var_839, var_895, var_892, adj_839, adj_895, adj_892);
-        wp::adj_add(var_894, var_868, adj_894, adj_868, adj_895);
-        wp::adj_mul(var_893, var_17, adj_893, adj_17, adj_894);
-        wp::adj_extract(var_136, var_868, var_891, adj_136, adj_868, adj_891, adj_892);
-        // adj: local_gradient[3 * dim + d] += g_F[d, 2]                                          <L 131>
-        wp::adj_add_inplace(var_839, var_890, var_887, adj_839, adj_890, adj_887);
-        wp::adj_add(var_889, var_868, adj_889, adj_868, adj_890);
-        wp::adj_mul(var_888, var_17, adj_888, adj_17, adj_889);
-        wp::adj_extract(var_136, var_868, var_886, adj_136, adj_868, adj_886, adj_887);
-        // adj: local_gradient[2 * dim + d] += g_F[d, 1]                                          <L 130>
-        wp::adj_add_inplace(var_839, var_885, var_882, adj_839, adj_885, adj_882);
-        wp::adj_add(var_884, var_868, adj_884, adj_868, adj_885);
-        wp::adj_mul(var_883, var_17, adj_883, adj_17, adj_884);
-        wp::adj_extract(var_136, var_868, var_881, adj_136, adj_868, adj_881, adj_882);
-        // adj: local_gradient[1 * dim + d] += g_F[d, 0]                                          <L 129>
-        wp::adj_add_inplace(var_839, var_880, var_877, adj_839, adj_880, adj_877);
-        wp::adj_add(var_879, var_868, adj_879, adj_868, adj_880);
-        wp::adj_mul(var_878, var_17, adj_878, adj_17, adj_879);
-        wp::adj_sub(var_874, var_876, adj_874, adj_876, adj_877);
-        wp::adj_extract(var_136, var_868, var_875, adj_136, adj_868, adj_875, adj_876);
-        wp::adj_sub(var_871, var_873, adj_871, adj_873, adj_874);
-        wp::adj_extract(var_136, var_868, var_872, adj_136, adj_868, adj_872, adj_873);
-        wp::adj_neg(var_870, adj_870, adj_871);
-        wp::adj_extract(var_136, var_868, var_869, adj_136, adj_868, adj_869, adj_870);
-        // adj: local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                 <L 128>
-        wp::adj_add_inplace(var_839, var_867, var_864, adj_839, adj_867, adj_864);
-        wp::adj_add(var_866, var_840, adj_866, adj_840, adj_867);
-        wp::adj_mul(var_865, var_17, adj_865, adj_17, adj_866);
-        wp::adj_extract(var_136, var_840, var_863, adj_136, adj_840, adj_863, adj_864);
-        // adj: local_gradient[3 * dim + d] += g_F[d, 2]                                          <L 131>
-        wp::adj_add_inplace(var_839, var_862, var_859, adj_839, adj_862, adj_859);
-        wp::adj_add(var_861, var_840, adj_861, adj_840, adj_862);
-        wp::adj_mul(var_860, var_17, adj_860, adj_17, adj_861);
-        wp::adj_extract(var_136, var_840, var_858, adj_136, adj_840, adj_858, adj_859);
-        // adj: local_gradient[2 * dim + d] += g_F[d, 1]                                          <L 130>
-        wp::adj_add_inplace(var_839, var_857, var_854, adj_839, adj_857, adj_854);
-        wp::adj_add(var_856, var_840, adj_856, adj_840, adj_857);
-        wp::adj_mul(var_855, var_17, adj_855, adj_17, adj_856);
-        wp::adj_extract(var_136, var_840, var_853, adj_136, adj_840, adj_853, adj_854);
-        // adj: local_gradient[1 * dim + d] += g_F[d, 0]                                          <L 129>
-        wp::adj_add_inplace(var_839, var_852, var_849, adj_839, adj_852, adj_849);
-        wp::adj_add(var_851, var_840, adj_851, adj_840, adj_852);
-        wp::adj_mul(var_850, var_17, adj_850, adj_17, adj_851);
-        wp::adj_sub(var_846, var_848, adj_846, adj_848, adj_849);
-        wp::adj_extract(var_136, var_840, var_847, adj_136, adj_840, adj_847, adj_848);
-        wp::adj_sub(var_843, var_845, adj_843, adj_845, adj_846);
-        wp::adj_extract(var_136, var_840, var_844, adj_136, adj_840, adj_844, adj_845);
-        wp::adj_neg(var_842, adj_842, adj_843);
-        wp::adj_extract(var_136, var_840, var_841, adj_136, adj_840, adj_841, adj_842);
-        // adj: local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                 <L 128>
-        // adj: for d in range(dim):                                                              <L 127>
-        // adj: local_gradient = vec12d()                                                         <L 126>
-        wp::adj_assign_inplace(var_136, var_829, var_836, var_838, adj_136, adj_829, adj_836, adj_838);
-        wp::adj_mul(var_837, var_808, adj_837, adj_808, adj_838);
-        wp::adj_extract(var_136, var_829, var_836, adj_136, adj_829, adj_836, adj_837);
-        wp::adj_assign_inplace(var_136, var_829, var_833, var_835, adj_136, adj_829, adj_833, adj_835);
-        wp::adj_mul(var_834, var_808, adj_834, adj_808, adj_835);
-        wp::adj_extract(var_136, var_829, var_833, adj_136, adj_829, adj_833, adj_834);
-        wp::adj_assign_inplace(var_136, var_829, var_830, var_832, adj_136, adj_829, adj_830, adj_832);
-        wp::adj_mul(var_831, var_808, adj_831, adj_808, adj_832);
-        wp::adj_extract(var_136, var_829, var_830, adj_136, adj_829, adj_830, adj_831);
-        // adj: g_F[i, j] *= coeff                                                                <L 124>
-        // adj: for j in range(dim):                                                              <L 123>
-        wp::adj_assign_inplace(var_136, var_819, var_826, var_828, adj_136, adj_819, adj_826, adj_828);
-        wp::adj_mul(var_827, var_808, adj_827, adj_808, adj_828);
-        wp::adj_extract(var_136, var_819, var_826, adj_136, adj_819, adj_826, adj_827);
-        wp::adj_assign_inplace(var_136, var_819, var_823, var_825, adj_136, adj_819, adj_823, adj_825);
-        wp::adj_mul(var_824, var_808, adj_824, adj_808, adj_825);
-        wp::adj_extract(var_136, var_819, var_823, adj_136, adj_819, adj_823, adj_824);
-        wp::adj_assign_inplace(var_136, var_819, var_820, var_822, adj_136, adj_819, adj_820, adj_822);
-        wp::adj_mul(var_821, var_808, adj_821, adj_808, adj_822);
-        wp::adj_extract(var_136, var_819, var_820, adj_136, adj_819, adj_820, adj_821);
-        // adj: g_F[i, j] *= coeff                                                                <L 124>
-        // adj: for j in range(dim):                                                              <L 123>
-        wp::adj_assign_inplace(var_136, var_809, var_816, var_818, adj_136, adj_809, adj_816, adj_818);
-        wp::adj_mul(var_817, var_808, adj_817, adj_808, adj_818);
-        wp::adj_extract(var_136, var_809, var_816, adj_136, adj_809, adj_816, adj_817);
-        wp::adj_assign_inplace(var_136, var_809, var_813, var_815, adj_136, adj_809, adj_813, adj_815);
-        wp::adj_mul(var_814, var_808, adj_814, adj_808, adj_815);
-        wp::adj_extract(var_136, var_809, var_813, adj_136, adj_809, adj_813, adj_814);
-        wp::adj_assign_inplace(var_136, var_809, var_810, var_812, adj_136, adj_809, adj_810, adj_812);
-        wp::adj_mul(var_811, var_808, adj_811, adj_808, adj_812);
-        wp::adj_extract(var_136, var_809, var_810, adj_136, adj_809, adj_810, adj_811);
-        // adj: g_F[i, j] *= coeff                                                                <L 124>
-        // adj: for j in range(dim):                                                              <L 123>
-        // adj: for i in range(dim):                                                              <L 122>
-        wp::adj_div(var_805, var_807, var_808, adj_805, adj_807, adj_808);
-        wp::adj_float64(var_806, adj_806, adj_807);
-        wp::adj_mul(var_802, var_scale, adj_802, adj_scale, adj_805);
-        wp::adj_mul(var_803, var_804, adj_800, adj_801, adj_802);
-        wp::adj_load(var_801, adj_801, adj_804);
-        wp::adj_load(var_800, adj_800, adj_803);
-        wp::adj_address(var_E_body, var_0, adj_E_body, adj_0, adj_801);
-        wp::adj_address(var_vol_body, var_0, adj_vol_body, adj_0, adj_800);
-        // adj: coeff = vol_body[tid] * E_body[tid] * scale / wp.float64(8.0)                     <L 121>
-        if (!var_748) {
-            wp::adj_add_inplace(var_136, var_799, var_589, var_798, adj_136, adj_799, adj_589, adj_798);
-            wp::adj_mul(var_795, var_797, adj_795, adj_797, adj_798);
-            wp::adj_extract(var_18, var_796, var_730, adj_18, adj_796, adj_730, adj_797);
-            wp::adj_mul(var_794, var_747, adj_794, adj_747, adj_795);
-            wp::adj_float64(var_793, adj_793, adj_794);
-            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
-            wp::adj_add_inplace(var_136, var_792, var_589, var_791, adj_136, adj_792, adj_589, adj_791);
-            wp::adj_mul(var_788, var_790, adj_788, adj_790, adj_791);
-            wp::adj_extract(var_18, var_789, var_730, adj_18, adj_789, adj_730, adj_790);
-            wp::adj_mul(var_787, var_747, adj_787, adj_747, adj_788);
-            wp::adj_float64(var_786, adj_786, adj_787);
-            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
-            wp::adj_add_inplace(var_136, var_785, var_589, var_784, adj_136, adj_785, adj_589, adj_784);
-            wp::adj_mul(var_781, var_783, adj_781, adj_783, adj_784);
-            wp::adj_extract(var_18, var_782, var_730, adj_18, adj_782, adj_730, adj_783);
-            wp::adj_mul(var_780, var_747, adj_780, adj_747, adj_781);
-            wp::adj_float64(var_779, adj_779, adj_780);
-            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
-        }
-        if (var_748) {
-            wp::adj_add_inplace(var_136, var_778, var_589, var_777, adj_136, adj_778, adj_589, adj_777);
-            wp::adj_mul(var_774, var_776, adj_774, adj_776, adj_777);
-            wp::adj_extract(var_18, var_775, var_589, adj_18, adj_775, adj_589, adj_776);
-            wp::adj_mul(var_770, var_773, adj_770, adj_773, adj_774);
-            wp::adj_sub(var_747, var_772, adj_747, adj_772, adj_773);
-            wp::adj_float64(var_771, adj_771, adj_772);
-            wp::adj_float64(var_769, adj_769, adj_770);
-            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
-            wp::adj_add_inplace(var_136, var_768, var_589, var_767, adj_136, adj_768, adj_589, adj_767);
-            wp::adj_mul(var_764, var_766, adj_764, adj_766, adj_767);
-            wp::adj_extract(var_18, var_765, var_589, adj_18, adj_765, adj_589, adj_766);
-            wp::adj_mul(var_760, var_763, adj_760, adj_763, adj_764);
-            wp::adj_sub(var_747, var_762, adj_747, adj_762, adj_763);
-            wp::adj_float64(var_761, adj_761, adj_762);
-            wp::adj_float64(var_759, adj_759, adj_760);
-            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
-            wp::adj_add_inplace(var_136, var_758, var_589, var_757, adj_136, adj_758, adj_589, adj_757);
-            wp::adj_mul(var_754, var_756, adj_754, adj_756, adj_757);
-            wp::adj_extract(var_18, var_755, var_589, adj_18, adj_755, adj_589, adj_756);
-            wp::adj_mul(var_750, var_753, adj_750, adj_753, adj_754);
-            wp::adj_sub(var_747, var_752, adj_747, adj_752, adj_753);
-            wp::adj_float64(var_751, adj_751, adj_752);
-            wp::adj_float64(var_749, adj_749, adj_750);
-            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
-        }
-        // adj: if i == j:                                                                        <L 112>
-        wp::adj_add(var_741, var_746, adj_741, adj_746, adj_747);
-        wp::adj_mul(var_743, var_745, adj_743, adj_745, adj_746);
-        wp::adj_extract(var_18, var_744, var_730, adj_18, adj_744, adj_730, adj_745);
-        wp::adj_extract(var_18, var_742, var_589, adj_18, adj_742, adj_589, adj_743);
-        wp::adj_add(var_735, var_740, adj_735, adj_740, adj_741);
-        wp::adj_mul(var_737, var_739, adj_737, adj_739, adj_740);
-        wp::adj_extract(var_18, var_738, var_730, adj_18, adj_738, adj_730, adj_739);
-        wp::adj_extract(var_18, var_736, var_589, adj_18, adj_736, adj_589, adj_737);
-        wp::adj_mul(var_732, var_734, adj_732, adj_734, adj_735);
-        wp::adj_extract(var_18, var_733, var_730, adj_18, adj_733, adj_730, adj_734);
-        wp::adj_extract(var_18, var_731, var_589, adj_18, adj_731, adj_589, adj_732);
-        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
-        if (!var_678) {
-            wp::adj_add_inplace(var_136, var_729, var_589, var_728, adj_136, adj_729, adj_589, adj_728);
-            wp::adj_mul(var_725, var_727, adj_725, adj_727, adj_728);
-            wp::adj_extract(var_18, var_726, var_660, adj_18, adj_726, adj_660, adj_727);
-            wp::adj_mul(var_724, var_677, adj_724, adj_677, adj_725);
-            wp::adj_float64(var_723, adj_723, adj_724);
-            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
-            wp::adj_add_inplace(var_136, var_722, var_589, var_721, adj_136, adj_722, adj_589, adj_721);
-            wp::adj_mul(var_718, var_720, adj_718, adj_720, adj_721);
-            wp::adj_extract(var_18, var_719, var_660, adj_18, adj_719, adj_660, adj_720);
-            wp::adj_mul(var_717, var_677, adj_717, adj_677, adj_718);
-            wp::adj_float64(var_716, adj_716, adj_717);
-            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
-            wp::adj_add_inplace(var_136, var_715, var_589, var_714, adj_136, adj_715, adj_589, adj_714);
-            wp::adj_mul(var_711, var_713, adj_711, adj_713, adj_714);
-            wp::adj_extract(var_18, var_712, var_660, adj_18, adj_712, adj_660, adj_713);
-            wp::adj_mul(var_710, var_677, adj_710, adj_677, adj_711);
-            wp::adj_float64(var_709, adj_709, adj_710);
-            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
-        }
-        if (var_678) {
-            wp::adj_add_inplace(var_136, var_708, var_589, var_707, adj_136, adj_708, adj_589, adj_707);
-            wp::adj_mul(var_704, var_706, adj_704, adj_706, adj_707);
-            wp::adj_extract(var_18, var_705, var_589, adj_18, adj_705, adj_589, adj_706);
-            wp::adj_mul(var_700, var_703, adj_700, adj_703, adj_704);
-            wp::adj_sub(var_677, var_702, adj_677, adj_702, adj_703);
-            wp::adj_float64(var_701, adj_701, adj_702);
-            wp::adj_float64(var_699, adj_699, adj_700);
-            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
-            wp::adj_add_inplace(var_136, var_698, var_589, var_697, adj_136, adj_698, adj_589, adj_697);
-            wp::adj_mul(var_694, var_696, adj_694, adj_696, adj_697);
-            wp::adj_extract(var_18, var_695, var_589, adj_18, adj_695, adj_589, adj_696);
-            wp::adj_mul(var_690, var_693, adj_690, adj_693, adj_694);
-            wp::adj_sub(var_677, var_692, adj_677, adj_692, adj_693);
-            wp::adj_float64(var_691, adj_691, adj_692);
-            wp::adj_float64(var_689, adj_689, adj_690);
-            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
-            wp::adj_add_inplace(var_136, var_688, var_589, var_687, adj_136, adj_688, adj_589, adj_687);
-            wp::adj_mul(var_684, var_686, adj_684, adj_686, adj_687);
-            wp::adj_extract(var_18, var_685, var_589, adj_18, adj_685, adj_589, adj_686);
-            wp::adj_mul(var_680, var_683, adj_680, adj_683, adj_684);
-            wp::adj_sub(var_677, var_682, adj_677, adj_682, adj_683);
-            wp::adj_float64(var_681, adj_681, adj_682);
-            wp::adj_float64(var_679, adj_679, adj_680);
-            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
-        }
-        // adj: if i == j:                                                                        <L 112>
-        wp::adj_add(var_671, var_676, adj_671, adj_676, adj_677);
-        wp::adj_mul(var_673, var_675, adj_673, adj_675, adj_676);
-        wp::adj_extract(var_18, var_674, var_660, adj_18, adj_674, adj_660, adj_675);
-        wp::adj_extract(var_18, var_672, var_589, adj_18, adj_672, adj_589, adj_673);
-        wp::adj_add(var_665, var_670, adj_665, adj_670, adj_671);
-        wp::adj_mul(var_667, var_669, adj_667, adj_669, adj_670);
-        wp::adj_extract(var_18, var_668, var_660, adj_18, adj_668, adj_660, adj_669);
-        wp::adj_extract(var_18, var_666, var_589, adj_18, adj_666, adj_589, adj_667);
-        wp::adj_mul(var_662, var_664, adj_662, adj_664, adj_665);
-        wp::adj_extract(var_18, var_663, var_660, adj_18, adj_663, adj_660, adj_664);
-        wp::adj_extract(var_18, var_661, var_589, adj_18, adj_661, adj_589, adj_662);
-        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
-        if (!var_608) {
-            wp::adj_add_inplace(var_136, var_659, var_589, var_658, adj_136, adj_659, adj_589, adj_658);
-            wp::adj_mul(var_655, var_657, adj_655, adj_657, adj_658);
-            wp::adj_extract(var_18, var_656, var_590, adj_18, adj_656, adj_590, adj_657);
-            wp::adj_mul(var_654, var_607, adj_654, adj_607, adj_655);
-            wp::adj_float64(var_653, adj_653, adj_654);
-            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
-            wp::adj_add_inplace(var_136, var_652, var_589, var_651, adj_136, adj_652, adj_589, adj_651);
-            wp::adj_mul(var_648, var_650, adj_648, adj_650, adj_651);
-            wp::adj_extract(var_18, var_649, var_590, adj_18, adj_649, adj_590, adj_650);
-            wp::adj_mul(var_647, var_607, adj_647, adj_607, adj_648);
-            wp::adj_float64(var_646, adj_646, adj_647);
-            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
-            wp::adj_add_inplace(var_136, var_645, var_589, var_644, adj_136, adj_645, adj_589, adj_644);
-            wp::adj_mul(var_641, var_643, adj_641, adj_643, adj_644);
-            wp::adj_extract(var_18, var_642, var_590, adj_18, adj_642, adj_590, adj_643);
-            wp::adj_mul(var_640, var_607, adj_640, adj_607, adj_641);
-            wp::adj_float64(var_639, adj_639, adj_640);
-            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
-        }
-        if (var_608) {
-            wp::adj_add_inplace(var_136, var_638, var_589, var_637, adj_136, adj_638, adj_589, adj_637);
-            wp::adj_mul(var_634, var_636, adj_634, adj_636, adj_637);
-            wp::adj_extract(var_18, var_635, var_589, adj_18, adj_635, adj_589, adj_636);
-            wp::adj_mul(var_630, var_633, adj_630, adj_633, adj_634);
-            wp::adj_sub(var_607, var_632, adj_607, adj_632, adj_633);
-            wp::adj_float64(var_631, adj_631, adj_632);
-            wp::adj_float64(var_629, adj_629, adj_630);
-            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
-            wp::adj_add_inplace(var_136, var_628, var_589, var_627, adj_136, adj_628, adj_589, adj_627);
-            wp::adj_mul(var_624, var_626, adj_624, adj_626, adj_627);
-            wp::adj_extract(var_18, var_625, var_589, adj_18, adj_625, adj_589, adj_626);
-            wp::adj_mul(var_620, var_623, adj_620, adj_623, adj_624);
-            wp::adj_sub(var_607, var_622, adj_607, adj_622, adj_623);
-            wp::adj_float64(var_621, adj_621, adj_622);
-            wp::adj_float64(var_619, adj_619, adj_620);
-            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
-            wp::adj_add_inplace(var_136, var_618, var_589, var_617, adj_136, adj_618, adj_589, adj_617);
-            wp::adj_mul(var_614, var_616, adj_614, adj_616, adj_617);
-            wp::adj_extract(var_18, var_615, var_589, adj_18, adj_615, adj_589, adj_616);
-            wp::adj_mul(var_610, var_613, adj_610, adj_613, adj_614);
-            wp::adj_sub(var_607, var_612, adj_607, adj_612, adj_613);
-            wp::adj_float64(var_611, adj_611, adj_612);
-            wp::adj_float64(var_609, adj_609, adj_610);
-            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
-        }
-        // adj: if i == j:                                                                        <L 112>
-        wp::adj_add(var_601, var_606, adj_601, adj_606, adj_607);
-        wp::adj_mul(var_603, var_605, adj_603, adj_605, adj_606);
-        wp::adj_extract(var_18, var_604, var_590, adj_18, adj_604, adj_590, adj_605);
-        wp::adj_extract(var_18, var_602, var_589, adj_18, adj_602, adj_589, adj_603);
-        wp::adj_add(var_595, var_600, adj_595, adj_600, adj_601);
-        wp::adj_mul(var_597, var_599, adj_597, adj_599, adj_600);
-        wp::adj_extract(var_18, var_598, var_590, adj_18, adj_598, adj_590, adj_599);
-        wp::adj_extract(var_18, var_596, var_589, adj_18, adj_596, adj_589, adj_597);
-        wp::adj_mul(var_592, var_594, adj_592, adj_594, adj_595);
-        wp::adj_extract(var_18, var_593, var_590, adj_18, adj_593, adj_590, adj_594);
-        wp::adj_extract(var_18, var_591, var_589, adj_18, adj_591, adj_589, adj_592);
-        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
-        // adj: for j in range(dim):                                                              <L 110>
-        if (!var_537) {
-            wp::adj_add_inplace(var_136, var_588, var_378, var_587, adj_136, adj_588, adj_378, adj_587);
-            wp::adj_mul(var_584, var_586, adj_584, adj_586, adj_587);
-            wp::adj_extract(var_18, var_585, var_519, adj_18, adj_585, adj_519, adj_586);
-            wp::adj_mul(var_583, var_536, adj_583, adj_536, adj_584);
-            wp::adj_float64(var_582, adj_582, adj_583);
-            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
-            wp::adj_add_inplace(var_136, var_581, var_378, var_580, adj_136, adj_581, adj_378, adj_580);
-            wp::adj_mul(var_577, var_579, adj_577, adj_579, adj_580);
-            wp::adj_extract(var_18, var_578, var_519, adj_18, adj_578, adj_519, adj_579);
-            wp::adj_mul(var_576, var_536, adj_576, adj_536, adj_577);
-            wp::adj_float64(var_575, adj_575, adj_576);
-            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
-            wp::adj_add_inplace(var_136, var_574, var_378, var_573, adj_136, adj_574, adj_378, adj_573);
-            wp::adj_mul(var_570, var_572, adj_570, adj_572, adj_573);
-            wp::adj_extract(var_18, var_571, var_519, adj_18, adj_571, adj_519, adj_572);
-            wp::adj_mul(var_569, var_536, adj_569, adj_536, adj_570);
-            wp::adj_float64(var_568, adj_568, adj_569);
-            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
-        }
-        if (var_537) {
-            wp::adj_add_inplace(var_136, var_567, var_378, var_566, adj_136, adj_567, adj_378, adj_566);
-            wp::adj_mul(var_563, var_565, adj_563, adj_565, adj_566);
-            wp::adj_extract(var_18, var_564, var_378, adj_18, adj_564, adj_378, adj_565);
-            wp::adj_mul(var_559, var_562, adj_559, adj_562, adj_563);
-            wp::adj_sub(var_536, var_561, adj_536, adj_561, adj_562);
-            wp::adj_float64(var_560, adj_560, adj_561);
-            wp::adj_float64(var_558, adj_558, adj_559);
-            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
-            wp::adj_add_inplace(var_136, var_557, var_378, var_556, adj_136, adj_557, adj_378, adj_556);
-            wp::adj_mul(var_553, var_555, adj_553, adj_555, adj_556);
-            wp::adj_extract(var_18, var_554, var_378, adj_18, adj_554, adj_378, adj_555);
-            wp::adj_mul(var_549, var_552, adj_549, adj_552, adj_553);
-            wp::adj_sub(var_536, var_551, adj_536, adj_551, adj_552);
-            wp::adj_float64(var_550, adj_550, adj_551);
-            wp::adj_float64(var_548, adj_548, adj_549);
-            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
-            wp::adj_add_inplace(var_136, var_547, var_378, var_546, adj_136, adj_547, adj_378, adj_546);
-            wp::adj_mul(var_543, var_545, adj_543, adj_545, adj_546);
-            wp::adj_extract(var_18, var_544, var_378, adj_18, adj_544, adj_378, adj_545);
-            wp::adj_mul(var_539, var_542, adj_539, adj_542, adj_543);
-            wp::adj_sub(var_536, var_541, adj_536, adj_541, adj_542);
-            wp::adj_float64(var_540, adj_540, adj_541);
-            wp::adj_float64(var_538, adj_538, adj_539);
-            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
-        }
-        // adj: if i == j:                                                                        <L 112>
-        wp::adj_add(var_530, var_535, adj_530, adj_535, adj_536);
-        wp::adj_mul(var_532, var_534, adj_532, adj_534, adj_535);
-        wp::adj_extract(var_18, var_533, var_519, adj_18, adj_533, adj_519, adj_534);
-        wp::adj_extract(var_18, var_531, var_378, adj_18, adj_531, adj_378, adj_532);
-        wp::adj_add(var_524, var_529, adj_524, adj_529, adj_530);
-        wp::adj_mul(var_526, var_528, adj_526, adj_528, adj_529);
-        wp::adj_extract(var_18, var_527, var_519, adj_18, adj_527, adj_519, adj_528);
-        wp::adj_extract(var_18, var_525, var_378, adj_18, adj_525, adj_378, adj_526);
-        wp::adj_mul(var_521, var_523, adj_521, adj_523, adj_524);
-        wp::adj_extract(var_18, var_522, var_519, adj_18, adj_522, adj_519, adj_523);
-        wp::adj_extract(var_18, var_520, var_378, adj_18, adj_520, adj_378, adj_521);
-        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
-        if (!var_467) {
-            wp::adj_add_inplace(var_136, var_518, var_378, var_517, adj_136, adj_518, adj_378, adj_517);
-            wp::adj_mul(var_514, var_516, adj_514, adj_516, adj_517);
-            wp::adj_extract(var_18, var_515, var_449, adj_18, adj_515, adj_449, adj_516);
-            wp::adj_mul(var_513, var_466, adj_513, adj_466, adj_514);
-            wp::adj_float64(var_512, adj_512, adj_513);
-            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
-            wp::adj_add_inplace(var_136, var_511, var_378, var_510, adj_136, adj_511, adj_378, adj_510);
-            wp::adj_mul(var_507, var_509, adj_507, adj_509, adj_510);
-            wp::adj_extract(var_18, var_508, var_449, adj_18, adj_508, adj_449, adj_509);
-            wp::adj_mul(var_506, var_466, adj_506, adj_466, adj_507);
-            wp::adj_float64(var_505, adj_505, adj_506);
-            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
-            wp::adj_add_inplace(var_136, var_504, var_378, var_503, adj_136, adj_504, adj_378, adj_503);
-            wp::adj_mul(var_500, var_502, adj_500, adj_502, adj_503);
-            wp::adj_extract(var_18, var_501, var_449, adj_18, adj_501, adj_449, adj_502);
-            wp::adj_mul(var_499, var_466, adj_499, adj_466, adj_500);
-            wp::adj_float64(var_498, adj_498, adj_499);
-            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
-        }
-        if (var_467) {
-            wp::adj_add_inplace(var_136, var_497, var_378, var_496, adj_136, adj_497, adj_378, adj_496);
-            wp::adj_mul(var_493, var_495, adj_493, adj_495, adj_496);
-            wp::adj_extract(var_18, var_494, var_378, adj_18, adj_494, adj_378, adj_495);
-            wp::adj_mul(var_489, var_492, adj_489, adj_492, adj_493);
-            wp::adj_sub(var_466, var_491, adj_466, adj_491, adj_492);
-            wp::adj_float64(var_490, adj_490, adj_491);
-            wp::adj_float64(var_488, adj_488, adj_489);
-            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
-            wp::adj_add_inplace(var_136, var_487, var_378, var_486, adj_136, adj_487, adj_378, adj_486);
-            wp::adj_mul(var_483, var_485, adj_483, adj_485, adj_486);
-            wp::adj_extract(var_18, var_484, var_378, adj_18, adj_484, adj_378, adj_485);
-            wp::adj_mul(var_479, var_482, adj_479, adj_482, adj_483);
-            wp::adj_sub(var_466, var_481, adj_466, adj_481, adj_482);
-            wp::adj_float64(var_480, adj_480, adj_481);
-            wp::adj_float64(var_478, adj_478, adj_479);
-            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
-            wp::adj_add_inplace(var_136, var_477, var_378, var_476, adj_136, adj_477, adj_378, adj_476);
-            wp::adj_mul(var_473, var_475, adj_473, adj_475, adj_476);
-            wp::adj_extract(var_18, var_474, var_378, adj_18, adj_474, adj_378, adj_475);
-            wp::adj_mul(var_469, var_472, adj_469, adj_472, adj_473);
-            wp::adj_sub(var_466, var_471, adj_466, adj_471, adj_472);
-            wp::adj_float64(var_470, adj_470, adj_471);
-            wp::adj_float64(var_468, adj_468, adj_469);
-            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
-        }
-        // adj: if i == j:                                                                        <L 112>
-        wp::adj_add(var_460, var_465, adj_460, adj_465, adj_466);
-        wp::adj_mul(var_462, var_464, adj_462, adj_464, adj_465);
-        wp::adj_extract(var_18, var_463, var_449, adj_18, adj_463, adj_449, adj_464);
-        wp::adj_extract(var_18, var_461, var_378, adj_18, adj_461, adj_378, adj_462);
-        wp::adj_add(var_454, var_459, adj_454, adj_459, adj_460);
-        wp::adj_mul(var_456, var_458, adj_456, adj_458, adj_459);
-        wp::adj_extract(var_18, var_457, var_449, adj_18, adj_457, adj_449, adj_458);
-        wp::adj_extract(var_18, var_455, var_378, adj_18, adj_455, adj_378, adj_456);
-        wp::adj_mul(var_451, var_453, adj_451, adj_453, adj_454);
-        wp::adj_extract(var_18, var_452, var_449, adj_18, adj_452, adj_449, adj_453);
-        wp::adj_extract(var_18, var_450, var_378, adj_18, adj_450, adj_378, adj_451);
-        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
-        if (!var_397) {
-            wp::adj_add_inplace(var_136, var_448, var_378, var_447, adj_136, adj_448, adj_378, adj_447);
-            wp::adj_mul(var_444, var_446, adj_444, adj_446, adj_447);
-            wp::adj_extract(var_18, var_445, var_379, adj_18, adj_445, adj_379, adj_446);
-            wp::adj_mul(var_443, var_396, adj_443, adj_396, adj_444);
-            wp::adj_float64(var_442, adj_442, adj_443);
-            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
-            wp::adj_add_inplace(var_136, var_441, var_378, var_440, adj_136, adj_441, adj_378, adj_440);
-            wp::adj_mul(var_437, var_439, adj_437, adj_439, adj_440);
-            wp::adj_extract(var_18, var_438, var_379, adj_18, adj_438, adj_379, adj_439);
-            wp::adj_mul(var_436, var_396, adj_436, adj_396, adj_437);
-            wp::adj_float64(var_435, adj_435, adj_436);
-            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
-            wp::adj_add_inplace(var_136, var_434, var_378, var_433, adj_136, adj_434, adj_378, adj_433);
-            wp::adj_mul(var_430, var_432, adj_430, adj_432, adj_433);
-            wp::adj_extract(var_18, var_431, var_379, adj_18, adj_431, adj_379, adj_432);
-            wp::adj_mul(var_429, var_396, adj_429, adj_396, adj_430);
-            wp::adj_float64(var_428, adj_428, adj_429);
-            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
-        }
-        if (var_397) {
-            wp::adj_add_inplace(var_136, var_427, var_378, var_426, adj_136, adj_427, adj_378, adj_426);
-            wp::adj_mul(var_423, var_425, adj_423, adj_425, adj_426);
-            wp::adj_extract(var_18, var_424, var_378, adj_18, adj_424, adj_378, adj_425);
-            wp::adj_mul(var_419, var_422, adj_419, adj_422, adj_423);
-            wp::adj_sub(var_396, var_421, adj_396, adj_421, adj_422);
-            wp::adj_float64(var_420, adj_420, adj_421);
-            wp::adj_float64(var_418, adj_418, adj_419);
-            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
-            wp::adj_add_inplace(var_136, var_417, var_378, var_416, adj_136, adj_417, adj_378, adj_416);
-            wp::adj_mul(var_413, var_415, adj_413, adj_415, adj_416);
-            wp::adj_extract(var_18, var_414, var_378, adj_18, adj_414, adj_378, adj_415);
-            wp::adj_mul(var_409, var_412, adj_409, adj_412, adj_413);
-            wp::adj_sub(var_396, var_411, adj_396, adj_411, adj_412);
-            wp::adj_float64(var_410, adj_410, adj_411);
-            wp::adj_float64(var_408, adj_408, adj_409);
-            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
-            wp::adj_add_inplace(var_136, var_407, var_378, var_406, adj_136, adj_407, adj_378, adj_406);
-            wp::adj_mul(var_403, var_405, adj_403, adj_405, adj_406);
-            wp::adj_extract(var_18, var_404, var_378, adj_18, adj_404, adj_378, adj_405);
-            wp::adj_mul(var_399, var_402, adj_399, adj_402, adj_403);
-            wp::adj_sub(var_396, var_401, adj_396, adj_401, adj_402);
-            wp::adj_float64(var_400, adj_400, adj_401);
-            wp::adj_float64(var_398, adj_398, adj_399);
-            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
-        }
-        // adj: if i == j:                                                                        <L 112>
-        wp::adj_add(var_390, var_395, adj_390, adj_395, adj_396);
-        wp::adj_mul(var_392, var_394, adj_392, adj_394, adj_395);
-        wp::adj_extract(var_18, var_393, var_379, adj_18, adj_393, adj_379, adj_394);
-        wp::adj_extract(var_18, var_391, var_378, adj_18, adj_391, adj_378, adj_392);
-        wp::adj_add(var_384, var_389, adj_384, adj_389, adj_390);
-        wp::adj_mul(var_386, var_388, adj_386, adj_388, adj_389);
-        wp::adj_extract(var_18, var_387, var_379, adj_18, adj_387, adj_379, adj_388);
-        wp::adj_extract(var_18, var_385, var_378, adj_18, adj_385, adj_378, adj_386);
-        wp::adj_mul(var_381, var_383, adj_381, adj_383, adj_384);
-        wp::adj_extract(var_18, var_382, var_379, adj_18, adj_382, adj_379, adj_383);
-        wp::adj_extract(var_18, var_380, var_378, adj_18, adj_380, adj_378, adj_381);
-        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
-        // adj: for j in range(dim):                                                              <L 110>
-        if (!var_326) {
-            wp::adj_add_inplace(var_136, var_377, var_167, var_376, adj_136, adj_377, adj_167, adj_376);
-            wp::adj_mul(var_373, var_375, adj_373, adj_375, adj_376);
-            wp::adj_extract(var_18, var_374, var_308, adj_18, adj_374, adj_308, adj_375);
-            wp::adj_mul(var_372, var_325, adj_372, adj_325, adj_373);
-            wp::adj_float64(var_371, adj_371, adj_372);
-            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
-            wp::adj_add_inplace(var_136, var_370, var_167, var_369, adj_136, adj_370, adj_167, adj_369);
-            wp::adj_mul(var_366, var_368, adj_366, adj_368, adj_369);
-            wp::adj_extract(var_18, var_367, var_308, adj_18, adj_367, adj_308, adj_368);
-            wp::adj_mul(var_365, var_325, adj_365, adj_325, adj_366);
-            wp::adj_float64(var_364, adj_364, adj_365);
-            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
-            wp::adj_add_inplace(var_136, var_363, var_167, var_362, adj_136, adj_363, adj_167, adj_362);
-            wp::adj_mul(var_359, var_361, adj_359, adj_361, adj_362);
-            wp::adj_extract(var_18, var_360, var_308, adj_18, adj_360, adj_308, adj_361);
-            wp::adj_mul(var_358, var_325, adj_358, adj_325, adj_359);
-            wp::adj_float64(var_357, adj_357, adj_358);
-            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
-        }
-        if (var_326) {
-            wp::adj_add_inplace(var_136, var_356, var_167, var_355, adj_136, adj_356, adj_167, adj_355);
-            wp::adj_mul(var_352, var_354, adj_352, adj_354, adj_355);
-            wp::adj_extract(var_18, var_353, var_167, adj_18, adj_353, adj_167, adj_354);
-            wp::adj_mul(var_348, var_351, adj_348, adj_351, adj_352);
-            wp::adj_sub(var_325, var_350, adj_325, adj_350, adj_351);
-            wp::adj_float64(var_349, adj_349, adj_350);
-            wp::adj_float64(var_347, adj_347, adj_348);
-            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
-            wp::adj_add_inplace(var_136, var_346, var_167, var_345, adj_136, adj_346, adj_167, adj_345);
-            wp::adj_mul(var_342, var_344, adj_342, adj_344, adj_345);
-            wp::adj_extract(var_18, var_343, var_167, adj_18, adj_343, adj_167, adj_344);
-            wp::adj_mul(var_338, var_341, adj_338, adj_341, adj_342);
-            wp::adj_sub(var_325, var_340, adj_325, adj_340, adj_341);
-            wp::adj_float64(var_339, adj_339, adj_340);
-            wp::adj_float64(var_337, adj_337, adj_338);
-            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
-            wp::adj_add_inplace(var_136, var_336, var_167, var_335, adj_136, adj_336, adj_167, adj_335);
-            wp::adj_mul(var_332, var_334, adj_332, adj_334, adj_335);
-            wp::adj_extract(var_18, var_333, var_167, adj_18, adj_333, adj_167, adj_334);
-            wp::adj_mul(var_328, var_331, adj_328, adj_331, adj_332);
-            wp::adj_sub(var_325, var_330, adj_325, adj_330, adj_331);
-            wp::adj_float64(var_329, adj_329, adj_330);
-            wp::adj_float64(var_327, adj_327, adj_328);
-            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
-        }
-        // adj: if i == j:                                                                        <L 112>
-        wp::adj_add(var_319, var_324, adj_319, adj_324, adj_325);
-        wp::adj_mul(var_321, var_323, adj_321, adj_323, adj_324);
-        wp::adj_extract(var_18, var_322, var_308, adj_18, adj_322, adj_308, adj_323);
-        wp::adj_extract(var_18, var_320, var_167, adj_18, adj_320, adj_167, adj_321);
-        wp::adj_add(var_313, var_318, adj_313, adj_318, adj_319);
-        wp::adj_mul(var_315, var_317, adj_315, adj_317, adj_318);
-        wp::adj_extract(var_18, var_316, var_308, adj_18, adj_316, adj_308, adj_317);
-        wp::adj_extract(var_18, var_314, var_167, adj_18, adj_314, adj_167, adj_315);
-        wp::adj_mul(var_310, var_312, adj_310, adj_312, adj_313);
-        wp::adj_extract(var_18, var_311, var_308, adj_18, adj_311, adj_308, adj_312);
-        wp::adj_extract(var_18, var_309, var_167, adj_18, adj_309, adj_167, adj_310);
-        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
-        if (!var_256) {
-            wp::adj_add_inplace(var_136, var_307, var_167, var_306, adj_136, adj_307, adj_167, adj_306);
-            wp::adj_mul(var_303, var_305, adj_303, adj_305, adj_306);
-            wp::adj_extract(var_18, var_304, var_238, adj_18, adj_304, adj_238, adj_305);
-            wp::adj_mul(var_302, var_255, adj_302, adj_255, adj_303);
-            wp::adj_float64(var_301, adj_301, adj_302);
-            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
-            wp::adj_add_inplace(var_136, var_300, var_167, var_299, adj_136, adj_300, adj_167, adj_299);
-            wp::adj_mul(var_296, var_298, adj_296, adj_298, adj_299);
-            wp::adj_extract(var_18, var_297, var_238, adj_18, adj_297, adj_238, adj_298);
-            wp::adj_mul(var_295, var_255, adj_295, adj_255, adj_296);
-            wp::adj_float64(var_294, adj_294, adj_295);
-            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
-            wp::adj_add_inplace(var_136, var_293, var_167, var_292, adj_136, adj_293, adj_167, adj_292);
-            wp::adj_mul(var_289, var_291, adj_289, adj_291, adj_292);
-            wp::adj_extract(var_18, var_290, var_238, adj_18, adj_290, adj_238, adj_291);
-            wp::adj_mul(var_288, var_255, adj_288, adj_255, adj_289);
-            wp::adj_float64(var_287, adj_287, adj_288);
-            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
-        }
-        if (var_256) {
-            wp::adj_add_inplace(var_136, var_286, var_167, var_285, adj_136, adj_286, adj_167, adj_285);
-            wp::adj_mul(var_282, var_284, adj_282, adj_284, adj_285);
-            wp::adj_extract(var_18, var_283, var_167, adj_18, adj_283, adj_167, adj_284);
-            wp::adj_mul(var_278, var_281, adj_278, adj_281, adj_282);
-            wp::adj_sub(var_255, var_280, adj_255, adj_280, adj_281);
-            wp::adj_float64(var_279, adj_279, adj_280);
-            wp::adj_float64(var_277, adj_277, adj_278);
-            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
-            wp::adj_add_inplace(var_136, var_276, var_167, var_275, adj_136, adj_276, adj_167, adj_275);
-            wp::adj_mul(var_272, var_274, adj_272, adj_274, adj_275);
-            wp::adj_extract(var_18, var_273, var_167, adj_18, adj_273, adj_167, adj_274);
-            wp::adj_mul(var_268, var_271, adj_268, adj_271, adj_272);
-            wp::adj_sub(var_255, var_270, adj_255, adj_270, adj_271);
-            wp::adj_float64(var_269, adj_269, adj_270);
-            wp::adj_float64(var_267, adj_267, adj_268);
-            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
-            wp::adj_add_inplace(var_136, var_266, var_167, var_265, adj_136, adj_266, adj_167, adj_265);
-            wp::adj_mul(var_262, var_264, adj_262, adj_264, adj_265);
-            wp::adj_extract(var_18, var_263, var_167, adj_18, adj_263, adj_167, adj_264);
-            wp::adj_mul(var_258, var_261, adj_258, adj_261, adj_262);
-            wp::adj_sub(var_255, var_260, adj_255, adj_260, adj_261);
-            wp::adj_float64(var_259, adj_259, adj_260);
-            wp::adj_float64(var_257, adj_257, adj_258);
-            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
-        }
-        // adj: if i == j:                                                                        <L 112>
-        wp::adj_add(var_249, var_254, adj_249, adj_254, adj_255);
-        wp::adj_mul(var_251, var_253, adj_251, adj_253, adj_254);
-        wp::adj_extract(var_18, var_252, var_238, adj_18, adj_252, adj_238, adj_253);
-        wp::adj_extract(var_18, var_250, var_167, adj_18, adj_250, adj_167, adj_251);
-        wp::adj_add(var_243, var_248, adj_243, adj_248, adj_249);
-        wp::adj_mul(var_245, var_247, adj_245, adj_247, adj_248);
-        wp::adj_extract(var_18, var_246, var_238, adj_18, adj_246, adj_238, adj_247);
-        wp::adj_extract(var_18, var_244, var_167, adj_18, adj_244, adj_167, adj_245);
-        wp::adj_mul(var_240, var_242, adj_240, adj_242, adj_243);
-        wp::adj_extract(var_18, var_241, var_238, adj_18, adj_241, adj_238, adj_242);
-        wp::adj_extract(var_18, var_239, var_167, adj_18, adj_239, adj_167, adj_240);
-        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
-        if (!var_186) {
-            wp::adj_add_inplace(var_136, var_237, var_167, var_236, adj_136, adj_237, adj_167, adj_236);
-            wp::adj_mul(var_233, var_235, adj_233, adj_235, adj_236);
-            wp::adj_extract(var_18, var_234, var_168, adj_18, adj_234, adj_168, adj_235);
-            wp::adj_mul(var_232, var_185, adj_232, adj_185, adj_233);
-            wp::adj_float64(var_231, adj_231, adj_232);
-            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
-            wp::adj_add_inplace(var_136, var_230, var_167, var_229, adj_136, adj_230, adj_167, adj_229);
-            wp::adj_mul(var_226, var_228, adj_226, adj_228, adj_229);
-            wp::adj_extract(var_18, var_227, var_168, adj_18, adj_227, adj_168, adj_228);
-            wp::adj_mul(var_225, var_185, adj_225, adj_185, adj_226);
-            wp::adj_float64(var_224, adj_224, adj_225);
-            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
-            wp::adj_add_inplace(var_136, var_223, var_167, var_222, adj_136, adj_223, adj_167, adj_222);
-            wp::adj_mul(var_219, var_221, adj_219, adj_221, adj_222);
-            wp::adj_extract(var_18, var_220, var_168, adj_18, adj_220, adj_168, adj_221);
-            wp::adj_mul(var_218, var_185, adj_218, adj_185, adj_219);
-            wp::adj_float64(var_217, adj_217, adj_218);
-            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
-        }
-        if (var_186) {
-            wp::adj_add_inplace(var_136, var_216, var_167, var_215, adj_136, adj_216, adj_167, adj_215);
-            wp::adj_mul(var_212, var_214, adj_212, adj_214, adj_215);
-            wp::adj_extract(var_18, var_213, var_167, adj_18, adj_213, adj_167, adj_214);
-            wp::adj_mul(var_208, var_211, adj_208, adj_211, adj_212);
-            wp::adj_sub(var_185, var_210, adj_185, adj_210, adj_211);
-            wp::adj_float64(var_209, adj_209, adj_210);
-            wp::adj_float64(var_207, adj_207, adj_208);
-            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
-            wp::adj_add_inplace(var_136, var_206, var_167, var_205, adj_136, adj_206, adj_167, adj_205);
-            wp::adj_mul(var_202, var_204, adj_202, adj_204, adj_205);
-            wp::adj_extract(var_18, var_203, var_167, adj_18, adj_203, adj_167, adj_204);
-            wp::adj_mul(var_198, var_201, adj_198, adj_201, adj_202);
-            wp::adj_sub(var_185, var_200, adj_185, adj_200, adj_201);
-            wp::adj_float64(var_199, adj_199, adj_200);
-            wp::adj_float64(var_197, adj_197, adj_198);
-            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
-            wp::adj_add_inplace(var_136, var_196, var_167, var_195, adj_136, adj_196, adj_167, adj_195);
-            wp::adj_mul(var_192, var_194, adj_192, adj_194, adj_195);
-            wp::adj_extract(var_18, var_193, var_167, adj_18, adj_193, adj_167, adj_194);
-            wp::adj_mul(var_188, var_191, adj_188, adj_191, adj_192);
-            wp::adj_sub(var_185, var_190, adj_185, adj_190, adj_191);
-            wp::adj_float64(var_189, adj_189, adj_190);
-            wp::adj_float64(var_187, adj_187, adj_188);
-            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
-        }
-        // adj: if i == j:                                                                        <L 112>
-        wp::adj_add(var_179, var_184, adj_179, adj_184, adj_185);
-        wp::adj_mul(var_181, var_183, adj_181, adj_183, adj_184);
-        wp::adj_extract(var_18, var_182, var_168, adj_18, adj_182, adj_168, adj_183);
-        wp::adj_extract(var_18, var_180, var_167, adj_18, adj_180, adj_167, adj_181);
-        wp::adj_add(var_173, var_178, adj_173, adj_178, adj_179);
-        wp::adj_mul(var_175, var_177, adj_175, adj_177, adj_178);
-        wp::adj_extract(var_18, var_176, var_168, adj_18, adj_176, adj_168, adj_177);
-        wp::adj_extract(var_18, var_174, var_167, adj_18, adj_174, adj_167, adj_175);
-        wp::adj_mul(var_170, var_172, adj_170, adj_172, adj_173);
-        wp::adj_extract(var_18, var_171, var_168, adj_18, adj_171, adj_168, adj_172);
-        wp::adj_extract(var_18, var_169, var_167, adj_18, adj_169, adj_167, adj_170);
-        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
-        // adj: for j in range(dim):                                                              <L 110>
-        // adj: for i in range(dim):                                                              <L 109>
-        wp::adj_assign_inplace(var_136, var_157, var_164, var_166, adj_136, adj_157, adj_164, adj_166);
-        wp::adj_float64(var_165, adj_165, adj_166);
-        wp::adj_assign_inplace(var_136, var_157, var_161, var_163, adj_136, adj_157, adj_161, adj_163);
-        wp::adj_float64(var_162, adj_162, adj_163);
-        wp::adj_assign_inplace(var_136, var_157, var_158, var_160, adj_136, adj_157, adj_158, adj_160);
-        wp::adj_float64(var_159, adj_159, adj_160);
-        // adj: g_F[i, j] = wp.float64(0.0)                                                       <L 107>
-        // adj: for j in range(dim):                                                              <L 106>
-        wp::adj_assign_inplace(var_136, var_147, var_154, var_156, adj_136, adj_147, adj_154, adj_156);
-        wp::adj_float64(var_155, adj_155, adj_156);
-        wp::adj_assign_inplace(var_136, var_147, var_151, var_153, adj_136, adj_147, adj_151, adj_153);
-        wp::adj_float64(var_152, adj_152, adj_153);
-        wp::adj_assign_inplace(var_136, var_147, var_148, var_150, adj_136, adj_147, adj_148, adj_150);
-        wp::adj_float64(var_149, adj_149, adj_150);
-        // adj: g_F[i, j] = wp.float64(0.0)                                                       <L 107>
-        // adj: for j in range(dim):                                                              <L 106>
-        wp::adj_assign_inplace(var_136, var_137, var_144, var_146, adj_136, adj_137, adj_144, adj_146);
-        wp::adj_float64(var_145, adj_145, adj_146);
-        wp::adj_assign_inplace(var_136, var_137, var_141, var_143, adj_136, adj_137, adj_141, adj_143);
-        wp::adj_float64(var_142, adj_142, adj_143);
-        wp::adj_assign_inplace(var_136, var_137, var_138, var_140, adj_136, adj_137, adj_138, adj_140);
-        wp::adj_float64(var_139, adj_139, adj_140);
-        // adj: g_F[i, j] = wp.float64(0.0)                                                       <L 107>
-        // adj: for j in range(dim):                                                              <L 106>
-        // adj: for i in range(dim):                                                              <L 105>
-        // adj: g_F = wp.mat33d()                                                                 <L 104>
-        wp::adj_assign_inplace(var_18, var_134, var_135, var_133, adj_18, adj_134, adj_135, adj_133);
-        wp::adj_sub(var_127, var_131, adj_127, adj_131, adj_133);
-        wp::adj_extract(var_132, var_129, adj_130, adj_129, adj_131);
-        wp::adj_load(var_130, adj_130, adj_132);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_130);
-        wp::adj_extract(var_128, var_125, adj_126, adj_125, adj_127);
-        wp::adj_load(var_126, adj_126, adj_128);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_126);
-        wp::adj_add(var_123, var_124, adj_123, adj_124, adj_125);
-        // adj: F[2, 2] = y[tid][9 + 2] - y[tid][2]                                               <L 103>
-        wp::adj_assign_inplace(var_18, var_121, var_122, var_120, adj_18, adj_121, adj_122, adj_120);
-        wp::adj_sub(var_114, var_118, adj_114, adj_118, adj_120);
-        wp::adj_extract(var_119, var_116, adj_117, adj_116, adj_118);
-        wp::adj_load(var_117, adj_117, adj_119);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_117);
-        wp::adj_extract(var_115, var_112, adj_113, adj_112, adj_114);
-        wp::adj_load(var_113, adj_113, adj_115);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_113);
-        wp::adj_add(var_110, var_111, adj_110, adj_111, adj_112);
-        // adj: F[1, 2] = y[tid][9 + 1] - y[tid][1]                                               <L 102>
-        wp::adj_assign_inplace(var_18, var_108, var_109, var_107, adj_18, adj_108, adj_109, adj_107);
-        wp::adj_sub(var_101, var_105, adj_101, adj_105, adj_107);
-        wp::adj_extract(var_106, var_103, adj_104, adj_103, adj_105);
-        wp::adj_load(var_104, adj_104, adj_106);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_104);
-        wp::adj_extract(var_102, var_99, adj_100, adj_99, adj_101);
-        wp::adj_load(var_100, adj_100, adj_102);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_100);
-        wp::adj_add(var_97, var_98, adj_97, adj_98, adj_99);
-        // adj: F[0, 2] = y[tid][9 + 0] - y[tid][0]                                               <L 101>
-        wp::adj_assign_inplace(var_18, var_95, var_96, var_94, adj_18, adj_95, adj_96, adj_94);
-        wp::adj_sub(var_88, var_92, adj_88, adj_92, adj_94);
-        wp::adj_extract(var_93, var_90, adj_91, adj_90, adj_92);
-        wp::adj_load(var_91, adj_91, adj_93);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_91);
-        wp::adj_extract(var_89, var_86, adj_87, adj_86, adj_88);
-        wp::adj_load(var_87, adj_87, adj_89);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_87);
-        wp::adj_add(var_84, var_85, adj_84, adj_85, adj_86);
-        // adj: F[2, 1] = y[tid][6 + 2] - y[tid][2]                                               <L 100>
-        wp::adj_assign_inplace(var_18, var_82, var_83, var_81, adj_18, adj_82, adj_83, adj_81);
-        wp::adj_sub(var_75, var_79, adj_75, adj_79, adj_81);
-        wp::adj_extract(var_80, var_77, adj_78, adj_77, adj_79);
-        wp::adj_load(var_78, adj_78, adj_80);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_78);
-        wp::adj_extract(var_76, var_73, adj_74, adj_73, adj_75);
-        wp::adj_load(var_74, adj_74, adj_76);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_74);
-        wp::adj_add(var_71, var_72, adj_71, adj_72, adj_73);
-        // adj: F[1, 1] = y[tid][6 + 1] - y[tid][1]                                               <L 99>
-        wp::adj_assign_inplace(var_18, var_69, var_70, var_68, adj_18, adj_69, adj_70, adj_68);
-        wp::adj_sub(var_62, var_66, adj_62, adj_66, adj_68);
-        wp::adj_extract(var_67, var_64, adj_65, adj_64, adj_66);
-        wp::adj_load(var_65, adj_65, adj_67);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_65);
-        wp::adj_extract(var_63, var_60, adj_61, adj_60, adj_62);
-        wp::adj_load(var_61, adj_61, adj_63);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_61);
-        wp::adj_add(var_58, var_59, adj_58, adj_59, adj_60);
-        // adj: F[0, 1] = y[tid][6 + 0] - y[tid][0]                                               <L 98>
-        wp::adj_assign_inplace(var_18, var_56, var_57, var_55, adj_18, adj_56, adj_57, adj_55);
-        wp::adj_sub(var_49, var_53, adj_49, adj_53, adj_55);
-        wp::adj_extract(var_54, var_51, adj_52, adj_51, adj_53);
-        wp::adj_load(var_52, adj_52, adj_54);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_52);
-        wp::adj_extract(var_50, var_47, adj_48, adj_47, adj_49);
-        wp::adj_load(var_48, adj_48, adj_50);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_48);
-        wp::adj_add(var_45, var_46, adj_45, adj_46, adj_47);
-        // adj: F[2, 0] = y[tid][3 + 2] - y[tid][2]                                               <L 97>
-        wp::adj_assign_inplace(var_18, var_43, var_44, var_42, adj_18, adj_43, adj_44, adj_42);
-        wp::adj_sub(var_36, var_40, adj_36, adj_40, adj_42);
-        wp::adj_extract(var_41, var_38, adj_39, adj_38, adj_40);
-        wp::adj_load(var_39, adj_39, adj_41);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_39);
-        wp::adj_extract(var_37, var_34, adj_35, adj_34, adj_36);
-        wp::adj_load(var_35, adj_35, adj_37);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_35);
-        wp::adj_add(var_32, var_33, adj_32, adj_33, adj_34);
-        // adj: F[1, 0] = y[tid][3 + 1] - y[tid][1]                                               <L 96>
-        wp::adj_assign_inplace(var_18, var_30, var_31, var_29, adj_18, adj_30, adj_31, adj_29);
-        wp::adj_sub(var_23, var_27, adj_23, adj_27, adj_29);
-        wp::adj_extract(var_28, var_25, adj_26, adj_25, adj_27);
-        wp::adj_load(var_26, adj_26, adj_28);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_26);
-        wp::adj_extract(var_24, var_21, adj_22, adj_21, adj_23);
-        wp::adj_load(var_22, adj_22, adj_24);
-        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_22);
-        wp::adj_add(var_19, var_20, adj_19, adj_20, adj_21);
-        // adj: F[0, 0] = y[tid][3 + 0] - y[tid][0]                                               <L 95>
-        // adj: F = wp.mat33d()                                                                   <L 94>
-        // adj: dim = 3                                                                           <L 93>
-        if (var_16) {
-            label0:;
-            // adj: return                                                                        <L 92>
-        }
-        wp::adj_load(var_1, adj_1, adj_15);
-        wp::adj_load(var_9, adj_9, adj_13);
-        wp::adj_address(var_env_states, var_10, adj_env_states, adj_8, adj_9);
-        wp::adj_load(var_8, adj_8, adj_10);
-        wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_8);
-        wp::adj_load(var_3, adj_3, adj_7);
-        wp::adj_address(var_env_states, var_4, adj_env_states, adj_2, adj_3);
-        wp::adj_load(var_2, adj_2, adj_4);
-        wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_2);
-        // adj: (env_states[body_env_id[tid]] == ENV_STATE_INVALID) or (env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED)  <L 90>
-        wp::adj_address(var_affine_has_constraint, var_0, adj_affine_has_constraint, adj_0, adj_1);
-        // adj: if affine_has_constraint[tid] or (                                                <L 89>
-        // adj: tid = wp.tid()                                                                    <L 88>
-        // adj: def compute_rigidity_energy_grad(                                                 <L 78>
         continue;
     }
 }
@@ -56558,6 +51303,5261 @@ extern "C" __global__ void compute_rigidity_energy_hess_cuda_kernel_backward(
         // adj: if affine_has_constraint[tid] or (                                                <L 166>
         // adj: tid = wp.tid()                                                                    <L 165>
         // adj: def compute_rigidity_energy_hess(                                                 <L 154>
+        continue;
+    }
+}
+
+
+
+extern "C" __global__ void compute_rigidity_energy_grad_cuda_kernel_forward(
+    wp::launch_bounds_t dim,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_gradient,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_y,
+    wp::array_t<wp::float64> var_vol_body,
+    wp::array_t<wp::float64> var_E_body,
+    wp::float64 var_scale,
+    wp::array_t<bool> var_affine_has_constraint,
+    wp::array_t<wp::int32> var_body_env_id,
+    wp::array_t<wp::int32> var_env_states)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        bool* var_1;
+        wp::int32* var_2;
+        wp::int32* var_3;
+        wp::int32 var_4;
+        const wp::int32 var_5 = 1;
+        bool var_6;
+        wp::int32 var_7;
+        wp::int32* var_8;
+        wp::int32* var_9;
+        wp::int32 var_10;
+        const wp::int32 var_11 = 2;
+        bool var_12;
+        wp::int32 var_13;
+        bool var_14;
+        bool var_15;
+        bool var_16;
+        const wp::int32 var_17 = 3;
+        wp::mat_t<3,3,wp::float64> var_18;
+        const wp::int32 var_19 = 3;
+        const wp::int32 var_20 = 0;
+        wp::int32 var_21;
+        wp::vec_t<12,wp::float64>* var_22;
+        wp::float64 var_23;
+        wp::vec_t<12,wp::float64> var_24;
+        const wp::int32 var_25 = 0;
+        wp::vec_t<12,wp::float64>* var_26;
+        wp::float64 var_27;
+        wp::vec_t<12,wp::float64> var_28;
+        wp::float64 var_29;
+        const wp::int32 var_30 = 0;
+        const wp::int32 var_31 = 0;
+        const wp::int32 var_32 = 3;
+        const wp::int32 var_33 = 1;
+        wp::int32 var_34;
+        wp::vec_t<12,wp::float64>* var_35;
+        wp::float64 var_36;
+        wp::vec_t<12,wp::float64> var_37;
+        const wp::int32 var_38 = 1;
+        wp::vec_t<12,wp::float64>* var_39;
+        wp::float64 var_40;
+        wp::vec_t<12,wp::float64> var_41;
+        wp::float64 var_42;
+        const wp::int32 var_43 = 1;
+        const wp::int32 var_44 = 0;
+        const wp::int32 var_45 = 3;
+        const wp::int32 var_46 = 2;
+        wp::int32 var_47;
+        wp::vec_t<12,wp::float64>* var_48;
+        wp::float64 var_49;
+        wp::vec_t<12,wp::float64> var_50;
+        const wp::int32 var_51 = 2;
+        wp::vec_t<12,wp::float64>* var_52;
+        wp::float64 var_53;
+        wp::vec_t<12,wp::float64> var_54;
+        wp::float64 var_55;
+        const wp::int32 var_56 = 2;
+        const wp::int32 var_57 = 0;
+        const wp::int32 var_58 = 6;
+        const wp::int32 var_59 = 0;
+        wp::int32 var_60;
+        wp::vec_t<12,wp::float64>* var_61;
+        wp::float64 var_62;
+        wp::vec_t<12,wp::float64> var_63;
+        const wp::int32 var_64 = 0;
+        wp::vec_t<12,wp::float64>* var_65;
+        wp::float64 var_66;
+        wp::vec_t<12,wp::float64> var_67;
+        wp::float64 var_68;
+        const wp::int32 var_69 = 0;
+        const wp::int32 var_70 = 1;
+        const wp::int32 var_71 = 6;
+        const wp::int32 var_72 = 1;
+        wp::int32 var_73;
+        wp::vec_t<12,wp::float64>* var_74;
+        wp::float64 var_75;
+        wp::vec_t<12,wp::float64> var_76;
+        const wp::int32 var_77 = 1;
+        wp::vec_t<12,wp::float64>* var_78;
+        wp::float64 var_79;
+        wp::vec_t<12,wp::float64> var_80;
+        wp::float64 var_81;
+        const wp::int32 var_82 = 1;
+        const wp::int32 var_83 = 1;
+        const wp::int32 var_84 = 6;
+        const wp::int32 var_85 = 2;
+        wp::int32 var_86;
+        wp::vec_t<12,wp::float64>* var_87;
+        wp::float64 var_88;
+        wp::vec_t<12,wp::float64> var_89;
+        const wp::int32 var_90 = 2;
+        wp::vec_t<12,wp::float64>* var_91;
+        wp::float64 var_92;
+        wp::vec_t<12,wp::float64> var_93;
+        wp::float64 var_94;
+        const wp::int32 var_95 = 2;
+        const wp::int32 var_96 = 1;
+        const wp::int32 var_97 = 9;
+        const wp::int32 var_98 = 0;
+        wp::int32 var_99;
+        wp::vec_t<12,wp::float64>* var_100;
+        wp::float64 var_101;
+        wp::vec_t<12,wp::float64> var_102;
+        const wp::int32 var_103 = 0;
+        wp::vec_t<12,wp::float64>* var_104;
+        wp::float64 var_105;
+        wp::vec_t<12,wp::float64> var_106;
+        wp::float64 var_107;
+        const wp::int32 var_108 = 0;
+        const wp::int32 var_109 = 2;
+        const wp::int32 var_110 = 9;
+        const wp::int32 var_111 = 1;
+        wp::int32 var_112;
+        wp::vec_t<12,wp::float64>* var_113;
+        wp::float64 var_114;
+        wp::vec_t<12,wp::float64> var_115;
+        const wp::int32 var_116 = 1;
+        wp::vec_t<12,wp::float64>* var_117;
+        wp::float64 var_118;
+        wp::vec_t<12,wp::float64> var_119;
+        wp::float64 var_120;
+        const wp::int32 var_121 = 1;
+        const wp::int32 var_122 = 2;
+        const wp::int32 var_123 = 9;
+        const wp::int32 var_124 = 2;
+        wp::int32 var_125;
+        wp::vec_t<12,wp::float64>* var_126;
+        wp::float64 var_127;
+        wp::vec_t<12,wp::float64> var_128;
+        const wp::int32 var_129 = 2;
+        wp::vec_t<12,wp::float64>* var_130;
+        wp::float64 var_131;
+        wp::vec_t<12,wp::float64> var_132;
+        wp::float64 var_133;
+        const wp::int32 var_134 = 2;
+        const wp::int32 var_135 = 2;
+        wp::mat_t<3,3,wp::float64> var_136;
+        const wp::int32 var_137 = 0;
+        const wp::int32 var_138 = 0;
+        const wp::float32 var_139 = 0.0;
+        wp::float64 var_140;
+        const wp::int32 var_141 = 1;
+        const wp::float32 var_142 = 0.0;
+        wp::float64 var_143;
+        const wp::int32 var_144 = 2;
+        const wp::float32 var_145 = 0.0;
+        wp::float64 var_146;
+        const wp::int32 var_147 = 1;
+        const wp::int32 var_148 = 0;
+        const wp::float32 var_149 = 0.0;
+        wp::float64 var_150;
+        const wp::int32 var_151 = 1;
+        const wp::float32 var_152 = 0.0;
+        wp::float64 var_153;
+        const wp::int32 var_154 = 2;
+        const wp::float32 var_155 = 0.0;
+        wp::float64 var_156;
+        const wp::int32 var_157 = 2;
+        const wp::int32 var_158 = 0;
+        const wp::float32 var_159 = 0.0;
+        wp::float64 var_160;
+        const wp::int32 var_161 = 1;
+        const wp::float32 var_162 = 0.0;
+        wp::float64 var_163;
+        const wp::int32 var_164 = 2;
+        const wp::float32 var_165 = 0.0;
+        wp::float64 var_166;
+        const wp::int32 var_167 = 0;
+        const wp::int32 var_168 = 0;
+        const wp::int32 var_169 = 0;
+        wp::float64 var_170;
+        const wp::int32 var_171 = 0;
+        wp::float64 var_172;
+        wp::float64 var_173;
+        const wp::int32 var_174 = 1;
+        wp::float64 var_175;
+        const wp::int32 var_176 = 1;
+        wp::float64 var_177;
+        wp::float64 var_178;
+        wp::float64 var_179;
+        const wp::int32 var_180 = 2;
+        wp::float64 var_181;
+        const wp::int32 var_182 = 2;
+        wp::float64 var_183;
+        wp::float64 var_184;
+        wp::float64 var_185;
+        bool var_186;
+        const wp::float32 var_187 = 4.0;
+        wp::float64 var_188;
+        const wp::float32 var_189 = 1.0;
+        wp::float64 var_190;
+        wp::float64 var_191;
+        wp::float64 var_192;
+        const wp::int32 var_193 = 0;
+        wp::float64 var_194;
+        wp::float64 var_195;
+        const wp::int32 var_196 = 0;
+        const wp::float32 var_197 = 4.0;
+        wp::float64 var_198;
+        const wp::float32 var_199 = 1.0;
+        wp::float64 var_200;
+        wp::float64 var_201;
+        wp::float64 var_202;
+        const wp::int32 var_203 = 1;
+        wp::float64 var_204;
+        wp::float64 var_205;
+        const wp::int32 var_206 = 1;
+        const wp::float32 var_207 = 4.0;
+        wp::float64 var_208;
+        const wp::float32 var_209 = 1.0;
+        wp::float64 var_210;
+        wp::float64 var_211;
+        wp::float64 var_212;
+        const wp::int32 var_213 = 2;
+        wp::float64 var_214;
+        wp::float64 var_215;
+        const wp::int32 var_216 = 2;
+        const wp::float32 var_217 = 4.0;
+        wp::float64 var_218;
+        wp::float64 var_219;
+        const wp::int32 var_220 = 0;
+        wp::float64 var_221;
+        wp::float64 var_222;
+        const wp::int32 var_223 = 0;
+        const wp::float32 var_224 = 4.0;
+        wp::float64 var_225;
+        wp::float64 var_226;
+        const wp::int32 var_227 = 1;
+        wp::float64 var_228;
+        wp::float64 var_229;
+        const wp::int32 var_230 = 1;
+        const wp::float32 var_231 = 4.0;
+        wp::float64 var_232;
+        wp::float64 var_233;
+        const wp::int32 var_234 = 2;
+        wp::float64 var_235;
+        wp::float64 var_236;
+        const wp::int32 var_237 = 2;
+        const wp::int32 var_238 = 1;
+        const wp::int32 var_239 = 0;
+        wp::float64 var_240;
+        const wp::int32 var_241 = 0;
+        wp::float64 var_242;
+        wp::float64 var_243;
+        const wp::int32 var_244 = 1;
+        wp::float64 var_245;
+        const wp::int32 var_246 = 1;
+        wp::float64 var_247;
+        wp::float64 var_248;
+        wp::float64 var_249;
+        const wp::int32 var_250 = 2;
+        wp::float64 var_251;
+        const wp::int32 var_252 = 2;
+        wp::float64 var_253;
+        wp::float64 var_254;
+        wp::float64 var_255;
+        bool var_256;
+        const wp::float32 var_257 = 4.0;
+        wp::float64 var_258;
+        const wp::float32 var_259 = 1.0;
+        wp::float64 var_260;
+        wp::float64 var_261;
+        wp::float64 var_262;
+        const wp::int32 var_263 = 0;
+        wp::float64 var_264;
+        wp::float64 var_265;
+        const wp::int32 var_266 = 0;
+        const wp::float32 var_267 = 4.0;
+        wp::float64 var_268;
+        const wp::float32 var_269 = 1.0;
+        wp::float64 var_270;
+        wp::float64 var_271;
+        wp::float64 var_272;
+        const wp::int32 var_273 = 1;
+        wp::float64 var_274;
+        wp::float64 var_275;
+        const wp::int32 var_276 = 1;
+        const wp::float32 var_277 = 4.0;
+        wp::float64 var_278;
+        const wp::float32 var_279 = 1.0;
+        wp::float64 var_280;
+        wp::float64 var_281;
+        wp::float64 var_282;
+        const wp::int32 var_283 = 2;
+        wp::float64 var_284;
+        wp::float64 var_285;
+        const wp::int32 var_286 = 2;
+        const wp::float32 var_287 = 4.0;
+        wp::float64 var_288;
+        wp::float64 var_289;
+        const wp::int32 var_290 = 0;
+        wp::float64 var_291;
+        wp::float64 var_292;
+        const wp::int32 var_293 = 0;
+        const wp::float32 var_294 = 4.0;
+        wp::float64 var_295;
+        wp::float64 var_296;
+        const wp::int32 var_297 = 1;
+        wp::float64 var_298;
+        wp::float64 var_299;
+        const wp::int32 var_300 = 1;
+        const wp::float32 var_301 = 4.0;
+        wp::float64 var_302;
+        wp::float64 var_303;
+        const wp::int32 var_304 = 2;
+        wp::float64 var_305;
+        wp::float64 var_306;
+        const wp::int32 var_307 = 2;
+        const wp::int32 var_308 = 2;
+        const wp::int32 var_309 = 0;
+        wp::float64 var_310;
+        const wp::int32 var_311 = 0;
+        wp::float64 var_312;
+        wp::float64 var_313;
+        const wp::int32 var_314 = 1;
+        wp::float64 var_315;
+        const wp::int32 var_316 = 1;
+        wp::float64 var_317;
+        wp::float64 var_318;
+        wp::float64 var_319;
+        const wp::int32 var_320 = 2;
+        wp::float64 var_321;
+        const wp::int32 var_322 = 2;
+        wp::float64 var_323;
+        wp::float64 var_324;
+        wp::float64 var_325;
+        bool var_326;
+        const wp::float32 var_327 = 4.0;
+        wp::float64 var_328;
+        const wp::float32 var_329 = 1.0;
+        wp::float64 var_330;
+        wp::float64 var_331;
+        wp::float64 var_332;
+        const wp::int32 var_333 = 0;
+        wp::float64 var_334;
+        wp::float64 var_335;
+        const wp::int32 var_336 = 0;
+        const wp::float32 var_337 = 4.0;
+        wp::float64 var_338;
+        const wp::float32 var_339 = 1.0;
+        wp::float64 var_340;
+        wp::float64 var_341;
+        wp::float64 var_342;
+        const wp::int32 var_343 = 1;
+        wp::float64 var_344;
+        wp::float64 var_345;
+        const wp::int32 var_346 = 1;
+        const wp::float32 var_347 = 4.0;
+        wp::float64 var_348;
+        const wp::float32 var_349 = 1.0;
+        wp::float64 var_350;
+        wp::float64 var_351;
+        wp::float64 var_352;
+        const wp::int32 var_353 = 2;
+        wp::float64 var_354;
+        wp::float64 var_355;
+        const wp::int32 var_356 = 2;
+        const wp::float32 var_357 = 4.0;
+        wp::float64 var_358;
+        wp::float64 var_359;
+        const wp::int32 var_360 = 0;
+        wp::float64 var_361;
+        wp::float64 var_362;
+        const wp::int32 var_363 = 0;
+        const wp::float32 var_364 = 4.0;
+        wp::float64 var_365;
+        wp::float64 var_366;
+        const wp::int32 var_367 = 1;
+        wp::float64 var_368;
+        wp::float64 var_369;
+        const wp::int32 var_370 = 1;
+        const wp::float32 var_371 = 4.0;
+        wp::float64 var_372;
+        wp::float64 var_373;
+        const wp::int32 var_374 = 2;
+        wp::float64 var_375;
+        wp::float64 var_376;
+        const wp::int32 var_377 = 2;
+        const wp::int32 var_378 = 1;
+        const wp::int32 var_379 = 0;
+        const wp::int32 var_380 = 0;
+        wp::float64 var_381;
+        const wp::int32 var_382 = 0;
+        wp::float64 var_383;
+        wp::float64 var_384;
+        const wp::int32 var_385 = 1;
+        wp::float64 var_386;
+        const wp::int32 var_387 = 1;
+        wp::float64 var_388;
+        wp::float64 var_389;
+        wp::float64 var_390;
+        const wp::int32 var_391 = 2;
+        wp::float64 var_392;
+        const wp::int32 var_393 = 2;
+        wp::float64 var_394;
+        wp::float64 var_395;
+        wp::float64 var_396;
+        bool var_397;
+        const wp::float32 var_398 = 4.0;
+        wp::float64 var_399;
+        const wp::float32 var_400 = 1.0;
+        wp::float64 var_401;
+        wp::float64 var_402;
+        wp::float64 var_403;
+        const wp::int32 var_404 = 0;
+        wp::float64 var_405;
+        wp::float64 var_406;
+        const wp::int32 var_407 = 0;
+        const wp::float32 var_408 = 4.0;
+        wp::float64 var_409;
+        const wp::float32 var_410 = 1.0;
+        wp::float64 var_411;
+        wp::float64 var_412;
+        wp::float64 var_413;
+        const wp::int32 var_414 = 1;
+        wp::float64 var_415;
+        wp::float64 var_416;
+        const wp::int32 var_417 = 1;
+        const wp::float32 var_418 = 4.0;
+        wp::float64 var_419;
+        const wp::float32 var_420 = 1.0;
+        wp::float64 var_421;
+        wp::float64 var_422;
+        wp::float64 var_423;
+        const wp::int32 var_424 = 2;
+        wp::float64 var_425;
+        wp::float64 var_426;
+        const wp::int32 var_427 = 2;
+        const wp::float32 var_428 = 4.0;
+        wp::float64 var_429;
+        wp::float64 var_430;
+        const wp::int32 var_431 = 0;
+        wp::float64 var_432;
+        wp::float64 var_433;
+        const wp::int32 var_434 = 0;
+        const wp::float32 var_435 = 4.0;
+        wp::float64 var_436;
+        wp::float64 var_437;
+        const wp::int32 var_438 = 1;
+        wp::float64 var_439;
+        wp::float64 var_440;
+        const wp::int32 var_441 = 1;
+        const wp::float32 var_442 = 4.0;
+        wp::float64 var_443;
+        wp::float64 var_444;
+        const wp::int32 var_445 = 2;
+        wp::float64 var_446;
+        wp::float64 var_447;
+        const wp::int32 var_448 = 2;
+        const wp::int32 var_449 = 1;
+        const wp::int32 var_450 = 0;
+        wp::float64 var_451;
+        const wp::int32 var_452 = 0;
+        wp::float64 var_453;
+        wp::float64 var_454;
+        const wp::int32 var_455 = 1;
+        wp::float64 var_456;
+        const wp::int32 var_457 = 1;
+        wp::float64 var_458;
+        wp::float64 var_459;
+        wp::float64 var_460;
+        const wp::int32 var_461 = 2;
+        wp::float64 var_462;
+        const wp::int32 var_463 = 2;
+        wp::float64 var_464;
+        wp::float64 var_465;
+        wp::float64 var_466;
+        bool var_467;
+        const wp::float32 var_468 = 4.0;
+        wp::float64 var_469;
+        const wp::float32 var_470 = 1.0;
+        wp::float64 var_471;
+        wp::float64 var_472;
+        wp::float64 var_473;
+        const wp::int32 var_474 = 0;
+        wp::float64 var_475;
+        wp::float64 var_476;
+        const wp::int32 var_477 = 0;
+        const wp::float32 var_478 = 4.0;
+        wp::float64 var_479;
+        const wp::float32 var_480 = 1.0;
+        wp::float64 var_481;
+        wp::float64 var_482;
+        wp::float64 var_483;
+        const wp::int32 var_484 = 1;
+        wp::float64 var_485;
+        wp::float64 var_486;
+        const wp::int32 var_487 = 1;
+        const wp::float32 var_488 = 4.0;
+        wp::float64 var_489;
+        const wp::float32 var_490 = 1.0;
+        wp::float64 var_491;
+        wp::float64 var_492;
+        wp::float64 var_493;
+        const wp::int32 var_494 = 2;
+        wp::float64 var_495;
+        wp::float64 var_496;
+        const wp::int32 var_497 = 2;
+        const wp::float32 var_498 = 4.0;
+        wp::float64 var_499;
+        wp::float64 var_500;
+        const wp::int32 var_501 = 0;
+        wp::float64 var_502;
+        wp::float64 var_503;
+        const wp::int32 var_504 = 0;
+        const wp::float32 var_505 = 4.0;
+        wp::float64 var_506;
+        wp::float64 var_507;
+        const wp::int32 var_508 = 1;
+        wp::float64 var_509;
+        wp::float64 var_510;
+        const wp::int32 var_511 = 1;
+        const wp::float32 var_512 = 4.0;
+        wp::float64 var_513;
+        wp::float64 var_514;
+        const wp::int32 var_515 = 2;
+        wp::float64 var_516;
+        wp::float64 var_517;
+        const wp::int32 var_518 = 2;
+        const wp::int32 var_519 = 2;
+        const wp::int32 var_520 = 0;
+        wp::float64 var_521;
+        const wp::int32 var_522 = 0;
+        wp::float64 var_523;
+        wp::float64 var_524;
+        const wp::int32 var_525 = 1;
+        wp::float64 var_526;
+        const wp::int32 var_527 = 1;
+        wp::float64 var_528;
+        wp::float64 var_529;
+        wp::float64 var_530;
+        const wp::int32 var_531 = 2;
+        wp::float64 var_532;
+        const wp::int32 var_533 = 2;
+        wp::float64 var_534;
+        wp::float64 var_535;
+        wp::float64 var_536;
+        bool var_537;
+        const wp::float32 var_538 = 4.0;
+        wp::float64 var_539;
+        const wp::float32 var_540 = 1.0;
+        wp::float64 var_541;
+        wp::float64 var_542;
+        wp::float64 var_543;
+        const wp::int32 var_544 = 0;
+        wp::float64 var_545;
+        wp::float64 var_546;
+        const wp::int32 var_547 = 0;
+        const wp::float32 var_548 = 4.0;
+        wp::float64 var_549;
+        const wp::float32 var_550 = 1.0;
+        wp::float64 var_551;
+        wp::float64 var_552;
+        wp::float64 var_553;
+        const wp::int32 var_554 = 1;
+        wp::float64 var_555;
+        wp::float64 var_556;
+        const wp::int32 var_557 = 1;
+        const wp::float32 var_558 = 4.0;
+        wp::float64 var_559;
+        const wp::float32 var_560 = 1.0;
+        wp::float64 var_561;
+        wp::float64 var_562;
+        wp::float64 var_563;
+        const wp::int32 var_564 = 2;
+        wp::float64 var_565;
+        wp::float64 var_566;
+        const wp::int32 var_567 = 2;
+        const wp::float32 var_568 = 4.0;
+        wp::float64 var_569;
+        wp::float64 var_570;
+        const wp::int32 var_571 = 0;
+        wp::float64 var_572;
+        wp::float64 var_573;
+        const wp::int32 var_574 = 0;
+        const wp::float32 var_575 = 4.0;
+        wp::float64 var_576;
+        wp::float64 var_577;
+        const wp::int32 var_578 = 1;
+        wp::float64 var_579;
+        wp::float64 var_580;
+        const wp::int32 var_581 = 1;
+        const wp::float32 var_582 = 4.0;
+        wp::float64 var_583;
+        wp::float64 var_584;
+        const wp::int32 var_585 = 2;
+        wp::float64 var_586;
+        wp::float64 var_587;
+        const wp::int32 var_588 = 2;
+        const wp::int32 var_589 = 2;
+        const wp::int32 var_590 = 0;
+        const wp::int32 var_591 = 0;
+        wp::float64 var_592;
+        const wp::int32 var_593 = 0;
+        wp::float64 var_594;
+        wp::float64 var_595;
+        const wp::int32 var_596 = 1;
+        wp::float64 var_597;
+        const wp::int32 var_598 = 1;
+        wp::float64 var_599;
+        wp::float64 var_600;
+        wp::float64 var_601;
+        const wp::int32 var_602 = 2;
+        wp::float64 var_603;
+        const wp::int32 var_604 = 2;
+        wp::float64 var_605;
+        wp::float64 var_606;
+        wp::float64 var_607;
+        bool var_608;
+        const wp::float32 var_609 = 4.0;
+        wp::float64 var_610;
+        const wp::float32 var_611 = 1.0;
+        wp::float64 var_612;
+        wp::float64 var_613;
+        wp::float64 var_614;
+        const wp::int32 var_615 = 0;
+        wp::float64 var_616;
+        wp::float64 var_617;
+        const wp::int32 var_618 = 0;
+        const wp::float32 var_619 = 4.0;
+        wp::float64 var_620;
+        const wp::float32 var_621 = 1.0;
+        wp::float64 var_622;
+        wp::float64 var_623;
+        wp::float64 var_624;
+        const wp::int32 var_625 = 1;
+        wp::float64 var_626;
+        wp::float64 var_627;
+        const wp::int32 var_628 = 1;
+        const wp::float32 var_629 = 4.0;
+        wp::float64 var_630;
+        const wp::float32 var_631 = 1.0;
+        wp::float64 var_632;
+        wp::float64 var_633;
+        wp::float64 var_634;
+        const wp::int32 var_635 = 2;
+        wp::float64 var_636;
+        wp::float64 var_637;
+        const wp::int32 var_638 = 2;
+        const wp::float32 var_639 = 4.0;
+        wp::float64 var_640;
+        wp::float64 var_641;
+        const wp::int32 var_642 = 0;
+        wp::float64 var_643;
+        wp::float64 var_644;
+        const wp::int32 var_645 = 0;
+        const wp::float32 var_646 = 4.0;
+        wp::float64 var_647;
+        wp::float64 var_648;
+        const wp::int32 var_649 = 1;
+        wp::float64 var_650;
+        wp::float64 var_651;
+        const wp::int32 var_652 = 1;
+        const wp::float32 var_653 = 4.0;
+        wp::float64 var_654;
+        wp::float64 var_655;
+        const wp::int32 var_656 = 2;
+        wp::float64 var_657;
+        wp::float64 var_658;
+        const wp::int32 var_659 = 2;
+        const wp::int32 var_660 = 1;
+        const wp::int32 var_661 = 0;
+        wp::float64 var_662;
+        const wp::int32 var_663 = 0;
+        wp::float64 var_664;
+        wp::float64 var_665;
+        const wp::int32 var_666 = 1;
+        wp::float64 var_667;
+        const wp::int32 var_668 = 1;
+        wp::float64 var_669;
+        wp::float64 var_670;
+        wp::float64 var_671;
+        const wp::int32 var_672 = 2;
+        wp::float64 var_673;
+        const wp::int32 var_674 = 2;
+        wp::float64 var_675;
+        wp::float64 var_676;
+        wp::float64 var_677;
+        bool var_678;
+        const wp::float32 var_679 = 4.0;
+        wp::float64 var_680;
+        const wp::float32 var_681 = 1.0;
+        wp::float64 var_682;
+        wp::float64 var_683;
+        wp::float64 var_684;
+        const wp::int32 var_685 = 0;
+        wp::float64 var_686;
+        wp::float64 var_687;
+        const wp::int32 var_688 = 0;
+        const wp::float32 var_689 = 4.0;
+        wp::float64 var_690;
+        const wp::float32 var_691 = 1.0;
+        wp::float64 var_692;
+        wp::float64 var_693;
+        wp::float64 var_694;
+        const wp::int32 var_695 = 1;
+        wp::float64 var_696;
+        wp::float64 var_697;
+        const wp::int32 var_698 = 1;
+        const wp::float32 var_699 = 4.0;
+        wp::float64 var_700;
+        const wp::float32 var_701 = 1.0;
+        wp::float64 var_702;
+        wp::float64 var_703;
+        wp::float64 var_704;
+        const wp::int32 var_705 = 2;
+        wp::float64 var_706;
+        wp::float64 var_707;
+        const wp::int32 var_708 = 2;
+        const wp::float32 var_709 = 4.0;
+        wp::float64 var_710;
+        wp::float64 var_711;
+        const wp::int32 var_712 = 0;
+        wp::float64 var_713;
+        wp::float64 var_714;
+        const wp::int32 var_715 = 0;
+        const wp::float32 var_716 = 4.0;
+        wp::float64 var_717;
+        wp::float64 var_718;
+        const wp::int32 var_719 = 1;
+        wp::float64 var_720;
+        wp::float64 var_721;
+        const wp::int32 var_722 = 1;
+        const wp::float32 var_723 = 4.0;
+        wp::float64 var_724;
+        wp::float64 var_725;
+        const wp::int32 var_726 = 2;
+        wp::float64 var_727;
+        wp::float64 var_728;
+        const wp::int32 var_729 = 2;
+        const wp::int32 var_730 = 2;
+        const wp::int32 var_731 = 0;
+        wp::float64 var_732;
+        const wp::int32 var_733 = 0;
+        wp::float64 var_734;
+        wp::float64 var_735;
+        const wp::int32 var_736 = 1;
+        wp::float64 var_737;
+        const wp::int32 var_738 = 1;
+        wp::float64 var_739;
+        wp::float64 var_740;
+        wp::float64 var_741;
+        const wp::int32 var_742 = 2;
+        wp::float64 var_743;
+        const wp::int32 var_744 = 2;
+        wp::float64 var_745;
+        wp::float64 var_746;
+        wp::float64 var_747;
+        bool var_748;
+        const wp::float32 var_749 = 4.0;
+        wp::float64 var_750;
+        const wp::float32 var_751 = 1.0;
+        wp::float64 var_752;
+        wp::float64 var_753;
+        wp::float64 var_754;
+        const wp::int32 var_755 = 0;
+        wp::float64 var_756;
+        wp::float64 var_757;
+        const wp::int32 var_758 = 0;
+        const wp::float32 var_759 = 4.0;
+        wp::float64 var_760;
+        const wp::float32 var_761 = 1.0;
+        wp::float64 var_762;
+        wp::float64 var_763;
+        wp::float64 var_764;
+        const wp::int32 var_765 = 1;
+        wp::float64 var_766;
+        wp::float64 var_767;
+        const wp::int32 var_768 = 1;
+        const wp::float32 var_769 = 4.0;
+        wp::float64 var_770;
+        const wp::float32 var_771 = 1.0;
+        wp::float64 var_772;
+        wp::float64 var_773;
+        wp::float64 var_774;
+        const wp::int32 var_775 = 2;
+        wp::float64 var_776;
+        wp::float64 var_777;
+        const wp::int32 var_778 = 2;
+        const wp::float32 var_779 = 4.0;
+        wp::float64 var_780;
+        wp::float64 var_781;
+        const wp::int32 var_782 = 0;
+        wp::float64 var_783;
+        wp::float64 var_784;
+        const wp::int32 var_785 = 0;
+        const wp::float32 var_786 = 4.0;
+        wp::float64 var_787;
+        wp::float64 var_788;
+        const wp::int32 var_789 = 1;
+        wp::float64 var_790;
+        wp::float64 var_791;
+        const wp::int32 var_792 = 1;
+        const wp::float32 var_793 = 4.0;
+        wp::float64 var_794;
+        wp::float64 var_795;
+        const wp::int32 var_796 = 2;
+        wp::float64 var_797;
+        wp::float64 var_798;
+        const wp::int32 var_799 = 2;
+        wp::float64* var_800;
+        wp::float64* var_801;
+        wp::float64 var_802;
+        wp::float64 var_803;
+        wp::float64 var_804;
+        wp::float64 var_805;
+        const wp::float32 var_806 = 8.0;
+        wp::float64 var_807;
+        wp::float64 var_808;
+        const wp::int32 var_809 = 0;
+        const wp::int32 var_810 = 0;
+        wp::float64 var_811;
+        wp::float64 var_812;
+        const wp::int32 var_813 = 1;
+        wp::float64 var_814;
+        wp::float64 var_815;
+        const wp::int32 var_816 = 2;
+        wp::float64 var_817;
+        wp::float64 var_818;
+        const wp::int32 var_819 = 1;
+        const wp::int32 var_820 = 0;
+        wp::float64 var_821;
+        wp::float64 var_822;
+        const wp::int32 var_823 = 1;
+        wp::float64 var_824;
+        wp::float64 var_825;
+        const wp::int32 var_826 = 2;
+        wp::float64 var_827;
+        wp::float64 var_828;
+        const wp::int32 var_829 = 2;
+        const wp::int32 var_830 = 0;
+        wp::float64 var_831;
+        wp::float64 var_832;
+        const wp::int32 var_833 = 1;
+        wp::float64 var_834;
+        wp::float64 var_835;
+        const wp::int32 var_836 = 2;
+        wp::float64 var_837;
+        wp::float64 var_838;
+        wp::vec_t<12,wp::float64> var_839;
+        const wp::int32 var_840 = 0;
+        const wp::int32 var_841 = 0;
+        wp::float64 var_842;
+        wp::float64 var_843;
+        const wp::int32 var_844 = 1;
+        wp::float64 var_845;
+        wp::float64 var_846;
+        const wp::int32 var_847 = 2;
+        wp::float64 var_848;
+        wp::float64 var_849;
+        const wp::int32 var_850 = 0;
+        wp::int32 var_851;
+        wp::int32 var_852;
+        const wp::int32 var_853 = 0;
+        wp::float64 var_854;
+        const wp::int32 var_855 = 1;
+        wp::int32 var_856;
+        wp::int32 var_857;
+        const wp::int32 var_858 = 1;
+        wp::float64 var_859;
+        const wp::int32 var_860 = 2;
+        wp::int32 var_861;
+        wp::int32 var_862;
+        const wp::int32 var_863 = 2;
+        wp::float64 var_864;
+        const wp::int32 var_865 = 3;
+        wp::int32 var_866;
+        wp::int32 var_867;
+        const wp::int32 var_868 = 1;
+        const wp::int32 var_869 = 0;
+        wp::float64 var_870;
+        wp::float64 var_871;
+        const wp::int32 var_872 = 1;
+        wp::float64 var_873;
+        wp::float64 var_874;
+        const wp::int32 var_875 = 2;
+        wp::float64 var_876;
+        wp::float64 var_877;
+        const wp::int32 var_878 = 0;
+        wp::int32 var_879;
+        wp::int32 var_880;
+        const wp::int32 var_881 = 0;
+        wp::float64 var_882;
+        const wp::int32 var_883 = 1;
+        wp::int32 var_884;
+        wp::int32 var_885;
+        const wp::int32 var_886 = 1;
+        wp::float64 var_887;
+        const wp::int32 var_888 = 2;
+        wp::int32 var_889;
+        wp::int32 var_890;
+        const wp::int32 var_891 = 2;
+        wp::float64 var_892;
+        const wp::int32 var_893 = 3;
+        wp::int32 var_894;
+        wp::int32 var_895;
+        const wp::int32 var_896 = 2;
+        const wp::int32 var_897 = 0;
+        wp::float64 var_898;
+        wp::float64 var_899;
+        const wp::int32 var_900 = 1;
+        wp::float64 var_901;
+        wp::float64 var_902;
+        const wp::int32 var_903 = 2;
+        wp::float64 var_904;
+        wp::float64 var_905;
+        const wp::int32 var_906 = 0;
+        wp::int32 var_907;
+        wp::int32 var_908;
+        const wp::int32 var_909 = 0;
+        wp::float64 var_910;
+        const wp::int32 var_911 = 1;
+        wp::int32 var_912;
+        wp::int32 var_913;
+        const wp::int32 var_914 = 1;
+        wp::float64 var_915;
+        const wp::int32 var_916 = 2;
+        wp::int32 var_917;
+        wp::int32 var_918;
+        const wp::int32 var_919 = 2;
+        wp::float64 var_920;
+        const wp::int32 var_921 = 3;
+        wp::int32 var_922;
+        wp::int32 var_923;
+        wp::vec_t<12,wp::float64> var_924;
+        //---------
+        // forward
+        // def compute_rigidity_energy_grad(                                                      <L 78>
+        // tid = wp.tid()                                                                         <L 88>
+        var_0 = builtin_tid1d();
+        // if affine_has_constraint[tid] or (                                                     <L 89>
+        var_1 = wp::address(var_affine_has_constraint, var_0);
+        // (env_states[body_env_id[tid]] == ENV_STATE_INVALID) or (env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED)       <L 90>
+        var_2 = wp::address(var_body_env_id, var_0);
+        var_4 = wp::load(var_2);
+        var_3 = wp::address(var_env_states, var_4);
+        var_7 = wp::load(var_3);
+        var_6 = (var_7 == var_5);
+        var_8 = wp::address(var_body_env_id, var_0);
+        var_10 = wp::load(var_8);
+        var_9 = wp::address(var_env_states, var_10);
+        var_13 = wp::load(var_9);
+        var_12 = (var_13 == var_11);
+        var_14 = var_6 || var_12;
+        var_15 = wp::load(var_1);
+        var_16 = var_15 || var_14;
+        if (var_16) {
+            // return                                                                             <L 92>
+            continue;
+        }
+        // dim = 3                                                                                <L 93>
+        // F = wp.mat33d()                                                                        <L 94>
+        var_18 = wp::mat_t<3,3,wp::float64>();
+        // F[0, 0] = y[tid][3 + 0] - y[tid][0]                                                    <L 95>
+        var_21 = wp::add(var_19, var_20);
+        var_22 = wp::address(var_y, var_0);
+        var_24 = wp::load(var_22);
+        var_23 = wp::extract(var_24, var_21);
+        var_26 = wp::address(var_y, var_0);
+        var_28 = wp::load(var_26);
+        var_27 = wp::extract(var_28, var_25);
+        var_29 = wp::sub(var_23, var_27);
+        wp::assign_inplace(var_18, var_30, var_31, var_29);
+        // F[1, 0] = y[tid][3 + 1] - y[tid][1]                                                    <L 96>
+        var_34 = wp::add(var_32, var_33);
+        var_35 = wp::address(var_y, var_0);
+        var_37 = wp::load(var_35);
+        var_36 = wp::extract(var_37, var_34);
+        var_39 = wp::address(var_y, var_0);
+        var_41 = wp::load(var_39);
+        var_40 = wp::extract(var_41, var_38);
+        var_42 = wp::sub(var_36, var_40);
+        wp::assign_inplace(var_18, var_43, var_44, var_42);
+        // F[2, 0] = y[tid][3 + 2] - y[tid][2]                                                    <L 97>
+        var_47 = wp::add(var_45, var_46);
+        var_48 = wp::address(var_y, var_0);
+        var_50 = wp::load(var_48);
+        var_49 = wp::extract(var_50, var_47);
+        var_52 = wp::address(var_y, var_0);
+        var_54 = wp::load(var_52);
+        var_53 = wp::extract(var_54, var_51);
+        var_55 = wp::sub(var_49, var_53);
+        wp::assign_inplace(var_18, var_56, var_57, var_55);
+        // F[0, 1] = y[tid][6 + 0] - y[tid][0]                                                    <L 98>
+        var_60 = wp::add(var_58, var_59);
+        var_61 = wp::address(var_y, var_0);
+        var_63 = wp::load(var_61);
+        var_62 = wp::extract(var_63, var_60);
+        var_65 = wp::address(var_y, var_0);
+        var_67 = wp::load(var_65);
+        var_66 = wp::extract(var_67, var_64);
+        var_68 = wp::sub(var_62, var_66);
+        wp::assign_inplace(var_18, var_69, var_70, var_68);
+        // F[1, 1] = y[tid][6 + 1] - y[tid][1]                                                    <L 99>
+        var_73 = wp::add(var_71, var_72);
+        var_74 = wp::address(var_y, var_0);
+        var_76 = wp::load(var_74);
+        var_75 = wp::extract(var_76, var_73);
+        var_78 = wp::address(var_y, var_0);
+        var_80 = wp::load(var_78);
+        var_79 = wp::extract(var_80, var_77);
+        var_81 = wp::sub(var_75, var_79);
+        wp::assign_inplace(var_18, var_82, var_83, var_81);
+        // F[2, 1] = y[tid][6 + 2] - y[tid][2]                                                    <L 100>
+        var_86 = wp::add(var_84, var_85);
+        var_87 = wp::address(var_y, var_0);
+        var_89 = wp::load(var_87);
+        var_88 = wp::extract(var_89, var_86);
+        var_91 = wp::address(var_y, var_0);
+        var_93 = wp::load(var_91);
+        var_92 = wp::extract(var_93, var_90);
+        var_94 = wp::sub(var_88, var_92);
+        wp::assign_inplace(var_18, var_95, var_96, var_94);
+        // F[0, 2] = y[tid][9 + 0] - y[tid][0]                                                    <L 101>
+        var_99 = wp::add(var_97, var_98);
+        var_100 = wp::address(var_y, var_0);
+        var_102 = wp::load(var_100);
+        var_101 = wp::extract(var_102, var_99);
+        var_104 = wp::address(var_y, var_0);
+        var_106 = wp::load(var_104);
+        var_105 = wp::extract(var_106, var_103);
+        var_107 = wp::sub(var_101, var_105);
+        wp::assign_inplace(var_18, var_108, var_109, var_107);
+        // F[1, 2] = y[tid][9 + 1] - y[tid][1]                                                    <L 102>
+        var_112 = wp::add(var_110, var_111);
+        var_113 = wp::address(var_y, var_0);
+        var_115 = wp::load(var_113);
+        var_114 = wp::extract(var_115, var_112);
+        var_117 = wp::address(var_y, var_0);
+        var_119 = wp::load(var_117);
+        var_118 = wp::extract(var_119, var_116);
+        var_120 = wp::sub(var_114, var_118);
+        wp::assign_inplace(var_18, var_121, var_122, var_120);
+        // F[2, 2] = y[tid][9 + 2] - y[tid][2]                                                    <L 103>
+        var_125 = wp::add(var_123, var_124);
+        var_126 = wp::address(var_y, var_0);
+        var_128 = wp::load(var_126);
+        var_127 = wp::extract(var_128, var_125);
+        var_130 = wp::address(var_y, var_0);
+        var_132 = wp::load(var_130);
+        var_131 = wp::extract(var_132, var_129);
+        var_133 = wp::sub(var_127, var_131);
+        wp::assign_inplace(var_18, var_134, var_135, var_133);
+        // g_F = wp.mat33d()                                                                      <L 104>
+        var_136 = wp::mat_t<3,3,wp::float64>();
+        // for i in range(dim):                                                                   <L 105>
+        // for j in range(dim):                                                                   <L 106>
+        // g_F[i, j] = wp.float64(0.0)                                                            <L 107>
+        var_140 = wp::float64(var_139);
+        wp::assign_inplace(var_136, var_137, var_138, var_140);
+        var_143 = wp::float64(var_142);
+        wp::assign_inplace(var_136, var_137, var_141, var_143);
+        var_146 = wp::float64(var_145);
+        wp::assign_inplace(var_136, var_137, var_144, var_146);
+        // for j in range(dim):                                                                   <L 106>
+        // g_F[i, j] = wp.float64(0.0)                                                            <L 107>
+        var_150 = wp::float64(var_149);
+        wp::assign_inplace(var_136, var_147, var_148, var_150);
+        var_153 = wp::float64(var_152);
+        wp::assign_inplace(var_136, var_147, var_151, var_153);
+        var_156 = wp::float64(var_155);
+        wp::assign_inplace(var_136, var_147, var_154, var_156);
+        // for j in range(dim):                                                                   <L 106>
+        // g_F[i, j] = wp.float64(0.0)                                                            <L 107>
+        var_160 = wp::float64(var_159);
+        wp::assign_inplace(var_136, var_157, var_158, var_160);
+        var_163 = wp::float64(var_162);
+        wp::assign_inplace(var_136, var_157, var_161, var_163);
+        var_166 = wp::float64(var_165);
+        wp::assign_inplace(var_136, var_157, var_164, var_166);
+        // for i in range(dim):                                                                   <L 109>
+        // for j in range(dim):                                                                   <L 110>
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_170 = wp::extract(var_18, var_169, var_167);
+        var_172 = wp::extract(var_18, var_171, var_168);
+        var_173 = wp::mul(var_170, var_172);
+        var_175 = wp::extract(var_18, var_174, var_167);
+        var_177 = wp::extract(var_18, var_176, var_168);
+        var_178 = wp::mul(var_175, var_177);
+        var_179 = wp::add(var_173, var_178);
+        var_181 = wp::extract(var_18, var_180, var_167);
+        var_183 = wp::extract(var_18, var_182, var_168);
+        var_184 = wp::mul(var_181, var_183);
+        var_185 = wp::add(var_179, var_184);
+        // if i == j:                                                                             <L 112>
+        var_186 = (var_167 == var_168);
+        if (var_186) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_188 = wp::float64(var_187);
+            var_190 = wp::float64(var_189);
+            var_191 = wp::sub(var_185, var_190);
+            var_192 = wp::mul(var_188, var_191);
+            var_194 = wp::extract(var_18, var_193, var_167);
+            var_195 = wp::mul(var_192, var_194);
+            wp::add_inplace(var_136, var_196, var_167, var_195);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_198 = wp::float64(var_197);
+            var_200 = wp::float64(var_199);
+            var_201 = wp::sub(var_185, var_200);
+            var_202 = wp::mul(var_198, var_201);
+            var_204 = wp::extract(var_18, var_203, var_167);
+            var_205 = wp::mul(var_202, var_204);
+            wp::add_inplace(var_136, var_206, var_167, var_205);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_208 = wp::float64(var_207);
+            var_210 = wp::float64(var_209);
+            var_211 = wp::sub(var_185, var_210);
+            var_212 = wp::mul(var_208, var_211);
+            var_214 = wp::extract(var_18, var_213, var_167);
+            var_215 = wp::mul(var_212, var_214);
+            wp::add_inplace(var_136, var_216, var_167, var_215);
+        }
+        if (!var_186) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_218 = wp::float64(var_217);
+            var_219 = wp::mul(var_218, var_185);
+            var_221 = wp::extract(var_18, var_220, var_168);
+            var_222 = wp::mul(var_219, var_221);
+            wp::add_inplace(var_136, var_223, var_167, var_222);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_225 = wp::float64(var_224);
+            var_226 = wp::mul(var_225, var_185);
+            var_228 = wp::extract(var_18, var_227, var_168);
+            var_229 = wp::mul(var_226, var_228);
+            wp::add_inplace(var_136, var_230, var_167, var_229);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_232 = wp::float64(var_231);
+            var_233 = wp::mul(var_232, var_185);
+            var_235 = wp::extract(var_18, var_234, var_168);
+            var_236 = wp::mul(var_233, var_235);
+            wp::add_inplace(var_136, var_237, var_167, var_236);
+        }
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_240 = wp::extract(var_18, var_239, var_167);
+        var_242 = wp::extract(var_18, var_241, var_238);
+        var_243 = wp::mul(var_240, var_242);
+        var_245 = wp::extract(var_18, var_244, var_167);
+        var_247 = wp::extract(var_18, var_246, var_238);
+        var_248 = wp::mul(var_245, var_247);
+        var_249 = wp::add(var_243, var_248);
+        var_251 = wp::extract(var_18, var_250, var_167);
+        var_253 = wp::extract(var_18, var_252, var_238);
+        var_254 = wp::mul(var_251, var_253);
+        var_255 = wp::add(var_249, var_254);
+        // if i == j:                                                                             <L 112>
+        var_256 = (var_167 == var_238);
+        if (var_256) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_258 = wp::float64(var_257);
+            var_260 = wp::float64(var_259);
+            var_261 = wp::sub(var_255, var_260);
+            var_262 = wp::mul(var_258, var_261);
+            var_264 = wp::extract(var_18, var_263, var_167);
+            var_265 = wp::mul(var_262, var_264);
+            wp::add_inplace(var_136, var_266, var_167, var_265);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_268 = wp::float64(var_267);
+            var_270 = wp::float64(var_269);
+            var_271 = wp::sub(var_255, var_270);
+            var_272 = wp::mul(var_268, var_271);
+            var_274 = wp::extract(var_18, var_273, var_167);
+            var_275 = wp::mul(var_272, var_274);
+            wp::add_inplace(var_136, var_276, var_167, var_275);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_278 = wp::float64(var_277);
+            var_280 = wp::float64(var_279);
+            var_281 = wp::sub(var_255, var_280);
+            var_282 = wp::mul(var_278, var_281);
+            var_284 = wp::extract(var_18, var_283, var_167);
+            var_285 = wp::mul(var_282, var_284);
+            wp::add_inplace(var_136, var_286, var_167, var_285);
+        }
+        if (!var_256) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_288 = wp::float64(var_287);
+            var_289 = wp::mul(var_288, var_255);
+            var_291 = wp::extract(var_18, var_290, var_238);
+            var_292 = wp::mul(var_289, var_291);
+            wp::add_inplace(var_136, var_293, var_167, var_292);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_295 = wp::float64(var_294);
+            var_296 = wp::mul(var_295, var_255);
+            var_298 = wp::extract(var_18, var_297, var_238);
+            var_299 = wp::mul(var_296, var_298);
+            wp::add_inplace(var_136, var_300, var_167, var_299);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_302 = wp::float64(var_301);
+            var_303 = wp::mul(var_302, var_255);
+            var_305 = wp::extract(var_18, var_304, var_238);
+            var_306 = wp::mul(var_303, var_305);
+            wp::add_inplace(var_136, var_307, var_167, var_306);
+        }
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_310 = wp::extract(var_18, var_309, var_167);
+        var_312 = wp::extract(var_18, var_311, var_308);
+        var_313 = wp::mul(var_310, var_312);
+        var_315 = wp::extract(var_18, var_314, var_167);
+        var_317 = wp::extract(var_18, var_316, var_308);
+        var_318 = wp::mul(var_315, var_317);
+        var_319 = wp::add(var_313, var_318);
+        var_321 = wp::extract(var_18, var_320, var_167);
+        var_323 = wp::extract(var_18, var_322, var_308);
+        var_324 = wp::mul(var_321, var_323);
+        var_325 = wp::add(var_319, var_324);
+        // if i == j:                                                                             <L 112>
+        var_326 = (var_167 == var_308);
+        if (var_326) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_328 = wp::float64(var_327);
+            var_330 = wp::float64(var_329);
+            var_331 = wp::sub(var_325, var_330);
+            var_332 = wp::mul(var_328, var_331);
+            var_334 = wp::extract(var_18, var_333, var_167);
+            var_335 = wp::mul(var_332, var_334);
+            wp::add_inplace(var_136, var_336, var_167, var_335);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_338 = wp::float64(var_337);
+            var_340 = wp::float64(var_339);
+            var_341 = wp::sub(var_325, var_340);
+            var_342 = wp::mul(var_338, var_341);
+            var_344 = wp::extract(var_18, var_343, var_167);
+            var_345 = wp::mul(var_342, var_344);
+            wp::add_inplace(var_136, var_346, var_167, var_345);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_348 = wp::float64(var_347);
+            var_350 = wp::float64(var_349);
+            var_351 = wp::sub(var_325, var_350);
+            var_352 = wp::mul(var_348, var_351);
+            var_354 = wp::extract(var_18, var_353, var_167);
+            var_355 = wp::mul(var_352, var_354);
+            wp::add_inplace(var_136, var_356, var_167, var_355);
+        }
+        if (!var_326) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_358 = wp::float64(var_357);
+            var_359 = wp::mul(var_358, var_325);
+            var_361 = wp::extract(var_18, var_360, var_308);
+            var_362 = wp::mul(var_359, var_361);
+            wp::add_inplace(var_136, var_363, var_167, var_362);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_365 = wp::float64(var_364);
+            var_366 = wp::mul(var_365, var_325);
+            var_368 = wp::extract(var_18, var_367, var_308);
+            var_369 = wp::mul(var_366, var_368);
+            wp::add_inplace(var_136, var_370, var_167, var_369);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_372 = wp::float64(var_371);
+            var_373 = wp::mul(var_372, var_325);
+            var_375 = wp::extract(var_18, var_374, var_308);
+            var_376 = wp::mul(var_373, var_375);
+            wp::add_inplace(var_136, var_377, var_167, var_376);
+        }
+        // for j in range(dim):                                                                   <L 110>
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_381 = wp::extract(var_18, var_380, var_378);
+        var_383 = wp::extract(var_18, var_382, var_379);
+        var_384 = wp::mul(var_381, var_383);
+        var_386 = wp::extract(var_18, var_385, var_378);
+        var_388 = wp::extract(var_18, var_387, var_379);
+        var_389 = wp::mul(var_386, var_388);
+        var_390 = wp::add(var_384, var_389);
+        var_392 = wp::extract(var_18, var_391, var_378);
+        var_394 = wp::extract(var_18, var_393, var_379);
+        var_395 = wp::mul(var_392, var_394);
+        var_396 = wp::add(var_390, var_395);
+        // if i == j:                                                                             <L 112>
+        var_397 = (var_378 == var_379);
+        if (var_397) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_399 = wp::float64(var_398);
+            var_401 = wp::float64(var_400);
+            var_402 = wp::sub(var_396, var_401);
+            var_403 = wp::mul(var_399, var_402);
+            var_405 = wp::extract(var_18, var_404, var_378);
+            var_406 = wp::mul(var_403, var_405);
+            wp::add_inplace(var_136, var_407, var_378, var_406);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_409 = wp::float64(var_408);
+            var_411 = wp::float64(var_410);
+            var_412 = wp::sub(var_396, var_411);
+            var_413 = wp::mul(var_409, var_412);
+            var_415 = wp::extract(var_18, var_414, var_378);
+            var_416 = wp::mul(var_413, var_415);
+            wp::add_inplace(var_136, var_417, var_378, var_416);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_419 = wp::float64(var_418);
+            var_421 = wp::float64(var_420);
+            var_422 = wp::sub(var_396, var_421);
+            var_423 = wp::mul(var_419, var_422);
+            var_425 = wp::extract(var_18, var_424, var_378);
+            var_426 = wp::mul(var_423, var_425);
+            wp::add_inplace(var_136, var_427, var_378, var_426);
+        }
+        if (!var_397) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_429 = wp::float64(var_428);
+            var_430 = wp::mul(var_429, var_396);
+            var_432 = wp::extract(var_18, var_431, var_379);
+            var_433 = wp::mul(var_430, var_432);
+            wp::add_inplace(var_136, var_434, var_378, var_433);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_436 = wp::float64(var_435);
+            var_437 = wp::mul(var_436, var_396);
+            var_439 = wp::extract(var_18, var_438, var_379);
+            var_440 = wp::mul(var_437, var_439);
+            wp::add_inplace(var_136, var_441, var_378, var_440);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_443 = wp::float64(var_442);
+            var_444 = wp::mul(var_443, var_396);
+            var_446 = wp::extract(var_18, var_445, var_379);
+            var_447 = wp::mul(var_444, var_446);
+            wp::add_inplace(var_136, var_448, var_378, var_447);
+        }
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_451 = wp::extract(var_18, var_450, var_378);
+        var_453 = wp::extract(var_18, var_452, var_449);
+        var_454 = wp::mul(var_451, var_453);
+        var_456 = wp::extract(var_18, var_455, var_378);
+        var_458 = wp::extract(var_18, var_457, var_449);
+        var_459 = wp::mul(var_456, var_458);
+        var_460 = wp::add(var_454, var_459);
+        var_462 = wp::extract(var_18, var_461, var_378);
+        var_464 = wp::extract(var_18, var_463, var_449);
+        var_465 = wp::mul(var_462, var_464);
+        var_466 = wp::add(var_460, var_465);
+        // if i == j:                                                                             <L 112>
+        var_467 = (var_378 == var_449);
+        if (var_467) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_469 = wp::float64(var_468);
+            var_471 = wp::float64(var_470);
+            var_472 = wp::sub(var_466, var_471);
+            var_473 = wp::mul(var_469, var_472);
+            var_475 = wp::extract(var_18, var_474, var_378);
+            var_476 = wp::mul(var_473, var_475);
+            wp::add_inplace(var_136, var_477, var_378, var_476);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_479 = wp::float64(var_478);
+            var_481 = wp::float64(var_480);
+            var_482 = wp::sub(var_466, var_481);
+            var_483 = wp::mul(var_479, var_482);
+            var_485 = wp::extract(var_18, var_484, var_378);
+            var_486 = wp::mul(var_483, var_485);
+            wp::add_inplace(var_136, var_487, var_378, var_486);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_489 = wp::float64(var_488);
+            var_491 = wp::float64(var_490);
+            var_492 = wp::sub(var_466, var_491);
+            var_493 = wp::mul(var_489, var_492);
+            var_495 = wp::extract(var_18, var_494, var_378);
+            var_496 = wp::mul(var_493, var_495);
+            wp::add_inplace(var_136, var_497, var_378, var_496);
+        }
+        if (!var_467) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_499 = wp::float64(var_498);
+            var_500 = wp::mul(var_499, var_466);
+            var_502 = wp::extract(var_18, var_501, var_449);
+            var_503 = wp::mul(var_500, var_502);
+            wp::add_inplace(var_136, var_504, var_378, var_503);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_506 = wp::float64(var_505);
+            var_507 = wp::mul(var_506, var_466);
+            var_509 = wp::extract(var_18, var_508, var_449);
+            var_510 = wp::mul(var_507, var_509);
+            wp::add_inplace(var_136, var_511, var_378, var_510);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_513 = wp::float64(var_512);
+            var_514 = wp::mul(var_513, var_466);
+            var_516 = wp::extract(var_18, var_515, var_449);
+            var_517 = wp::mul(var_514, var_516);
+            wp::add_inplace(var_136, var_518, var_378, var_517);
+        }
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_521 = wp::extract(var_18, var_520, var_378);
+        var_523 = wp::extract(var_18, var_522, var_519);
+        var_524 = wp::mul(var_521, var_523);
+        var_526 = wp::extract(var_18, var_525, var_378);
+        var_528 = wp::extract(var_18, var_527, var_519);
+        var_529 = wp::mul(var_526, var_528);
+        var_530 = wp::add(var_524, var_529);
+        var_532 = wp::extract(var_18, var_531, var_378);
+        var_534 = wp::extract(var_18, var_533, var_519);
+        var_535 = wp::mul(var_532, var_534);
+        var_536 = wp::add(var_530, var_535);
+        // if i == j:                                                                             <L 112>
+        var_537 = (var_378 == var_519);
+        if (var_537) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_539 = wp::float64(var_538);
+            var_541 = wp::float64(var_540);
+            var_542 = wp::sub(var_536, var_541);
+            var_543 = wp::mul(var_539, var_542);
+            var_545 = wp::extract(var_18, var_544, var_378);
+            var_546 = wp::mul(var_543, var_545);
+            wp::add_inplace(var_136, var_547, var_378, var_546);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_549 = wp::float64(var_548);
+            var_551 = wp::float64(var_550);
+            var_552 = wp::sub(var_536, var_551);
+            var_553 = wp::mul(var_549, var_552);
+            var_555 = wp::extract(var_18, var_554, var_378);
+            var_556 = wp::mul(var_553, var_555);
+            wp::add_inplace(var_136, var_557, var_378, var_556);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_559 = wp::float64(var_558);
+            var_561 = wp::float64(var_560);
+            var_562 = wp::sub(var_536, var_561);
+            var_563 = wp::mul(var_559, var_562);
+            var_565 = wp::extract(var_18, var_564, var_378);
+            var_566 = wp::mul(var_563, var_565);
+            wp::add_inplace(var_136, var_567, var_378, var_566);
+        }
+        if (!var_537) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_569 = wp::float64(var_568);
+            var_570 = wp::mul(var_569, var_536);
+            var_572 = wp::extract(var_18, var_571, var_519);
+            var_573 = wp::mul(var_570, var_572);
+            wp::add_inplace(var_136, var_574, var_378, var_573);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_576 = wp::float64(var_575);
+            var_577 = wp::mul(var_576, var_536);
+            var_579 = wp::extract(var_18, var_578, var_519);
+            var_580 = wp::mul(var_577, var_579);
+            wp::add_inplace(var_136, var_581, var_378, var_580);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_583 = wp::float64(var_582);
+            var_584 = wp::mul(var_583, var_536);
+            var_586 = wp::extract(var_18, var_585, var_519);
+            var_587 = wp::mul(var_584, var_586);
+            wp::add_inplace(var_136, var_588, var_378, var_587);
+        }
+        // for j in range(dim):                                                                   <L 110>
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_592 = wp::extract(var_18, var_591, var_589);
+        var_594 = wp::extract(var_18, var_593, var_590);
+        var_595 = wp::mul(var_592, var_594);
+        var_597 = wp::extract(var_18, var_596, var_589);
+        var_599 = wp::extract(var_18, var_598, var_590);
+        var_600 = wp::mul(var_597, var_599);
+        var_601 = wp::add(var_595, var_600);
+        var_603 = wp::extract(var_18, var_602, var_589);
+        var_605 = wp::extract(var_18, var_604, var_590);
+        var_606 = wp::mul(var_603, var_605);
+        var_607 = wp::add(var_601, var_606);
+        // if i == j:                                                                             <L 112>
+        var_608 = (var_589 == var_590);
+        if (var_608) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_610 = wp::float64(var_609);
+            var_612 = wp::float64(var_611);
+            var_613 = wp::sub(var_607, var_612);
+            var_614 = wp::mul(var_610, var_613);
+            var_616 = wp::extract(var_18, var_615, var_589);
+            var_617 = wp::mul(var_614, var_616);
+            wp::add_inplace(var_136, var_618, var_589, var_617);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_620 = wp::float64(var_619);
+            var_622 = wp::float64(var_621);
+            var_623 = wp::sub(var_607, var_622);
+            var_624 = wp::mul(var_620, var_623);
+            var_626 = wp::extract(var_18, var_625, var_589);
+            var_627 = wp::mul(var_624, var_626);
+            wp::add_inplace(var_136, var_628, var_589, var_627);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_630 = wp::float64(var_629);
+            var_632 = wp::float64(var_631);
+            var_633 = wp::sub(var_607, var_632);
+            var_634 = wp::mul(var_630, var_633);
+            var_636 = wp::extract(var_18, var_635, var_589);
+            var_637 = wp::mul(var_634, var_636);
+            wp::add_inplace(var_136, var_638, var_589, var_637);
+        }
+        if (!var_608) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_640 = wp::float64(var_639);
+            var_641 = wp::mul(var_640, var_607);
+            var_643 = wp::extract(var_18, var_642, var_590);
+            var_644 = wp::mul(var_641, var_643);
+            wp::add_inplace(var_136, var_645, var_589, var_644);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_647 = wp::float64(var_646);
+            var_648 = wp::mul(var_647, var_607);
+            var_650 = wp::extract(var_18, var_649, var_590);
+            var_651 = wp::mul(var_648, var_650);
+            wp::add_inplace(var_136, var_652, var_589, var_651);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_654 = wp::float64(var_653);
+            var_655 = wp::mul(var_654, var_607);
+            var_657 = wp::extract(var_18, var_656, var_590);
+            var_658 = wp::mul(var_655, var_657);
+            wp::add_inplace(var_136, var_659, var_589, var_658);
+        }
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_662 = wp::extract(var_18, var_661, var_589);
+        var_664 = wp::extract(var_18, var_663, var_660);
+        var_665 = wp::mul(var_662, var_664);
+        var_667 = wp::extract(var_18, var_666, var_589);
+        var_669 = wp::extract(var_18, var_668, var_660);
+        var_670 = wp::mul(var_667, var_669);
+        var_671 = wp::add(var_665, var_670);
+        var_673 = wp::extract(var_18, var_672, var_589);
+        var_675 = wp::extract(var_18, var_674, var_660);
+        var_676 = wp::mul(var_673, var_675);
+        var_677 = wp::add(var_671, var_676);
+        // if i == j:                                                                             <L 112>
+        var_678 = (var_589 == var_660);
+        if (var_678) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_680 = wp::float64(var_679);
+            var_682 = wp::float64(var_681);
+            var_683 = wp::sub(var_677, var_682);
+            var_684 = wp::mul(var_680, var_683);
+            var_686 = wp::extract(var_18, var_685, var_589);
+            var_687 = wp::mul(var_684, var_686);
+            wp::add_inplace(var_136, var_688, var_589, var_687);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_690 = wp::float64(var_689);
+            var_692 = wp::float64(var_691);
+            var_693 = wp::sub(var_677, var_692);
+            var_694 = wp::mul(var_690, var_693);
+            var_696 = wp::extract(var_18, var_695, var_589);
+            var_697 = wp::mul(var_694, var_696);
+            wp::add_inplace(var_136, var_698, var_589, var_697);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_700 = wp::float64(var_699);
+            var_702 = wp::float64(var_701);
+            var_703 = wp::sub(var_677, var_702);
+            var_704 = wp::mul(var_700, var_703);
+            var_706 = wp::extract(var_18, var_705, var_589);
+            var_707 = wp::mul(var_704, var_706);
+            wp::add_inplace(var_136, var_708, var_589, var_707);
+        }
+        if (!var_678) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_710 = wp::float64(var_709);
+            var_711 = wp::mul(var_710, var_677);
+            var_713 = wp::extract(var_18, var_712, var_660);
+            var_714 = wp::mul(var_711, var_713);
+            wp::add_inplace(var_136, var_715, var_589, var_714);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_717 = wp::float64(var_716);
+            var_718 = wp::mul(var_717, var_677);
+            var_720 = wp::extract(var_18, var_719, var_660);
+            var_721 = wp::mul(var_718, var_720);
+            wp::add_inplace(var_136, var_722, var_589, var_721);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_724 = wp::float64(var_723);
+            var_725 = wp::mul(var_724, var_677);
+            var_727 = wp::extract(var_18, var_726, var_660);
+            var_728 = wp::mul(var_725, var_727);
+            wp::add_inplace(var_136, var_729, var_589, var_728);
+        }
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_732 = wp::extract(var_18, var_731, var_589);
+        var_734 = wp::extract(var_18, var_733, var_730);
+        var_735 = wp::mul(var_732, var_734);
+        var_737 = wp::extract(var_18, var_736, var_589);
+        var_739 = wp::extract(var_18, var_738, var_730);
+        var_740 = wp::mul(var_737, var_739);
+        var_741 = wp::add(var_735, var_740);
+        var_743 = wp::extract(var_18, var_742, var_589);
+        var_745 = wp::extract(var_18, var_744, var_730);
+        var_746 = wp::mul(var_743, var_745);
+        var_747 = wp::add(var_741, var_746);
+        // if i == j:                                                                             <L 112>
+        var_748 = (var_589 == var_730);
+        if (var_748) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_750 = wp::float64(var_749);
+            var_752 = wp::float64(var_751);
+            var_753 = wp::sub(var_747, var_752);
+            var_754 = wp::mul(var_750, var_753);
+            var_756 = wp::extract(var_18, var_755, var_589);
+            var_757 = wp::mul(var_754, var_756);
+            wp::add_inplace(var_136, var_758, var_589, var_757);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_760 = wp::float64(var_759);
+            var_762 = wp::float64(var_761);
+            var_763 = wp::sub(var_747, var_762);
+            var_764 = wp::mul(var_760, var_763);
+            var_766 = wp::extract(var_18, var_765, var_589);
+            var_767 = wp::mul(var_764, var_766);
+            wp::add_inplace(var_136, var_768, var_589, var_767);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_770 = wp::float64(var_769);
+            var_772 = wp::float64(var_771);
+            var_773 = wp::sub(var_747, var_772);
+            var_774 = wp::mul(var_770, var_773);
+            var_776 = wp::extract(var_18, var_775, var_589);
+            var_777 = wp::mul(var_774, var_776);
+            wp::add_inplace(var_136, var_778, var_589, var_777);
+        }
+        if (!var_748) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_780 = wp::float64(var_779);
+            var_781 = wp::mul(var_780, var_747);
+            var_783 = wp::extract(var_18, var_782, var_730);
+            var_784 = wp::mul(var_781, var_783);
+            wp::add_inplace(var_136, var_785, var_589, var_784);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_787 = wp::float64(var_786);
+            var_788 = wp::mul(var_787, var_747);
+            var_790 = wp::extract(var_18, var_789, var_730);
+            var_791 = wp::mul(var_788, var_790);
+            wp::add_inplace(var_136, var_792, var_589, var_791);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_794 = wp::float64(var_793);
+            var_795 = wp::mul(var_794, var_747);
+            var_797 = wp::extract(var_18, var_796, var_730);
+            var_798 = wp::mul(var_795, var_797);
+            wp::add_inplace(var_136, var_799, var_589, var_798);
+        }
+        // coeff = vol_body[tid] * E_body[tid] * scale / wp.float64(8.0)                          <L 121>
+        var_800 = wp::address(var_vol_body, var_0);
+        var_801 = wp::address(var_E_body, var_0);
+        var_803 = wp::load(var_800);
+        var_804 = wp::load(var_801);
+        var_802 = wp::mul(var_803, var_804);
+        var_805 = wp::mul(var_802, var_scale);
+        var_807 = wp::float64(var_806);
+        var_808 = wp::div(var_805, var_807);
+        // for i in range(dim):                                                                   <L 122>
+        // for j in range(dim):                                                                   <L 123>
+        // g_F[i, j] *= coeff                                                                     <L 124>
+        var_811 = wp::extract(var_136, var_809, var_810);
+        var_812 = wp::mul(var_811, var_808);
+        wp::assign_inplace(var_136, var_809, var_810, var_812);
+        var_814 = wp::extract(var_136, var_809, var_813);
+        var_815 = wp::mul(var_814, var_808);
+        wp::assign_inplace(var_136, var_809, var_813, var_815);
+        var_817 = wp::extract(var_136, var_809, var_816);
+        var_818 = wp::mul(var_817, var_808);
+        wp::assign_inplace(var_136, var_809, var_816, var_818);
+        // for j in range(dim):                                                                   <L 123>
+        // g_F[i, j] *= coeff                                                                     <L 124>
+        var_821 = wp::extract(var_136, var_819, var_820);
+        var_822 = wp::mul(var_821, var_808);
+        wp::assign_inplace(var_136, var_819, var_820, var_822);
+        var_824 = wp::extract(var_136, var_819, var_823);
+        var_825 = wp::mul(var_824, var_808);
+        wp::assign_inplace(var_136, var_819, var_823, var_825);
+        var_827 = wp::extract(var_136, var_819, var_826);
+        var_828 = wp::mul(var_827, var_808);
+        wp::assign_inplace(var_136, var_819, var_826, var_828);
+        // for j in range(dim):                                                                   <L 123>
+        // g_F[i, j] *= coeff                                                                     <L 124>
+        var_831 = wp::extract(var_136, var_829, var_830);
+        var_832 = wp::mul(var_831, var_808);
+        wp::assign_inplace(var_136, var_829, var_830, var_832);
+        var_834 = wp::extract(var_136, var_829, var_833);
+        var_835 = wp::mul(var_834, var_808);
+        wp::assign_inplace(var_136, var_829, var_833, var_835);
+        var_837 = wp::extract(var_136, var_829, var_836);
+        var_838 = wp::mul(var_837, var_808);
+        wp::assign_inplace(var_136, var_829, var_836, var_838);
+        // local_gradient = vec12d()                                                              <L 126>
+        var_839 = wp::vec_t<12,wp::float64>();
+        // for d in range(dim):                                                                   <L 127>
+        // local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                      <L 128>
+        var_842 = wp::extract(var_136, var_840, var_841);
+        var_843 = wp::neg(var_842);
+        var_845 = wp::extract(var_136, var_840, var_844);
+        var_846 = wp::sub(var_843, var_845);
+        var_848 = wp::extract(var_136, var_840, var_847);
+        var_849 = wp::sub(var_846, var_848);
+        var_851 = wp::mul(var_850, var_17);
+        var_852 = wp::add(var_851, var_840);
+        wp::add_inplace(var_839, var_852, var_849);
+        // local_gradient[1 * dim + d] += g_F[d, 0]                                               <L 129>
+        var_854 = wp::extract(var_136, var_840, var_853);
+        var_856 = wp::mul(var_855, var_17);
+        var_857 = wp::add(var_856, var_840);
+        wp::add_inplace(var_839, var_857, var_854);
+        // local_gradient[2 * dim + d] += g_F[d, 1]                                               <L 130>
+        var_859 = wp::extract(var_136, var_840, var_858);
+        var_861 = wp::mul(var_860, var_17);
+        var_862 = wp::add(var_861, var_840);
+        wp::add_inplace(var_839, var_862, var_859);
+        // local_gradient[3 * dim + d] += g_F[d, 2]                                               <L 131>
+        var_864 = wp::extract(var_136, var_840, var_863);
+        var_866 = wp::mul(var_865, var_17);
+        var_867 = wp::add(var_866, var_840);
+        wp::add_inplace(var_839, var_867, var_864);
+        // local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                      <L 128>
+        var_870 = wp::extract(var_136, var_868, var_869);
+        var_871 = wp::neg(var_870);
+        var_873 = wp::extract(var_136, var_868, var_872);
+        var_874 = wp::sub(var_871, var_873);
+        var_876 = wp::extract(var_136, var_868, var_875);
+        var_877 = wp::sub(var_874, var_876);
+        var_879 = wp::mul(var_878, var_17);
+        var_880 = wp::add(var_879, var_868);
+        wp::add_inplace(var_839, var_880, var_877);
+        // local_gradient[1 * dim + d] += g_F[d, 0]                                               <L 129>
+        var_882 = wp::extract(var_136, var_868, var_881);
+        var_884 = wp::mul(var_883, var_17);
+        var_885 = wp::add(var_884, var_868);
+        wp::add_inplace(var_839, var_885, var_882);
+        // local_gradient[2 * dim + d] += g_F[d, 1]                                               <L 130>
+        var_887 = wp::extract(var_136, var_868, var_886);
+        var_889 = wp::mul(var_888, var_17);
+        var_890 = wp::add(var_889, var_868);
+        wp::add_inplace(var_839, var_890, var_887);
+        // local_gradient[3 * dim + d] += g_F[d, 2]                                               <L 131>
+        var_892 = wp::extract(var_136, var_868, var_891);
+        var_894 = wp::mul(var_893, var_17);
+        var_895 = wp::add(var_894, var_868);
+        wp::add_inplace(var_839, var_895, var_892);
+        // local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                      <L 128>
+        var_898 = wp::extract(var_136, var_896, var_897);
+        var_899 = wp::neg(var_898);
+        var_901 = wp::extract(var_136, var_896, var_900);
+        var_902 = wp::sub(var_899, var_901);
+        var_904 = wp::extract(var_136, var_896, var_903);
+        var_905 = wp::sub(var_902, var_904);
+        var_907 = wp::mul(var_906, var_17);
+        var_908 = wp::add(var_907, var_896);
+        wp::add_inplace(var_839, var_908, var_905);
+        // local_gradient[1 * dim + d] += g_F[d, 0]                                               <L 129>
+        var_910 = wp::extract(var_136, var_896, var_909);
+        var_912 = wp::mul(var_911, var_17);
+        var_913 = wp::add(var_912, var_896);
+        wp::add_inplace(var_839, var_913, var_910);
+        // local_gradient[2 * dim + d] += g_F[d, 1]                                               <L 130>
+        var_915 = wp::extract(var_136, var_896, var_914);
+        var_917 = wp::mul(var_916, var_17);
+        var_918 = wp::add(var_917, var_896);
+        wp::add_inplace(var_839, var_918, var_915);
+        // local_gradient[3 * dim + d] += g_F[d, 2]                                               <L 131>
+        var_920 = wp::extract(var_136, var_896, var_919);
+        var_922 = wp::mul(var_921, var_17);
+        var_923 = wp::add(var_922, var_896);
+        wp::add_inplace(var_839, var_923, var_920);
+        // gradient[tid] += local_gradient                                                        <L 132>
+        var_924 = wp::atomic_add(var_gradient, var_0, var_839);
+    }
+}
+
+
+
+extern "C" __global__ void compute_rigidity_energy_grad_cuda_kernel_backward(
+    wp::launch_bounds_t dim,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_gradient,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_y,
+    wp::array_t<wp::float64> var_vol_body,
+    wp::array_t<wp::float64> var_E_body,
+    wp::float64 var_scale,
+    wp::array_t<bool> var_affine_has_constraint,
+    wp::array_t<wp::int32> var_body_env_id,
+    wp::array_t<wp::int32> var_env_states,
+    wp::array_t<wp::vec_t<12,wp::float64>> adj_gradient,
+    wp::array_t<wp::vec_t<12,wp::float64>> adj_y,
+    wp::array_t<wp::float64> adj_vol_body,
+    wp::array_t<wp::float64> adj_E_body,
+    wp::float64 adj_scale,
+    wp::array_t<bool> adj_affine_has_constraint,
+    wp::array_t<wp::int32> adj_body_env_id,
+    wp::array_t<wp::int32> adj_env_states)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        bool* var_1;
+        wp::int32* var_2;
+        wp::int32* var_3;
+        wp::int32 var_4;
+        const wp::int32 var_5 = 1;
+        bool var_6;
+        wp::int32 var_7;
+        wp::int32* var_8;
+        wp::int32* var_9;
+        wp::int32 var_10;
+        const wp::int32 var_11 = 2;
+        bool var_12;
+        wp::int32 var_13;
+        bool var_14;
+        bool var_15;
+        bool var_16;
+        const wp::int32 var_17 = 3;
+        wp::mat_t<3,3,wp::float64> var_18;
+        const wp::int32 var_19 = 3;
+        const wp::int32 var_20 = 0;
+        wp::int32 var_21;
+        wp::vec_t<12,wp::float64>* var_22;
+        wp::float64 var_23;
+        wp::vec_t<12,wp::float64> var_24;
+        const wp::int32 var_25 = 0;
+        wp::vec_t<12,wp::float64>* var_26;
+        wp::float64 var_27;
+        wp::vec_t<12,wp::float64> var_28;
+        wp::float64 var_29;
+        const wp::int32 var_30 = 0;
+        const wp::int32 var_31 = 0;
+        const wp::int32 var_32 = 3;
+        const wp::int32 var_33 = 1;
+        wp::int32 var_34;
+        wp::vec_t<12,wp::float64>* var_35;
+        wp::float64 var_36;
+        wp::vec_t<12,wp::float64> var_37;
+        const wp::int32 var_38 = 1;
+        wp::vec_t<12,wp::float64>* var_39;
+        wp::float64 var_40;
+        wp::vec_t<12,wp::float64> var_41;
+        wp::float64 var_42;
+        const wp::int32 var_43 = 1;
+        const wp::int32 var_44 = 0;
+        const wp::int32 var_45 = 3;
+        const wp::int32 var_46 = 2;
+        wp::int32 var_47;
+        wp::vec_t<12,wp::float64>* var_48;
+        wp::float64 var_49;
+        wp::vec_t<12,wp::float64> var_50;
+        const wp::int32 var_51 = 2;
+        wp::vec_t<12,wp::float64>* var_52;
+        wp::float64 var_53;
+        wp::vec_t<12,wp::float64> var_54;
+        wp::float64 var_55;
+        const wp::int32 var_56 = 2;
+        const wp::int32 var_57 = 0;
+        const wp::int32 var_58 = 6;
+        const wp::int32 var_59 = 0;
+        wp::int32 var_60;
+        wp::vec_t<12,wp::float64>* var_61;
+        wp::float64 var_62;
+        wp::vec_t<12,wp::float64> var_63;
+        const wp::int32 var_64 = 0;
+        wp::vec_t<12,wp::float64>* var_65;
+        wp::float64 var_66;
+        wp::vec_t<12,wp::float64> var_67;
+        wp::float64 var_68;
+        const wp::int32 var_69 = 0;
+        const wp::int32 var_70 = 1;
+        const wp::int32 var_71 = 6;
+        const wp::int32 var_72 = 1;
+        wp::int32 var_73;
+        wp::vec_t<12,wp::float64>* var_74;
+        wp::float64 var_75;
+        wp::vec_t<12,wp::float64> var_76;
+        const wp::int32 var_77 = 1;
+        wp::vec_t<12,wp::float64>* var_78;
+        wp::float64 var_79;
+        wp::vec_t<12,wp::float64> var_80;
+        wp::float64 var_81;
+        const wp::int32 var_82 = 1;
+        const wp::int32 var_83 = 1;
+        const wp::int32 var_84 = 6;
+        const wp::int32 var_85 = 2;
+        wp::int32 var_86;
+        wp::vec_t<12,wp::float64>* var_87;
+        wp::float64 var_88;
+        wp::vec_t<12,wp::float64> var_89;
+        const wp::int32 var_90 = 2;
+        wp::vec_t<12,wp::float64>* var_91;
+        wp::float64 var_92;
+        wp::vec_t<12,wp::float64> var_93;
+        wp::float64 var_94;
+        const wp::int32 var_95 = 2;
+        const wp::int32 var_96 = 1;
+        const wp::int32 var_97 = 9;
+        const wp::int32 var_98 = 0;
+        wp::int32 var_99;
+        wp::vec_t<12,wp::float64>* var_100;
+        wp::float64 var_101;
+        wp::vec_t<12,wp::float64> var_102;
+        const wp::int32 var_103 = 0;
+        wp::vec_t<12,wp::float64>* var_104;
+        wp::float64 var_105;
+        wp::vec_t<12,wp::float64> var_106;
+        wp::float64 var_107;
+        const wp::int32 var_108 = 0;
+        const wp::int32 var_109 = 2;
+        const wp::int32 var_110 = 9;
+        const wp::int32 var_111 = 1;
+        wp::int32 var_112;
+        wp::vec_t<12,wp::float64>* var_113;
+        wp::float64 var_114;
+        wp::vec_t<12,wp::float64> var_115;
+        const wp::int32 var_116 = 1;
+        wp::vec_t<12,wp::float64>* var_117;
+        wp::float64 var_118;
+        wp::vec_t<12,wp::float64> var_119;
+        wp::float64 var_120;
+        const wp::int32 var_121 = 1;
+        const wp::int32 var_122 = 2;
+        const wp::int32 var_123 = 9;
+        const wp::int32 var_124 = 2;
+        wp::int32 var_125;
+        wp::vec_t<12,wp::float64>* var_126;
+        wp::float64 var_127;
+        wp::vec_t<12,wp::float64> var_128;
+        const wp::int32 var_129 = 2;
+        wp::vec_t<12,wp::float64>* var_130;
+        wp::float64 var_131;
+        wp::vec_t<12,wp::float64> var_132;
+        wp::float64 var_133;
+        const wp::int32 var_134 = 2;
+        const wp::int32 var_135 = 2;
+        wp::mat_t<3,3,wp::float64> var_136;
+        const wp::int32 var_137 = 0;
+        const wp::int32 var_138 = 0;
+        const wp::float32 var_139 = 0.0;
+        wp::float64 var_140;
+        const wp::int32 var_141 = 1;
+        const wp::float32 var_142 = 0.0;
+        wp::float64 var_143;
+        const wp::int32 var_144 = 2;
+        const wp::float32 var_145 = 0.0;
+        wp::float64 var_146;
+        const wp::int32 var_147 = 1;
+        const wp::int32 var_148 = 0;
+        const wp::float32 var_149 = 0.0;
+        wp::float64 var_150;
+        const wp::int32 var_151 = 1;
+        const wp::float32 var_152 = 0.0;
+        wp::float64 var_153;
+        const wp::int32 var_154 = 2;
+        const wp::float32 var_155 = 0.0;
+        wp::float64 var_156;
+        const wp::int32 var_157 = 2;
+        const wp::int32 var_158 = 0;
+        const wp::float32 var_159 = 0.0;
+        wp::float64 var_160;
+        const wp::int32 var_161 = 1;
+        const wp::float32 var_162 = 0.0;
+        wp::float64 var_163;
+        const wp::int32 var_164 = 2;
+        const wp::float32 var_165 = 0.0;
+        wp::float64 var_166;
+        const wp::int32 var_167 = 0;
+        const wp::int32 var_168 = 0;
+        const wp::int32 var_169 = 0;
+        wp::float64 var_170;
+        const wp::int32 var_171 = 0;
+        wp::float64 var_172;
+        wp::float64 var_173;
+        const wp::int32 var_174 = 1;
+        wp::float64 var_175;
+        const wp::int32 var_176 = 1;
+        wp::float64 var_177;
+        wp::float64 var_178;
+        wp::float64 var_179;
+        const wp::int32 var_180 = 2;
+        wp::float64 var_181;
+        const wp::int32 var_182 = 2;
+        wp::float64 var_183;
+        wp::float64 var_184;
+        wp::float64 var_185;
+        bool var_186;
+        const wp::float32 var_187 = 4.0;
+        wp::float64 var_188;
+        const wp::float32 var_189 = 1.0;
+        wp::float64 var_190;
+        wp::float64 var_191;
+        wp::float64 var_192;
+        const wp::int32 var_193 = 0;
+        wp::float64 var_194;
+        wp::float64 var_195;
+        const wp::int32 var_196 = 0;
+        const wp::float32 var_197 = 4.0;
+        wp::float64 var_198;
+        const wp::float32 var_199 = 1.0;
+        wp::float64 var_200;
+        wp::float64 var_201;
+        wp::float64 var_202;
+        const wp::int32 var_203 = 1;
+        wp::float64 var_204;
+        wp::float64 var_205;
+        const wp::int32 var_206 = 1;
+        const wp::float32 var_207 = 4.0;
+        wp::float64 var_208;
+        const wp::float32 var_209 = 1.0;
+        wp::float64 var_210;
+        wp::float64 var_211;
+        wp::float64 var_212;
+        const wp::int32 var_213 = 2;
+        wp::float64 var_214;
+        wp::float64 var_215;
+        const wp::int32 var_216 = 2;
+        const wp::float32 var_217 = 4.0;
+        wp::float64 var_218;
+        wp::float64 var_219;
+        const wp::int32 var_220 = 0;
+        wp::float64 var_221;
+        wp::float64 var_222;
+        const wp::int32 var_223 = 0;
+        const wp::float32 var_224 = 4.0;
+        wp::float64 var_225;
+        wp::float64 var_226;
+        const wp::int32 var_227 = 1;
+        wp::float64 var_228;
+        wp::float64 var_229;
+        const wp::int32 var_230 = 1;
+        const wp::float32 var_231 = 4.0;
+        wp::float64 var_232;
+        wp::float64 var_233;
+        const wp::int32 var_234 = 2;
+        wp::float64 var_235;
+        wp::float64 var_236;
+        const wp::int32 var_237 = 2;
+        const wp::int32 var_238 = 1;
+        const wp::int32 var_239 = 0;
+        wp::float64 var_240;
+        const wp::int32 var_241 = 0;
+        wp::float64 var_242;
+        wp::float64 var_243;
+        const wp::int32 var_244 = 1;
+        wp::float64 var_245;
+        const wp::int32 var_246 = 1;
+        wp::float64 var_247;
+        wp::float64 var_248;
+        wp::float64 var_249;
+        const wp::int32 var_250 = 2;
+        wp::float64 var_251;
+        const wp::int32 var_252 = 2;
+        wp::float64 var_253;
+        wp::float64 var_254;
+        wp::float64 var_255;
+        bool var_256;
+        const wp::float32 var_257 = 4.0;
+        wp::float64 var_258;
+        const wp::float32 var_259 = 1.0;
+        wp::float64 var_260;
+        wp::float64 var_261;
+        wp::float64 var_262;
+        const wp::int32 var_263 = 0;
+        wp::float64 var_264;
+        wp::float64 var_265;
+        const wp::int32 var_266 = 0;
+        const wp::float32 var_267 = 4.0;
+        wp::float64 var_268;
+        const wp::float32 var_269 = 1.0;
+        wp::float64 var_270;
+        wp::float64 var_271;
+        wp::float64 var_272;
+        const wp::int32 var_273 = 1;
+        wp::float64 var_274;
+        wp::float64 var_275;
+        const wp::int32 var_276 = 1;
+        const wp::float32 var_277 = 4.0;
+        wp::float64 var_278;
+        const wp::float32 var_279 = 1.0;
+        wp::float64 var_280;
+        wp::float64 var_281;
+        wp::float64 var_282;
+        const wp::int32 var_283 = 2;
+        wp::float64 var_284;
+        wp::float64 var_285;
+        const wp::int32 var_286 = 2;
+        const wp::float32 var_287 = 4.0;
+        wp::float64 var_288;
+        wp::float64 var_289;
+        const wp::int32 var_290 = 0;
+        wp::float64 var_291;
+        wp::float64 var_292;
+        const wp::int32 var_293 = 0;
+        const wp::float32 var_294 = 4.0;
+        wp::float64 var_295;
+        wp::float64 var_296;
+        const wp::int32 var_297 = 1;
+        wp::float64 var_298;
+        wp::float64 var_299;
+        const wp::int32 var_300 = 1;
+        const wp::float32 var_301 = 4.0;
+        wp::float64 var_302;
+        wp::float64 var_303;
+        const wp::int32 var_304 = 2;
+        wp::float64 var_305;
+        wp::float64 var_306;
+        const wp::int32 var_307 = 2;
+        const wp::int32 var_308 = 2;
+        const wp::int32 var_309 = 0;
+        wp::float64 var_310;
+        const wp::int32 var_311 = 0;
+        wp::float64 var_312;
+        wp::float64 var_313;
+        const wp::int32 var_314 = 1;
+        wp::float64 var_315;
+        const wp::int32 var_316 = 1;
+        wp::float64 var_317;
+        wp::float64 var_318;
+        wp::float64 var_319;
+        const wp::int32 var_320 = 2;
+        wp::float64 var_321;
+        const wp::int32 var_322 = 2;
+        wp::float64 var_323;
+        wp::float64 var_324;
+        wp::float64 var_325;
+        bool var_326;
+        const wp::float32 var_327 = 4.0;
+        wp::float64 var_328;
+        const wp::float32 var_329 = 1.0;
+        wp::float64 var_330;
+        wp::float64 var_331;
+        wp::float64 var_332;
+        const wp::int32 var_333 = 0;
+        wp::float64 var_334;
+        wp::float64 var_335;
+        const wp::int32 var_336 = 0;
+        const wp::float32 var_337 = 4.0;
+        wp::float64 var_338;
+        const wp::float32 var_339 = 1.0;
+        wp::float64 var_340;
+        wp::float64 var_341;
+        wp::float64 var_342;
+        const wp::int32 var_343 = 1;
+        wp::float64 var_344;
+        wp::float64 var_345;
+        const wp::int32 var_346 = 1;
+        const wp::float32 var_347 = 4.0;
+        wp::float64 var_348;
+        const wp::float32 var_349 = 1.0;
+        wp::float64 var_350;
+        wp::float64 var_351;
+        wp::float64 var_352;
+        const wp::int32 var_353 = 2;
+        wp::float64 var_354;
+        wp::float64 var_355;
+        const wp::int32 var_356 = 2;
+        const wp::float32 var_357 = 4.0;
+        wp::float64 var_358;
+        wp::float64 var_359;
+        const wp::int32 var_360 = 0;
+        wp::float64 var_361;
+        wp::float64 var_362;
+        const wp::int32 var_363 = 0;
+        const wp::float32 var_364 = 4.0;
+        wp::float64 var_365;
+        wp::float64 var_366;
+        const wp::int32 var_367 = 1;
+        wp::float64 var_368;
+        wp::float64 var_369;
+        const wp::int32 var_370 = 1;
+        const wp::float32 var_371 = 4.0;
+        wp::float64 var_372;
+        wp::float64 var_373;
+        const wp::int32 var_374 = 2;
+        wp::float64 var_375;
+        wp::float64 var_376;
+        const wp::int32 var_377 = 2;
+        const wp::int32 var_378 = 1;
+        const wp::int32 var_379 = 0;
+        const wp::int32 var_380 = 0;
+        wp::float64 var_381;
+        const wp::int32 var_382 = 0;
+        wp::float64 var_383;
+        wp::float64 var_384;
+        const wp::int32 var_385 = 1;
+        wp::float64 var_386;
+        const wp::int32 var_387 = 1;
+        wp::float64 var_388;
+        wp::float64 var_389;
+        wp::float64 var_390;
+        const wp::int32 var_391 = 2;
+        wp::float64 var_392;
+        const wp::int32 var_393 = 2;
+        wp::float64 var_394;
+        wp::float64 var_395;
+        wp::float64 var_396;
+        bool var_397;
+        const wp::float32 var_398 = 4.0;
+        wp::float64 var_399;
+        const wp::float32 var_400 = 1.0;
+        wp::float64 var_401;
+        wp::float64 var_402;
+        wp::float64 var_403;
+        const wp::int32 var_404 = 0;
+        wp::float64 var_405;
+        wp::float64 var_406;
+        const wp::int32 var_407 = 0;
+        const wp::float32 var_408 = 4.0;
+        wp::float64 var_409;
+        const wp::float32 var_410 = 1.0;
+        wp::float64 var_411;
+        wp::float64 var_412;
+        wp::float64 var_413;
+        const wp::int32 var_414 = 1;
+        wp::float64 var_415;
+        wp::float64 var_416;
+        const wp::int32 var_417 = 1;
+        const wp::float32 var_418 = 4.0;
+        wp::float64 var_419;
+        const wp::float32 var_420 = 1.0;
+        wp::float64 var_421;
+        wp::float64 var_422;
+        wp::float64 var_423;
+        const wp::int32 var_424 = 2;
+        wp::float64 var_425;
+        wp::float64 var_426;
+        const wp::int32 var_427 = 2;
+        const wp::float32 var_428 = 4.0;
+        wp::float64 var_429;
+        wp::float64 var_430;
+        const wp::int32 var_431 = 0;
+        wp::float64 var_432;
+        wp::float64 var_433;
+        const wp::int32 var_434 = 0;
+        const wp::float32 var_435 = 4.0;
+        wp::float64 var_436;
+        wp::float64 var_437;
+        const wp::int32 var_438 = 1;
+        wp::float64 var_439;
+        wp::float64 var_440;
+        const wp::int32 var_441 = 1;
+        const wp::float32 var_442 = 4.0;
+        wp::float64 var_443;
+        wp::float64 var_444;
+        const wp::int32 var_445 = 2;
+        wp::float64 var_446;
+        wp::float64 var_447;
+        const wp::int32 var_448 = 2;
+        const wp::int32 var_449 = 1;
+        const wp::int32 var_450 = 0;
+        wp::float64 var_451;
+        const wp::int32 var_452 = 0;
+        wp::float64 var_453;
+        wp::float64 var_454;
+        const wp::int32 var_455 = 1;
+        wp::float64 var_456;
+        const wp::int32 var_457 = 1;
+        wp::float64 var_458;
+        wp::float64 var_459;
+        wp::float64 var_460;
+        const wp::int32 var_461 = 2;
+        wp::float64 var_462;
+        const wp::int32 var_463 = 2;
+        wp::float64 var_464;
+        wp::float64 var_465;
+        wp::float64 var_466;
+        bool var_467;
+        const wp::float32 var_468 = 4.0;
+        wp::float64 var_469;
+        const wp::float32 var_470 = 1.0;
+        wp::float64 var_471;
+        wp::float64 var_472;
+        wp::float64 var_473;
+        const wp::int32 var_474 = 0;
+        wp::float64 var_475;
+        wp::float64 var_476;
+        const wp::int32 var_477 = 0;
+        const wp::float32 var_478 = 4.0;
+        wp::float64 var_479;
+        const wp::float32 var_480 = 1.0;
+        wp::float64 var_481;
+        wp::float64 var_482;
+        wp::float64 var_483;
+        const wp::int32 var_484 = 1;
+        wp::float64 var_485;
+        wp::float64 var_486;
+        const wp::int32 var_487 = 1;
+        const wp::float32 var_488 = 4.0;
+        wp::float64 var_489;
+        const wp::float32 var_490 = 1.0;
+        wp::float64 var_491;
+        wp::float64 var_492;
+        wp::float64 var_493;
+        const wp::int32 var_494 = 2;
+        wp::float64 var_495;
+        wp::float64 var_496;
+        const wp::int32 var_497 = 2;
+        const wp::float32 var_498 = 4.0;
+        wp::float64 var_499;
+        wp::float64 var_500;
+        const wp::int32 var_501 = 0;
+        wp::float64 var_502;
+        wp::float64 var_503;
+        const wp::int32 var_504 = 0;
+        const wp::float32 var_505 = 4.0;
+        wp::float64 var_506;
+        wp::float64 var_507;
+        const wp::int32 var_508 = 1;
+        wp::float64 var_509;
+        wp::float64 var_510;
+        const wp::int32 var_511 = 1;
+        const wp::float32 var_512 = 4.0;
+        wp::float64 var_513;
+        wp::float64 var_514;
+        const wp::int32 var_515 = 2;
+        wp::float64 var_516;
+        wp::float64 var_517;
+        const wp::int32 var_518 = 2;
+        const wp::int32 var_519 = 2;
+        const wp::int32 var_520 = 0;
+        wp::float64 var_521;
+        const wp::int32 var_522 = 0;
+        wp::float64 var_523;
+        wp::float64 var_524;
+        const wp::int32 var_525 = 1;
+        wp::float64 var_526;
+        const wp::int32 var_527 = 1;
+        wp::float64 var_528;
+        wp::float64 var_529;
+        wp::float64 var_530;
+        const wp::int32 var_531 = 2;
+        wp::float64 var_532;
+        const wp::int32 var_533 = 2;
+        wp::float64 var_534;
+        wp::float64 var_535;
+        wp::float64 var_536;
+        bool var_537;
+        const wp::float32 var_538 = 4.0;
+        wp::float64 var_539;
+        const wp::float32 var_540 = 1.0;
+        wp::float64 var_541;
+        wp::float64 var_542;
+        wp::float64 var_543;
+        const wp::int32 var_544 = 0;
+        wp::float64 var_545;
+        wp::float64 var_546;
+        const wp::int32 var_547 = 0;
+        const wp::float32 var_548 = 4.0;
+        wp::float64 var_549;
+        const wp::float32 var_550 = 1.0;
+        wp::float64 var_551;
+        wp::float64 var_552;
+        wp::float64 var_553;
+        const wp::int32 var_554 = 1;
+        wp::float64 var_555;
+        wp::float64 var_556;
+        const wp::int32 var_557 = 1;
+        const wp::float32 var_558 = 4.0;
+        wp::float64 var_559;
+        const wp::float32 var_560 = 1.0;
+        wp::float64 var_561;
+        wp::float64 var_562;
+        wp::float64 var_563;
+        const wp::int32 var_564 = 2;
+        wp::float64 var_565;
+        wp::float64 var_566;
+        const wp::int32 var_567 = 2;
+        const wp::float32 var_568 = 4.0;
+        wp::float64 var_569;
+        wp::float64 var_570;
+        const wp::int32 var_571 = 0;
+        wp::float64 var_572;
+        wp::float64 var_573;
+        const wp::int32 var_574 = 0;
+        const wp::float32 var_575 = 4.0;
+        wp::float64 var_576;
+        wp::float64 var_577;
+        const wp::int32 var_578 = 1;
+        wp::float64 var_579;
+        wp::float64 var_580;
+        const wp::int32 var_581 = 1;
+        const wp::float32 var_582 = 4.0;
+        wp::float64 var_583;
+        wp::float64 var_584;
+        const wp::int32 var_585 = 2;
+        wp::float64 var_586;
+        wp::float64 var_587;
+        const wp::int32 var_588 = 2;
+        const wp::int32 var_589 = 2;
+        const wp::int32 var_590 = 0;
+        const wp::int32 var_591 = 0;
+        wp::float64 var_592;
+        const wp::int32 var_593 = 0;
+        wp::float64 var_594;
+        wp::float64 var_595;
+        const wp::int32 var_596 = 1;
+        wp::float64 var_597;
+        const wp::int32 var_598 = 1;
+        wp::float64 var_599;
+        wp::float64 var_600;
+        wp::float64 var_601;
+        const wp::int32 var_602 = 2;
+        wp::float64 var_603;
+        const wp::int32 var_604 = 2;
+        wp::float64 var_605;
+        wp::float64 var_606;
+        wp::float64 var_607;
+        bool var_608;
+        const wp::float32 var_609 = 4.0;
+        wp::float64 var_610;
+        const wp::float32 var_611 = 1.0;
+        wp::float64 var_612;
+        wp::float64 var_613;
+        wp::float64 var_614;
+        const wp::int32 var_615 = 0;
+        wp::float64 var_616;
+        wp::float64 var_617;
+        const wp::int32 var_618 = 0;
+        const wp::float32 var_619 = 4.0;
+        wp::float64 var_620;
+        const wp::float32 var_621 = 1.0;
+        wp::float64 var_622;
+        wp::float64 var_623;
+        wp::float64 var_624;
+        const wp::int32 var_625 = 1;
+        wp::float64 var_626;
+        wp::float64 var_627;
+        const wp::int32 var_628 = 1;
+        const wp::float32 var_629 = 4.0;
+        wp::float64 var_630;
+        const wp::float32 var_631 = 1.0;
+        wp::float64 var_632;
+        wp::float64 var_633;
+        wp::float64 var_634;
+        const wp::int32 var_635 = 2;
+        wp::float64 var_636;
+        wp::float64 var_637;
+        const wp::int32 var_638 = 2;
+        const wp::float32 var_639 = 4.0;
+        wp::float64 var_640;
+        wp::float64 var_641;
+        const wp::int32 var_642 = 0;
+        wp::float64 var_643;
+        wp::float64 var_644;
+        const wp::int32 var_645 = 0;
+        const wp::float32 var_646 = 4.0;
+        wp::float64 var_647;
+        wp::float64 var_648;
+        const wp::int32 var_649 = 1;
+        wp::float64 var_650;
+        wp::float64 var_651;
+        const wp::int32 var_652 = 1;
+        const wp::float32 var_653 = 4.0;
+        wp::float64 var_654;
+        wp::float64 var_655;
+        const wp::int32 var_656 = 2;
+        wp::float64 var_657;
+        wp::float64 var_658;
+        const wp::int32 var_659 = 2;
+        const wp::int32 var_660 = 1;
+        const wp::int32 var_661 = 0;
+        wp::float64 var_662;
+        const wp::int32 var_663 = 0;
+        wp::float64 var_664;
+        wp::float64 var_665;
+        const wp::int32 var_666 = 1;
+        wp::float64 var_667;
+        const wp::int32 var_668 = 1;
+        wp::float64 var_669;
+        wp::float64 var_670;
+        wp::float64 var_671;
+        const wp::int32 var_672 = 2;
+        wp::float64 var_673;
+        const wp::int32 var_674 = 2;
+        wp::float64 var_675;
+        wp::float64 var_676;
+        wp::float64 var_677;
+        bool var_678;
+        const wp::float32 var_679 = 4.0;
+        wp::float64 var_680;
+        const wp::float32 var_681 = 1.0;
+        wp::float64 var_682;
+        wp::float64 var_683;
+        wp::float64 var_684;
+        const wp::int32 var_685 = 0;
+        wp::float64 var_686;
+        wp::float64 var_687;
+        const wp::int32 var_688 = 0;
+        const wp::float32 var_689 = 4.0;
+        wp::float64 var_690;
+        const wp::float32 var_691 = 1.0;
+        wp::float64 var_692;
+        wp::float64 var_693;
+        wp::float64 var_694;
+        const wp::int32 var_695 = 1;
+        wp::float64 var_696;
+        wp::float64 var_697;
+        const wp::int32 var_698 = 1;
+        const wp::float32 var_699 = 4.0;
+        wp::float64 var_700;
+        const wp::float32 var_701 = 1.0;
+        wp::float64 var_702;
+        wp::float64 var_703;
+        wp::float64 var_704;
+        const wp::int32 var_705 = 2;
+        wp::float64 var_706;
+        wp::float64 var_707;
+        const wp::int32 var_708 = 2;
+        const wp::float32 var_709 = 4.0;
+        wp::float64 var_710;
+        wp::float64 var_711;
+        const wp::int32 var_712 = 0;
+        wp::float64 var_713;
+        wp::float64 var_714;
+        const wp::int32 var_715 = 0;
+        const wp::float32 var_716 = 4.0;
+        wp::float64 var_717;
+        wp::float64 var_718;
+        const wp::int32 var_719 = 1;
+        wp::float64 var_720;
+        wp::float64 var_721;
+        const wp::int32 var_722 = 1;
+        const wp::float32 var_723 = 4.0;
+        wp::float64 var_724;
+        wp::float64 var_725;
+        const wp::int32 var_726 = 2;
+        wp::float64 var_727;
+        wp::float64 var_728;
+        const wp::int32 var_729 = 2;
+        const wp::int32 var_730 = 2;
+        const wp::int32 var_731 = 0;
+        wp::float64 var_732;
+        const wp::int32 var_733 = 0;
+        wp::float64 var_734;
+        wp::float64 var_735;
+        const wp::int32 var_736 = 1;
+        wp::float64 var_737;
+        const wp::int32 var_738 = 1;
+        wp::float64 var_739;
+        wp::float64 var_740;
+        wp::float64 var_741;
+        const wp::int32 var_742 = 2;
+        wp::float64 var_743;
+        const wp::int32 var_744 = 2;
+        wp::float64 var_745;
+        wp::float64 var_746;
+        wp::float64 var_747;
+        bool var_748;
+        const wp::float32 var_749 = 4.0;
+        wp::float64 var_750;
+        const wp::float32 var_751 = 1.0;
+        wp::float64 var_752;
+        wp::float64 var_753;
+        wp::float64 var_754;
+        const wp::int32 var_755 = 0;
+        wp::float64 var_756;
+        wp::float64 var_757;
+        const wp::int32 var_758 = 0;
+        const wp::float32 var_759 = 4.0;
+        wp::float64 var_760;
+        const wp::float32 var_761 = 1.0;
+        wp::float64 var_762;
+        wp::float64 var_763;
+        wp::float64 var_764;
+        const wp::int32 var_765 = 1;
+        wp::float64 var_766;
+        wp::float64 var_767;
+        const wp::int32 var_768 = 1;
+        const wp::float32 var_769 = 4.0;
+        wp::float64 var_770;
+        const wp::float32 var_771 = 1.0;
+        wp::float64 var_772;
+        wp::float64 var_773;
+        wp::float64 var_774;
+        const wp::int32 var_775 = 2;
+        wp::float64 var_776;
+        wp::float64 var_777;
+        const wp::int32 var_778 = 2;
+        const wp::float32 var_779 = 4.0;
+        wp::float64 var_780;
+        wp::float64 var_781;
+        const wp::int32 var_782 = 0;
+        wp::float64 var_783;
+        wp::float64 var_784;
+        const wp::int32 var_785 = 0;
+        const wp::float32 var_786 = 4.0;
+        wp::float64 var_787;
+        wp::float64 var_788;
+        const wp::int32 var_789 = 1;
+        wp::float64 var_790;
+        wp::float64 var_791;
+        const wp::int32 var_792 = 1;
+        const wp::float32 var_793 = 4.0;
+        wp::float64 var_794;
+        wp::float64 var_795;
+        const wp::int32 var_796 = 2;
+        wp::float64 var_797;
+        wp::float64 var_798;
+        const wp::int32 var_799 = 2;
+        wp::float64* var_800;
+        wp::float64* var_801;
+        wp::float64 var_802;
+        wp::float64 var_803;
+        wp::float64 var_804;
+        wp::float64 var_805;
+        const wp::float32 var_806 = 8.0;
+        wp::float64 var_807;
+        wp::float64 var_808;
+        const wp::int32 var_809 = 0;
+        const wp::int32 var_810 = 0;
+        wp::float64 var_811;
+        wp::float64 var_812;
+        const wp::int32 var_813 = 1;
+        wp::float64 var_814;
+        wp::float64 var_815;
+        const wp::int32 var_816 = 2;
+        wp::float64 var_817;
+        wp::float64 var_818;
+        const wp::int32 var_819 = 1;
+        const wp::int32 var_820 = 0;
+        wp::float64 var_821;
+        wp::float64 var_822;
+        const wp::int32 var_823 = 1;
+        wp::float64 var_824;
+        wp::float64 var_825;
+        const wp::int32 var_826 = 2;
+        wp::float64 var_827;
+        wp::float64 var_828;
+        const wp::int32 var_829 = 2;
+        const wp::int32 var_830 = 0;
+        wp::float64 var_831;
+        wp::float64 var_832;
+        const wp::int32 var_833 = 1;
+        wp::float64 var_834;
+        wp::float64 var_835;
+        const wp::int32 var_836 = 2;
+        wp::float64 var_837;
+        wp::float64 var_838;
+        wp::vec_t<12,wp::float64> var_839;
+        const wp::int32 var_840 = 0;
+        const wp::int32 var_841 = 0;
+        wp::float64 var_842;
+        wp::float64 var_843;
+        const wp::int32 var_844 = 1;
+        wp::float64 var_845;
+        wp::float64 var_846;
+        const wp::int32 var_847 = 2;
+        wp::float64 var_848;
+        wp::float64 var_849;
+        const wp::int32 var_850 = 0;
+        wp::int32 var_851;
+        wp::int32 var_852;
+        const wp::int32 var_853 = 0;
+        wp::float64 var_854;
+        const wp::int32 var_855 = 1;
+        wp::int32 var_856;
+        wp::int32 var_857;
+        const wp::int32 var_858 = 1;
+        wp::float64 var_859;
+        const wp::int32 var_860 = 2;
+        wp::int32 var_861;
+        wp::int32 var_862;
+        const wp::int32 var_863 = 2;
+        wp::float64 var_864;
+        const wp::int32 var_865 = 3;
+        wp::int32 var_866;
+        wp::int32 var_867;
+        const wp::int32 var_868 = 1;
+        const wp::int32 var_869 = 0;
+        wp::float64 var_870;
+        wp::float64 var_871;
+        const wp::int32 var_872 = 1;
+        wp::float64 var_873;
+        wp::float64 var_874;
+        const wp::int32 var_875 = 2;
+        wp::float64 var_876;
+        wp::float64 var_877;
+        const wp::int32 var_878 = 0;
+        wp::int32 var_879;
+        wp::int32 var_880;
+        const wp::int32 var_881 = 0;
+        wp::float64 var_882;
+        const wp::int32 var_883 = 1;
+        wp::int32 var_884;
+        wp::int32 var_885;
+        const wp::int32 var_886 = 1;
+        wp::float64 var_887;
+        const wp::int32 var_888 = 2;
+        wp::int32 var_889;
+        wp::int32 var_890;
+        const wp::int32 var_891 = 2;
+        wp::float64 var_892;
+        const wp::int32 var_893 = 3;
+        wp::int32 var_894;
+        wp::int32 var_895;
+        const wp::int32 var_896 = 2;
+        const wp::int32 var_897 = 0;
+        wp::float64 var_898;
+        wp::float64 var_899;
+        const wp::int32 var_900 = 1;
+        wp::float64 var_901;
+        wp::float64 var_902;
+        const wp::int32 var_903 = 2;
+        wp::float64 var_904;
+        wp::float64 var_905;
+        const wp::int32 var_906 = 0;
+        wp::int32 var_907;
+        wp::int32 var_908;
+        const wp::int32 var_909 = 0;
+        wp::float64 var_910;
+        const wp::int32 var_911 = 1;
+        wp::int32 var_912;
+        wp::int32 var_913;
+        const wp::int32 var_914 = 1;
+        wp::float64 var_915;
+        const wp::int32 var_916 = 2;
+        wp::int32 var_917;
+        wp::int32 var_918;
+        const wp::int32 var_919 = 2;
+        wp::float64 var_920;
+        const wp::int32 var_921 = 3;
+        wp::int32 var_922;
+        wp::int32 var_923;
+        wp::vec_t<12,wp::float64> var_924;
+        //---------
+        // dual vars
+        wp::int32 adj_0 = {};
+        bool adj_1 = {};
+        wp::int32 adj_2 = {};
+        wp::int32 adj_3 = {};
+        wp::int32 adj_4 = {};
+        wp::int32 adj_5 = {};
+        bool adj_6 = {};
+        wp::int32 adj_7 = {};
+        wp::int32 adj_8 = {};
+        wp::int32 adj_9 = {};
+        wp::int32 adj_10 = {};
+        wp::int32 adj_11 = {};
+        bool adj_12 = {};
+        wp::int32 adj_13 = {};
+        bool adj_14 = {};
+        bool adj_15 = {};
+        bool adj_16 = {};
+        wp::int32 adj_17 = {};
+        wp::mat_t<3,3,wp::float64> adj_18 = {};
+        wp::int32 adj_19 = {};
+        wp::int32 adj_20 = {};
+        wp::int32 adj_21 = {};
+        wp::vec_t<12,wp::float64> adj_22 = {};
+        wp::float64 adj_23 = {};
+        wp::vec_t<12,wp::float64> adj_24 = {};
+        wp::int32 adj_25 = {};
+        wp::vec_t<12,wp::float64> adj_26 = {};
+        wp::float64 adj_27 = {};
+        wp::vec_t<12,wp::float64> adj_28 = {};
+        wp::float64 adj_29 = {};
+        wp::int32 adj_30 = {};
+        wp::int32 adj_31 = {};
+        wp::int32 adj_32 = {};
+        wp::int32 adj_33 = {};
+        wp::int32 adj_34 = {};
+        wp::vec_t<12,wp::float64> adj_35 = {};
+        wp::float64 adj_36 = {};
+        wp::vec_t<12,wp::float64> adj_37 = {};
+        wp::int32 adj_38 = {};
+        wp::vec_t<12,wp::float64> adj_39 = {};
+        wp::float64 adj_40 = {};
+        wp::vec_t<12,wp::float64> adj_41 = {};
+        wp::float64 adj_42 = {};
+        wp::int32 adj_43 = {};
+        wp::int32 adj_44 = {};
+        wp::int32 adj_45 = {};
+        wp::int32 adj_46 = {};
+        wp::int32 adj_47 = {};
+        wp::vec_t<12,wp::float64> adj_48 = {};
+        wp::float64 adj_49 = {};
+        wp::vec_t<12,wp::float64> adj_50 = {};
+        wp::int32 adj_51 = {};
+        wp::vec_t<12,wp::float64> adj_52 = {};
+        wp::float64 adj_53 = {};
+        wp::vec_t<12,wp::float64> adj_54 = {};
+        wp::float64 adj_55 = {};
+        wp::int32 adj_56 = {};
+        wp::int32 adj_57 = {};
+        wp::int32 adj_58 = {};
+        wp::int32 adj_59 = {};
+        wp::int32 adj_60 = {};
+        wp::vec_t<12,wp::float64> adj_61 = {};
+        wp::float64 adj_62 = {};
+        wp::vec_t<12,wp::float64> adj_63 = {};
+        wp::int32 adj_64 = {};
+        wp::vec_t<12,wp::float64> adj_65 = {};
+        wp::float64 adj_66 = {};
+        wp::vec_t<12,wp::float64> adj_67 = {};
+        wp::float64 adj_68 = {};
+        wp::int32 adj_69 = {};
+        wp::int32 adj_70 = {};
+        wp::int32 adj_71 = {};
+        wp::int32 adj_72 = {};
+        wp::int32 adj_73 = {};
+        wp::vec_t<12,wp::float64> adj_74 = {};
+        wp::float64 adj_75 = {};
+        wp::vec_t<12,wp::float64> adj_76 = {};
+        wp::int32 adj_77 = {};
+        wp::vec_t<12,wp::float64> adj_78 = {};
+        wp::float64 adj_79 = {};
+        wp::vec_t<12,wp::float64> adj_80 = {};
+        wp::float64 adj_81 = {};
+        wp::int32 adj_82 = {};
+        wp::int32 adj_83 = {};
+        wp::int32 adj_84 = {};
+        wp::int32 adj_85 = {};
+        wp::int32 adj_86 = {};
+        wp::vec_t<12,wp::float64> adj_87 = {};
+        wp::float64 adj_88 = {};
+        wp::vec_t<12,wp::float64> adj_89 = {};
+        wp::int32 adj_90 = {};
+        wp::vec_t<12,wp::float64> adj_91 = {};
+        wp::float64 adj_92 = {};
+        wp::vec_t<12,wp::float64> adj_93 = {};
+        wp::float64 adj_94 = {};
+        wp::int32 adj_95 = {};
+        wp::int32 adj_96 = {};
+        wp::int32 adj_97 = {};
+        wp::int32 adj_98 = {};
+        wp::int32 adj_99 = {};
+        wp::vec_t<12,wp::float64> adj_100 = {};
+        wp::float64 adj_101 = {};
+        wp::vec_t<12,wp::float64> adj_102 = {};
+        wp::int32 adj_103 = {};
+        wp::vec_t<12,wp::float64> adj_104 = {};
+        wp::float64 adj_105 = {};
+        wp::vec_t<12,wp::float64> adj_106 = {};
+        wp::float64 adj_107 = {};
+        wp::int32 adj_108 = {};
+        wp::int32 adj_109 = {};
+        wp::int32 adj_110 = {};
+        wp::int32 adj_111 = {};
+        wp::int32 adj_112 = {};
+        wp::vec_t<12,wp::float64> adj_113 = {};
+        wp::float64 adj_114 = {};
+        wp::vec_t<12,wp::float64> adj_115 = {};
+        wp::int32 adj_116 = {};
+        wp::vec_t<12,wp::float64> adj_117 = {};
+        wp::float64 adj_118 = {};
+        wp::vec_t<12,wp::float64> adj_119 = {};
+        wp::float64 adj_120 = {};
+        wp::int32 adj_121 = {};
+        wp::int32 adj_122 = {};
+        wp::int32 adj_123 = {};
+        wp::int32 adj_124 = {};
+        wp::int32 adj_125 = {};
+        wp::vec_t<12,wp::float64> adj_126 = {};
+        wp::float64 adj_127 = {};
+        wp::vec_t<12,wp::float64> adj_128 = {};
+        wp::int32 adj_129 = {};
+        wp::vec_t<12,wp::float64> adj_130 = {};
+        wp::float64 adj_131 = {};
+        wp::vec_t<12,wp::float64> adj_132 = {};
+        wp::float64 adj_133 = {};
+        wp::int32 adj_134 = {};
+        wp::int32 adj_135 = {};
+        wp::mat_t<3,3,wp::float64> adj_136 = {};
+        wp::int32 adj_137 = {};
+        wp::int32 adj_138 = {};
+        wp::float32 adj_139 = {};
+        wp::float64 adj_140 = {};
+        wp::int32 adj_141 = {};
+        wp::float32 adj_142 = {};
+        wp::float64 adj_143 = {};
+        wp::int32 adj_144 = {};
+        wp::float32 adj_145 = {};
+        wp::float64 adj_146 = {};
+        wp::int32 adj_147 = {};
+        wp::int32 adj_148 = {};
+        wp::float32 adj_149 = {};
+        wp::float64 adj_150 = {};
+        wp::int32 adj_151 = {};
+        wp::float32 adj_152 = {};
+        wp::float64 adj_153 = {};
+        wp::int32 adj_154 = {};
+        wp::float32 adj_155 = {};
+        wp::float64 adj_156 = {};
+        wp::int32 adj_157 = {};
+        wp::int32 adj_158 = {};
+        wp::float32 adj_159 = {};
+        wp::float64 adj_160 = {};
+        wp::int32 adj_161 = {};
+        wp::float32 adj_162 = {};
+        wp::float64 adj_163 = {};
+        wp::int32 adj_164 = {};
+        wp::float32 adj_165 = {};
+        wp::float64 adj_166 = {};
+        wp::int32 adj_167 = {};
+        wp::int32 adj_168 = {};
+        wp::int32 adj_169 = {};
+        wp::float64 adj_170 = {};
+        wp::int32 adj_171 = {};
+        wp::float64 adj_172 = {};
+        wp::float64 adj_173 = {};
+        wp::int32 adj_174 = {};
+        wp::float64 adj_175 = {};
+        wp::int32 adj_176 = {};
+        wp::float64 adj_177 = {};
+        wp::float64 adj_178 = {};
+        wp::float64 adj_179 = {};
+        wp::int32 adj_180 = {};
+        wp::float64 adj_181 = {};
+        wp::int32 adj_182 = {};
+        wp::float64 adj_183 = {};
+        wp::float64 adj_184 = {};
+        wp::float64 adj_185 = {};
+        bool adj_186 = {};
+        wp::float32 adj_187 = {};
+        wp::float64 adj_188 = {};
+        wp::float32 adj_189 = {};
+        wp::float64 adj_190 = {};
+        wp::float64 adj_191 = {};
+        wp::float64 adj_192 = {};
+        wp::int32 adj_193 = {};
+        wp::float64 adj_194 = {};
+        wp::float64 adj_195 = {};
+        wp::int32 adj_196 = {};
+        wp::float32 adj_197 = {};
+        wp::float64 adj_198 = {};
+        wp::float32 adj_199 = {};
+        wp::float64 adj_200 = {};
+        wp::float64 adj_201 = {};
+        wp::float64 adj_202 = {};
+        wp::int32 adj_203 = {};
+        wp::float64 adj_204 = {};
+        wp::float64 adj_205 = {};
+        wp::int32 adj_206 = {};
+        wp::float32 adj_207 = {};
+        wp::float64 adj_208 = {};
+        wp::float32 adj_209 = {};
+        wp::float64 adj_210 = {};
+        wp::float64 adj_211 = {};
+        wp::float64 adj_212 = {};
+        wp::int32 adj_213 = {};
+        wp::float64 adj_214 = {};
+        wp::float64 adj_215 = {};
+        wp::int32 adj_216 = {};
+        wp::float32 adj_217 = {};
+        wp::float64 adj_218 = {};
+        wp::float64 adj_219 = {};
+        wp::int32 adj_220 = {};
+        wp::float64 adj_221 = {};
+        wp::float64 adj_222 = {};
+        wp::int32 adj_223 = {};
+        wp::float32 adj_224 = {};
+        wp::float64 adj_225 = {};
+        wp::float64 adj_226 = {};
+        wp::int32 adj_227 = {};
+        wp::float64 adj_228 = {};
+        wp::float64 adj_229 = {};
+        wp::int32 adj_230 = {};
+        wp::float32 adj_231 = {};
+        wp::float64 adj_232 = {};
+        wp::float64 adj_233 = {};
+        wp::int32 adj_234 = {};
+        wp::float64 adj_235 = {};
+        wp::float64 adj_236 = {};
+        wp::int32 adj_237 = {};
+        wp::int32 adj_238 = {};
+        wp::int32 adj_239 = {};
+        wp::float64 adj_240 = {};
+        wp::int32 adj_241 = {};
+        wp::float64 adj_242 = {};
+        wp::float64 adj_243 = {};
+        wp::int32 adj_244 = {};
+        wp::float64 adj_245 = {};
+        wp::int32 adj_246 = {};
+        wp::float64 adj_247 = {};
+        wp::float64 adj_248 = {};
+        wp::float64 adj_249 = {};
+        wp::int32 adj_250 = {};
+        wp::float64 adj_251 = {};
+        wp::int32 adj_252 = {};
+        wp::float64 adj_253 = {};
+        wp::float64 adj_254 = {};
+        wp::float64 adj_255 = {};
+        bool adj_256 = {};
+        wp::float32 adj_257 = {};
+        wp::float64 adj_258 = {};
+        wp::float32 adj_259 = {};
+        wp::float64 adj_260 = {};
+        wp::float64 adj_261 = {};
+        wp::float64 adj_262 = {};
+        wp::int32 adj_263 = {};
+        wp::float64 adj_264 = {};
+        wp::float64 adj_265 = {};
+        wp::int32 adj_266 = {};
+        wp::float32 adj_267 = {};
+        wp::float64 adj_268 = {};
+        wp::float32 adj_269 = {};
+        wp::float64 adj_270 = {};
+        wp::float64 adj_271 = {};
+        wp::float64 adj_272 = {};
+        wp::int32 adj_273 = {};
+        wp::float64 adj_274 = {};
+        wp::float64 adj_275 = {};
+        wp::int32 adj_276 = {};
+        wp::float32 adj_277 = {};
+        wp::float64 adj_278 = {};
+        wp::float32 adj_279 = {};
+        wp::float64 adj_280 = {};
+        wp::float64 adj_281 = {};
+        wp::float64 adj_282 = {};
+        wp::int32 adj_283 = {};
+        wp::float64 adj_284 = {};
+        wp::float64 adj_285 = {};
+        wp::int32 adj_286 = {};
+        wp::float32 adj_287 = {};
+        wp::float64 adj_288 = {};
+        wp::float64 adj_289 = {};
+        wp::int32 adj_290 = {};
+        wp::float64 adj_291 = {};
+        wp::float64 adj_292 = {};
+        wp::int32 adj_293 = {};
+        wp::float32 adj_294 = {};
+        wp::float64 adj_295 = {};
+        wp::float64 adj_296 = {};
+        wp::int32 adj_297 = {};
+        wp::float64 adj_298 = {};
+        wp::float64 adj_299 = {};
+        wp::int32 adj_300 = {};
+        wp::float32 adj_301 = {};
+        wp::float64 adj_302 = {};
+        wp::float64 adj_303 = {};
+        wp::int32 adj_304 = {};
+        wp::float64 adj_305 = {};
+        wp::float64 adj_306 = {};
+        wp::int32 adj_307 = {};
+        wp::int32 adj_308 = {};
+        wp::int32 adj_309 = {};
+        wp::float64 adj_310 = {};
+        wp::int32 adj_311 = {};
+        wp::float64 adj_312 = {};
+        wp::float64 adj_313 = {};
+        wp::int32 adj_314 = {};
+        wp::float64 adj_315 = {};
+        wp::int32 adj_316 = {};
+        wp::float64 adj_317 = {};
+        wp::float64 adj_318 = {};
+        wp::float64 adj_319 = {};
+        wp::int32 adj_320 = {};
+        wp::float64 adj_321 = {};
+        wp::int32 adj_322 = {};
+        wp::float64 adj_323 = {};
+        wp::float64 adj_324 = {};
+        wp::float64 adj_325 = {};
+        bool adj_326 = {};
+        wp::float32 adj_327 = {};
+        wp::float64 adj_328 = {};
+        wp::float32 adj_329 = {};
+        wp::float64 adj_330 = {};
+        wp::float64 adj_331 = {};
+        wp::float64 adj_332 = {};
+        wp::int32 adj_333 = {};
+        wp::float64 adj_334 = {};
+        wp::float64 adj_335 = {};
+        wp::int32 adj_336 = {};
+        wp::float32 adj_337 = {};
+        wp::float64 adj_338 = {};
+        wp::float32 adj_339 = {};
+        wp::float64 adj_340 = {};
+        wp::float64 adj_341 = {};
+        wp::float64 adj_342 = {};
+        wp::int32 adj_343 = {};
+        wp::float64 adj_344 = {};
+        wp::float64 adj_345 = {};
+        wp::int32 adj_346 = {};
+        wp::float32 adj_347 = {};
+        wp::float64 adj_348 = {};
+        wp::float32 adj_349 = {};
+        wp::float64 adj_350 = {};
+        wp::float64 adj_351 = {};
+        wp::float64 adj_352 = {};
+        wp::int32 adj_353 = {};
+        wp::float64 adj_354 = {};
+        wp::float64 adj_355 = {};
+        wp::int32 adj_356 = {};
+        wp::float32 adj_357 = {};
+        wp::float64 adj_358 = {};
+        wp::float64 adj_359 = {};
+        wp::int32 adj_360 = {};
+        wp::float64 adj_361 = {};
+        wp::float64 adj_362 = {};
+        wp::int32 adj_363 = {};
+        wp::float32 adj_364 = {};
+        wp::float64 adj_365 = {};
+        wp::float64 adj_366 = {};
+        wp::int32 adj_367 = {};
+        wp::float64 adj_368 = {};
+        wp::float64 adj_369 = {};
+        wp::int32 adj_370 = {};
+        wp::float32 adj_371 = {};
+        wp::float64 adj_372 = {};
+        wp::float64 adj_373 = {};
+        wp::int32 adj_374 = {};
+        wp::float64 adj_375 = {};
+        wp::float64 adj_376 = {};
+        wp::int32 adj_377 = {};
+        wp::int32 adj_378 = {};
+        wp::int32 adj_379 = {};
+        wp::int32 adj_380 = {};
+        wp::float64 adj_381 = {};
+        wp::int32 adj_382 = {};
+        wp::float64 adj_383 = {};
+        wp::float64 adj_384 = {};
+        wp::int32 adj_385 = {};
+        wp::float64 adj_386 = {};
+        wp::int32 adj_387 = {};
+        wp::float64 adj_388 = {};
+        wp::float64 adj_389 = {};
+        wp::float64 adj_390 = {};
+        wp::int32 adj_391 = {};
+        wp::float64 adj_392 = {};
+        wp::int32 adj_393 = {};
+        wp::float64 adj_394 = {};
+        wp::float64 adj_395 = {};
+        wp::float64 adj_396 = {};
+        bool adj_397 = {};
+        wp::float32 adj_398 = {};
+        wp::float64 adj_399 = {};
+        wp::float32 adj_400 = {};
+        wp::float64 adj_401 = {};
+        wp::float64 adj_402 = {};
+        wp::float64 adj_403 = {};
+        wp::int32 adj_404 = {};
+        wp::float64 adj_405 = {};
+        wp::float64 adj_406 = {};
+        wp::int32 adj_407 = {};
+        wp::float32 adj_408 = {};
+        wp::float64 adj_409 = {};
+        wp::float32 adj_410 = {};
+        wp::float64 adj_411 = {};
+        wp::float64 adj_412 = {};
+        wp::float64 adj_413 = {};
+        wp::int32 adj_414 = {};
+        wp::float64 adj_415 = {};
+        wp::float64 adj_416 = {};
+        wp::int32 adj_417 = {};
+        wp::float32 adj_418 = {};
+        wp::float64 adj_419 = {};
+        wp::float32 adj_420 = {};
+        wp::float64 adj_421 = {};
+        wp::float64 adj_422 = {};
+        wp::float64 adj_423 = {};
+        wp::int32 adj_424 = {};
+        wp::float64 adj_425 = {};
+        wp::float64 adj_426 = {};
+        wp::int32 adj_427 = {};
+        wp::float32 adj_428 = {};
+        wp::float64 adj_429 = {};
+        wp::float64 adj_430 = {};
+        wp::int32 adj_431 = {};
+        wp::float64 adj_432 = {};
+        wp::float64 adj_433 = {};
+        wp::int32 adj_434 = {};
+        wp::float32 adj_435 = {};
+        wp::float64 adj_436 = {};
+        wp::float64 adj_437 = {};
+        wp::int32 adj_438 = {};
+        wp::float64 adj_439 = {};
+        wp::float64 adj_440 = {};
+        wp::int32 adj_441 = {};
+        wp::float32 adj_442 = {};
+        wp::float64 adj_443 = {};
+        wp::float64 adj_444 = {};
+        wp::int32 adj_445 = {};
+        wp::float64 adj_446 = {};
+        wp::float64 adj_447 = {};
+        wp::int32 adj_448 = {};
+        wp::int32 adj_449 = {};
+        wp::int32 adj_450 = {};
+        wp::float64 adj_451 = {};
+        wp::int32 adj_452 = {};
+        wp::float64 adj_453 = {};
+        wp::float64 adj_454 = {};
+        wp::int32 adj_455 = {};
+        wp::float64 adj_456 = {};
+        wp::int32 adj_457 = {};
+        wp::float64 adj_458 = {};
+        wp::float64 adj_459 = {};
+        wp::float64 adj_460 = {};
+        wp::int32 adj_461 = {};
+        wp::float64 adj_462 = {};
+        wp::int32 adj_463 = {};
+        wp::float64 adj_464 = {};
+        wp::float64 adj_465 = {};
+        wp::float64 adj_466 = {};
+        bool adj_467 = {};
+        wp::float32 adj_468 = {};
+        wp::float64 adj_469 = {};
+        wp::float32 adj_470 = {};
+        wp::float64 adj_471 = {};
+        wp::float64 adj_472 = {};
+        wp::float64 adj_473 = {};
+        wp::int32 adj_474 = {};
+        wp::float64 adj_475 = {};
+        wp::float64 adj_476 = {};
+        wp::int32 adj_477 = {};
+        wp::float32 adj_478 = {};
+        wp::float64 adj_479 = {};
+        wp::float32 adj_480 = {};
+        wp::float64 adj_481 = {};
+        wp::float64 adj_482 = {};
+        wp::float64 adj_483 = {};
+        wp::int32 adj_484 = {};
+        wp::float64 adj_485 = {};
+        wp::float64 adj_486 = {};
+        wp::int32 adj_487 = {};
+        wp::float32 adj_488 = {};
+        wp::float64 adj_489 = {};
+        wp::float32 adj_490 = {};
+        wp::float64 adj_491 = {};
+        wp::float64 adj_492 = {};
+        wp::float64 adj_493 = {};
+        wp::int32 adj_494 = {};
+        wp::float64 adj_495 = {};
+        wp::float64 adj_496 = {};
+        wp::int32 adj_497 = {};
+        wp::float32 adj_498 = {};
+        wp::float64 adj_499 = {};
+        wp::float64 adj_500 = {};
+        wp::int32 adj_501 = {};
+        wp::float64 adj_502 = {};
+        wp::float64 adj_503 = {};
+        wp::int32 adj_504 = {};
+        wp::float32 adj_505 = {};
+        wp::float64 adj_506 = {};
+        wp::float64 adj_507 = {};
+        wp::int32 adj_508 = {};
+        wp::float64 adj_509 = {};
+        wp::float64 adj_510 = {};
+        wp::int32 adj_511 = {};
+        wp::float32 adj_512 = {};
+        wp::float64 adj_513 = {};
+        wp::float64 adj_514 = {};
+        wp::int32 adj_515 = {};
+        wp::float64 adj_516 = {};
+        wp::float64 adj_517 = {};
+        wp::int32 adj_518 = {};
+        wp::int32 adj_519 = {};
+        wp::int32 adj_520 = {};
+        wp::float64 adj_521 = {};
+        wp::int32 adj_522 = {};
+        wp::float64 adj_523 = {};
+        wp::float64 adj_524 = {};
+        wp::int32 adj_525 = {};
+        wp::float64 adj_526 = {};
+        wp::int32 adj_527 = {};
+        wp::float64 adj_528 = {};
+        wp::float64 adj_529 = {};
+        wp::float64 adj_530 = {};
+        wp::int32 adj_531 = {};
+        wp::float64 adj_532 = {};
+        wp::int32 adj_533 = {};
+        wp::float64 adj_534 = {};
+        wp::float64 adj_535 = {};
+        wp::float64 adj_536 = {};
+        bool adj_537 = {};
+        wp::float32 adj_538 = {};
+        wp::float64 adj_539 = {};
+        wp::float32 adj_540 = {};
+        wp::float64 adj_541 = {};
+        wp::float64 adj_542 = {};
+        wp::float64 adj_543 = {};
+        wp::int32 adj_544 = {};
+        wp::float64 adj_545 = {};
+        wp::float64 adj_546 = {};
+        wp::int32 adj_547 = {};
+        wp::float32 adj_548 = {};
+        wp::float64 adj_549 = {};
+        wp::float32 adj_550 = {};
+        wp::float64 adj_551 = {};
+        wp::float64 adj_552 = {};
+        wp::float64 adj_553 = {};
+        wp::int32 adj_554 = {};
+        wp::float64 adj_555 = {};
+        wp::float64 adj_556 = {};
+        wp::int32 adj_557 = {};
+        wp::float32 adj_558 = {};
+        wp::float64 adj_559 = {};
+        wp::float32 adj_560 = {};
+        wp::float64 adj_561 = {};
+        wp::float64 adj_562 = {};
+        wp::float64 adj_563 = {};
+        wp::int32 adj_564 = {};
+        wp::float64 adj_565 = {};
+        wp::float64 adj_566 = {};
+        wp::int32 adj_567 = {};
+        wp::float32 adj_568 = {};
+        wp::float64 adj_569 = {};
+        wp::float64 adj_570 = {};
+        wp::int32 adj_571 = {};
+        wp::float64 adj_572 = {};
+        wp::float64 adj_573 = {};
+        wp::int32 adj_574 = {};
+        wp::float32 adj_575 = {};
+        wp::float64 adj_576 = {};
+        wp::float64 adj_577 = {};
+        wp::int32 adj_578 = {};
+        wp::float64 adj_579 = {};
+        wp::float64 adj_580 = {};
+        wp::int32 adj_581 = {};
+        wp::float32 adj_582 = {};
+        wp::float64 adj_583 = {};
+        wp::float64 adj_584 = {};
+        wp::int32 adj_585 = {};
+        wp::float64 adj_586 = {};
+        wp::float64 adj_587 = {};
+        wp::int32 adj_588 = {};
+        wp::int32 adj_589 = {};
+        wp::int32 adj_590 = {};
+        wp::int32 adj_591 = {};
+        wp::float64 adj_592 = {};
+        wp::int32 adj_593 = {};
+        wp::float64 adj_594 = {};
+        wp::float64 adj_595 = {};
+        wp::int32 adj_596 = {};
+        wp::float64 adj_597 = {};
+        wp::int32 adj_598 = {};
+        wp::float64 adj_599 = {};
+        wp::float64 adj_600 = {};
+        wp::float64 adj_601 = {};
+        wp::int32 adj_602 = {};
+        wp::float64 adj_603 = {};
+        wp::int32 adj_604 = {};
+        wp::float64 adj_605 = {};
+        wp::float64 adj_606 = {};
+        wp::float64 adj_607 = {};
+        bool adj_608 = {};
+        wp::float32 adj_609 = {};
+        wp::float64 adj_610 = {};
+        wp::float32 adj_611 = {};
+        wp::float64 adj_612 = {};
+        wp::float64 adj_613 = {};
+        wp::float64 adj_614 = {};
+        wp::int32 adj_615 = {};
+        wp::float64 adj_616 = {};
+        wp::float64 adj_617 = {};
+        wp::int32 adj_618 = {};
+        wp::float32 adj_619 = {};
+        wp::float64 adj_620 = {};
+        wp::float32 adj_621 = {};
+        wp::float64 adj_622 = {};
+        wp::float64 adj_623 = {};
+        wp::float64 adj_624 = {};
+        wp::int32 adj_625 = {};
+        wp::float64 adj_626 = {};
+        wp::float64 adj_627 = {};
+        wp::int32 adj_628 = {};
+        wp::float32 adj_629 = {};
+        wp::float64 adj_630 = {};
+        wp::float32 adj_631 = {};
+        wp::float64 adj_632 = {};
+        wp::float64 adj_633 = {};
+        wp::float64 adj_634 = {};
+        wp::int32 adj_635 = {};
+        wp::float64 adj_636 = {};
+        wp::float64 adj_637 = {};
+        wp::int32 adj_638 = {};
+        wp::float32 adj_639 = {};
+        wp::float64 adj_640 = {};
+        wp::float64 adj_641 = {};
+        wp::int32 adj_642 = {};
+        wp::float64 adj_643 = {};
+        wp::float64 adj_644 = {};
+        wp::int32 adj_645 = {};
+        wp::float32 adj_646 = {};
+        wp::float64 adj_647 = {};
+        wp::float64 adj_648 = {};
+        wp::int32 adj_649 = {};
+        wp::float64 adj_650 = {};
+        wp::float64 adj_651 = {};
+        wp::int32 adj_652 = {};
+        wp::float32 adj_653 = {};
+        wp::float64 adj_654 = {};
+        wp::float64 adj_655 = {};
+        wp::int32 adj_656 = {};
+        wp::float64 adj_657 = {};
+        wp::float64 adj_658 = {};
+        wp::int32 adj_659 = {};
+        wp::int32 adj_660 = {};
+        wp::int32 adj_661 = {};
+        wp::float64 adj_662 = {};
+        wp::int32 adj_663 = {};
+        wp::float64 adj_664 = {};
+        wp::float64 adj_665 = {};
+        wp::int32 adj_666 = {};
+        wp::float64 adj_667 = {};
+        wp::int32 adj_668 = {};
+        wp::float64 adj_669 = {};
+        wp::float64 adj_670 = {};
+        wp::float64 adj_671 = {};
+        wp::int32 adj_672 = {};
+        wp::float64 adj_673 = {};
+        wp::int32 adj_674 = {};
+        wp::float64 adj_675 = {};
+        wp::float64 adj_676 = {};
+        wp::float64 adj_677 = {};
+        bool adj_678 = {};
+        wp::float32 adj_679 = {};
+        wp::float64 adj_680 = {};
+        wp::float32 adj_681 = {};
+        wp::float64 adj_682 = {};
+        wp::float64 adj_683 = {};
+        wp::float64 adj_684 = {};
+        wp::int32 adj_685 = {};
+        wp::float64 adj_686 = {};
+        wp::float64 adj_687 = {};
+        wp::int32 adj_688 = {};
+        wp::float32 adj_689 = {};
+        wp::float64 adj_690 = {};
+        wp::float32 adj_691 = {};
+        wp::float64 adj_692 = {};
+        wp::float64 adj_693 = {};
+        wp::float64 adj_694 = {};
+        wp::int32 adj_695 = {};
+        wp::float64 adj_696 = {};
+        wp::float64 adj_697 = {};
+        wp::int32 adj_698 = {};
+        wp::float32 adj_699 = {};
+        wp::float64 adj_700 = {};
+        wp::float32 adj_701 = {};
+        wp::float64 adj_702 = {};
+        wp::float64 adj_703 = {};
+        wp::float64 adj_704 = {};
+        wp::int32 adj_705 = {};
+        wp::float64 adj_706 = {};
+        wp::float64 adj_707 = {};
+        wp::int32 adj_708 = {};
+        wp::float32 adj_709 = {};
+        wp::float64 adj_710 = {};
+        wp::float64 adj_711 = {};
+        wp::int32 adj_712 = {};
+        wp::float64 adj_713 = {};
+        wp::float64 adj_714 = {};
+        wp::int32 adj_715 = {};
+        wp::float32 adj_716 = {};
+        wp::float64 adj_717 = {};
+        wp::float64 adj_718 = {};
+        wp::int32 adj_719 = {};
+        wp::float64 adj_720 = {};
+        wp::float64 adj_721 = {};
+        wp::int32 adj_722 = {};
+        wp::float32 adj_723 = {};
+        wp::float64 adj_724 = {};
+        wp::float64 adj_725 = {};
+        wp::int32 adj_726 = {};
+        wp::float64 adj_727 = {};
+        wp::float64 adj_728 = {};
+        wp::int32 adj_729 = {};
+        wp::int32 adj_730 = {};
+        wp::int32 adj_731 = {};
+        wp::float64 adj_732 = {};
+        wp::int32 adj_733 = {};
+        wp::float64 adj_734 = {};
+        wp::float64 adj_735 = {};
+        wp::int32 adj_736 = {};
+        wp::float64 adj_737 = {};
+        wp::int32 adj_738 = {};
+        wp::float64 adj_739 = {};
+        wp::float64 adj_740 = {};
+        wp::float64 adj_741 = {};
+        wp::int32 adj_742 = {};
+        wp::float64 adj_743 = {};
+        wp::int32 adj_744 = {};
+        wp::float64 adj_745 = {};
+        wp::float64 adj_746 = {};
+        wp::float64 adj_747 = {};
+        bool adj_748 = {};
+        wp::float32 adj_749 = {};
+        wp::float64 adj_750 = {};
+        wp::float32 adj_751 = {};
+        wp::float64 adj_752 = {};
+        wp::float64 adj_753 = {};
+        wp::float64 adj_754 = {};
+        wp::int32 adj_755 = {};
+        wp::float64 adj_756 = {};
+        wp::float64 adj_757 = {};
+        wp::int32 adj_758 = {};
+        wp::float32 adj_759 = {};
+        wp::float64 adj_760 = {};
+        wp::float32 adj_761 = {};
+        wp::float64 adj_762 = {};
+        wp::float64 adj_763 = {};
+        wp::float64 adj_764 = {};
+        wp::int32 adj_765 = {};
+        wp::float64 adj_766 = {};
+        wp::float64 adj_767 = {};
+        wp::int32 adj_768 = {};
+        wp::float32 adj_769 = {};
+        wp::float64 adj_770 = {};
+        wp::float32 adj_771 = {};
+        wp::float64 adj_772 = {};
+        wp::float64 adj_773 = {};
+        wp::float64 adj_774 = {};
+        wp::int32 adj_775 = {};
+        wp::float64 adj_776 = {};
+        wp::float64 adj_777 = {};
+        wp::int32 adj_778 = {};
+        wp::float32 adj_779 = {};
+        wp::float64 adj_780 = {};
+        wp::float64 adj_781 = {};
+        wp::int32 adj_782 = {};
+        wp::float64 adj_783 = {};
+        wp::float64 adj_784 = {};
+        wp::int32 adj_785 = {};
+        wp::float32 adj_786 = {};
+        wp::float64 adj_787 = {};
+        wp::float64 adj_788 = {};
+        wp::int32 adj_789 = {};
+        wp::float64 adj_790 = {};
+        wp::float64 adj_791 = {};
+        wp::int32 adj_792 = {};
+        wp::float32 adj_793 = {};
+        wp::float64 adj_794 = {};
+        wp::float64 adj_795 = {};
+        wp::int32 adj_796 = {};
+        wp::float64 adj_797 = {};
+        wp::float64 adj_798 = {};
+        wp::int32 adj_799 = {};
+        wp::float64 adj_800 = {};
+        wp::float64 adj_801 = {};
+        wp::float64 adj_802 = {};
+        wp::float64 adj_803 = {};
+        wp::float64 adj_804 = {};
+        wp::float64 adj_805 = {};
+        wp::float32 adj_806 = {};
+        wp::float64 adj_807 = {};
+        wp::float64 adj_808 = {};
+        wp::int32 adj_809 = {};
+        wp::int32 adj_810 = {};
+        wp::float64 adj_811 = {};
+        wp::float64 adj_812 = {};
+        wp::int32 adj_813 = {};
+        wp::float64 adj_814 = {};
+        wp::float64 adj_815 = {};
+        wp::int32 adj_816 = {};
+        wp::float64 adj_817 = {};
+        wp::float64 adj_818 = {};
+        wp::int32 adj_819 = {};
+        wp::int32 adj_820 = {};
+        wp::float64 adj_821 = {};
+        wp::float64 adj_822 = {};
+        wp::int32 adj_823 = {};
+        wp::float64 adj_824 = {};
+        wp::float64 adj_825 = {};
+        wp::int32 adj_826 = {};
+        wp::float64 adj_827 = {};
+        wp::float64 adj_828 = {};
+        wp::int32 adj_829 = {};
+        wp::int32 adj_830 = {};
+        wp::float64 adj_831 = {};
+        wp::float64 adj_832 = {};
+        wp::int32 adj_833 = {};
+        wp::float64 adj_834 = {};
+        wp::float64 adj_835 = {};
+        wp::int32 adj_836 = {};
+        wp::float64 adj_837 = {};
+        wp::float64 adj_838 = {};
+        wp::vec_t<12,wp::float64> adj_839 = {};
+        wp::int32 adj_840 = {};
+        wp::int32 adj_841 = {};
+        wp::float64 adj_842 = {};
+        wp::float64 adj_843 = {};
+        wp::int32 adj_844 = {};
+        wp::float64 adj_845 = {};
+        wp::float64 adj_846 = {};
+        wp::int32 adj_847 = {};
+        wp::float64 adj_848 = {};
+        wp::float64 adj_849 = {};
+        wp::int32 adj_850 = {};
+        wp::int32 adj_851 = {};
+        wp::int32 adj_852 = {};
+        wp::int32 adj_853 = {};
+        wp::float64 adj_854 = {};
+        wp::int32 adj_855 = {};
+        wp::int32 adj_856 = {};
+        wp::int32 adj_857 = {};
+        wp::int32 adj_858 = {};
+        wp::float64 adj_859 = {};
+        wp::int32 adj_860 = {};
+        wp::int32 adj_861 = {};
+        wp::int32 adj_862 = {};
+        wp::int32 adj_863 = {};
+        wp::float64 adj_864 = {};
+        wp::int32 adj_865 = {};
+        wp::int32 adj_866 = {};
+        wp::int32 adj_867 = {};
+        wp::int32 adj_868 = {};
+        wp::int32 adj_869 = {};
+        wp::float64 adj_870 = {};
+        wp::float64 adj_871 = {};
+        wp::int32 adj_872 = {};
+        wp::float64 adj_873 = {};
+        wp::float64 adj_874 = {};
+        wp::int32 adj_875 = {};
+        wp::float64 adj_876 = {};
+        wp::float64 adj_877 = {};
+        wp::int32 adj_878 = {};
+        wp::int32 adj_879 = {};
+        wp::int32 adj_880 = {};
+        wp::int32 adj_881 = {};
+        wp::float64 adj_882 = {};
+        wp::int32 adj_883 = {};
+        wp::int32 adj_884 = {};
+        wp::int32 adj_885 = {};
+        wp::int32 adj_886 = {};
+        wp::float64 adj_887 = {};
+        wp::int32 adj_888 = {};
+        wp::int32 adj_889 = {};
+        wp::int32 adj_890 = {};
+        wp::int32 adj_891 = {};
+        wp::float64 adj_892 = {};
+        wp::int32 adj_893 = {};
+        wp::int32 adj_894 = {};
+        wp::int32 adj_895 = {};
+        wp::int32 adj_896 = {};
+        wp::int32 adj_897 = {};
+        wp::float64 adj_898 = {};
+        wp::float64 adj_899 = {};
+        wp::int32 adj_900 = {};
+        wp::float64 adj_901 = {};
+        wp::float64 adj_902 = {};
+        wp::int32 adj_903 = {};
+        wp::float64 adj_904 = {};
+        wp::float64 adj_905 = {};
+        wp::int32 adj_906 = {};
+        wp::int32 adj_907 = {};
+        wp::int32 adj_908 = {};
+        wp::int32 adj_909 = {};
+        wp::float64 adj_910 = {};
+        wp::int32 adj_911 = {};
+        wp::int32 adj_912 = {};
+        wp::int32 adj_913 = {};
+        wp::int32 adj_914 = {};
+        wp::float64 adj_915 = {};
+        wp::int32 adj_916 = {};
+        wp::int32 adj_917 = {};
+        wp::int32 adj_918 = {};
+        wp::int32 adj_919 = {};
+        wp::float64 adj_920 = {};
+        wp::int32 adj_921 = {};
+        wp::int32 adj_922 = {};
+        wp::int32 adj_923 = {};
+        wp::vec_t<12,wp::float64> adj_924 = {};
+        //---------
+        // forward
+        // def compute_rigidity_energy_grad(                                                      <L 78>
+        // tid = wp.tid()                                                                         <L 88>
+        var_0 = builtin_tid1d();
+        // if affine_has_constraint[tid] or (                                                     <L 89>
+        var_1 = wp::address(var_affine_has_constraint, var_0);
+        // (env_states[body_env_id[tid]] == ENV_STATE_INVALID) or (env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED)       <L 90>
+        var_2 = wp::address(var_body_env_id, var_0);
+        var_4 = wp::load(var_2);
+        var_3 = wp::address(var_env_states, var_4);
+        var_7 = wp::load(var_3);
+        var_6 = (var_7 == var_5);
+        var_8 = wp::address(var_body_env_id, var_0);
+        var_10 = wp::load(var_8);
+        var_9 = wp::address(var_env_states, var_10);
+        var_13 = wp::load(var_9);
+        var_12 = (var_13 == var_11);
+        var_14 = var_6 || var_12;
+        var_15 = wp::load(var_1);
+        var_16 = var_15 || var_14;
+        if (var_16) {
+            // return                                                                             <L 92>
+            goto label0;
+        }
+        // dim = 3                                                                                <L 93>
+        // F = wp.mat33d()                                                                        <L 94>
+        var_18 = wp::mat_t<3,3,wp::float64>();
+        // F[0, 0] = y[tid][3 + 0] - y[tid][0]                                                    <L 95>
+        var_21 = wp::add(var_19, var_20);
+        var_22 = wp::address(var_y, var_0);
+        var_24 = wp::load(var_22);
+        var_23 = wp::extract(var_24, var_21);
+        var_26 = wp::address(var_y, var_0);
+        var_28 = wp::load(var_26);
+        var_27 = wp::extract(var_28, var_25);
+        var_29 = wp::sub(var_23, var_27);
+        wp::assign_inplace(var_18, var_30, var_31, var_29);
+        // F[1, 0] = y[tid][3 + 1] - y[tid][1]                                                    <L 96>
+        var_34 = wp::add(var_32, var_33);
+        var_35 = wp::address(var_y, var_0);
+        var_37 = wp::load(var_35);
+        var_36 = wp::extract(var_37, var_34);
+        var_39 = wp::address(var_y, var_0);
+        var_41 = wp::load(var_39);
+        var_40 = wp::extract(var_41, var_38);
+        var_42 = wp::sub(var_36, var_40);
+        wp::assign_inplace(var_18, var_43, var_44, var_42);
+        // F[2, 0] = y[tid][3 + 2] - y[tid][2]                                                    <L 97>
+        var_47 = wp::add(var_45, var_46);
+        var_48 = wp::address(var_y, var_0);
+        var_50 = wp::load(var_48);
+        var_49 = wp::extract(var_50, var_47);
+        var_52 = wp::address(var_y, var_0);
+        var_54 = wp::load(var_52);
+        var_53 = wp::extract(var_54, var_51);
+        var_55 = wp::sub(var_49, var_53);
+        wp::assign_inplace(var_18, var_56, var_57, var_55);
+        // F[0, 1] = y[tid][6 + 0] - y[tid][0]                                                    <L 98>
+        var_60 = wp::add(var_58, var_59);
+        var_61 = wp::address(var_y, var_0);
+        var_63 = wp::load(var_61);
+        var_62 = wp::extract(var_63, var_60);
+        var_65 = wp::address(var_y, var_0);
+        var_67 = wp::load(var_65);
+        var_66 = wp::extract(var_67, var_64);
+        var_68 = wp::sub(var_62, var_66);
+        wp::assign_inplace(var_18, var_69, var_70, var_68);
+        // F[1, 1] = y[tid][6 + 1] - y[tid][1]                                                    <L 99>
+        var_73 = wp::add(var_71, var_72);
+        var_74 = wp::address(var_y, var_0);
+        var_76 = wp::load(var_74);
+        var_75 = wp::extract(var_76, var_73);
+        var_78 = wp::address(var_y, var_0);
+        var_80 = wp::load(var_78);
+        var_79 = wp::extract(var_80, var_77);
+        var_81 = wp::sub(var_75, var_79);
+        wp::assign_inplace(var_18, var_82, var_83, var_81);
+        // F[2, 1] = y[tid][6 + 2] - y[tid][2]                                                    <L 100>
+        var_86 = wp::add(var_84, var_85);
+        var_87 = wp::address(var_y, var_0);
+        var_89 = wp::load(var_87);
+        var_88 = wp::extract(var_89, var_86);
+        var_91 = wp::address(var_y, var_0);
+        var_93 = wp::load(var_91);
+        var_92 = wp::extract(var_93, var_90);
+        var_94 = wp::sub(var_88, var_92);
+        wp::assign_inplace(var_18, var_95, var_96, var_94);
+        // F[0, 2] = y[tid][9 + 0] - y[tid][0]                                                    <L 101>
+        var_99 = wp::add(var_97, var_98);
+        var_100 = wp::address(var_y, var_0);
+        var_102 = wp::load(var_100);
+        var_101 = wp::extract(var_102, var_99);
+        var_104 = wp::address(var_y, var_0);
+        var_106 = wp::load(var_104);
+        var_105 = wp::extract(var_106, var_103);
+        var_107 = wp::sub(var_101, var_105);
+        wp::assign_inplace(var_18, var_108, var_109, var_107);
+        // F[1, 2] = y[tid][9 + 1] - y[tid][1]                                                    <L 102>
+        var_112 = wp::add(var_110, var_111);
+        var_113 = wp::address(var_y, var_0);
+        var_115 = wp::load(var_113);
+        var_114 = wp::extract(var_115, var_112);
+        var_117 = wp::address(var_y, var_0);
+        var_119 = wp::load(var_117);
+        var_118 = wp::extract(var_119, var_116);
+        var_120 = wp::sub(var_114, var_118);
+        wp::assign_inplace(var_18, var_121, var_122, var_120);
+        // F[2, 2] = y[tid][9 + 2] - y[tid][2]                                                    <L 103>
+        var_125 = wp::add(var_123, var_124);
+        var_126 = wp::address(var_y, var_0);
+        var_128 = wp::load(var_126);
+        var_127 = wp::extract(var_128, var_125);
+        var_130 = wp::address(var_y, var_0);
+        var_132 = wp::load(var_130);
+        var_131 = wp::extract(var_132, var_129);
+        var_133 = wp::sub(var_127, var_131);
+        wp::assign_inplace(var_18, var_134, var_135, var_133);
+        // g_F = wp.mat33d()                                                                      <L 104>
+        var_136 = wp::mat_t<3,3,wp::float64>();
+        // for i in range(dim):                                                                   <L 105>
+        // for j in range(dim):                                                                   <L 106>
+        // g_F[i, j] = wp.float64(0.0)                                                            <L 107>
+        var_140 = wp::float64(var_139);
+        wp::assign_inplace(var_136, var_137, var_138, var_140);
+        var_143 = wp::float64(var_142);
+        wp::assign_inplace(var_136, var_137, var_141, var_143);
+        var_146 = wp::float64(var_145);
+        wp::assign_inplace(var_136, var_137, var_144, var_146);
+        // for j in range(dim):                                                                   <L 106>
+        // g_F[i, j] = wp.float64(0.0)                                                            <L 107>
+        var_150 = wp::float64(var_149);
+        wp::assign_inplace(var_136, var_147, var_148, var_150);
+        var_153 = wp::float64(var_152);
+        wp::assign_inplace(var_136, var_147, var_151, var_153);
+        var_156 = wp::float64(var_155);
+        wp::assign_inplace(var_136, var_147, var_154, var_156);
+        // for j in range(dim):                                                                   <L 106>
+        // g_F[i, j] = wp.float64(0.0)                                                            <L 107>
+        var_160 = wp::float64(var_159);
+        wp::assign_inplace(var_136, var_157, var_158, var_160);
+        var_163 = wp::float64(var_162);
+        wp::assign_inplace(var_136, var_157, var_161, var_163);
+        var_166 = wp::float64(var_165);
+        wp::assign_inplace(var_136, var_157, var_164, var_166);
+        // for i in range(dim):                                                                   <L 109>
+        // for j in range(dim):                                                                   <L 110>
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_170 = wp::extract(var_18, var_169, var_167);
+        var_172 = wp::extract(var_18, var_171, var_168);
+        var_173 = wp::mul(var_170, var_172);
+        var_175 = wp::extract(var_18, var_174, var_167);
+        var_177 = wp::extract(var_18, var_176, var_168);
+        var_178 = wp::mul(var_175, var_177);
+        var_179 = wp::add(var_173, var_178);
+        var_181 = wp::extract(var_18, var_180, var_167);
+        var_183 = wp::extract(var_18, var_182, var_168);
+        var_184 = wp::mul(var_181, var_183);
+        var_185 = wp::add(var_179, var_184);
+        // if i == j:                                                                             <L 112>
+        var_186 = (var_167 == var_168);
+        if (var_186) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_188 = wp::float64(var_187);
+            var_190 = wp::float64(var_189);
+            var_191 = wp::sub(var_185, var_190);
+            var_192 = wp::mul(var_188, var_191);
+            var_194 = wp::extract(var_18, var_193, var_167);
+            var_195 = wp::mul(var_192, var_194);
+            wp::add_inplace(var_136, var_196, var_167, var_195);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_198 = wp::float64(var_197);
+            var_200 = wp::float64(var_199);
+            var_201 = wp::sub(var_185, var_200);
+            var_202 = wp::mul(var_198, var_201);
+            var_204 = wp::extract(var_18, var_203, var_167);
+            var_205 = wp::mul(var_202, var_204);
+            wp::add_inplace(var_136, var_206, var_167, var_205);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_208 = wp::float64(var_207);
+            var_210 = wp::float64(var_209);
+            var_211 = wp::sub(var_185, var_210);
+            var_212 = wp::mul(var_208, var_211);
+            var_214 = wp::extract(var_18, var_213, var_167);
+            var_215 = wp::mul(var_212, var_214);
+            wp::add_inplace(var_136, var_216, var_167, var_215);
+        }
+        if (!var_186) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_218 = wp::float64(var_217);
+            var_219 = wp::mul(var_218, var_185);
+            var_221 = wp::extract(var_18, var_220, var_168);
+            var_222 = wp::mul(var_219, var_221);
+            wp::add_inplace(var_136, var_223, var_167, var_222);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_225 = wp::float64(var_224);
+            var_226 = wp::mul(var_225, var_185);
+            var_228 = wp::extract(var_18, var_227, var_168);
+            var_229 = wp::mul(var_226, var_228);
+            wp::add_inplace(var_136, var_230, var_167, var_229);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_232 = wp::float64(var_231);
+            var_233 = wp::mul(var_232, var_185);
+            var_235 = wp::extract(var_18, var_234, var_168);
+            var_236 = wp::mul(var_233, var_235);
+            wp::add_inplace(var_136, var_237, var_167, var_236);
+        }
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_240 = wp::extract(var_18, var_239, var_167);
+        var_242 = wp::extract(var_18, var_241, var_238);
+        var_243 = wp::mul(var_240, var_242);
+        var_245 = wp::extract(var_18, var_244, var_167);
+        var_247 = wp::extract(var_18, var_246, var_238);
+        var_248 = wp::mul(var_245, var_247);
+        var_249 = wp::add(var_243, var_248);
+        var_251 = wp::extract(var_18, var_250, var_167);
+        var_253 = wp::extract(var_18, var_252, var_238);
+        var_254 = wp::mul(var_251, var_253);
+        var_255 = wp::add(var_249, var_254);
+        // if i == j:                                                                             <L 112>
+        var_256 = (var_167 == var_238);
+        if (var_256) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_258 = wp::float64(var_257);
+            var_260 = wp::float64(var_259);
+            var_261 = wp::sub(var_255, var_260);
+            var_262 = wp::mul(var_258, var_261);
+            var_264 = wp::extract(var_18, var_263, var_167);
+            var_265 = wp::mul(var_262, var_264);
+            wp::add_inplace(var_136, var_266, var_167, var_265);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_268 = wp::float64(var_267);
+            var_270 = wp::float64(var_269);
+            var_271 = wp::sub(var_255, var_270);
+            var_272 = wp::mul(var_268, var_271);
+            var_274 = wp::extract(var_18, var_273, var_167);
+            var_275 = wp::mul(var_272, var_274);
+            wp::add_inplace(var_136, var_276, var_167, var_275);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_278 = wp::float64(var_277);
+            var_280 = wp::float64(var_279);
+            var_281 = wp::sub(var_255, var_280);
+            var_282 = wp::mul(var_278, var_281);
+            var_284 = wp::extract(var_18, var_283, var_167);
+            var_285 = wp::mul(var_282, var_284);
+            wp::add_inplace(var_136, var_286, var_167, var_285);
+        }
+        if (!var_256) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_288 = wp::float64(var_287);
+            var_289 = wp::mul(var_288, var_255);
+            var_291 = wp::extract(var_18, var_290, var_238);
+            var_292 = wp::mul(var_289, var_291);
+            wp::add_inplace(var_136, var_293, var_167, var_292);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_295 = wp::float64(var_294);
+            var_296 = wp::mul(var_295, var_255);
+            var_298 = wp::extract(var_18, var_297, var_238);
+            var_299 = wp::mul(var_296, var_298);
+            wp::add_inplace(var_136, var_300, var_167, var_299);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_302 = wp::float64(var_301);
+            var_303 = wp::mul(var_302, var_255);
+            var_305 = wp::extract(var_18, var_304, var_238);
+            var_306 = wp::mul(var_303, var_305);
+            wp::add_inplace(var_136, var_307, var_167, var_306);
+        }
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_310 = wp::extract(var_18, var_309, var_167);
+        var_312 = wp::extract(var_18, var_311, var_308);
+        var_313 = wp::mul(var_310, var_312);
+        var_315 = wp::extract(var_18, var_314, var_167);
+        var_317 = wp::extract(var_18, var_316, var_308);
+        var_318 = wp::mul(var_315, var_317);
+        var_319 = wp::add(var_313, var_318);
+        var_321 = wp::extract(var_18, var_320, var_167);
+        var_323 = wp::extract(var_18, var_322, var_308);
+        var_324 = wp::mul(var_321, var_323);
+        var_325 = wp::add(var_319, var_324);
+        // if i == j:                                                                             <L 112>
+        var_326 = (var_167 == var_308);
+        if (var_326) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_328 = wp::float64(var_327);
+            var_330 = wp::float64(var_329);
+            var_331 = wp::sub(var_325, var_330);
+            var_332 = wp::mul(var_328, var_331);
+            var_334 = wp::extract(var_18, var_333, var_167);
+            var_335 = wp::mul(var_332, var_334);
+            wp::add_inplace(var_136, var_336, var_167, var_335);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_338 = wp::float64(var_337);
+            var_340 = wp::float64(var_339);
+            var_341 = wp::sub(var_325, var_340);
+            var_342 = wp::mul(var_338, var_341);
+            var_344 = wp::extract(var_18, var_343, var_167);
+            var_345 = wp::mul(var_342, var_344);
+            wp::add_inplace(var_136, var_346, var_167, var_345);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_348 = wp::float64(var_347);
+            var_350 = wp::float64(var_349);
+            var_351 = wp::sub(var_325, var_350);
+            var_352 = wp::mul(var_348, var_351);
+            var_354 = wp::extract(var_18, var_353, var_167);
+            var_355 = wp::mul(var_352, var_354);
+            wp::add_inplace(var_136, var_356, var_167, var_355);
+        }
+        if (!var_326) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_358 = wp::float64(var_357);
+            var_359 = wp::mul(var_358, var_325);
+            var_361 = wp::extract(var_18, var_360, var_308);
+            var_362 = wp::mul(var_359, var_361);
+            wp::add_inplace(var_136, var_363, var_167, var_362);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_365 = wp::float64(var_364);
+            var_366 = wp::mul(var_365, var_325);
+            var_368 = wp::extract(var_18, var_367, var_308);
+            var_369 = wp::mul(var_366, var_368);
+            wp::add_inplace(var_136, var_370, var_167, var_369);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_372 = wp::float64(var_371);
+            var_373 = wp::mul(var_372, var_325);
+            var_375 = wp::extract(var_18, var_374, var_308);
+            var_376 = wp::mul(var_373, var_375);
+            wp::add_inplace(var_136, var_377, var_167, var_376);
+        }
+        // for j in range(dim):                                                                   <L 110>
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_381 = wp::extract(var_18, var_380, var_378);
+        var_383 = wp::extract(var_18, var_382, var_379);
+        var_384 = wp::mul(var_381, var_383);
+        var_386 = wp::extract(var_18, var_385, var_378);
+        var_388 = wp::extract(var_18, var_387, var_379);
+        var_389 = wp::mul(var_386, var_388);
+        var_390 = wp::add(var_384, var_389);
+        var_392 = wp::extract(var_18, var_391, var_378);
+        var_394 = wp::extract(var_18, var_393, var_379);
+        var_395 = wp::mul(var_392, var_394);
+        var_396 = wp::add(var_390, var_395);
+        // if i == j:                                                                             <L 112>
+        var_397 = (var_378 == var_379);
+        if (var_397) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_399 = wp::float64(var_398);
+            var_401 = wp::float64(var_400);
+            var_402 = wp::sub(var_396, var_401);
+            var_403 = wp::mul(var_399, var_402);
+            var_405 = wp::extract(var_18, var_404, var_378);
+            var_406 = wp::mul(var_403, var_405);
+            wp::add_inplace(var_136, var_407, var_378, var_406);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_409 = wp::float64(var_408);
+            var_411 = wp::float64(var_410);
+            var_412 = wp::sub(var_396, var_411);
+            var_413 = wp::mul(var_409, var_412);
+            var_415 = wp::extract(var_18, var_414, var_378);
+            var_416 = wp::mul(var_413, var_415);
+            wp::add_inplace(var_136, var_417, var_378, var_416);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_419 = wp::float64(var_418);
+            var_421 = wp::float64(var_420);
+            var_422 = wp::sub(var_396, var_421);
+            var_423 = wp::mul(var_419, var_422);
+            var_425 = wp::extract(var_18, var_424, var_378);
+            var_426 = wp::mul(var_423, var_425);
+            wp::add_inplace(var_136, var_427, var_378, var_426);
+        }
+        if (!var_397) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_429 = wp::float64(var_428);
+            var_430 = wp::mul(var_429, var_396);
+            var_432 = wp::extract(var_18, var_431, var_379);
+            var_433 = wp::mul(var_430, var_432);
+            wp::add_inplace(var_136, var_434, var_378, var_433);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_436 = wp::float64(var_435);
+            var_437 = wp::mul(var_436, var_396);
+            var_439 = wp::extract(var_18, var_438, var_379);
+            var_440 = wp::mul(var_437, var_439);
+            wp::add_inplace(var_136, var_441, var_378, var_440);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_443 = wp::float64(var_442);
+            var_444 = wp::mul(var_443, var_396);
+            var_446 = wp::extract(var_18, var_445, var_379);
+            var_447 = wp::mul(var_444, var_446);
+            wp::add_inplace(var_136, var_448, var_378, var_447);
+        }
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_451 = wp::extract(var_18, var_450, var_378);
+        var_453 = wp::extract(var_18, var_452, var_449);
+        var_454 = wp::mul(var_451, var_453);
+        var_456 = wp::extract(var_18, var_455, var_378);
+        var_458 = wp::extract(var_18, var_457, var_449);
+        var_459 = wp::mul(var_456, var_458);
+        var_460 = wp::add(var_454, var_459);
+        var_462 = wp::extract(var_18, var_461, var_378);
+        var_464 = wp::extract(var_18, var_463, var_449);
+        var_465 = wp::mul(var_462, var_464);
+        var_466 = wp::add(var_460, var_465);
+        // if i == j:                                                                             <L 112>
+        var_467 = (var_378 == var_449);
+        if (var_467) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_469 = wp::float64(var_468);
+            var_471 = wp::float64(var_470);
+            var_472 = wp::sub(var_466, var_471);
+            var_473 = wp::mul(var_469, var_472);
+            var_475 = wp::extract(var_18, var_474, var_378);
+            var_476 = wp::mul(var_473, var_475);
+            wp::add_inplace(var_136, var_477, var_378, var_476);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_479 = wp::float64(var_478);
+            var_481 = wp::float64(var_480);
+            var_482 = wp::sub(var_466, var_481);
+            var_483 = wp::mul(var_479, var_482);
+            var_485 = wp::extract(var_18, var_484, var_378);
+            var_486 = wp::mul(var_483, var_485);
+            wp::add_inplace(var_136, var_487, var_378, var_486);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_489 = wp::float64(var_488);
+            var_491 = wp::float64(var_490);
+            var_492 = wp::sub(var_466, var_491);
+            var_493 = wp::mul(var_489, var_492);
+            var_495 = wp::extract(var_18, var_494, var_378);
+            var_496 = wp::mul(var_493, var_495);
+            wp::add_inplace(var_136, var_497, var_378, var_496);
+        }
+        if (!var_467) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_499 = wp::float64(var_498);
+            var_500 = wp::mul(var_499, var_466);
+            var_502 = wp::extract(var_18, var_501, var_449);
+            var_503 = wp::mul(var_500, var_502);
+            wp::add_inplace(var_136, var_504, var_378, var_503);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_506 = wp::float64(var_505);
+            var_507 = wp::mul(var_506, var_466);
+            var_509 = wp::extract(var_18, var_508, var_449);
+            var_510 = wp::mul(var_507, var_509);
+            wp::add_inplace(var_136, var_511, var_378, var_510);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_513 = wp::float64(var_512);
+            var_514 = wp::mul(var_513, var_466);
+            var_516 = wp::extract(var_18, var_515, var_449);
+            var_517 = wp::mul(var_514, var_516);
+            wp::add_inplace(var_136, var_518, var_378, var_517);
+        }
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_521 = wp::extract(var_18, var_520, var_378);
+        var_523 = wp::extract(var_18, var_522, var_519);
+        var_524 = wp::mul(var_521, var_523);
+        var_526 = wp::extract(var_18, var_525, var_378);
+        var_528 = wp::extract(var_18, var_527, var_519);
+        var_529 = wp::mul(var_526, var_528);
+        var_530 = wp::add(var_524, var_529);
+        var_532 = wp::extract(var_18, var_531, var_378);
+        var_534 = wp::extract(var_18, var_533, var_519);
+        var_535 = wp::mul(var_532, var_534);
+        var_536 = wp::add(var_530, var_535);
+        // if i == j:                                                                             <L 112>
+        var_537 = (var_378 == var_519);
+        if (var_537) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_539 = wp::float64(var_538);
+            var_541 = wp::float64(var_540);
+            var_542 = wp::sub(var_536, var_541);
+            var_543 = wp::mul(var_539, var_542);
+            var_545 = wp::extract(var_18, var_544, var_378);
+            var_546 = wp::mul(var_543, var_545);
+            wp::add_inplace(var_136, var_547, var_378, var_546);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_549 = wp::float64(var_548);
+            var_551 = wp::float64(var_550);
+            var_552 = wp::sub(var_536, var_551);
+            var_553 = wp::mul(var_549, var_552);
+            var_555 = wp::extract(var_18, var_554, var_378);
+            var_556 = wp::mul(var_553, var_555);
+            wp::add_inplace(var_136, var_557, var_378, var_556);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_559 = wp::float64(var_558);
+            var_561 = wp::float64(var_560);
+            var_562 = wp::sub(var_536, var_561);
+            var_563 = wp::mul(var_559, var_562);
+            var_565 = wp::extract(var_18, var_564, var_378);
+            var_566 = wp::mul(var_563, var_565);
+            wp::add_inplace(var_136, var_567, var_378, var_566);
+        }
+        if (!var_537) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_569 = wp::float64(var_568);
+            var_570 = wp::mul(var_569, var_536);
+            var_572 = wp::extract(var_18, var_571, var_519);
+            var_573 = wp::mul(var_570, var_572);
+            wp::add_inplace(var_136, var_574, var_378, var_573);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_576 = wp::float64(var_575);
+            var_577 = wp::mul(var_576, var_536);
+            var_579 = wp::extract(var_18, var_578, var_519);
+            var_580 = wp::mul(var_577, var_579);
+            wp::add_inplace(var_136, var_581, var_378, var_580);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_583 = wp::float64(var_582);
+            var_584 = wp::mul(var_583, var_536);
+            var_586 = wp::extract(var_18, var_585, var_519);
+            var_587 = wp::mul(var_584, var_586);
+            wp::add_inplace(var_136, var_588, var_378, var_587);
+        }
+        // for j in range(dim):                                                                   <L 110>
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_592 = wp::extract(var_18, var_591, var_589);
+        var_594 = wp::extract(var_18, var_593, var_590);
+        var_595 = wp::mul(var_592, var_594);
+        var_597 = wp::extract(var_18, var_596, var_589);
+        var_599 = wp::extract(var_18, var_598, var_590);
+        var_600 = wp::mul(var_597, var_599);
+        var_601 = wp::add(var_595, var_600);
+        var_603 = wp::extract(var_18, var_602, var_589);
+        var_605 = wp::extract(var_18, var_604, var_590);
+        var_606 = wp::mul(var_603, var_605);
+        var_607 = wp::add(var_601, var_606);
+        // if i == j:                                                                             <L 112>
+        var_608 = (var_589 == var_590);
+        if (var_608) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_610 = wp::float64(var_609);
+            var_612 = wp::float64(var_611);
+            var_613 = wp::sub(var_607, var_612);
+            var_614 = wp::mul(var_610, var_613);
+            var_616 = wp::extract(var_18, var_615, var_589);
+            var_617 = wp::mul(var_614, var_616);
+            wp::add_inplace(var_136, var_618, var_589, var_617);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_620 = wp::float64(var_619);
+            var_622 = wp::float64(var_621);
+            var_623 = wp::sub(var_607, var_622);
+            var_624 = wp::mul(var_620, var_623);
+            var_626 = wp::extract(var_18, var_625, var_589);
+            var_627 = wp::mul(var_624, var_626);
+            wp::add_inplace(var_136, var_628, var_589, var_627);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_630 = wp::float64(var_629);
+            var_632 = wp::float64(var_631);
+            var_633 = wp::sub(var_607, var_632);
+            var_634 = wp::mul(var_630, var_633);
+            var_636 = wp::extract(var_18, var_635, var_589);
+            var_637 = wp::mul(var_634, var_636);
+            wp::add_inplace(var_136, var_638, var_589, var_637);
+        }
+        if (!var_608) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_640 = wp::float64(var_639);
+            var_641 = wp::mul(var_640, var_607);
+            var_643 = wp::extract(var_18, var_642, var_590);
+            var_644 = wp::mul(var_641, var_643);
+            wp::add_inplace(var_136, var_645, var_589, var_644);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_647 = wp::float64(var_646);
+            var_648 = wp::mul(var_647, var_607);
+            var_650 = wp::extract(var_18, var_649, var_590);
+            var_651 = wp::mul(var_648, var_650);
+            wp::add_inplace(var_136, var_652, var_589, var_651);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_654 = wp::float64(var_653);
+            var_655 = wp::mul(var_654, var_607);
+            var_657 = wp::extract(var_18, var_656, var_590);
+            var_658 = wp::mul(var_655, var_657);
+            wp::add_inplace(var_136, var_659, var_589, var_658);
+        }
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_662 = wp::extract(var_18, var_661, var_589);
+        var_664 = wp::extract(var_18, var_663, var_660);
+        var_665 = wp::mul(var_662, var_664);
+        var_667 = wp::extract(var_18, var_666, var_589);
+        var_669 = wp::extract(var_18, var_668, var_660);
+        var_670 = wp::mul(var_667, var_669);
+        var_671 = wp::add(var_665, var_670);
+        var_673 = wp::extract(var_18, var_672, var_589);
+        var_675 = wp::extract(var_18, var_674, var_660);
+        var_676 = wp::mul(var_673, var_675);
+        var_677 = wp::add(var_671, var_676);
+        // if i == j:                                                                             <L 112>
+        var_678 = (var_589 == var_660);
+        if (var_678) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_680 = wp::float64(var_679);
+            var_682 = wp::float64(var_681);
+            var_683 = wp::sub(var_677, var_682);
+            var_684 = wp::mul(var_680, var_683);
+            var_686 = wp::extract(var_18, var_685, var_589);
+            var_687 = wp::mul(var_684, var_686);
+            wp::add_inplace(var_136, var_688, var_589, var_687);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_690 = wp::float64(var_689);
+            var_692 = wp::float64(var_691);
+            var_693 = wp::sub(var_677, var_692);
+            var_694 = wp::mul(var_690, var_693);
+            var_696 = wp::extract(var_18, var_695, var_589);
+            var_697 = wp::mul(var_694, var_696);
+            wp::add_inplace(var_136, var_698, var_589, var_697);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_700 = wp::float64(var_699);
+            var_702 = wp::float64(var_701);
+            var_703 = wp::sub(var_677, var_702);
+            var_704 = wp::mul(var_700, var_703);
+            var_706 = wp::extract(var_18, var_705, var_589);
+            var_707 = wp::mul(var_704, var_706);
+            wp::add_inplace(var_136, var_708, var_589, var_707);
+        }
+        if (!var_678) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_710 = wp::float64(var_709);
+            var_711 = wp::mul(var_710, var_677);
+            var_713 = wp::extract(var_18, var_712, var_660);
+            var_714 = wp::mul(var_711, var_713);
+            wp::add_inplace(var_136, var_715, var_589, var_714);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_717 = wp::float64(var_716);
+            var_718 = wp::mul(var_717, var_677);
+            var_720 = wp::extract(var_18, var_719, var_660);
+            var_721 = wp::mul(var_718, var_720);
+            wp::add_inplace(var_136, var_722, var_589, var_721);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_724 = wp::float64(var_723);
+            var_725 = wp::mul(var_724, var_677);
+            var_727 = wp::extract(var_18, var_726, var_660);
+            var_728 = wp::mul(var_725, var_727);
+            wp::add_inplace(var_136, var_729, var_589, var_728);
+        }
+        // aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                       <L 111>
+        var_732 = wp::extract(var_18, var_731, var_589);
+        var_734 = wp::extract(var_18, var_733, var_730);
+        var_735 = wp::mul(var_732, var_734);
+        var_737 = wp::extract(var_18, var_736, var_589);
+        var_739 = wp::extract(var_18, var_738, var_730);
+        var_740 = wp::mul(var_737, var_739);
+        var_741 = wp::add(var_735, var_740);
+        var_743 = wp::extract(var_18, var_742, var_589);
+        var_745 = wp::extract(var_18, var_744, var_730);
+        var_746 = wp::mul(var_743, var_745);
+        var_747 = wp::add(var_741, var_746);
+        // if i == j:                                                                             <L 112>
+        var_748 = (var_589 == var_730);
+        if (var_748) {
+            // g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]                  <L 113>
+            var_750 = wp::float64(var_749);
+            var_752 = wp::float64(var_751);
+            var_753 = wp::sub(var_747, var_752);
+            var_754 = wp::mul(var_750, var_753);
+            var_756 = wp::extract(var_18, var_755, var_589);
+            var_757 = wp::mul(var_754, var_756);
+            wp::add_inplace(var_136, var_758, var_589, var_757);
+            // g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]                  <L 114>
+            var_760 = wp::float64(var_759);
+            var_762 = wp::float64(var_761);
+            var_763 = wp::sub(var_747, var_762);
+            var_764 = wp::mul(var_760, var_763);
+            var_766 = wp::extract(var_18, var_765, var_589);
+            var_767 = wp::mul(var_764, var_766);
+            wp::add_inplace(var_136, var_768, var_589, var_767);
+            // g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]                  <L 115>
+            var_770 = wp::float64(var_769);
+            var_772 = wp::float64(var_771);
+            var_773 = wp::sub(var_747, var_772);
+            var_774 = wp::mul(var_770, var_773);
+            var_776 = wp::extract(var_18, var_775, var_589);
+            var_777 = wp::mul(var_774, var_776);
+            wp::add_inplace(var_136, var_778, var_589, var_777);
+        }
+        if (!var_748) {
+            // g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                      <L 117>
+            var_780 = wp::float64(var_779);
+            var_781 = wp::mul(var_780, var_747);
+            var_783 = wp::extract(var_18, var_782, var_730);
+            var_784 = wp::mul(var_781, var_783);
+            wp::add_inplace(var_136, var_785, var_589, var_784);
+            // g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                      <L 118>
+            var_787 = wp::float64(var_786);
+            var_788 = wp::mul(var_787, var_747);
+            var_790 = wp::extract(var_18, var_789, var_730);
+            var_791 = wp::mul(var_788, var_790);
+            wp::add_inplace(var_136, var_792, var_589, var_791);
+            // g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                      <L 119>
+            var_794 = wp::float64(var_793);
+            var_795 = wp::mul(var_794, var_747);
+            var_797 = wp::extract(var_18, var_796, var_730);
+            var_798 = wp::mul(var_795, var_797);
+            wp::add_inplace(var_136, var_799, var_589, var_798);
+        }
+        // coeff = vol_body[tid] * E_body[tid] * scale / wp.float64(8.0)                          <L 121>
+        var_800 = wp::address(var_vol_body, var_0);
+        var_801 = wp::address(var_E_body, var_0);
+        var_803 = wp::load(var_800);
+        var_804 = wp::load(var_801);
+        var_802 = wp::mul(var_803, var_804);
+        var_805 = wp::mul(var_802, var_scale);
+        var_807 = wp::float64(var_806);
+        var_808 = wp::div(var_805, var_807);
+        // for i in range(dim):                                                                   <L 122>
+        // for j in range(dim):                                                                   <L 123>
+        // g_F[i, j] *= coeff                                                                     <L 124>
+        var_811 = wp::extract(var_136, var_809, var_810);
+        var_812 = wp::mul(var_811, var_808);
+        wp::assign_inplace(var_136, var_809, var_810, var_812);
+        var_814 = wp::extract(var_136, var_809, var_813);
+        var_815 = wp::mul(var_814, var_808);
+        wp::assign_inplace(var_136, var_809, var_813, var_815);
+        var_817 = wp::extract(var_136, var_809, var_816);
+        var_818 = wp::mul(var_817, var_808);
+        wp::assign_inplace(var_136, var_809, var_816, var_818);
+        // for j in range(dim):                                                                   <L 123>
+        // g_F[i, j] *= coeff                                                                     <L 124>
+        var_821 = wp::extract(var_136, var_819, var_820);
+        var_822 = wp::mul(var_821, var_808);
+        wp::assign_inplace(var_136, var_819, var_820, var_822);
+        var_824 = wp::extract(var_136, var_819, var_823);
+        var_825 = wp::mul(var_824, var_808);
+        wp::assign_inplace(var_136, var_819, var_823, var_825);
+        var_827 = wp::extract(var_136, var_819, var_826);
+        var_828 = wp::mul(var_827, var_808);
+        wp::assign_inplace(var_136, var_819, var_826, var_828);
+        // for j in range(dim):                                                                   <L 123>
+        // g_F[i, j] *= coeff                                                                     <L 124>
+        var_831 = wp::extract(var_136, var_829, var_830);
+        var_832 = wp::mul(var_831, var_808);
+        wp::assign_inplace(var_136, var_829, var_830, var_832);
+        var_834 = wp::extract(var_136, var_829, var_833);
+        var_835 = wp::mul(var_834, var_808);
+        wp::assign_inplace(var_136, var_829, var_833, var_835);
+        var_837 = wp::extract(var_136, var_829, var_836);
+        var_838 = wp::mul(var_837, var_808);
+        wp::assign_inplace(var_136, var_829, var_836, var_838);
+        // local_gradient = vec12d()                                                              <L 126>
+        var_839 = wp::vec_t<12,wp::float64>();
+        // for d in range(dim):                                                                   <L 127>
+        // local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                      <L 128>
+        var_842 = wp::extract(var_136, var_840, var_841);
+        var_843 = wp::neg(var_842);
+        var_845 = wp::extract(var_136, var_840, var_844);
+        var_846 = wp::sub(var_843, var_845);
+        var_848 = wp::extract(var_136, var_840, var_847);
+        var_849 = wp::sub(var_846, var_848);
+        var_851 = wp::mul(var_850, var_17);
+        var_852 = wp::add(var_851, var_840);
+        wp::add_inplace(var_839, var_852, var_849);
+        // local_gradient[1 * dim + d] += g_F[d, 0]                                               <L 129>
+        var_854 = wp::extract(var_136, var_840, var_853);
+        var_856 = wp::mul(var_855, var_17);
+        var_857 = wp::add(var_856, var_840);
+        wp::add_inplace(var_839, var_857, var_854);
+        // local_gradient[2 * dim + d] += g_F[d, 1]                                               <L 130>
+        var_859 = wp::extract(var_136, var_840, var_858);
+        var_861 = wp::mul(var_860, var_17);
+        var_862 = wp::add(var_861, var_840);
+        wp::add_inplace(var_839, var_862, var_859);
+        // local_gradient[3 * dim + d] += g_F[d, 2]                                               <L 131>
+        var_864 = wp::extract(var_136, var_840, var_863);
+        var_866 = wp::mul(var_865, var_17);
+        var_867 = wp::add(var_866, var_840);
+        wp::add_inplace(var_839, var_867, var_864);
+        // local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                      <L 128>
+        var_870 = wp::extract(var_136, var_868, var_869);
+        var_871 = wp::neg(var_870);
+        var_873 = wp::extract(var_136, var_868, var_872);
+        var_874 = wp::sub(var_871, var_873);
+        var_876 = wp::extract(var_136, var_868, var_875);
+        var_877 = wp::sub(var_874, var_876);
+        var_879 = wp::mul(var_878, var_17);
+        var_880 = wp::add(var_879, var_868);
+        wp::add_inplace(var_839, var_880, var_877);
+        // local_gradient[1 * dim + d] += g_F[d, 0]                                               <L 129>
+        var_882 = wp::extract(var_136, var_868, var_881);
+        var_884 = wp::mul(var_883, var_17);
+        var_885 = wp::add(var_884, var_868);
+        wp::add_inplace(var_839, var_885, var_882);
+        // local_gradient[2 * dim + d] += g_F[d, 1]                                               <L 130>
+        var_887 = wp::extract(var_136, var_868, var_886);
+        var_889 = wp::mul(var_888, var_17);
+        var_890 = wp::add(var_889, var_868);
+        wp::add_inplace(var_839, var_890, var_887);
+        // local_gradient[3 * dim + d] += g_F[d, 2]                                               <L 131>
+        var_892 = wp::extract(var_136, var_868, var_891);
+        var_894 = wp::mul(var_893, var_17);
+        var_895 = wp::add(var_894, var_868);
+        wp::add_inplace(var_839, var_895, var_892);
+        // local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                      <L 128>
+        var_898 = wp::extract(var_136, var_896, var_897);
+        var_899 = wp::neg(var_898);
+        var_901 = wp::extract(var_136, var_896, var_900);
+        var_902 = wp::sub(var_899, var_901);
+        var_904 = wp::extract(var_136, var_896, var_903);
+        var_905 = wp::sub(var_902, var_904);
+        var_907 = wp::mul(var_906, var_17);
+        var_908 = wp::add(var_907, var_896);
+        wp::add_inplace(var_839, var_908, var_905);
+        // local_gradient[1 * dim + d] += g_F[d, 0]                                               <L 129>
+        var_910 = wp::extract(var_136, var_896, var_909);
+        var_912 = wp::mul(var_911, var_17);
+        var_913 = wp::add(var_912, var_896);
+        wp::add_inplace(var_839, var_913, var_910);
+        // local_gradient[2 * dim + d] += g_F[d, 1]                                               <L 130>
+        var_915 = wp::extract(var_136, var_896, var_914);
+        var_917 = wp::mul(var_916, var_17);
+        var_918 = wp::add(var_917, var_896);
+        wp::add_inplace(var_839, var_918, var_915);
+        // local_gradient[3 * dim + d] += g_F[d, 2]                                               <L 131>
+        var_920 = wp::extract(var_136, var_896, var_919);
+        var_922 = wp::mul(var_921, var_17);
+        var_923 = wp::add(var_922, var_896);
+        wp::add_inplace(var_839, var_923, var_920);
+        // gradient[tid] += local_gradient                                                        <L 132>
+        // var_924 = wp::atomic_add(var_gradient, var_0, var_839);
+        //---------
+        // reverse
+        wp::adj_atomic_add(var_gradient, var_0, var_839, adj_gradient, adj_0, adj_839, adj_924);
+        // adj: gradient[tid] += local_gradient                                                   <L 132>
+        wp::adj_add_inplace(var_839, var_923, var_920, adj_839, adj_923, adj_920);
+        wp::adj_add(var_922, var_896, adj_922, adj_896, adj_923);
+        wp::adj_mul(var_921, var_17, adj_921, adj_17, adj_922);
+        wp::adj_extract(var_136, var_896, var_919, adj_136, adj_896, adj_919, adj_920);
+        // adj: local_gradient[3 * dim + d] += g_F[d, 2]                                          <L 131>
+        wp::adj_add_inplace(var_839, var_918, var_915, adj_839, adj_918, adj_915);
+        wp::adj_add(var_917, var_896, adj_917, adj_896, adj_918);
+        wp::adj_mul(var_916, var_17, adj_916, adj_17, adj_917);
+        wp::adj_extract(var_136, var_896, var_914, adj_136, adj_896, adj_914, adj_915);
+        // adj: local_gradient[2 * dim + d] += g_F[d, 1]                                          <L 130>
+        wp::adj_add_inplace(var_839, var_913, var_910, adj_839, adj_913, adj_910);
+        wp::adj_add(var_912, var_896, adj_912, adj_896, adj_913);
+        wp::adj_mul(var_911, var_17, adj_911, adj_17, adj_912);
+        wp::adj_extract(var_136, var_896, var_909, adj_136, adj_896, adj_909, adj_910);
+        // adj: local_gradient[1 * dim + d] += g_F[d, 0]                                          <L 129>
+        wp::adj_add_inplace(var_839, var_908, var_905, adj_839, adj_908, adj_905);
+        wp::adj_add(var_907, var_896, adj_907, adj_896, adj_908);
+        wp::adj_mul(var_906, var_17, adj_906, adj_17, adj_907);
+        wp::adj_sub(var_902, var_904, adj_902, adj_904, adj_905);
+        wp::adj_extract(var_136, var_896, var_903, adj_136, adj_896, adj_903, adj_904);
+        wp::adj_sub(var_899, var_901, adj_899, adj_901, adj_902);
+        wp::adj_extract(var_136, var_896, var_900, adj_136, adj_896, adj_900, adj_901);
+        wp::adj_neg(var_898, adj_898, adj_899);
+        wp::adj_extract(var_136, var_896, var_897, adj_136, adj_896, adj_897, adj_898);
+        // adj: local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                 <L 128>
+        wp::adj_add_inplace(var_839, var_895, var_892, adj_839, adj_895, adj_892);
+        wp::adj_add(var_894, var_868, adj_894, adj_868, adj_895);
+        wp::adj_mul(var_893, var_17, adj_893, adj_17, adj_894);
+        wp::adj_extract(var_136, var_868, var_891, adj_136, adj_868, adj_891, adj_892);
+        // adj: local_gradient[3 * dim + d] += g_F[d, 2]                                          <L 131>
+        wp::adj_add_inplace(var_839, var_890, var_887, adj_839, adj_890, adj_887);
+        wp::adj_add(var_889, var_868, adj_889, adj_868, adj_890);
+        wp::adj_mul(var_888, var_17, adj_888, adj_17, adj_889);
+        wp::adj_extract(var_136, var_868, var_886, adj_136, adj_868, adj_886, adj_887);
+        // adj: local_gradient[2 * dim + d] += g_F[d, 1]                                          <L 130>
+        wp::adj_add_inplace(var_839, var_885, var_882, adj_839, adj_885, adj_882);
+        wp::adj_add(var_884, var_868, adj_884, adj_868, adj_885);
+        wp::adj_mul(var_883, var_17, adj_883, adj_17, adj_884);
+        wp::adj_extract(var_136, var_868, var_881, adj_136, adj_868, adj_881, adj_882);
+        // adj: local_gradient[1 * dim + d] += g_F[d, 0]                                          <L 129>
+        wp::adj_add_inplace(var_839, var_880, var_877, adj_839, adj_880, adj_877);
+        wp::adj_add(var_879, var_868, adj_879, adj_868, adj_880);
+        wp::adj_mul(var_878, var_17, adj_878, adj_17, adj_879);
+        wp::adj_sub(var_874, var_876, adj_874, adj_876, adj_877);
+        wp::adj_extract(var_136, var_868, var_875, adj_136, adj_868, adj_875, adj_876);
+        wp::adj_sub(var_871, var_873, adj_871, adj_873, adj_874);
+        wp::adj_extract(var_136, var_868, var_872, adj_136, adj_868, adj_872, adj_873);
+        wp::adj_neg(var_870, adj_870, adj_871);
+        wp::adj_extract(var_136, var_868, var_869, adj_136, adj_868, adj_869, adj_870);
+        // adj: local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                 <L 128>
+        wp::adj_add_inplace(var_839, var_867, var_864, adj_839, adj_867, adj_864);
+        wp::adj_add(var_866, var_840, adj_866, adj_840, adj_867);
+        wp::adj_mul(var_865, var_17, adj_865, adj_17, adj_866);
+        wp::adj_extract(var_136, var_840, var_863, adj_136, adj_840, adj_863, adj_864);
+        // adj: local_gradient[3 * dim + d] += g_F[d, 2]                                          <L 131>
+        wp::adj_add_inplace(var_839, var_862, var_859, adj_839, adj_862, adj_859);
+        wp::adj_add(var_861, var_840, adj_861, adj_840, adj_862);
+        wp::adj_mul(var_860, var_17, adj_860, adj_17, adj_861);
+        wp::adj_extract(var_136, var_840, var_858, adj_136, adj_840, adj_858, adj_859);
+        // adj: local_gradient[2 * dim + d] += g_F[d, 1]                                          <L 130>
+        wp::adj_add_inplace(var_839, var_857, var_854, adj_839, adj_857, adj_854);
+        wp::adj_add(var_856, var_840, adj_856, adj_840, adj_857);
+        wp::adj_mul(var_855, var_17, adj_855, adj_17, adj_856);
+        wp::adj_extract(var_136, var_840, var_853, adj_136, adj_840, adj_853, adj_854);
+        // adj: local_gradient[1 * dim + d] += g_F[d, 0]                                          <L 129>
+        wp::adj_add_inplace(var_839, var_852, var_849, adj_839, adj_852, adj_849);
+        wp::adj_add(var_851, var_840, adj_851, adj_840, adj_852);
+        wp::adj_mul(var_850, var_17, adj_850, adj_17, adj_851);
+        wp::adj_sub(var_846, var_848, adj_846, adj_848, adj_849);
+        wp::adj_extract(var_136, var_840, var_847, adj_136, adj_840, adj_847, adj_848);
+        wp::adj_sub(var_843, var_845, adj_843, adj_845, adj_846);
+        wp::adj_extract(var_136, var_840, var_844, adj_136, adj_840, adj_844, adj_845);
+        wp::adj_neg(var_842, adj_842, adj_843);
+        wp::adj_extract(var_136, var_840, var_841, adj_136, adj_840, adj_841, adj_842);
+        // adj: local_gradient[0 * dim + d] += -g_F[d, 0] - g_F[d, 1] - g_F[d, 2]                 <L 128>
+        // adj: for d in range(dim):                                                              <L 127>
+        // adj: local_gradient = vec12d()                                                         <L 126>
+        wp::adj_assign_inplace(var_136, var_829, var_836, var_838, adj_136, adj_829, adj_836, adj_838);
+        wp::adj_mul(var_837, var_808, adj_837, adj_808, adj_838);
+        wp::adj_extract(var_136, var_829, var_836, adj_136, adj_829, adj_836, adj_837);
+        wp::adj_assign_inplace(var_136, var_829, var_833, var_835, adj_136, adj_829, adj_833, adj_835);
+        wp::adj_mul(var_834, var_808, adj_834, adj_808, adj_835);
+        wp::adj_extract(var_136, var_829, var_833, adj_136, adj_829, adj_833, adj_834);
+        wp::adj_assign_inplace(var_136, var_829, var_830, var_832, adj_136, adj_829, adj_830, adj_832);
+        wp::adj_mul(var_831, var_808, adj_831, adj_808, adj_832);
+        wp::adj_extract(var_136, var_829, var_830, adj_136, adj_829, adj_830, adj_831);
+        // adj: g_F[i, j] *= coeff                                                                <L 124>
+        // adj: for j in range(dim):                                                              <L 123>
+        wp::adj_assign_inplace(var_136, var_819, var_826, var_828, adj_136, adj_819, adj_826, adj_828);
+        wp::adj_mul(var_827, var_808, adj_827, adj_808, adj_828);
+        wp::adj_extract(var_136, var_819, var_826, adj_136, adj_819, adj_826, adj_827);
+        wp::adj_assign_inplace(var_136, var_819, var_823, var_825, adj_136, adj_819, adj_823, adj_825);
+        wp::adj_mul(var_824, var_808, adj_824, adj_808, adj_825);
+        wp::adj_extract(var_136, var_819, var_823, adj_136, adj_819, adj_823, adj_824);
+        wp::adj_assign_inplace(var_136, var_819, var_820, var_822, adj_136, adj_819, adj_820, adj_822);
+        wp::adj_mul(var_821, var_808, adj_821, adj_808, adj_822);
+        wp::adj_extract(var_136, var_819, var_820, adj_136, adj_819, adj_820, adj_821);
+        // adj: g_F[i, j] *= coeff                                                                <L 124>
+        // adj: for j in range(dim):                                                              <L 123>
+        wp::adj_assign_inplace(var_136, var_809, var_816, var_818, adj_136, adj_809, adj_816, adj_818);
+        wp::adj_mul(var_817, var_808, adj_817, adj_808, adj_818);
+        wp::adj_extract(var_136, var_809, var_816, adj_136, adj_809, adj_816, adj_817);
+        wp::adj_assign_inplace(var_136, var_809, var_813, var_815, adj_136, adj_809, adj_813, adj_815);
+        wp::adj_mul(var_814, var_808, adj_814, adj_808, adj_815);
+        wp::adj_extract(var_136, var_809, var_813, adj_136, adj_809, adj_813, adj_814);
+        wp::adj_assign_inplace(var_136, var_809, var_810, var_812, adj_136, adj_809, adj_810, adj_812);
+        wp::adj_mul(var_811, var_808, adj_811, adj_808, adj_812);
+        wp::adj_extract(var_136, var_809, var_810, adj_136, adj_809, adj_810, adj_811);
+        // adj: g_F[i, j] *= coeff                                                                <L 124>
+        // adj: for j in range(dim):                                                              <L 123>
+        // adj: for i in range(dim):                                                              <L 122>
+        wp::adj_div(var_805, var_807, var_808, adj_805, adj_807, adj_808);
+        wp::adj_float64(var_806, adj_806, adj_807);
+        wp::adj_mul(var_802, var_scale, adj_802, adj_scale, adj_805);
+        wp::adj_mul(var_803, var_804, adj_800, adj_801, adj_802);
+        wp::adj_load(var_801, adj_801, adj_804);
+        wp::adj_load(var_800, adj_800, adj_803);
+        wp::adj_address(var_E_body, var_0, adj_E_body, adj_0, adj_801);
+        wp::adj_address(var_vol_body, var_0, adj_vol_body, adj_0, adj_800);
+        // adj: coeff = vol_body[tid] * E_body[tid] * scale / wp.float64(8.0)                     <L 121>
+        if (!var_748) {
+            wp::adj_add_inplace(var_136, var_799, var_589, var_798, adj_136, adj_799, adj_589, adj_798);
+            wp::adj_mul(var_795, var_797, adj_795, adj_797, adj_798);
+            wp::adj_extract(var_18, var_796, var_730, adj_18, adj_796, adj_730, adj_797);
+            wp::adj_mul(var_794, var_747, adj_794, adj_747, adj_795);
+            wp::adj_float64(var_793, adj_793, adj_794);
+            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
+            wp::adj_add_inplace(var_136, var_792, var_589, var_791, adj_136, adj_792, adj_589, adj_791);
+            wp::adj_mul(var_788, var_790, adj_788, adj_790, adj_791);
+            wp::adj_extract(var_18, var_789, var_730, adj_18, adj_789, adj_730, adj_790);
+            wp::adj_mul(var_787, var_747, adj_787, adj_747, adj_788);
+            wp::adj_float64(var_786, adj_786, adj_787);
+            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
+            wp::adj_add_inplace(var_136, var_785, var_589, var_784, adj_136, adj_785, adj_589, adj_784);
+            wp::adj_mul(var_781, var_783, adj_781, adj_783, adj_784);
+            wp::adj_extract(var_18, var_782, var_730, adj_18, adj_782, adj_730, adj_783);
+            wp::adj_mul(var_780, var_747, adj_780, adj_747, adj_781);
+            wp::adj_float64(var_779, adj_779, adj_780);
+            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
+        }
+        if (var_748) {
+            wp::adj_add_inplace(var_136, var_778, var_589, var_777, adj_136, adj_778, adj_589, adj_777);
+            wp::adj_mul(var_774, var_776, adj_774, adj_776, adj_777);
+            wp::adj_extract(var_18, var_775, var_589, adj_18, adj_775, adj_589, adj_776);
+            wp::adj_mul(var_770, var_773, adj_770, adj_773, adj_774);
+            wp::adj_sub(var_747, var_772, adj_747, adj_772, adj_773);
+            wp::adj_float64(var_771, adj_771, adj_772);
+            wp::adj_float64(var_769, adj_769, adj_770);
+            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
+            wp::adj_add_inplace(var_136, var_768, var_589, var_767, adj_136, adj_768, adj_589, adj_767);
+            wp::adj_mul(var_764, var_766, adj_764, adj_766, adj_767);
+            wp::adj_extract(var_18, var_765, var_589, adj_18, adj_765, adj_589, adj_766);
+            wp::adj_mul(var_760, var_763, adj_760, adj_763, adj_764);
+            wp::adj_sub(var_747, var_762, adj_747, adj_762, adj_763);
+            wp::adj_float64(var_761, adj_761, adj_762);
+            wp::adj_float64(var_759, adj_759, adj_760);
+            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
+            wp::adj_add_inplace(var_136, var_758, var_589, var_757, adj_136, adj_758, adj_589, adj_757);
+            wp::adj_mul(var_754, var_756, adj_754, adj_756, adj_757);
+            wp::adj_extract(var_18, var_755, var_589, adj_18, adj_755, adj_589, adj_756);
+            wp::adj_mul(var_750, var_753, adj_750, adj_753, adj_754);
+            wp::adj_sub(var_747, var_752, adj_747, adj_752, adj_753);
+            wp::adj_float64(var_751, adj_751, adj_752);
+            wp::adj_float64(var_749, adj_749, adj_750);
+            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
+        }
+        // adj: if i == j:                                                                        <L 112>
+        wp::adj_add(var_741, var_746, adj_741, adj_746, adj_747);
+        wp::adj_mul(var_743, var_745, adj_743, adj_745, adj_746);
+        wp::adj_extract(var_18, var_744, var_730, adj_18, adj_744, adj_730, adj_745);
+        wp::adj_extract(var_18, var_742, var_589, adj_18, adj_742, adj_589, adj_743);
+        wp::adj_add(var_735, var_740, adj_735, adj_740, adj_741);
+        wp::adj_mul(var_737, var_739, adj_737, adj_739, adj_740);
+        wp::adj_extract(var_18, var_738, var_730, adj_18, adj_738, adj_730, adj_739);
+        wp::adj_extract(var_18, var_736, var_589, adj_18, adj_736, adj_589, adj_737);
+        wp::adj_mul(var_732, var_734, adj_732, adj_734, adj_735);
+        wp::adj_extract(var_18, var_733, var_730, adj_18, adj_733, adj_730, adj_734);
+        wp::adj_extract(var_18, var_731, var_589, adj_18, adj_731, adj_589, adj_732);
+        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
+        if (!var_678) {
+            wp::adj_add_inplace(var_136, var_729, var_589, var_728, adj_136, adj_729, adj_589, adj_728);
+            wp::adj_mul(var_725, var_727, adj_725, adj_727, adj_728);
+            wp::adj_extract(var_18, var_726, var_660, adj_18, adj_726, adj_660, adj_727);
+            wp::adj_mul(var_724, var_677, adj_724, adj_677, adj_725);
+            wp::adj_float64(var_723, adj_723, adj_724);
+            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
+            wp::adj_add_inplace(var_136, var_722, var_589, var_721, adj_136, adj_722, adj_589, adj_721);
+            wp::adj_mul(var_718, var_720, adj_718, adj_720, adj_721);
+            wp::adj_extract(var_18, var_719, var_660, adj_18, adj_719, adj_660, adj_720);
+            wp::adj_mul(var_717, var_677, adj_717, adj_677, adj_718);
+            wp::adj_float64(var_716, adj_716, adj_717);
+            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
+            wp::adj_add_inplace(var_136, var_715, var_589, var_714, adj_136, adj_715, adj_589, adj_714);
+            wp::adj_mul(var_711, var_713, adj_711, adj_713, adj_714);
+            wp::adj_extract(var_18, var_712, var_660, adj_18, adj_712, adj_660, adj_713);
+            wp::adj_mul(var_710, var_677, adj_710, adj_677, adj_711);
+            wp::adj_float64(var_709, adj_709, adj_710);
+            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
+        }
+        if (var_678) {
+            wp::adj_add_inplace(var_136, var_708, var_589, var_707, adj_136, adj_708, adj_589, adj_707);
+            wp::adj_mul(var_704, var_706, adj_704, adj_706, adj_707);
+            wp::adj_extract(var_18, var_705, var_589, adj_18, adj_705, adj_589, adj_706);
+            wp::adj_mul(var_700, var_703, adj_700, adj_703, adj_704);
+            wp::adj_sub(var_677, var_702, adj_677, adj_702, adj_703);
+            wp::adj_float64(var_701, adj_701, adj_702);
+            wp::adj_float64(var_699, adj_699, adj_700);
+            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
+            wp::adj_add_inplace(var_136, var_698, var_589, var_697, adj_136, adj_698, adj_589, adj_697);
+            wp::adj_mul(var_694, var_696, adj_694, adj_696, adj_697);
+            wp::adj_extract(var_18, var_695, var_589, adj_18, adj_695, adj_589, adj_696);
+            wp::adj_mul(var_690, var_693, adj_690, adj_693, adj_694);
+            wp::adj_sub(var_677, var_692, adj_677, adj_692, adj_693);
+            wp::adj_float64(var_691, adj_691, adj_692);
+            wp::adj_float64(var_689, adj_689, adj_690);
+            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
+            wp::adj_add_inplace(var_136, var_688, var_589, var_687, adj_136, adj_688, adj_589, adj_687);
+            wp::adj_mul(var_684, var_686, adj_684, adj_686, adj_687);
+            wp::adj_extract(var_18, var_685, var_589, adj_18, adj_685, adj_589, adj_686);
+            wp::adj_mul(var_680, var_683, adj_680, adj_683, adj_684);
+            wp::adj_sub(var_677, var_682, adj_677, adj_682, adj_683);
+            wp::adj_float64(var_681, adj_681, adj_682);
+            wp::adj_float64(var_679, adj_679, adj_680);
+            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
+        }
+        // adj: if i == j:                                                                        <L 112>
+        wp::adj_add(var_671, var_676, adj_671, adj_676, adj_677);
+        wp::adj_mul(var_673, var_675, adj_673, adj_675, adj_676);
+        wp::adj_extract(var_18, var_674, var_660, adj_18, adj_674, adj_660, adj_675);
+        wp::adj_extract(var_18, var_672, var_589, adj_18, adj_672, adj_589, adj_673);
+        wp::adj_add(var_665, var_670, adj_665, adj_670, adj_671);
+        wp::adj_mul(var_667, var_669, adj_667, adj_669, adj_670);
+        wp::adj_extract(var_18, var_668, var_660, adj_18, adj_668, adj_660, adj_669);
+        wp::adj_extract(var_18, var_666, var_589, adj_18, adj_666, adj_589, adj_667);
+        wp::adj_mul(var_662, var_664, adj_662, adj_664, adj_665);
+        wp::adj_extract(var_18, var_663, var_660, adj_18, adj_663, adj_660, adj_664);
+        wp::adj_extract(var_18, var_661, var_589, adj_18, adj_661, adj_589, adj_662);
+        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
+        if (!var_608) {
+            wp::adj_add_inplace(var_136, var_659, var_589, var_658, adj_136, adj_659, adj_589, adj_658);
+            wp::adj_mul(var_655, var_657, adj_655, adj_657, adj_658);
+            wp::adj_extract(var_18, var_656, var_590, adj_18, adj_656, adj_590, adj_657);
+            wp::adj_mul(var_654, var_607, adj_654, adj_607, adj_655);
+            wp::adj_float64(var_653, adj_653, adj_654);
+            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
+            wp::adj_add_inplace(var_136, var_652, var_589, var_651, adj_136, adj_652, adj_589, adj_651);
+            wp::adj_mul(var_648, var_650, adj_648, adj_650, adj_651);
+            wp::adj_extract(var_18, var_649, var_590, adj_18, adj_649, adj_590, adj_650);
+            wp::adj_mul(var_647, var_607, adj_647, adj_607, adj_648);
+            wp::adj_float64(var_646, adj_646, adj_647);
+            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
+            wp::adj_add_inplace(var_136, var_645, var_589, var_644, adj_136, adj_645, adj_589, adj_644);
+            wp::adj_mul(var_641, var_643, adj_641, adj_643, adj_644);
+            wp::adj_extract(var_18, var_642, var_590, adj_18, adj_642, adj_590, adj_643);
+            wp::adj_mul(var_640, var_607, adj_640, adj_607, adj_641);
+            wp::adj_float64(var_639, adj_639, adj_640);
+            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
+        }
+        if (var_608) {
+            wp::adj_add_inplace(var_136, var_638, var_589, var_637, adj_136, adj_638, adj_589, adj_637);
+            wp::adj_mul(var_634, var_636, adj_634, adj_636, adj_637);
+            wp::adj_extract(var_18, var_635, var_589, adj_18, adj_635, adj_589, adj_636);
+            wp::adj_mul(var_630, var_633, adj_630, adj_633, adj_634);
+            wp::adj_sub(var_607, var_632, adj_607, adj_632, adj_633);
+            wp::adj_float64(var_631, adj_631, adj_632);
+            wp::adj_float64(var_629, adj_629, adj_630);
+            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
+            wp::adj_add_inplace(var_136, var_628, var_589, var_627, adj_136, adj_628, adj_589, adj_627);
+            wp::adj_mul(var_624, var_626, adj_624, adj_626, adj_627);
+            wp::adj_extract(var_18, var_625, var_589, adj_18, adj_625, adj_589, adj_626);
+            wp::adj_mul(var_620, var_623, adj_620, adj_623, adj_624);
+            wp::adj_sub(var_607, var_622, adj_607, adj_622, adj_623);
+            wp::adj_float64(var_621, adj_621, adj_622);
+            wp::adj_float64(var_619, adj_619, adj_620);
+            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
+            wp::adj_add_inplace(var_136, var_618, var_589, var_617, adj_136, adj_618, adj_589, adj_617);
+            wp::adj_mul(var_614, var_616, adj_614, adj_616, adj_617);
+            wp::adj_extract(var_18, var_615, var_589, adj_18, adj_615, adj_589, adj_616);
+            wp::adj_mul(var_610, var_613, adj_610, adj_613, adj_614);
+            wp::adj_sub(var_607, var_612, adj_607, adj_612, adj_613);
+            wp::adj_float64(var_611, adj_611, adj_612);
+            wp::adj_float64(var_609, adj_609, adj_610);
+            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
+        }
+        // adj: if i == j:                                                                        <L 112>
+        wp::adj_add(var_601, var_606, adj_601, adj_606, adj_607);
+        wp::adj_mul(var_603, var_605, adj_603, adj_605, adj_606);
+        wp::adj_extract(var_18, var_604, var_590, adj_18, adj_604, adj_590, adj_605);
+        wp::adj_extract(var_18, var_602, var_589, adj_18, adj_602, adj_589, adj_603);
+        wp::adj_add(var_595, var_600, adj_595, adj_600, adj_601);
+        wp::adj_mul(var_597, var_599, adj_597, adj_599, adj_600);
+        wp::adj_extract(var_18, var_598, var_590, adj_18, adj_598, adj_590, adj_599);
+        wp::adj_extract(var_18, var_596, var_589, adj_18, adj_596, adj_589, adj_597);
+        wp::adj_mul(var_592, var_594, adj_592, adj_594, adj_595);
+        wp::adj_extract(var_18, var_593, var_590, adj_18, adj_593, adj_590, adj_594);
+        wp::adj_extract(var_18, var_591, var_589, adj_18, adj_591, adj_589, adj_592);
+        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
+        // adj: for j in range(dim):                                                              <L 110>
+        if (!var_537) {
+            wp::adj_add_inplace(var_136, var_588, var_378, var_587, adj_136, adj_588, adj_378, adj_587);
+            wp::adj_mul(var_584, var_586, adj_584, adj_586, adj_587);
+            wp::adj_extract(var_18, var_585, var_519, adj_18, adj_585, adj_519, adj_586);
+            wp::adj_mul(var_583, var_536, adj_583, adj_536, adj_584);
+            wp::adj_float64(var_582, adj_582, adj_583);
+            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
+            wp::adj_add_inplace(var_136, var_581, var_378, var_580, adj_136, adj_581, adj_378, adj_580);
+            wp::adj_mul(var_577, var_579, adj_577, adj_579, adj_580);
+            wp::adj_extract(var_18, var_578, var_519, adj_18, adj_578, adj_519, adj_579);
+            wp::adj_mul(var_576, var_536, adj_576, adj_536, adj_577);
+            wp::adj_float64(var_575, adj_575, adj_576);
+            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
+            wp::adj_add_inplace(var_136, var_574, var_378, var_573, adj_136, adj_574, adj_378, adj_573);
+            wp::adj_mul(var_570, var_572, adj_570, adj_572, adj_573);
+            wp::adj_extract(var_18, var_571, var_519, adj_18, adj_571, adj_519, adj_572);
+            wp::adj_mul(var_569, var_536, adj_569, adj_536, adj_570);
+            wp::adj_float64(var_568, adj_568, adj_569);
+            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
+        }
+        if (var_537) {
+            wp::adj_add_inplace(var_136, var_567, var_378, var_566, adj_136, adj_567, adj_378, adj_566);
+            wp::adj_mul(var_563, var_565, adj_563, adj_565, adj_566);
+            wp::adj_extract(var_18, var_564, var_378, adj_18, adj_564, adj_378, adj_565);
+            wp::adj_mul(var_559, var_562, adj_559, adj_562, adj_563);
+            wp::adj_sub(var_536, var_561, adj_536, adj_561, adj_562);
+            wp::adj_float64(var_560, adj_560, adj_561);
+            wp::adj_float64(var_558, adj_558, adj_559);
+            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
+            wp::adj_add_inplace(var_136, var_557, var_378, var_556, adj_136, adj_557, adj_378, adj_556);
+            wp::adj_mul(var_553, var_555, adj_553, adj_555, adj_556);
+            wp::adj_extract(var_18, var_554, var_378, adj_18, adj_554, adj_378, adj_555);
+            wp::adj_mul(var_549, var_552, adj_549, adj_552, adj_553);
+            wp::adj_sub(var_536, var_551, adj_536, adj_551, adj_552);
+            wp::adj_float64(var_550, adj_550, adj_551);
+            wp::adj_float64(var_548, adj_548, adj_549);
+            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
+            wp::adj_add_inplace(var_136, var_547, var_378, var_546, adj_136, adj_547, adj_378, adj_546);
+            wp::adj_mul(var_543, var_545, adj_543, adj_545, adj_546);
+            wp::adj_extract(var_18, var_544, var_378, adj_18, adj_544, adj_378, adj_545);
+            wp::adj_mul(var_539, var_542, adj_539, adj_542, adj_543);
+            wp::adj_sub(var_536, var_541, adj_536, adj_541, adj_542);
+            wp::adj_float64(var_540, adj_540, adj_541);
+            wp::adj_float64(var_538, adj_538, adj_539);
+            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
+        }
+        // adj: if i == j:                                                                        <L 112>
+        wp::adj_add(var_530, var_535, adj_530, adj_535, adj_536);
+        wp::adj_mul(var_532, var_534, adj_532, adj_534, adj_535);
+        wp::adj_extract(var_18, var_533, var_519, adj_18, adj_533, adj_519, adj_534);
+        wp::adj_extract(var_18, var_531, var_378, adj_18, adj_531, adj_378, adj_532);
+        wp::adj_add(var_524, var_529, adj_524, adj_529, adj_530);
+        wp::adj_mul(var_526, var_528, adj_526, adj_528, adj_529);
+        wp::adj_extract(var_18, var_527, var_519, adj_18, adj_527, adj_519, adj_528);
+        wp::adj_extract(var_18, var_525, var_378, adj_18, adj_525, adj_378, adj_526);
+        wp::adj_mul(var_521, var_523, adj_521, adj_523, adj_524);
+        wp::adj_extract(var_18, var_522, var_519, adj_18, adj_522, adj_519, adj_523);
+        wp::adj_extract(var_18, var_520, var_378, adj_18, adj_520, adj_378, adj_521);
+        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
+        if (!var_467) {
+            wp::adj_add_inplace(var_136, var_518, var_378, var_517, adj_136, adj_518, adj_378, adj_517);
+            wp::adj_mul(var_514, var_516, adj_514, adj_516, adj_517);
+            wp::adj_extract(var_18, var_515, var_449, adj_18, adj_515, adj_449, adj_516);
+            wp::adj_mul(var_513, var_466, adj_513, adj_466, adj_514);
+            wp::adj_float64(var_512, adj_512, adj_513);
+            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
+            wp::adj_add_inplace(var_136, var_511, var_378, var_510, adj_136, adj_511, adj_378, adj_510);
+            wp::adj_mul(var_507, var_509, adj_507, adj_509, adj_510);
+            wp::adj_extract(var_18, var_508, var_449, adj_18, adj_508, adj_449, adj_509);
+            wp::adj_mul(var_506, var_466, adj_506, adj_466, adj_507);
+            wp::adj_float64(var_505, adj_505, adj_506);
+            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
+            wp::adj_add_inplace(var_136, var_504, var_378, var_503, adj_136, adj_504, adj_378, adj_503);
+            wp::adj_mul(var_500, var_502, adj_500, adj_502, adj_503);
+            wp::adj_extract(var_18, var_501, var_449, adj_18, adj_501, adj_449, adj_502);
+            wp::adj_mul(var_499, var_466, adj_499, adj_466, adj_500);
+            wp::adj_float64(var_498, adj_498, adj_499);
+            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
+        }
+        if (var_467) {
+            wp::adj_add_inplace(var_136, var_497, var_378, var_496, adj_136, adj_497, adj_378, adj_496);
+            wp::adj_mul(var_493, var_495, adj_493, adj_495, adj_496);
+            wp::adj_extract(var_18, var_494, var_378, adj_18, adj_494, adj_378, adj_495);
+            wp::adj_mul(var_489, var_492, adj_489, adj_492, adj_493);
+            wp::adj_sub(var_466, var_491, adj_466, adj_491, adj_492);
+            wp::adj_float64(var_490, adj_490, adj_491);
+            wp::adj_float64(var_488, adj_488, adj_489);
+            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
+            wp::adj_add_inplace(var_136, var_487, var_378, var_486, adj_136, adj_487, adj_378, adj_486);
+            wp::adj_mul(var_483, var_485, adj_483, adj_485, adj_486);
+            wp::adj_extract(var_18, var_484, var_378, adj_18, adj_484, adj_378, adj_485);
+            wp::adj_mul(var_479, var_482, adj_479, adj_482, adj_483);
+            wp::adj_sub(var_466, var_481, adj_466, adj_481, adj_482);
+            wp::adj_float64(var_480, adj_480, adj_481);
+            wp::adj_float64(var_478, adj_478, adj_479);
+            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
+            wp::adj_add_inplace(var_136, var_477, var_378, var_476, adj_136, adj_477, adj_378, adj_476);
+            wp::adj_mul(var_473, var_475, adj_473, adj_475, adj_476);
+            wp::adj_extract(var_18, var_474, var_378, adj_18, adj_474, adj_378, adj_475);
+            wp::adj_mul(var_469, var_472, adj_469, adj_472, adj_473);
+            wp::adj_sub(var_466, var_471, adj_466, adj_471, adj_472);
+            wp::adj_float64(var_470, adj_470, adj_471);
+            wp::adj_float64(var_468, adj_468, adj_469);
+            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
+        }
+        // adj: if i == j:                                                                        <L 112>
+        wp::adj_add(var_460, var_465, adj_460, adj_465, adj_466);
+        wp::adj_mul(var_462, var_464, adj_462, adj_464, adj_465);
+        wp::adj_extract(var_18, var_463, var_449, adj_18, adj_463, adj_449, adj_464);
+        wp::adj_extract(var_18, var_461, var_378, adj_18, adj_461, adj_378, adj_462);
+        wp::adj_add(var_454, var_459, adj_454, adj_459, adj_460);
+        wp::adj_mul(var_456, var_458, adj_456, adj_458, adj_459);
+        wp::adj_extract(var_18, var_457, var_449, adj_18, adj_457, adj_449, adj_458);
+        wp::adj_extract(var_18, var_455, var_378, adj_18, adj_455, adj_378, adj_456);
+        wp::adj_mul(var_451, var_453, adj_451, adj_453, adj_454);
+        wp::adj_extract(var_18, var_452, var_449, adj_18, adj_452, adj_449, adj_453);
+        wp::adj_extract(var_18, var_450, var_378, adj_18, adj_450, adj_378, adj_451);
+        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
+        if (!var_397) {
+            wp::adj_add_inplace(var_136, var_448, var_378, var_447, adj_136, adj_448, adj_378, adj_447);
+            wp::adj_mul(var_444, var_446, adj_444, adj_446, adj_447);
+            wp::adj_extract(var_18, var_445, var_379, adj_18, adj_445, adj_379, adj_446);
+            wp::adj_mul(var_443, var_396, adj_443, adj_396, adj_444);
+            wp::adj_float64(var_442, adj_442, adj_443);
+            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
+            wp::adj_add_inplace(var_136, var_441, var_378, var_440, adj_136, adj_441, adj_378, adj_440);
+            wp::adj_mul(var_437, var_439, adj_437, adj_439, adj_440);
+            wp::adj_extract(var_18, var_438, var_379, adj_18, adj_438, adj_379, adj_439);
+            wp::adj_mul(var_436, var_396, adj_436, adj_396, adj_437);
+            wp::adj_float64(var_435, adj_435, adj_436);
+            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
+            wp::adj_add_inplace(var_136, var_434, var_378, var_433, adj_136, adj_434, adj_378, adj_433);
+            wp::adj_mul(var_430, var_432, adj_430, adj_432, adj_433);
+            wp::adj_extract(var_18, var_431, var_379, adj_18, adj_431, adj_379, adj_432);
+            wp::adj_mul(var_429, var_396, adj_429, adj_396, adj_430);
+            wp::adj_float64(var_428, adj_428, adj_429);
+            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
+        }
+        if (var_397) {
+            wp::adj_add_inplace(var_136, var_427, var_378, var_426, adj_136, adj_427, adj_378, adj_426);
+            wp::adj_mul(var_423, var_425, adj_423, adj_425, adj_426);
+            wp::adj_extract(var_18, var_424, var_378, adj_18, adj_424, adj_378, adj_425);
+            wp::adj_mul(var_419, var_422, adj_419, adj_422, adj_423);
+            wp::adj_sub(var_396, var_421, adj_396, adj_421, adj_422);
+            wp::adj_float64(var_420, adj_420, adj_421);
+            wp::adj_float64(var_418, adj_418, adj_419);
+            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
+            wp::adj_add_inplace(var_136, var_417, var_378, var_416, adj_136, adj_417, adj_378, adj_416);
+            wp::adj_mul(var_413, var_415, adj_413, adj_415, adj_416);
+            wp::adj_extract(var_18, var_414, var_378, adj_18, adj_414, adj_378, adj_415);
+            wp::adj_mul(var_409, var_412, adj_409, adj_412, adj_413);
+            wp::adj_sub(var_396, var_411, adj_396, adj_411, adj_412);
+            wp::adj_float64(var_410, adj_410, adj_411);
+            wp::adj_float64(var_408, adj_408, adj_409);
+            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
+            wp::adj_add_inplace(var_136, var_407, var_378, var_406, adj_136, adj_407, adj_378, adj_406);
+            wp::adj_mul(var_403, var_405, adj_403, adj_405, adj_406);
+            wp::adj_extract(var_18, var_404, var_378, adj_18, adj_404, adj_378, adj_405);
+            wp::adj_mul(var_399, var_402, adj_399, adj_402, adj_403);
+            wp::adj_sub(var_396, var_401, adj_396, adj_401, adj_402);
+            wp::adj_float64(var_400, adj_400, adj_401);
+            wp::adj_float64(var_398, adj_398, adj_399);
+            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
+        }
+        // adj: if i == j:                                                                        <L 112>
+        wp::adj_add(var_390, var_395, adj_390, adj_395, adj_396);
+        wp::adj_mul(var_392, var_394, adj_392, adj_394, adj_395);
+        wp::adj_extract(var_18, var_393, var_379, adj_18, adj_393, adj_379, adj_394);
+        wp::adj_extract(var_18, var_391, var_378, adj_18, adj_391, adj_378, adj_392);
+        wp::adj_add(var_384, var_389, adj_384, adj_389, adj_390);
+        wp::adj_mul(var_386, var_388, adj_386, adj_388, adj_389);
+        wp::adj_extract(var_18, var_387, var_379, adj_18, adj_387, adj_379, adj_388);
+        wp::adj_extract(var_18, var_385, var_378, adj_18, adj_385, adj_378, adj_386);
+        wp::adj_mul(var_381, var_383, adj_381, adj_383, adj_384);
+        wp::adj_extract(var_18, var_382, var_379, adj_18, adj_382, adj_379, adj_383);
+        wp::adj_extract(var_18, var_380, var_378, adj_18, adj_380, adj_378, adj_381);
+        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
+        // adj: for j in range(dim):                                                              <L 110>
+        if (!var_326) {
+            wp::adj_add_inplace(var_136, var_377, var_167, var_376, adj_136, adj_377, adj_167, adj_376);
+            wp::adj_mul(var_373, var_375, adj_373, adj_375, adj_376);
+            wp::adj_extract(var_18, var_374, var_308, adj_18, adj_374, adj_308, adj_375);
+            wp::adj_mul(var_372, var_325, adj_372, adj_325, adj_373);
+            wp::adj_float64(var_371, adj_371, adj_372);
+            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
+            wp::adj_add_inplace(var_136, var_370, var_167, var_369, adj_136, adj_370, adj_167, adj_369);
+            wp::adj_mul(var_366, var_368, adj_366, adj_368, adj_369);
+            wp::adj_extract(var_18, var_367, var_308, adj_18, adj_367, adj_308, adj_368);
+            wp::adj_mul(var_365, var_325, adj_365, adj_325, adj_366);
+            wp::adj_float64(var_364, adj_364, adj_365);
+            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
+            wp::adj_add_inplace(var_136, var_363, var_167, var_362, adj_136, adj_363, adj_167, adj_362);
+            wp::adj_mul(var_359, var_361, adj_359, adj_361, adj_362);
+            wp::adj_extract(var_18, var_360, var_308, adj_18, adj_360, adj_308, adj_361);
+            wp::adj_mul(var_358, var_325, adj_358, adj_325, adj_359);
+            wp::adj_float64(var_357, adj_357, adj_358);
+            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
+        }
+        if (var_326) {
+            wp::adj_add_inplace(var_136, var_356, var_167, var_355, adj_136, adj_356, adj_167, adj_355);
+            wp::adj_mul(var_352, var_354, adj_352, adj_354, adj_355);
+            wp::adj_extract(var_18, var_353, var_167, adj_18, adj_353, adj_167, adj_354);
+            wp::adj_mul(var_348, var_351, adj_348, adj_351, adj_352);
+            wp::adj_sub(var_325, var_350, adj_325, adj_350, adj_351);
+            wp::adj_float64(var_349, adj_349, adj_350);
+            wp::adj_float64(var_347, adj_347, adj_348);
+            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
+            wp::adj_add_inplace(var_136, var_346, var_167, var_345, adj_136, adj_346, adj_167, adj_345);
+            wp::adj_mul(var_342, var_344, adj_342, adj_344, adj_345);
+            wp::adj_extract(var_18, var_343, var_167, adj_18, adj_343, adj_167, adj_344);
+            wp::adj_mul(var_338, var_341, adj_338, adj_341, adj_342);
+            wp::adj_sub(var_325, var_340, adj_325, adj_340, adj_341);
+            wp::adj_float64(var_339, adj_339, adj_340);
+            wp::adj_float64(var_337, adj_337, adj_338);
+            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
+            wp::adj_add_inplace(var_136, var_336, var_167, var_335, adj_136, adj_336, adj_167, adj_335);
+            wp::adj_mul(var_332, var_334, adj_332, adj_334, adj_335);
+            wp::adj_extract(var_18, var_333, var_167, adj_18, adj_333, adj_167, adj_334);
+            wp::adj_mul(var_328, var_331, adj_328, adj_331, adj_332);
+            wp::adj_sub(var_325, var_330, adj_325, adj_330, adj_331);
+            wp::adj_float64(var_329, adj_329, adj_330);
+            wp::adj_float64(var_327, adj_327, adj_328);
+            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
+        }
+        // adj: if i == j:                                                                        <L 112>
+        wp::adj_add(var_319, var_324, adj_319, adj_324, adj_325);
+        wp::adj_mul(var_321, var_323, adj_321, adj_323, adj_324);
+        wp::adj_extract(var_18, var_322, var_308, adj_18, adj_322, adj_308, adj_323);
+        wp::adj_extract(var_18, var_320, var_167, adj_18, adj_320, adj_167, adj_321);
+        wp::adj_add(var_313, var_318, adj_313, adj_318, adj_319);
+        wp::adj_mul(var_315, var_317, adj_315, adj_317, adj_318);
+        wp::adj_extract(var_18, var_316, var_308, adj_18, adj_316, adj_308, adj_317);
+        wp::adj_extract(var_18, var_314, var_167, adj_18, adj_314, adj_167, adj_315);
+        wp::adj_mul(var_310, var_312, adj_310, adj_312, adj_313);
+        wp::adj_extract(var_18, var_311, var_308, adj_18, adj_311, adj_308, adj_312);
+        wp::adj_extract(var_18, var_309, var_167, adj_18, adj_309, adj_167, adj_310);
+        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
+        if (!var_256) {
+            wp::adj_add_inplace(var_136, var_307, var_167, var_306, adj_136, adj_307, adj_167, adj_306);
+            wp::adj_mul(var_303, var_305, adj_303, adj_305, adj_306);
+            wp::adj_extract(var_18, var_304, var_238, adj_18, adj_304, adj_238, adj_305);
+            wp::adj_mul(var_302, var_255, adj_302, adj_255, adj_303);
+            wp::adj_float64(var_301, adj_301, adj_302);
+            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
+            wp::adj_add_inplace(var_136, var_300, var_167, var_299, adj_136, adj_300, adj_167, adj_299);
+            wp::adj_mul(var_296, var_298, adj_296, adj_298, adj_299);
+            wp::adj_extract(var_18, var_297, var_238, adj_18, adj_297, adj_238, adj_298);
+            wp::adj_mul(var_295, var_255, adj_295, adj_255, adj_296);
+            wp::adj_float64(var_294, adj_294, adj_295);
+            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
+            wp::adj_add_inplace(var_136, var_293, var_167, var_292, adj_136, adj_293, adj_167, adj_292);
+            wp::adj_mul(var_289, var_291, adj_289, adj_291, adj_292);
+            wp::adj_extract(var_18, var_290, var_238, adj_18, adj_290, adj_238, adj_291);
+            wp::adj_mul(var_288, var_255, adj_288, adj_255, adj_289);
+            wp::adj_float64(var_287, adj_287, adj_288);
+            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
+        }
+        if (var_256) {
+            wp::adj_add_inplace(var_136, var_286, var_167, var_285, adj_136, adj_286, adj_167, adj_285);
+            wp::adj_mul(var_282, var_284, adj_282, adj_284, adj_285);
+            wp::adj_extract(var_18, var_283, var_167, adj_18, adj_283, adj_167, adj_284);
+            wp::adj_mul(var_278, var_281, adj_278, adj_281, adj_282);
+            wp::adj_sub(var_255, var_280, adj_255, adj_280, adj_281);
+            wp::adj_float64(var_279, adj_279, adj_280);
+            wp::adj_float64(var_277, adj_277, adj_278);
+            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
+            wp::adj_add_inplace(var_136, var_276, var_167, var_275, adj_136, adj_276, adj_167, adj_275);
+            wp::adj_mul(var_272, var_274, adj_272, adj_274, adj_275);
+            wp::adj_extract(var_18, var_273, var_167, adj_18, adj_273, adj_167, adj_274);
+            wp::adj_mul(var_268, var_271, adj_268, adj_271, adj_272);
+            wp::adj_sub(var_255, var_270, adj_255, adj_270, adj_271);
+            wp::adj_float64(var_269, adj_269, adj_270);
+            wp::adj_float64(var_267, adj_267, adj_268);
+            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
+            wp::adj_add_inplace(var_136, var_266, var_167, var_265, adj_136, adj_266, adj_167, adj_265);
+            wp::adj_mul(var_262, var_264, adj_262, adj_264, adj_265);
+            wp::adj_extract(var_18, var_263, var_167, adj_18, adj_263, adj_167, adj_264);
+            wp::adj_mul(var_258, var_261, adj_258, adj_261, adj_262);
+            wp::adj_sub(var_255, var_260, adj_255, adj_260, adj_261);
+            wp::adj_float64(var_259, adj_259, adj_260);
+            wp::adj_float64(var_257, adj_257, adj_258);
+            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
+        }
+        // adj: if i == j:                                                                        <L 112>
+        wp::adj_add(var_249, var_254, adj_249, adj_254, adj_255);
+        wp::adj_mul(var_251, var_253, adj_251, adj_253, adj_254);
+        wp::adj_extract(var_18, var_252, var_238, adj_18, adj_252, adj_238, adj_253);
+        wp::adj_extract(var_18, var_250, var_167, adj_18, adj_250, adj_167, adj_251);
+        wp::adj_add(var_243, var_248, adj_243, adj_248, adj_249);
+        wp::adj_mul(var_245, var_247, adj_245, adj_247, adj_248);
+        wp::adj_extract(var_18, var_246, var_238, adj_18, adj_246, adj_238, adj_247);
+        wp::adj_extract(var_18, var_244, var_167, adj_18, adj_244, adj_167, adj_245);
+        wp::adj_mul(var_240, var_242, adj_240, adj_242, adj_243);
+        wp::adj_extract(var_18, var_241, var_238, adj_18, adj_241, adj_238, adj_242);
+        wp::adj_extract(var_18, var_239, var_167, adj_18, adj_239, adj_167, adj_240);
+        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
+        if (!var_186) {
+            wp::adj_add_inplace(var_136, var_237, var_167, var_236, adj_136, adj_237, adj_167, adj_236);
+            wp::adj_mul(var_233, var_235, adj_233, adj_235, adj_236);
+            wp::adj_extract(var_18, var_234, var_168, adj_18, adj_234, adj_168, adj_235);
+            wp::adj_mul(var_232, var_185, adj_232, adj_185, adj_233);
+            wp::adj_float64(var_231, adj_231, adj_232);
+            // adj: g_F[2, i] += wp.float64(4.0) * aiaj * F[2, j]                                 <L 119>
+            wp::adj_add_inplace(var_136, var_230, var_167, var_229, adj_136, adj_230, adj_167, adj_229);
+            wp::adj_mul(var_226, var_228, adj_226, adj_228, adj_229);
+            wp::adj_extract(var_18, var_227, var_168, adj_18, adj_227, adj_168, adj_228);
+            wp::adj_mul(var_225, var_185, adj_225, adj_185, adj_226);
+            wp::adj_float64(var_224, adj_224, adj_225);
+            // adj: g_F[1, i] += wp.float64(4.0) * aiaj * F[1, j]                                 <L 118>
+            wp::adj_add_inplace(var_136, var_223, var_167, var_222, adj_136, adj_223, adj_167, adj_222);
+            wp::adj_mul(var_219, var_221, adj_219, adj_221, adj_222);
+            wp::adj_extract(var_18, var_220, var_168, adj_18, adj_220, adj_168, adj_221);
+            wp::adj_mul(var_218, var_185, adj_218, adj_185, adj_219);
+            wp::adj_float64(var_217, adj_217, adj_218);
+            // adj: g_F[0, i] += wp.float64(4.0) * aiaj * F[0, j]                                 <L 117>
+        }
+        if (var_186) {
+            wp::adj_add_inplace(var_136, var_216, var_167, var_215, adj_136, adj_216, adj_167, adj_215);
+            wp::adj_mul(var_212, var_214, adj_212, adj_214, adj_215);
+            wp::adj_extract(var_18, var_213, var_167, adj_18, adj_213, adj_167, adj_214);
+            wp::adj_mul(var_208, var_211, adj_208, adj_211, adj_212);
+            wp::adj_sub(var_185, var_210, adj_185, adj_210, adj_211);
+            wp::adj_float64(var_209, adj_209, adj_210);
+            wp::adj_float64(var_207, adj_207, adj_208);
+            // adj: g_F[2, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[2, i]             <L 115>
+            wp::adj_add_inplace(var_136, var_206, var_167, var_205, adj_136, adj_206, adj_167, adj_205);
+            wp::adj_mul(var_202, var_204, adj_202, adj_204, adj_205);
+            wp::adj_extract(var_18, var_203, var_167, adj_18, adj_203, adj_167, adj_204);
+            wp::adj_mul(var_198, var_201, adj_198, adj_201, adj_202);
+            wp::adj_sub(var_185, var_200, adj_185, adj_200, adj_201);
+            wp::adj_float64(var_199, adj_199, adj_200);
+            wp::adj_float64(var_197, adj_197, adj_198);
+            // adj: g_F[1, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[1, i]             <L 114>
+            wp::adj_add_inplace(var_136, var_196, var_167, var_195, adj_136, adj_196, adj_167, adj_195);
+            wp::adj_mul(var_192, var_194, adj_192, adj_194, adj_195);
+            wp::adj_extract(var_18, var_193, var_167, adj_18, adj_193, adj_167, adj_194);
+            wp::adj_mul(var_188, var_191, adj_188, adj_191, adj_192);
+            wp::adj_sub(var_185, var_190, adj_185, adj_190, adj_191);
+            wp::adj_float64(var_189, adj_189, adj_190);
+            wp::adj_float64(var_187, adj_187, adj_188);
+            // adj: g_F[0, i] += wp.float64(4.0) * (aiaj - wp.float64(1.0)) * F[0, i]             <L 113>
+        }
+        // adj: if i == j:                                                                        <L 112>
+        wp::adj_add(var_179, var_184, adj_179, adj_184, adj_185);
+        wp::adj_mul(var_181, var_183, adj_181, adj_183, adj_184);
+        wp::adj_extract(var_18, var_182, var_168, adj_18, adj_182, adj_168, adj_183);
+        wp::adj_extract(var_18, var_180, var_167, adj_18, adj_180, adj_167, adj_181);
+        wp::adj_add(var_173, var_178, adj_173, adj_178, adj_179);
+        wp::adj_mul(var_175, var_177, adj_175, adj_177, adj_178);
+        wp::adj_extract(var_18, var_176, var_168, adj_18, adj_176, adj_168, adj_177);
+        wp::adj_extract(var_18, var_174, var_167, adj_18, adj_174, adj_167, adj_175);
+        wp::adj_mul(var_170, var_172, adj_170, adj_172, adj_173);
+        wp::adj_extract(var_18, var_171, var_168, adj_18, adj_171, adj_168, adj_172);
+        wp::adj_extract(var_18, var_169, var_167, adj_18, adj_169, adj_167, adj_170);
+        // adj: aiaj = F[0, i] * F[0, j] + F[1, i] * F[1, j] + F[2, i] * F[2, j]                  <L 111>
+        // adj: for j in range(dim):                                                              <L 110>
+        // adj: for i in range(dim):                                                              <L 109>
+        wp::adj_assign_inplace(var_136, var_157, var_164, var_166, adj_136, adj_157, adj_164, adj_166);
+        wp::adj_float64(var_165, adj_165, adj_166);
+        wp::adj_assign_inplace(var_136, var_157, var_161, var_163, adj_136, adj_157, adj_161, adj_163);
+        wp::adj_float64(var_162, adj_162, adj_163);
+        wp::adj_assign_inplace(var_136, var_157, var_158, var_160, adj_136, adj_157, adj_158, adj_160);
+        wp::adj_float64(var_159, adj_159, adj_160);
+        // adj: g_F[i, j] = wp.float64(0.0)                                                       <L 107>
+        // adj: for j in range(dim):                                                              <L 106>
+        wp::adj_assign_inplace(var_136, var_147, var_154, var_156, adj_136, adj_147, adj_154, adj_156);
+        wp::adj_float64(var_155, adj_155, adj_156);
+        wp::adj_assign_inplace(var_136, var_147, var_151, var_153, adj_136, adj_147, adj_151, adj_153);
+        wp::adj_float64(var_152, adj_152, adj_153);
+        wp::adj_assign_inplace(var_136, var_147, var_148, var_150, adj_136, adj_147, adj_148, adj_150);
+        wp::adj_float64(var_149, adj_149, adj_150);
+        // adj: g_F[i, j] = wp.float64(0.0)                                                       <L 107>
+        // adj: for j in range(dim):                                                              <L 106>
+        wp::adj_assign_inplace(var_136, var_137, var_144, var_146, adj_136, adj_137, adj_144, adj_146);
+        wp::adj_float64(var_145, adj_145, adj_146);
+        wp::adj_assign_inplace(var_136, var_137, var_141, var_143, adj_136, adj_137, adj_141, adj_143);
+        wp::adj_float64(var_142, adj_142, adj_143);
+        wp::adj_assign_inplace(var_136, var_137, var_138, var_140, adj_136, adj_137, adj_138, adj_140);
+        wp::adj_float64(var_139, adj_139, adj_140);
+        // adj: g_F[i, j] = wp.float64(0.0)                                                       <L 107>
+        // adj: for j in range(dim):                                                              <L 106>
+        // adj: for i in range(dim):                                                              <L 105>
+        // adj: g_F = wp.mat33d()                                                                 <L 104>
+        wp::adj_assign_inplace(var_18, var_134, var_135, var_133, adj_18, adj_134, adj_135, adj_133);
+        wp::adj_sub(var_127, var_131, adj_127, adj_131, adj_133);
+        wp::adj_extract(var_132, var_129, adj_130, adj_129, adj_131);
+        wp::adj_load(var_130, adj_130, adj_132);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_130);
+        wp::adj_extract(var_128, var_125, adj_126, adj_125, adj_127);
+        wp::adj_load(var_126, adj_126, adj_128);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_126);
+        wp::adj_add(var_123, var_124, adj_123, adj_124, adj_125);
+        // adj: F[2, 2] = y[tid][9 + 2] - y[tid][2]                                               <L 103>
+        wp::adj_assign_inplace(var_18, var_121, var_122, var_120, adj_18, adj_121, adj_122, adj_120);
+        wp::adj_sub(var_114, var_118, adj_114, adj_118, adj_120);
+        wp::adj_extract(var_119, var_116, adj_117, adj_116, adj_118);
+        wp::adj_load(var_117, adj_117, adj_119);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_117);
+        wp::adj_extract(var_115, var_112, adj_113, adj_112, adj_114);
+        wp::adj_load(var_113, adj_113, adj_115);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_113);
+        wp::adj_add(var_110, var_111, adj_110, adj_111, adj_112);
+        // adj: F[1, 2] = y[tid][9 + 1] - y[tid][1]                                               <L 102>
+        wp::adj_assign_inplace(var_18, var_108, var_109, var_107, adj_18, adj_108, adj_109, adj_107);
+        wp::adj_sub(var_101, var_105, adj_101, adj_105, adj_107);
+        wp::adj_extract(var_106, var_103, adj_104, adj_103, adj_105);
+        wp::adj_load(var_104, adj_104, adj_106);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_104);
+        wp::adj_extract(var_102, var_99, adj_100, adj_99, adj_101);
+        wp::adj_load(var_100, adj_100, adj_102);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_100);
+        wp::adj_add(var_97, var_98, adj_97, adj_98, adj_99);
+        // adj: F[0, 2] = y[tid][9 + 0] - y[tid][0]                                               <L 101>
+        wp::adj_assign_inplace(var_18, var_95, var_96, var_94, adj_18, adj_95, adj_96, adj_94);
+        wp::adj_sub(var_88, var_92, adj_88, adj_92, adj_94);
+        wp::adj_extract(var_93, var_90, adj_91, adj_90, adj_92);
+        wp::adj_load(var_91, adj_91, adj_93);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_91);
+        wp::adj_extract(var_89, var_86, adj_87, adj_86, adj_88);
+        wp::adj_load(var_87, adj_87, adj_89);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_87);
+        wp::adj_add(var_84, var_85, adj_84, adj_85, adj_86);
+        // adj: F[2, 1] = y[tid][6 + 2] - y[tid][2]                                               <L 100>
+        wp::adj_assign_inplace(var_18, var_82, var_83, var_81, adj_18, adj_82, adj_83, adj_81);
+        wp::adj_sub(var_75, var_79, adj_75, adj_79, adj_81);
+        wp::adj_extract(var_80, var_77, adj_78, adj_77, adj_79);
+        wp::adj_load(var_78, adj_78, adj_80);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_78);
+        wp::adj_extract(var_76, var_73, adj_74, adj_73, adj_75);
+        wp::adj_load(var_74, adj_74, adj_76);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_74);
+        wp::adj_add(var_71, var_72, adj_71, adj_72, adj_73);
+        // adj: F[1, 1] = y[tid][6 + 1] - y[tid][1]                                               <L 99>
+        wp::adj_assign_inplace(var_18, var_69, var_70, var_68, adj_18, adj_69, adj_70, adj_68);
+        wp::adj_sub(var_62, var_66, adj_62, adj_66, adj_68);
+        wp::adj_extract(var_67, var_64, adj_65, adj_64, adj_66);
+        wp::adj_load(var_65, adj_65, adj_67);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_65);
+        wp::adj_extract(var_63, var_60, adj_61, adj_60, adj_62);
+        wp::adj_load(var_61, adj_61, adj_63);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_61);
+        wp::adj_add(var_58, var_59, adj_58, adj_59, adj_60);
+        // adj: F[0, 1] = y[tid][6 + 0] - y[tid][0]                                               <L 98>
+        wp::adj_assign_inplace(var_18, var_56, var_57, var_55, adj_18, adj_56, adj_57, adj_55);
+        wp::adj_sub(var_49, var_53, adj_49, adj_53, adj_55);
+        wp::adj_extract(var_54, var_51, adj_52, adj_51, adj_53);
+        wp::adj_load(var_52, adj_52, adj_54);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_52);
+        wp::adj_extract(var_50, var_47, adj_48, adj_47, adj_49);
+        wp::adj_load(var_48, adj_48, adj_50);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_48);
+        wp::adj_add(var_45, var_46, adj_45, adj_46, adj_47);
+        // adj: F[2, 0] = y[tid][3 + 2] - y[tid][2]                                               <L 97>
+        wp::adj_assign_inplace(var_18, var_43, var_44, var_42, adj_18, adj_43, adj_44, adj_42);
+        wp::adj_sub(var_36, var_40, adj_36, adj_40, adj_42);
+        wp::adj_extract(var_41, var_38, adj_39, adj_38, adj_40);
+        wp::adj_load(var_39, adj_39, adj_41);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_39);
+        wp::adj_extract(var_37, var_34, adj_35, adj_34, adj_36);
+        wp::adj_load(var_35, adj_35, adj_37);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_35);
+        wp::adj_add(var_32, var_33, adj_32, adj_33, adj_34);
+        // adj: F[1, 0] = y[tid][3 + 1] - y[tid][1]                                               <L 96>
+        wp::adj_assign_inplace(var_18, var_30, var_31, var_29, adj_18, adj_30, adj_31, adj_29);
+        wp::adj_sub(var_23, var_27, adj_23, adj_27, adj_29);
+        wp::adj_extract(var_28, var_25, adj_26, adj_25, adj_27);
+        wp::adj_load(var_26, adj_26, adj_28);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_26);
+        wp::adj_extract(var_24, var_21, adj_22, adj_21, adj_23);
+        wp::adj_load(var_22, adj_22, adj_24);
+        wp::adj_address(var_y, var_0, adj_y, adj_0, adj_22);
+        wp::adj_add(var_19, var_20, adj_19, adj_20, adj_21);
+        // adj: F[0, 0] = y[tid][3 + 0] - y[tid][0]                                               <L 95>
+        // adj: F = wp.mat33d()                                                                   <L 94>
+        // adj: dim = 3                                                                           <L 93>
+        if (var_16) {
+            label0:;
+            // adj: return                                                                        <L 92>
+        }
+        wp::adj_load(var_1, adj_1, adj_15);
+        wp::adj_load(var_9, adj_9, adj_13);
+        wp::adj_address(var_env_states, var_10, adj_env_states, adj_8, adj_9);
+        wp::adj_load(var_8, adj_8, adj_10);
+        wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_8);
+        wp::adj_load(var_3, adj_3, adj_7);
+        wp::adj_address(var_env_states, var_4, adj_env_states, adj_2, adj_3);
+        wp::adj_load(var_2, adj_2, adj_4);
+        wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_2);
+        // adj: (env_states[body_env_id[tid]] == ENV_STATE_INVALID) or (env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED)  <L 90>
+        wp::adj_address(var_affine_has_constraint, var_0, adj_affine_has_constraint, adj_0, adj_1);
+        // adj: if affine_has_constraint[tid] or (                                                <L 89>
+        // adj: tid = wp.tid()                                                                    <L 88>
+        // adj: def compute_rigidity_energy_grad(                                                 <L 78>
         continue;
     }
 }

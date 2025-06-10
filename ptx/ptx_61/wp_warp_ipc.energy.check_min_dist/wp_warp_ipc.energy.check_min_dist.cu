@@ -18,7 +18,7 @@
 extern "C" {
 }
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/distance_type.py:4
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/distance_type.py:4
 static CUDA_CALLABLE void solveLdlt2D_0(
     wp::float64 var_A00,
     wp::float64 var_A01,
@@ -73,7 +73,7 @@ static CUDA_CALLABLE void solveLdlt2D_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/distance_type.py:4
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/distance_type.py:4
 static CUDA_CALLABLE void adj_solveLdlt2D_0(
     wp::float64 var_A00,
     wp::float64 var_A01,
@@ -178,7 +178,7 @@ static CUDA_CALLABLE void adj_solveLdlt2D_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/distance_type.py:18
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/distance_type.py:18
 static CUDA_CALLABLE wp::int32 point_triangle_distance_type_0(
     wp::vec_t<3,wp::float64> var_p,
     wp::vec_t<3,wp::float64> var_t0,
@@ -767,7 +767,7 @@ static CUDA_CALLABLE wp::int32 point_triangle_distance_type_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/distance_type.py:18
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/distance_type.py:18
 static CUDA_CALLABLE void adj_point_triangle_distance_type_0(
     wp::vec_t<3,wp::float64> var_p,
     wp::vec_t<3,wp::float64> var_t0,
@@ -1923,7 +1923,7 @@ static CUDA_CALLABLE void adj_point_triangle_distance_type_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/point_point_distance.py:4
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/point_point_distance.py:4
 static CUDA_CALLABLE wp::float64 point_point_distance_0(
     wp::vec_t<3,wp::float64> var_a,
     wp::vec_t<3,wp::float64> var_b)
@@ -1942,7 +1942,7 @@ static CUDA_CALLABLE wp::float64 point_point_distance_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/point_point_distance.py:4
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/point_point_distance.py:4
 static CUDA_CALLABLE void adj_point_point_distance_0(
     wp::vec_t<3,wp::float64> var_a,
     wp::vec_t<3,wp::float64> var_b,
@@ -1977,7 +1977,7 @@ static CUDA_CALLABLE void adj_point_point_distance_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/point_line_distance.py:287
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/point_line_distance.py:287
 static CUDA_CALLABLE wp::float64 point_line_distance_0(
     wp::vec_t<3,wp::float64> var_p,
     wp::vec_t<3,wp::float64> var_e0,
@@ -2011,7 +2011,7 @@ static CUDA_CALLABLE wp::float64 point_line_distance_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/point_line_distance.py:287
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/point_line_distance.py:287
 static CUDA_CALLABLE void adj_point_line_distance_0(
     wp::vec_t<3,wp::float64> var_p,
     wp::vec_t<3,wp::float64> var_e0,
@@ -2076,7 +2076,7 @@ static CUDA_CALLABLE void adj_point_line_distance_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/point_plane_distance.py:555
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/point_plane_distance.py:555
 static CUDA_CALLABLE wp::float64 point_plane_distance_0(
     wp::vec_t<3,wp::float64> var_p,
     wp::vec_t<3,wp::float64> var_t0,
@@ -2114,7 +2114,7 @@ static CUDA_CALLABLE wp::float64 point_plane_distance_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/point_plane_distance.py:555
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/point_plane_distance.py:555
 static CUDA_CALLABLE void adj_point_plane_distance_0(
     wp::vec_t<3,wp::float64> var_p,
     wp::vec_t<3,wp::float64> var_t0,
@@ -2187,7 +2187,7 @@ static CUDA_CALLABLE void adj_point_plane_distance_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/point_triangle_distance.py:9
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/point_triangle_distance.py:9
 static CUDA_CALLABLE wp::float64 point_triangle_distance_0(
     wp::vec_t<3,wp::float64> var_p,
     wp::vec_t<3,wp::float64> var_t0,
@@ -2295,7 +2295,7 @@ static CUDA_CALLABLE wp::float64 point_triangle_distance_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/point_triangle_distance.py:9
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/point_triangle_distance.py:9
 static CUDA_CALLABLE void adj_point_triangle_distance_0(
     wp::vec_t<3,wp::float64> var_p,
     wp::vec_t<3,wp::float64> var_t0,
@@ -2506,7 +2506,7 @@ static CUDA_CALLABLE void adj_point_triangle_distance_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/distance_type.py:78
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/distance_type.py:78
 static CUDA_CALLABLE wp::int32 edge_edge_distance_type_0(
     wp::vec_t<3,wp::float64> var_ea0,
     wp::vec_t<3,wp::float64> var_ea1,
@@ -2797,7 +2797,7 @@ static CUDA_CALLABLE wp::int32 edge_edge_distance_type_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/distance_type.py:78
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/distance_type.py:78
 static CUDA_CALLABLE void adj_edge_edge_distance_type_0(
     wp::vec_t<3,wp::float64> var_ea0,
     wp::vec_t<3,wp::float64> var_ea1,
@@ -3367,7 +3367,7 @@ static CUDA_CALLABLE void adj_edge_edge_distance_type_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/line_line_distance.py:507
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/line_line_distance.py:507
 static CUDA_CALLABLE wp::float64 line_line_distance_0(
     wp::vec_t<3,wp::float64> var_ea0,
     wp::vec_t<3,wp::float64> var_ea1,
@@ -3405,7 +3405,7 @@ static CUDA_CALLABLE wp::float64 line_line_distance_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/line_line_distance.py:507
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/line_line_distance.py:507
 static CUDA_CALLABLE void adj_line_line_distance_0(
     wp::vec_t<3,wp::float64> var_ea0,
     wp::vec_t<3,wp::float64> var_ea1,
@@ -3478,7 +3478,7 @@ static CUDA_CALLABLE void adj_line_line_distance_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/edge_edge_distance.py:9
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/edge_edge_distance.py:9
 static CUDA_CALLABLE wp::float64 edge_edge_distance_0(
     wp::vec_t<3,wp::float64> var_ea0,
     wp::vec_t<3,wp::float64> var_ea1,
@@ -3610,7 +3610,7 @@ static CUDA_CALLABLE wp::float64 edge_edge_distance_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/edge_edge_distance.py:9
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/contact/edge_edge_distance.py:9
 static CUDA_CALLABLE void adj_edge_edge_distance_0(
     wp::vec_t<3,wp::float64> var_ea0,
     wp::vec_t<3,wp::float64> var_ea1,
@@ -3866,6 +3866,258 @@ static CUDA_CALLABLE void adj_edge_edge_distance_0(
     // adj: dt = edge_edge_distance_type(ea0, ea1, eb0, eb1)                                  <L 11>
     // adj: def edge_edge_distance(ea0: wp.vec3d, ea1: wp.vec3d, eb0: wp.vec3d, eb1: wp.vec3d):  <L 10>
     return;
+}
+
+
+
+extern "C" __global__ void dist_IPC_hs_cuda_kernel_forward(
+    wp::launch_bounds_t dim,
+    wp::array_t<wp::float64> var_energy_x,
+    wp::array_t<wp::int32> var_hs_node,
+    wp::array_t<wp::int32> var_hs_ground,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
+    wp::array_t<wp::int32> var_surf_vi,
+    wp::array_t<wp::float64> var_node_xi,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_half_space_n,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_half_space_o)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        wp::int32* var_1;
+        wp::int32 var_2;
+        wp::int32 var_3;
+        wp::float64* var_4;
+        wp::float64 var_5;
+        wp::float64 var_6;
+        wp::int32* var_7;
+        wp::int32 var_8;
+        wp::int32 var_9;
+        wp::int32* var_10;
+        wp::int32 var_11;
+        wp::int32 var_12;
+        wp::vec_t<3,wp::float64>* var_13;
+        wp::vec_t<3,wp::float64> var_14;
+        wp::vec_t<3,wp::float64> var_15;
+        wp::vec_t<3,wp::float64>* var_16;
+        wp::vec_t<3,wp::float64> var_17;
+        wp::vec_t<3,wp::float64> var_18;
+        wp::vec_t<3,wp::float64>* var_19;
+        wp::vec_t<3,wp::float64> var_20;
+        wp::vec_t<3,wp::float64> var_21;
+        wp::vec_t<3,wp::float64> var_22;
+        wp::float64 var_23;
+        wp::float64 var_24;
+        //---------
+        // forward
+        // def dist_IPC_hs(                                                                       <L 18>
+        // idx = wp.tid()                                                                         <L 28>
+        var_0 = builtin_tid1d();
+        // svi = hs_node[idx]                                                                     <L 29>
+        var_1 = wp::address(var_hs_node, var_0);
+        var_3 = wp::load(var_1);
+        var_2 = wp::copy(var_3);
+        // xi = node_xi[svi]                                                                      <L 30>
+        var_4 = wp::address(var_node_xi, var_2);
+        var_6 = wp::load(var_4);
+        var_5 = wp::copy(var_6);
+        // xI = surf_vi[svi]                                                                      <L 31>
+        var_7 = wp::address(var_surf_vi, var_2);
+        var_9 = wp::load(var_7);
+        var_8 = wp::copy(var_9);
+        // hs = hs_ground[idx]                                                                    <L 32>
+        var_10 = wp::address(var_hs_ground, var_0);
+        var_12 = wp::load(var_10);
+        var_11 = wp::copy(var_12);
+        // n = half_space_n[hs]                                                                   <L 33>
+        var_13 = wp::address(var_half_space_n, var_11);
+        var_15 = wp::load(var_13);
+        var_14 = wp::copy(var_15);
+        // o = half_space_o[hs]                                                                   <L 34>
+        var_16 = wp::address(var_half_space_o, var_11);
+        var_18 = wp::load(var_16);
+        var_17 = wp::copy(var_18);
+        // xIcoord = x[xI]                                                                        <L 35>
+        var_19 = wp::address(var_x, var_8);
+        var_21 = wp::load(var_19);
+        var_20 = wp::copy(var_21);
+        // d = wp.dot(xIcoord - o, n) - xi                                                        <L 36>
+        var_22 = wp::sub(var_20, var_17);
+        var_23 = wp::dot(var_22, var_14);
+        var_24 = wp::sub(var_23, var_5);
+        // energy_x[idx] = d                                                                      <L 37>
+        wp::array_store(var_energy_x, var_0, var_24);
+    }
+}
+
+
+
+extern "C" __global__ void dist_IPC_hs_cuda_kernel_backward(
+    wp::launch_bounds_t dim,
+    wp::array_t<wp::float64> var_energy_x,
+    wp::array_t<wp::int32> var_hs_node,
+    wp::array_t<wp::int32> var_hs_ground,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
+    wp::array_t<wp::int32> var_surf_vi,
+    wp::array_t<wp::float64> var_node_xi,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_half_space_n,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_half_space_o,
+    wp::array_t<wp::float64> adj_energy_x,
+    wp::array_t<wp::int32> adj_hs_node,
+    wp::array_t<wp::int32> adj_hs_ground,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_x,
+    wp::array_t<wp::int32> adj_surf_vi,
+    wp::array_t<wp::float64> adj_node_xi,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_half_space_n,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_half_space_o)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        wp::int32* var_1;
+        wp::int32 var_2;
+        wp::int32 var_3;
+        wp::float64* var_4;
+        wp::float64 var_5;
+        wp::float64 var_6;
+        wp::int32* var_7;
+        wp::int32 var_8;
+        wp::int32 var_9;
+        wp::int32* var_10;
+        wp::int32 var_11;
+        wp::int32 var_12;
+        wp::vec_t<3,wp::float64>* var_13;
+        wp::vec_t<3,wp::float64> var_14;
+        wp::vec_t<3,wp::float64> var_15;
+        wp::vec_t<3,wp::float64>* var_16;
+        wp::vec_t<3,wp::float64> var_17;
+        wp::vec_t<3,wp::float64> var_18;
+        wp::vec_t<3,wp::float64>* var_19;
+        wp::vec_t<3,wp::float64> var_20;
+        wp::vec_t<3,wp::float64> var_21;
+        wp::vec_t<3,wp::float64> var_22;
+        wp::float64 var_23;
+        wp::float64 var_24;
+        //---------
+        // dual vars
+        wp::int32 adj_0 = {};
+        wp::int32 adj_1 = {};
+        wp::int32 adj_2 = {};
+        wp::int32 adj_3 = {};
+        wp::float64 adj_4 = {};
+        wp::float64 adj_5 = {};
+        wp::float64 adj_6 = {};
+        wp::int32 adj_7 = {};
+        wp::int32 adj_8 = {};
+        wp::int32 adj_9 = {};
+        wp::int32 adj_10 = {};
+        wp::int32 adj_11 = {};
+        wp::int32 adj_12 = {};
+        wp::vec_t<3,wp::float64> adj_13 = {};
+        wp::vec_t<3,wp::float64> adj_14 = {};
+        wp::vec_t<3,wp::float64> adj_15 = {};
+        wp::vec_t<3,wp::float64> adj_16 = {};
+        wp::vec_t<3,wp::float64> adj_17 = {};
+        wp::vec_t<3,wp::float64> adj_18 = {};
+        wp::vec_t<3,wp::float64> adj_19 = {};
+        wp::vec_t<3,wp::float64> adj_20 = {};
+        wp::vec_t<3,wp::float64> adj_21 = {};
+        wp::vec_t<3,wp::float64> adj_22 = {};
+        wp::float64 adj_23 = {};
+        wp::float64 adj_24 = {};
+        //---------
+        // forward
+        // def dist_IPC_hs(                                                                       <L 18>
+        // idx = wp.tid()                                                                         <L 28>
+        var_0 = builtin_tid1d();
+        // svi = hs_node[idx]                                                                     <L 29>
+        var_1 = wp::address(var_hs_node, var_0);
+        var_3 = wp::load(var_1);
+        var_2 = wp::copy(var_3);
+        // xi = node_xi[svi]                                                                      <L 30>
+        var_4 = wp::address(var_node_xi, var_2);
+        var_6 = wp::load(var_4);
+        var_5 = wp::copy(var_6);
+        // xI = surf_vi[svi]                                                                      <L 31>
+        var_7 = wp::address(var_surf_vi, var_2);
+        var_9 = wp::load(var_7);
+        var_8 = wp::copy(var_9);
+        // hs = hs_ground[idx]                                                                    <L 32>
+        var_10 = wp::address(var_hs_ground, var_0);
+        var_12 = wp::load(var_10);
+        var_11 = wp::copy(var_12);
+        // n = half_space_n[hs]                                                                   <L 33>
+        var_13 = wp::address(var_half_space_n, var_11);
+        var_15 = wp::load(var_13);
+        var_14 = wp::copy(var_15);
+        // o = half_space_o[hs]                                                                   <L 34>
+        var_16 = wp::address(var_half_space_o, var_11);
+        var_18 = wp::load(var_16);
+        var_17 = wp::copy(var_18);
+        // xIcoord = x[xI]                                                                        <L 35>
+        var_19 = wp::address(var_x, var_8);
+        var_21 = wp::load(var_19);
+        var_20 = wp::copy(var_21);
+        // d = wp.dot(xIcoord - o, n) - xi                                                        <L 36>
+        var_22 = wp::sub(var_20, var_17);
+        var_23 = wp::dot(var_22, var_14);
+        var_24 = wp::sub(var_23, var_5);
+        // energy_x[idx] = d                                                                      <L 37>
+        // wp::array_store(var_energy_x, var_0, var_24);
+        //---------
+        // reverse
+        wp::adj_array_store(var_energy_x, var_0, var_24, adj_energy_x, adj_0, adj_24);
+        // adj: energy_x[idx] = d                                                                 <L 37>
+        wp::adj_sub(var_23, var_5, adj_23, adj_5, adj_24);
+        wp::adj_dot(var_22, var_14, adj_22, adj_14, adj_23);
+        wp::adj_sub(var_20, var_17, adj_20, adj_17, adj_22);
+        // adj: d = wp.dot(xIcoord - o, n) - xi                                                   <L 36>
+        wp::adj_copy(var_21, adj_19, adj_20);
+        wp::adj_load(var_19, adj_19, adj_21);
+        wp::adj_address(var_x, var_8, adj_x, adj_8, adj_19);
+        // adj: xIcoord = x[xI]                                                                   <L 35>
+        wp::adj_copy(var_18, adj_16, adj_17);
+        wp::adj_load(var_16, adj_16, adj_18);
+        wp::adj_address(var_half_space_o, var_11, adj_half_space_o, adj_11, adj_16);
+        // adj: o = half_space_o[hs]                                                              <L 34>
+        wp::adj_copy(var_15, adj_13, adj_14);
+        wp::adj_load(var_13, adj_13, adj_15);
+        wp::adj_address(var_half_space_n, var_11, adj_half_space_n, adj_11, adj_13);
+        // adj: n = half_space_n[hs]                                                              <L 33>
+        wp::adj_copy(var_12, adj_10, adj_11);
+        wp::adj_load(var_10, adj_10, adj_12);
+        wp::adj_address(var_hs_ground, var_0, adj_hs_ground, adj_0, adj_10);
+        // adj: hs = hs_ground[idx]                                                               <L 32>
+        wp::adj_copy(var_9, adj_7, adj_8);
+        wp::adj_load(var_7, adj_7, adj_9);
+        wp::adj_address(var_surf_vi, var_2, adj_surf_vi, adj_2, adj_7);
+        // adj: xI = surf_vi[svi]                                                                 <L 31>
+        wp::adj_copy(var_6, adj_4, adj_5);
+        wp::adj_load(var_4, adj_4, adj_6);
+        wp::adj_address(var_node_xi, var_2, adj_node_xi, adj_2, adj_4);
+        // adj: xi = node_xi[svi]                                                                 <L 30>
+        wp::adj_copy(var_3, adj_1, adj_2);
+        wp::adj_load(var_1, adj_1, adj_3);
+        wp::adj_address(var_hs_node, var_0, adj_hs_node, adj_0, adj_1);
+        // adj: svi = hs_node[idx]                                                                <L 29>
+        // adj: idx = wp.tid()                                                                    <L 28>
+        // adj: def dist_IPC_hs(                                                                  <L 18>
+        continue;
+    }
 }
 
 
@@ -4612,258 +4864,6 @@ extern "C" __global__ void dist_IPC_collisions_cuda_kernel_backward(
         // adj: if collision_type[idx] == TRIANGLE_POINT_PAIR or collision_type[idx] == POINT_TRIANGLE_PAIR:  <L 56>
         // adj: idx = wp.tid()                                                                    <L 54>
         // adj: def dist_IPC_collisions(                                                          <L 41>
-        continue;
-    }
-}
-
-
-
-extern "C" __global__ void dist_IPC_hs_cuda_kernel_forward(
-    wp::launch_bounds_t dim,
-    wp::array_t<wp::float64> var_energy_x,
-    wp::array_t<wp::int32> var_hs_node,
-    wp::array_t<wp::int32> var_hs_ground,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
-    wp::array_t<wp::int32> var_surf_vi,
-    wp::array_t<wp::float64> var_node_xi,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_half_space_n,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_half_space_o)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        wp::int32* var_1;
-        wp::int32 var_2;
-        wp::int32 var_3;
-        wp::float64* var_4;
-        wp::float64 var_5;
-        wp::float64 var_6;
-        wp::int32* var_7;
-        wp::int32 var_8;
-        wp::int32 var_9;
-        wp::int32* var_10;
-        wp::int32 var_11;
-        wp::int32 var_12;
-        wp::vec_t<3,wp::float64>* var_13;
-        wp::vec_t<3,wp::float64> var_14;
-        wp::vec_t<3,wp::float64> var_15;
-        wp::vec_t<3,wp::float64>* var_16;
-        wp::vec_t<3,wp::float64> var_17;
-        wp::vec_t<3,wp::float64> var_18;
-        wp::vec_t<3,wp::float64>* var_19;
-        wp::vec_t<3,wp::float64> var_20;
-        wp::vec_t<3,wp::float64> var_21;
-        wp::vec_t<3,wp::float64> var_22;
-        wp::float64 var_23;
-        wp::float64 var_24;
-        //---------
-        // forward
-        // def dist_IPC_hs(                                                                       <L 18>
-        // idx = wp.tid()                                                                         <L 28>
-        var_0 = builtin_tid1d();
-        // svi = hs_node[idx]                                                                     <L 29>
-        var_1 = wp::address(var_hs_node, var_0);
-        var_3 = wp::load(var_1);
-        var_2 = wp::copy(var_3);
-        // xi = node_xi[svi]                                                                      <L 30>
-        var_4 = wp::address(var_node_xi, var_2);
-        var_6 = wp::load(var_4);
-        var_5 = wp::copy(var_6);
-        // xI = surf_vi[svi]                                                                      <L 31>
-        var_7 = wp::address(var_surf_vi, var_2);
-        var_9 = wp::load(var_7);
-        var_8 = wp::copy(var_9);
-        // hs = hs_ground[idx]                                                                    <L 32>
-        var_10 = wp::address(var_hs_ground, var_0);
-        var_12 = wp::load(var_10);
-        var_11 = wp::copy(var_12);
-        // n = half_space_n[hs]                                                                   <L 33>
-        var_13 = wp::address(var_half_space_n, var_11);
-        var_15 = wp::load(var_13);
-        var_14 = wp::copy(var_15);
-        // o = half_space_o[hs]                                                                   <L 34>
-        var_16 = wp::address(var_half_space_o, var_11);
-        var_18 = wp::load(var_16);
-        var_17 = wp::copy(var_18);
-        // xIcoord = x[xI]                                                                        <L 35>
-        var_19 = wp::address(var_x, var_8);
-        var_21 = wp::load(var_19);
-        var_20 = wp::copy(var_21);
-        // d = wp.dot(xIcoord - o, n) - xi                                                        <L 36>
-        var_22 = wp::sub(var_20, var_17);
-        var_23 = wp::dot(var_22, var_14);
-        var_24 = wp::sub(var_23, var_5);
-        // energy_x[idx] = d                                                                      <L 37>
-        wp::array_store(var_energy_x, var_0, var_24);
-    }
-}
-
-
-
-extern "C" __global__ void dist_IPC_hs_cuda_kernel_backward(
-    wp::launch_bounds_t dim,
-    wp::array_t<wp::float64> var_energy_x,
-    wp::array_t<wp::int32> var_hs_node,
-    wp::array_t<wp::int32> var_hs_ground,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
-    wp::array_t<wp::int32> var_surf_vi,
-    wp::array_t<wp::float64> var_node_xi,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_half_space_n,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_half_space_o,
-    wp::array_t<wp::float64> adj_energy_x,
-    wp::array_t<wp::int32> adj_hs_node,
-    wp::array_t<wp::int32> adj_hs_ground,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_x,
-    wp::array_t<wp::int32> adj_surf_vi,
-    wp::array_t<wp::float64> adj_node_xi,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_half_space_n,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_half_space_o)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        wp::int32* var_1;
-        wp::int32 var_2;
-        wp::int32 var_3;
-        wp::float64* var_4;
-        wp::float64 var_5;
-        wp::float64 var_6;
-        wp::int32* var_7;
-        wp::int32 var_8;
-        wp::int32 var_9;
-        wp::int32* var_10;
-        wp::int32 var_11;
-        wp::int32 var_12;
-        wp::vec_t<3,wp::float64>* var_13;
-        wp::vec_t<3,wp::float64> var_14;
-        wp::vec_t<3,wp::float64> var_15;
-        wp::vec_t<3,wp::float64>* var_16;
-        wp::vec_t<3,wp::float64> var_17;
-        wp::vec_t<3,wp::float64> var_18;
-        wp::vec_t<3,wp::float64>* var_19;
-        wp::vec_t<3,wp::float64> var_20;
-        wp::vec_t<3,wp::float64> var_21;
-        wp::vec_t<3,wp::float64> var_22;
-        wp::float64 var_23;
-        wp::float64 var_24;
-        //---------
-        // dual vars
-        wp::int32 adj_0 = {};
-        wp::int32 adj_1 = {};
-        wp::int32 adj_2 = {};
-        wp::int32 adj_3 = {};
-        wp::float64 adj_4 = {};
-        wp::float64 adj_5 = {};
-        wp::float64 adj_6 = {};
-        wp::int32 adj_7 = {};
-        wp::int32 adj_8 = {};
-        wp::int32 adj_9 = {};
-        wp::int32 adj_10 = {};
-        wp::int32 adj_11 = {};
-        wp::int32 adj_12 = {};
-        wp::vec_t<3,wp::float64> adj_13 = {};
-        wp::vec_t<3,wp::float64> adj_14 = {};
-        wp::vec_t<3,wp::float64> adj_15 = {};
-        wp::vec_t<3,wp::float64> adj_16 = {};
-        wp::vec_t<3,wp::float64> adj_17 = {};
-        wp::vec_t<3,wp::float64> adj_18 = {};
-        wp::vec_t<3,wp::float64> adj_19 = {};
-        wp::vec_t<3,wp::float64> adj_20 = {};
-        wp::vec_t<3,wp::float64> adj_21 = {};
-        wp::vec_t<3,wp::float64> adj_22 = {};
-        wp::float64 adj_23 = {};
-        wp::float64 adj_24 = {};
-        //---------
-        // forward
-        // def dist_IPC_hs(                                                                       <L 18>
-        // idx = wp.tid()                                                                         <L 28>
-        var_0 = builtin_tid1d();
-        // svi = hs_node[idx]                                                                     <L 29>
-        var_1 = wp::address(var_hs_node, var_0);
-        var_3 = wp::load(var_1);
-        var_2 = wp::copy(var_3);
-        // xi = node_xi[svi]                                                                      <L 30>
-        var_4 = wp::address(var_node_xi, var_2);
-        var_6 = wp::load(var_4);
-        var_5 = wp::copy(var_6);
-        // xI = surf_vi[svi]                                                                      <L 31>
-        var_7 = wp::address(var_surf_vi, var_2);
-        var_9 = wp::load(var_7);
-        var_8 = wp::copy(var_9);
-        // hs = hs_ground[idx]                                                                    <L 32>
-        var_10 = wp::address(var_hs_ground, var_0);
-        var_12 = wp::load(var_10);
-        var_11 = wp::copy(var_12);
-        // n = half_space_n[hs]                                                                   <L 33>
-        var_13 = wp::address(var_half_space_n, var_11);
-        var_15 = wp::load(var_13);
-        var_14 = wp::copy(var_15);
-        // o = half_space_o[hs]                                                                   <L 34>
-        var_16 = wp::address(var_half_space_o, var_11);
-        var_18 = wp::load(var_16);
-        var_17 = wp::copy(var_18);
-        // xIcoord = x[xI]                                                                        <L 35>
-        var_19 = wp::address(var_x, var_8);
-        var_21 = wp::load(var_19);
-        var_20 = wp::copy(var_21);
-        // d = wp.dot(xIcoord - o, n) - xi                                                        <L 36>
-        var_22 = wp::sub(var_20, var_17);
-        var_23 = wp::dot(var_22, var_14);
-        var_24 = wp::sub(var_23, var_5);
-        // energy_x[idx] = d                                                                      <L 37>
-        // wp::array_store(var_energy_x, var_0, var_24);
-        //---------
-        // reverse
-        wp::adj_array_store(var_energy_x, var_0, var_24, adj_energy_x, adj_0, adj_24);
-        // adj: energy_x[idx] = d                                                                 <L 37>
-        wp::adj_sub(var_23, var_5, adj_23, adj_5, adj_24);
-        wp::adj_dot(var_22, var_14, adj_22, adj_14, adj_23);
-        wp::adj_sub(var_20, var_17, adj_20, adj_17, adj_22);
-        // adj: d = wp.dot(xIcoord - o, n) - xi                                                   <L 36>
-        wp::adj_copy(var_21, adj_19, adj_20);
-        wp::adj_load(var_19, adj_19, adj_21);
-        wp::adj_address(var_x, var_8, adj_x, adj_8, adj_19);
-        // adj: xIcoord = x[xI]                                                                   <L 35>
-        wp::adj_copy(var_18, adj_16, adj_17);
-        wp::adj_load(var_16, adj_16, adj_18);
-        wp::adj_address(var_half_space_o, var_11, adj_half_space_o, adj_11, adj_16);
-        // adj: o = half_space_o[hs]                                                              <L 34>
-        wp::adj_copy(var_15, adj_13, adj_14);
-        wp::adj_load(var_13, adj_13, adj_15);
-        wp::adj_address(var_half_space_n, var_11, adj_half_space_n, adj_11, adj_13);
-        // adj: n = half_space_n[hs]                                                              <L 33>
-        wp::adj_copy(var_12, adj_10, adj_11);
-        wp::adj_load(var_10, adj_10, adj_12);
-        wp::adj_address(var_hs_ground, var_0, adj_hs_ground, adj_0, adj_10);
-        // adj: hs = hs_ground[idx]                                                               <L 32>
-        wp::adj_copy(var_9, adj_7, adj_8);
-        wp::adj_load(var_7, adj_7, adj_9);
-        wp::adj_address(var_surf_vi, var_2, adj_surf_vi, adj_2, adj_7);
-        // adj: xI = surf_vi[svi]                                                                 <L 31>
-        wp::adj_copy(var_6, adj_4, adj_5);
-        wp::adj_load(var_4, adj_4, adj_6);
-        wp::adj_address(var_node_xi, var_2, adj_node_xi, adj_2, adj_4);
-        // adj: xi = node_xi[svi]                                                                 <L 30>
-        wp::adj_copy(var_3, adj_1, adj_2);
-        wp::adj_load(var_1, adj_1, adj_3);
-        wp::adj_address(var_hs_node, var_0, adj_hs_node, adj_0, adj_1);
-        // adj: svi = hs_node[idx]                                                                <L 29>
-        // adj: idx = wp.tid()                                                                    <L 28>
-        // adj: def dist_IPC_hs(                                                                  <L 18>
         continue;
     }
 }

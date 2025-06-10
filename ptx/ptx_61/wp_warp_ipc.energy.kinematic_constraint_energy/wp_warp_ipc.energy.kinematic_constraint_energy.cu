@@ -96,7 +96,52 @@ CUDA_CALLABLE void adj_atomic_add(COOMatrix3x3_0df4b45d* p, COOMatrix3x3_0df4b45
 
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/matrix.py:152
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/wp_math.py:145
+static CUDA_CALLABLE wp::float64 sqr_0(
+    wp::float64 var_x)
+{
+    //---------
+    // primal vars
+    wp::float64 var_0;
+    //---------
+    // forward
+    // def sqr(x: wp.float64):                                                                <L 146>
+    // return x * x                                                                           <L 147>
+    var_0 = wp::mul(var_x, var_x);
+    return var_0;
+}
+
+
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/wp_math.py:145
+static CUDA_CALLABLE void adj_sqr_0(
+    wp::float64 var_x,
+    wp::float64 & adj_x,
+    wp::float64 & adj_ret)
+{
+    //---------
+    // primal vars
+    wp::float64 var_0;
+    //---------
+    // dual vars
+    wp::float64 adj_0 = {};
+    //---------
+    // forward
+    // def sqr(x: wp.float64):                                                                <L 146>
+    // return x * x                                                                           <L 147>
+    var_0 = wp::mul(var_x, var_x);
+    goto label0;
+    //---------
+    // reverse
+    label0:;
+    adj_0 += adj_ret;
+    wp::adj_mul(var_x, var_x, adj_x, adj_x, adj_0);
+    // adj: return x * x                                                                      <L 147>
+    // adj: def sqr(x: wp.float64):                                                           <L 146>
+    return;
+}
+
+
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/matrix.py:152
 static CUDA_CALLABLE void COOMatrix3x3_atomic_add_0(
     COOMatrix3x3_0df4b45d var_mat,
     wp::int32 var_block_index,
@@ -145,7 +190,7 @@ static CUDA_CALLABLE void COOMatrix3x3_atomic_add_0(
 }
 
 
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/matrix.py:152
+// /home/changyu/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/matrix.py:152
 static CUDA_CALLABLE void adj_COOMatrix3x3_atomic_add_0(
     COOMatrix3x3_0df4b45d var_mat,
     wp::int32 var_block_index,
@@ -232,900 +277,6 @@ static CUDA_CALLABLE void adj_COOMatrix3x3_atomic_add_0(
     // adj: if ENABLE_COO_OFB:                                                                <L 154>
     // adj: def COOMatrix3x3_atomic_add(mat: COOMatrix3x3, block_index: wp.int32, v: wp.mat33d):  <L 153>
     return;
-}
-
-
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/wp_math.py:145
-static CUDA_CALLABLE wp::float64 sqr_0(
-    wp::float64 var_x)
-{
-    //---------
-    // primal vars
-    wp::float64 var_0;
-    //---------
-    // forward
-    // def sqr(x: wp.float64):                                                                <L 146>
-    // return x * x                                                                           <L 147>
-    var_0 = wp::mul(var_x, var_x);
-    return var_0;
-}
-
-
-// /home/chang/actions-runner/_work/Taccel-Action/Taccel-Action/turbo/warp_ipc/utils/wp_math.py:145
-static CUDA_CALLABLE void adj_sqr_0(
-    wp::float64 var_x,
-    wp::float64 & adj_x,
-    wp::float64 & adj_ret)
-{
-    //---------
-    // primal vars
-    wp::float64 var_0;
-    //---------
-    // dual vars
-    wp::float64 adj_0 = {};
-    //---------
-    // forward
-    // def sqr(x: wp.float64):                                                                <L 146>
-    // return x * x                                                                           <L 147>
-    var_0 = wp::mul(var_x, var_x);
-    goto label0;
-    //---------
-    // reverse
-    label0:;
-    adj_0 += adj_ret;
-    wp::adj_mul(var_x, var_x, adj_x, adj_x, adj_0);
-    // adj: return x * x                                                                      <L 147>
-    // adj: def sqr(x: wp.float64):                                                           <L 146>
-    return;
-}
-
-
-
-extern "C" __global__ void compute_affine_kinematic_hess_cuda_kernel_forward(
-    wp::launch_bounds_t dim,
-    wp::array_t<bool> var_affine_has_constraint,
-    wp::float64 var_weight,
-    COOMatrix3x3_0df4b45d var_hess_affine_diag,
-    wp::array_t<wp::float64> var_mass_body,
-    wp::array_t<wp::int32> var_body_env_id,
-    wp::array_t<wp::int32> var_env_states)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        wp::int32* var_1;
-        wp::int32* var_2;
-        wp::int32 var_3;
-        const wp::int32 var_4 = 1;
-        bool var_5;
-        wp::int32 var_6;
-        wp::int32* var_7;
-        wp::int32* var_8;
-        wp::int32 var_9;
-        const wp::int32 var_10 = 2;
-        bool var_11;
-        wp::int32 var_12;
-        bool var_13;
-        wp::float64* var_14;
-        wp::float64 var_15;
-        wp::float64 var_16;
-        const wp::float32 var_17 = 0.0;
-        wp::float64 var_18;
-        bool* var_19;
-        bool var_20;
-        bool var_21;
-        wp::float64 var_22;
-        wp::mat_t<3,3,wp::float64> var_23;
-        const wp::int32 var_24 = 0;
-        const wp::int32 var_25 = 16;
-        wp::int32 var_26;
-        const wp::int32 var_27 = 4;
-        wp::int32 var_28;
-        wp::int32 var_29;
-        wp::int32 var_30;
-        const wp::int32 var_31 = 1;
-        const wp::int32 var_32 = 16;
-        wp::int32 var_33;
-        const wp::int32 var_34 = 4;
-        wp::int32 var_35;
-        wp::int32 var_36;
-        wp::int32 var_37;
-        const wp::int32 var_38 = 2;
-        const wp::int32 var_39 = 16;
-        wp::int32 var_40;
-        const wp::int32 var_41 = 4;
-        wp::int32 var_42;
-        wp::int32 var_43;
-        wp::int32 var_44;
-        const wp::int32 var_45 = 3;
-        const wp::int32 var_46 = 16;
-        wp::int32 var_47;
-        const wp::int32 var_48 = 4;
-        wp::int32 var_49;
-        wp::int32 var_50;
-        wp::int32 var_51;
-        //---------
-        // forward
-        // def compute_affine_kinematic_hess(                                                     <L 254>
-        // tid = wp.tid()                                                                         <L 262>
-        var_0 = builtin_tid1d();
-        // if env_states[body_env_id[tid]] == ENV_STATE_INVALID or env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED:       <L 263>
-        var_1 = wp::address(var_body_env_id, var_0);
-        var_3 = wp::load(var_1);
-        var_2 = wp::address(var_env_states, var_3);
-        var_6 = wp::load(var_2);
-        var_5 = (var_6 == var_4);
-        var_7 = wp::address(var_body_env_id, var_0);
-        var_9 = wp::load(var_7);
-        var_8 = wp::address(var_env_states, var_9);
-        var_12 = wp::load(var_8);
-        var_11 = (var_12 == var_10);
-        var_13 = var_5 || var_11;
-        if (var_13) {
-            // return                                                                             <L 264>
-            continue;
-        }
-        // mass = mass_body[tid]                                                                  <L 265>
-        var_14 = wp::address(var_mass_body, var_0);
-        var_16 = wp::load(var_14);
-        var_15 = wp::copy(var_16);
-        // _0 = wp.float64(0.0)                                                                   <L 266>
-        var_18 = wp::float64(var_17);
-        // has_constraint = affine_has_constraint[tid]                                            <L 267>
-        var_19 = wp::address(var_affine_has_constraint, var_0);
-        var_21 = wp::load(var_19);
-        var_20 = wp::copy(var_21);
-        // weighted_mass = mass * weight                                                          <L 268>
-        var_22 = wp::mul(var_15, var_weight);
-        // mat3 = wp.mat33d(weighted_mass, _0, _0, _0, weighted_mass, _0, _0, _0, weighted_mass)       <L 269>
-        var_23 = wp::mat_t<3,3,wp::float64>(var_22, var_18, var_18, var_18, var_22, var_18, var_18, var_18, var_22);
-        // if has_constraint:                                                                     <L 270>
-        if (var_20) {
-            // for bi in range(4):                                                                <L 271>
-            // matrix.COOMatrix3x3_atomic_add(hess_affine_diag, tid * 16 + 4 * bi + bi, mat3)       <L 272>
-            var_26 = wp::mul(var_0, var_25);
-            var_28 = wp::mul(var_27, var_24);
-            var_29 = wp::add(var_26, var_28);
-            var_30 = wp::add(var_29, var_24);
-            COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_30, var_23);
-            var_33 = wp::mul(var_0, var_32);
-            var_35 = wp::mul(var_34, var_31);
-            var_36 = wp::add(var_33, var_35);
-            var_37 = wp::add(var_36, var_31);
-            COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_37, var_23);
-            var_40 = wp::mul(var_0, var_39);
-            var_42 = wp::mul(var_41, var_38);
-            var_43 = wp::add(var_40, var_42);
-            var_44 = wp::add(var_43, var_38);
-            COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_44, var_23);
-            var_47 = wp::mul(var_0, var_46);
-            var_49 = wp::mul(var_48, var_45);
-            var_50 = wp::add(var_47, var_49);
-            var_51 = wp::add(var_50, var_45);
-            COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_51, var_23);
-        }
-    }
-}
-
-
-
-extern "C" __global__ void compute_affine_kinematic_hess_cuda_kernel_backward(
-    wp::launch_bounds_t dim,
-    wp::array_t<bool> var_affine_has_constraint,
-    wp::float64 var_weight,
-    COOMatrix3x3_0df4b45d var_hess_affine_diag,
-    wp::array_t<wp::float64> var_mass_body,
-    wp::array_t<wp::int32> var_body_env_id,
-    wp::array_t<wp::int32> var_env_states,
-    wp::array_t<bool> adj_affine_has_constraint,
-    wp::float64 adj_weight,
-    COOMatrix3x3_0df4b45d adj_hess_affine_diag,
-    wp::array_t<wp::float64> adj_mass_body,
-    wp::array_t<wp::int32> adj_body_env_id,
-    wp::array_t<wp::int32> adj_env_states)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        wp::int32* var_1;
-        wp::int32* var_2;
-        wp::int32 var_3;
-        const wp::int32 var_4 = 1;
-        bool var_5;
-        wp::int32 var_6;
-        wp::int32* var_7;
-        wp::int32* var_8;
-        wp::int32 var_9;
-        const wp::int32 var_10 = 2;
-        bool var_11;
-        wp::int32 var_12;
-        bool var_13;
-        wp::float64* var_14;
-        wp::float64 var_15;
-        wp::float64 var_16;
-        const wp::float32 var_17 = 0.0;
-        wp::float64 var_18;
-        bool* var_19;
-        bool var_20;
-        bool var_21;
-        wp::float64 var_22;
-        wp::mat_t<3,3,wp::float64> var_23;
-        const wp::int32 var_24 = 0;
-        const wp::int32 var_25 = 16;
-        wp::int32 var_26;
-        const wp::int32 var_27 = 4;
-        wp::int32 var_28;
-        wp::int32 var_29;
-        wp::int32 var_30;
-        const wp::int32 var_31 = 1;
-        const wp::int32 var_32 = 16;
-        wp::int32 var_33;
-        const wp::int32 var_34 = 4;
-        wp::int32 var_35;
-        wp::int32 var_36;
-        wp::int32 var_37;
-        const wp::int32 var_38 = 2;
-        const wp::int32 var_39 = 16;
-        wp::int32 var_40;
-        const wp::int32 var_41 = 4;
-        wp::int32 var_42;
-        wp::int32 var_43;
-        wp::int32 var_44;
-        const wp::int32 var_45 = 3;
-        const wp::int32 var_46 = 16;
-        wp::int32 var_47;
-        const wp::int32 var_48 = 4;
-        wp::int32 var_49;
-        wp::int32 var_50;
-        wp::int32 var_51;
-        //---------
-        // dual vars
-        wp::int32 adj_0 = {};
-        wp::int32 adj_1 = {};
-        wp::int32 adj_2 = {};
-        wp::int32 adj_3 = {};
-        wp::int32 adj_4 = {};
-        bool adj_5 = {};
-        wp::int32 adj_6 = {};
-        wp::int32 adj_7 = {};
-        wp::int32 adj_8 = {};
-        wp::int32 adj_9 = {};
-        wp::int32 adj_10 = {};
-        bool adj_11 = {};
-        wp::int32 adj_12 = {};
-        bool adj_13 = {};
-        wp::float64 adj_14 = {};
-        wp::float64 adj_15 = {};
-        wp::float64 adj_16 = {};
-        wp::float32 adj_17 = {};
-        wp::float64 adj_18 = {};
-        bool adj_19 = {};
-        bool adj_20 = {};
-        bool adj_21 = {};
-        wp::float64 adj_22 = {};
-        wp::mat_t<3,3,wp::float64> adj_23 = {};
-        wp::int32 adj_24 = {};
-        wp::int32 adj_25 = {};
-        wp::int32 adj_26 = {};
-        wp::int32 adj_27 = {};
-        wp::int32 adj_28 = {};
-        wp::int32 adj_29 = {};
-        wp::int32 adj_30 = {};
-        wp::int32 adj_31 = {};
-        wp::int32 adj_32 = {};
-        wp::int32 adj_33 = {};
-        wp::int32 adj_34 = {};
-        wp::int32 adj_35 = {};
-        wp::int32 adj_36 = {};
-        wp::int32 adj_37 = {};
-        wp::int32 adj_38 = {};
-        wp::int32 adj_39 = {};
-        wp::int32 adj_40 = {};
-        wp::int32 adj_41 = {};
-        wp::int32 adj_42 = {};
-        wp::int32 adj_43 = {};
-        wp::int32 adj_44 = {};
-        wp::int32 adj_45 = {};
-        wp::int32 adj_46 = {};
-        wp::int32 adj_47 = {};
-        wp::int32 adj_48 = {};
-        wp::int32 adj_49 = {};
-        wp::int32 adj_50 = {};
-        wp::int32 adj_51 = {};
-        //---------
-        // forward
-        // def compute_affine_kinematic_hess(                                                     <L 254>
-        // tid = wp.tid()                                                                         <L 262>
-        var_0 = builtin_tid1d();
-        // if env_states[body_env_id[tid]] == ENV_STATE_INVALID or env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED:       <L 263>
-        var_1 = wp::address(var_body_env_id, var_0);
-        var_3 = wp::load(var_1);
-        var_2 = wp::address(var_env_states, var_3);
-        var_6 = wp::load(var_2);
-        var_5 = (var_6 == var_4);
-        var_7 = wp::address(var_body_env_id, var_0);
-        var_9 = wp::load(var_7);
-        var_8 = wp::address(var_env_states, var_9);
-        var_12 = wp::load(var_8);
-        var_11 = (var_12 == var_10);
-        var_13 = var_5 || var_11;
-        if (var_13) {
-            // return                                                                             <L 264>
-            goto label0;
-        }
-        // mass = mass_body[tid]                                                                  <L 265>
-        var_14 = wp::address(var_mass_body, var_0);
-        var_16 = wp::load(var_14);
-        var_15 = wp::copy(var_16);
-        // _0 = wp.float64(0.0)                                                                   <L 266>
-        var_18 = wp::float64(var_17);
-        // has_constraint = affine_has_constraint[tid]                                            <L 267>
-        var_19 = wp::address(var_affine_has_constraint, var_0);
-        var_21 = wp::load(var_19);
-        var_20 = wp::copy(var_21);
-        // weighted_mass = mass * weight                                                          <L 268>
-        var_22 = wp::mul(var_15, var_weight);
-        // mat3 = wp.mat33d(weighted_mass, _0, _0, _0, weighted_mass, _0, _0, _0, weighted_mass)       <L 269>
-        var_23 = wp::mat_t<3,3,wp::float64>(var_22, var_18, var_18, var_18, var_22, var_18, var_18, var_18, var_22);
-        // if has_constraint:                                                                     <L 270>
-        if (var_20) {
-            // for bi in range(4):                                                                <L 271>
-            // matrix.COOMatrix3x3_atomic_add(hess_affine_diag, tid * 16 + 4 * bi + bi, mat3)       <L 272>
-            var_26 = wp::mul(var_0, var_25);
-            var_28 = wp::mul(var_27, var_24);
-            var_29 = wp::add(var_26, var_28);
-            var_30 = wp::add(var_29, var_24);
-            COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_30, var_23);
-            var_33 = wp::mul(var_0, var_32);
-            var_35 = wp::mul(var_34, var_31);
-            var_36 = wp::add(var_33, var_35);
-            var_37 = wp::add(var_36, var_31);
-            COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_37, var_23);
-            var_40 = wp::mul(var_0, var_39);
-            var_42 = wp::mul(var_41, var_38);
-            var_43 = wp::add(var_40, var_42);
-            var_44 = wp::add(var_43, var_38);
-            COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_44, var_23);
-            var_47 = wp::mul(var_0, var_46);
-            var_49 = wp::mul(var_48, var_45);
-            var_50 = wp::add(var_47, var_49);
-            var_51 = wp::add(var_50, var_45);
-            COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_51, var_23);
-        }
-        //---------
-        // reverse
-        if (var_20) {
-            adj_COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_51, var_23, adj_hess_affine_diag, adj_51, adj_23);
-            wp::adj_add(var_50, var_45, adj_50, adj_45, adj_51);
-            wp::adj_add(var_47, var_49, adj_47, adj_49, adj_50);
-            wp::adj_mul(var_48, var_45, adj_48, adj_45, adj_49);
-            wp::adj_mul(var_0, var_46, adj_0, adj_46, adj_47);
-            adj_COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_44, var_23, adj_hess_affine_diag, adj_44, adj_23);
-            wp::adj_add(var_43, var_38, adj_43, adj_38, adj_44);
-            wp::adj_add(var_40, var_42, adj_40, adj_42, adj_43);
-            wp::adj_mul(var_41, var_38, adj_41, adj_38, adj_42);
-            wp::adj_mul(var_0, var_39, adj_0, adj_39, adj_40);
-            adj_COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_37, var_23, adj_hess_affine_diag, adj_37, adj_23);
-            wp::adj_add(var_36, var_31, adj_36, adj_31, adj_37);
-            wp::adj_add(var_33, var_35, adj_33, adj_35, adj_36);
-            wp::adj_mul(var_34, var_31, adj_34, adj_31, adj_35);
-            wp::adj_mul(var_0, var_32, adj_0, adj_32, adj_33);
-            adj_COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_30, var_23, adj_hess_affine_diag, adj_30, adj_23);
-            wp::adj_add(var_29, var_24, adj_29, adj_24, adj_30);
-            wp::adj_add(var_26, var_28, adj_26, adj_28, adj_29);
-            wp::adj_mul(var_27, var_24, adj_27, adj_24, adj_28);
-            wp::adj_mul(var_0, var_25, adj_0, adj_25, adj_26);
-            // adj: matrix.COOMatrix3x3_atomic_add(hess_affine_diag, tid * 16 + 4 * bi + bi, mat3)  <L 272>
-            // adj: for bi in range(4):                                                           <L 271>
-        }
-        // adj: if has_constraint:                                                                <L 270>
-        wp::adj_mat_t(var_22, var_18, var_18, var_18, var_22, var_18, var_18, var_18, var_22, adj_22, adj_18, adj_18, adj_18, adj_22, adj_18, adj_18, adj_18, adj_22, adj_23);
-        // adj: mat3 = wp.mat33d(weighted_mass, _0, _0, _0, weighted_mass, _0, _0, _0, weighted_mass)  <L 269>
-        wp::adj_mul(var_15, var_weight, adj_15, adj_weight, adj_22);
-        // adj: weighted_mass = mass * weight                                                     <L 268>
-        wp::adj_copy(var_21, adj_19, adj_20);
-        wp::adj_load(var_19, adj_19, adj_21);
-        wp::adj_address(var_affine_has_constraint, var_0, adj_affine_has_constraint, adj_0, adj_19);
-        // adj: has_constraint = affine_has_constraint[tid]                                       <L 267>
-        wp::adj_float64(var_17, adj_17, adj_18);
-        // adj: _0 = wp.float64(0.0)                                                              <L 266>
-        wp::adj_copy(var_16, adj_14, adj_15);
-        wp::adj_load(var_14, adj_14, adj_16);
-        wp::adj_address(var_mass_body, var_0, adj_mass_body, adj_0, adj_14);
-        // adj: mass = mass_body[tid]                                                             <L 265>
-        if (var_13) {
-            label0:;
-            // adj: return                                                                        <L 264>
-        }
-        wp::adj_load(var_8, adj_8, adj_12);
-        wp::adj_address(var_env_states, var_9, adj_env_states, adj_7, adj_8);
-        wp::adj_load(var_7, adj_7, adj_9);
-        wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_7);
-        wp::adj_load(var_2, adj_2, adj_6);
-        wp::adj_address(var_env_states, var_3, adj_env_states, adj_1, adj_2);
-        wp::adj_load(var_1, adj_1, adj_3);
-        wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_1);
-        // adj: if env_states[body_env_id[tid]] == ENV_STATE_INVALID or env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED:  <L 263>
-        // adj: tid = wp.tid()                                                                    <L 262>
-        // adj: def compute_affine_kinematic_hess(                                                <L 254>
-        continue;
-    }
-}
-
-
-
-extern "C" __global__ void compute_soft_kinematic_energy_cuda_kernel_forward(
-    wp::launch_bounds_t dim,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
-    wp::array_t<bool> var_soft_has_constraint,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_target_dof,
-    wp::float64 var_weight,
-    wp::array_t<wp::float64> var_soft_energy,
-    wp::int32 var_affine_verts_num,
-    wp::array_t<wp::float64> var_soft_verts_mass)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        bool* var_1;
-        bool var_2;
-        bool var_3;
-        wp::float64* var_4;
-        wp::float64 var_5;
-        wp::float64 var_6;
-        const wp::float32 var_7 = 0.5;
-        wp::float64 var_8;
-        wp::float64 var_9;
-        wp::float64 var_10;
-        wp::int32 var_11;
-        wp::vec_t<3,wp::float64>* var_12;
-        wp::vec_t<3,wp::float64>* var_13;
-        wp::vec_t<3,wp::float64> var_14;
-        wp::vec_t<3,wp::float64> var_15;
-        wp::vec_t<3,wp::float64> var_16;
-        wp::float64 var_17;
-        wp::float64 var_18;
-        wp::float64 var_19;
-        //---------
-        // forward
-        // def compute_soft_kinematic_energy(                                                     <L 86>
-        // tid = wp.tid()                                                                         <L 95>
-        var_0 = builtin_tid1d();
-        // has_constraint = soft_has_constraint[tid]                                              <L 96>
-        var_1 = wp::address(var_soft_has_constraint, var_0);
-        var_3 = wp::load(var_1);
-        var_2 = wp::copy(var_3);
-        // mass = soft_verts_mass[tid]                                                            <L 97>
-        var_4 = wp::address(var_soft_verts_mass, var_0);
-        var_6 = wp::load(var_4);
-        var_5 = wp::copy(var_6);
-        // if has_constraint:                                                                     <L 98>
-        if (var_2) {
-            // soft_energy[tid] += wp.float64(0.5) * weight * mass * wp.length_sq(x[tid + affine_verts_num] - soft_target_dof[tid])       <L 99>
-            var_8 = wp::float64(var_7);
-            var_9 = wp::mul(var_8, var_weight);
-            var_10 = wp::mul(var_9, var_5);
-            var_11 = wp::add(var_0, var_affine_verts_num);
-            var_12 = wp::address(var_x, var_11);
-            var_13 = wp::address(var_soft_target_dof, var_0);
-            var_15 = wp::load(var_12);
-            var_16 = wp::load(var_13);
-            var_14 = wp::sub(var_15, var_16);
-            var_17 = wp::length_sq(var_14);
-            var_18 = wp::mul(var_10, var_17);
-            var_19 = wp::atomic_add(var_soft_energy, var_0, var_18);
-        }
-    }
-}
-
-
-
-extern "C" __global__ void compute_soft_kinematic_energy_cuda_kernel_backward(
-    wp::launch_bounds_t dim,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
-    wp::array_t<bool> var_soft_has_constraint,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_target_dof,
-    wp::float64 var_weight,
-    wp::array_t<wp::float64> var_soft_energy,
-    wp::int32 var_affine_verts_num,
-    wp::array_t<wp::float64> var_soft_verts_mass,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_x,
-    wp::array_t<bool> adj_soft_has_constraint,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_soft_target_dof,
-    wp::float64 adj_weight,
-    wp::array_t<wp::float64> adj_soft_energy,
-    wp::int32 adj_affine_verts_num,
-    wp::array_t<wp::float64> adj_soft_verts_mass)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        bool* var_1;
-        bool var_2;
-        bool var_3;
-        wp::float64* var_4;
-        wp::float64 var_5;
-        wp::float64 var_6;
-        const wp::float32 var_7 = 0.5;
-        wp::float64 var_8;
-        wp::float64 var_9;
-        wp::float64 var_10;
-        wp::int32 var_11;
-        wp::vec_t<3,wp::float64>* var_12;
-        wp::vec_t<3,wp::float64>* var_13;
-        wp::vec_t<3,wp::float64> var_14;
-        wp::vec_t<3,wp::float64> var_15;
-        wp::vec_t<3,wp::float64> var_16;
-        wp::float64 var_17;
-        wp::float64 var_18;
-        wp::float64 var_19;
-        //---------
-        // dual vars
-        wp::int32 adj_0 = {};
-        bool adj_1 = {};
-        bool adj_2 = {};
-        bool adj_3 = {};
-        wp::float64 adj_4 = {};
-        wp::float64 adj_5 = {};
-        wp::float64 adj_6 = {};
-        wp::float32 adj_7 = {};
-        wp::float64 adj_8 = {};
-        wp::float64 adj_9 = {};
-        wp::float64 adj_10 = {};
-        wp::int32 adj_11 = {};
-        wp::vec_t<3,wp::float64> adj_12 = {};
-        wp::vec_t<3,wp::float64> adj_13 = {};
-        wp::vec_t<3,wp::float64> adj_14 = {};
-        wp::vec_t<3,wp::float64> adj_15 = {};
-        wp::vec_t<3,wp::float64> adj_16 = {};
-        wp::float64 adj_17 = {};
-        wp::float64 adj_18 = {};
-        wp::float64 adj_19 = {};
-        //---------
-        // forward
-        // def compute_soft_kinematic_energy(                                                     <L 86>
-        // tid = wp.tid()                                                                         <L 95>
-        var_0 = builtin_tid1d();
-        // has_constraint = soft_has_constraint[tid]                                              <L 96>
-        var_1 = wp::address(var_soft_has_constraint, var_0);
-        var_3 = wp::load(var_1);
-        var_2 = wp::copy(var_3);
-        // mass = soft_verts_mass[tid]                                                            <L 97>
-        var_4 = wp::address(var_soft_verts_mass, var_0);
-        var_6 = wp::load(var_4);
-        var_5 = wp::copy(var_6);
-        // if has_constraint:                                                                     <L 98>
-        if (var_2) {
-            // soft_energy[tid] += wp.float64(0.5) * weight * mass * wp.length_sq(x[tid + affine_verts_num] - soft_target_dof[tid])       <L 99>
-            var_8 = wp::float64(var_7);
-            var_9 = wp::mul(var_8, var_weight);
-            var_10 = wp::mul(var_9, var_5);
-            var_11 = wp::add(var_0, var_affine_verts_num);
-            var_12 = wp::address(var_x, var_11);
-            var_13 = wp::address(var_soft_target_dof, var_0);
-            var_15 = wp::load(var_12);
-            var_16 = wp::load(var_13);
-            var_14 = wp::sub(var_15, var_16);
-            var_17 = wp::length_sq(var_14);
-            var_18 = wp::mul(var_10, var_17);
-            // var_19 = wp::atomic_add(var_soft_energy, var_0, var_18);
-        }
-        //---------
-        // reverse
-        if (var_2) {
-            wp::adj_atomic_add(var_soft_energy, var_0, var_18, adj_soft_energy, adj_0, adj_18, adj_19);
-            wp::adj_mul(var_10, var_17, adj_10, adj_17, adj_18);
-            wp::adj_length_sq(var_14, adj_14, adj_17);
-            wp::adj_sub(var_15, var_16, adj_12, adj_13, adj_14);
-            wp::adj_load(var_13, adj_13, adj_16);
-            wp::adj_load(var_12, adj_12, adj_15);
-            wp::adj_address(var_soft_target_dof, var_0, adj_soft_target_dof, adj_0, adj_13);
-            wp::adj_address(var_x, var_11, adj_x, adj_11, adj_12);
-            wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_11);
-            wp::adj_mul(var_9, var_5, adj_9, adj_5, adj_10);
-            wp::adj_mul(var_8, var_weight, adj_8, adj_weight, adj_9);
-            wp::adj_float64(var_7, adj_7, adj_8);
-            // adj: soft_energy[tid] += wp.float64(0.5) * weight * mass * wp.length_sq(x[tid + affine_verts_num] - soft_target_dof[tid])  <L 99>
-        }
-        // adj: if has_constraint:                                                                <L 98>
-        wp::adj_copy(var_6, adj_4, adj_5);
-        wp::adj_load(var_4, adj_4, adj_6);
-        wp::adj_address(var_soft_verts_mass, var_0, adj_soft_verts_mass, adj_0, adj_4);
-        // adj: mass = soft_verts_mass[tid]                                                       <L 97>
-        wp::adj_copy(var_3, adj_1, adj_2);
-        wp::adj_load(var_1, adj_1, adj_3);
-        wp::adj_address(var_soft_has_constraint, var_0, adj_soft_has_constraint, adj_0, adj_1);
-        // adj: has_constraint = soft_has_constraint[tid]                                         <L 96>
-        // adj: tid = wp.tid()                                                                    <L 95>
-        // adj: def compute_soft_kinematic_energy(                                                <L 86>
-        continue;
-    }
-}
-
-
-
-extern "C" __global__ void compute_soft_kinematic_hess_cuda_kernel_forward(
-    wp::launch_bounds_t dim,
-    wp::array_t<bool> var_soft_has_constraint,
-    wp::float64 var_weight,
-    COOMatrix3x3_0df4b45d var_hess_soft_diag,
-    wp::int32 var_affine_verts_num,
-    wp::array_t<wp::float64> var_soft_verts_mass,
-    wp::array_t<wp::int32> var_node2env,
-    wp::array_t<wp::int32> var_env_states)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        wp::int32 var_1;
-        wp::int32* var_2;
-        wp::int32* var_3;
-        wp::int32 var_4;
-        const wp::int32 var_5 = 1;
-        bool var_6;
-        wp::int32 var_7;
-        wp::int32 var_8;
-        wp::int32* var_9;
-        wp::int32* var_10;
-        wp::int32 var_11;
-        const wp::int32 var_12 = 2;
-        bool var_13;
-        wp::int32 var_14;
-        bool var_15;
-        wp::float64* var_16;
-        wp::float64 var_17;
-        wp::float64 var_18;
-        const wp::float32 var_19 = 0.0;
-        wp::float64 var_20;
-        bool* var_21;
-        bool var_22;
-        bool var_23;
-        wp::float64 var_24;
-        wp::mat_t<3,3,wp::float64> var_25;
-        //---------
-        // forward
-        // def compute_soft_kinematic_hess(                                                       <L 276>
-        // tid = wp.tid()                                                                         <L 285>
-        var_0 = builtin_tid1d();
-        // if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:       <L 286>
-        var_1 = wp::add(var_0, var_affine_verts_num);
-        var_2 = wp::address(var_node2env, var_1);
-        var_4 = wp::load(var_2);
-        var_3 = wp::address(var_env_states, var_4);
-        var_7 = wp::load(var_3);
-        var_6 = (var_7 == var_5);
-        var_8 = wp::add(var_0, var_affine_verts_num);
-        var_9 = wp::address(var_node2env, var_8);
-        var_11 = wp::load(var_9);
-        var_10 = wp::address(var_env_states, var_11);
-        var_14 = wp::load(var_10);
-        var_13 = (var_14 == var_12);
-        var_15 = var_6 || var_13;
-        if (var_15) {
-            // return                                                                             <L 287>
-            continue;
-        }
-        // mass = soft_verts_mass[tid]                                                            <L 288>
-        var_16 = wp::address(var_soft_verts_mass, var_0);
-        var_18 = wp::load(var_16);
-        var_17 = wp::copy(var_18);
-        // _0 = wp.float64(0.0)                                                                   <L 289>
-        var_20 = wp::float64(var_19);
-        // has_constraint = soft_has_constraint[tid]                                              <L 290>
-        var_21 = wp::address(var_soft_has_constraint, var_0);
-        var_23 = wp::load(var_21);
-        var_22 = wp::copy(var_23);
-        // weighted_mass = mass * weight                                                          <L 291>
-        var_24 = wp::mul(var_17, var_weight);
-        // mat3 = wp.mat33d(weighted_mass, _0, _0, _0, weighted_mass, _0, _0, _0, weighted_mass)       <L 292>
-        var_25 = wp::mat_t<3,3,wp::float64>(var_24, var_20, var_20, var_20, var_24, var_20, var_20, var_20, var_24);
-        // if has_constraint:                                                                     <L 293>
-        if (var_22) {
-            // matrix.COOMatrix3x3_atomic_add(hess_soft_diag, tid, mat3)                          <L 294>
-            COOMatrix3x3_atomic_add_0(var_hess_soft_diag, var_0, var_25);
-        }
-    }
-}
-
-
-
-extern "C" __global__ void compute_soft_kinematic_hess_cuda_kernel_backward(
-    wp::launch_bounds_t dim,
-    wp::array_t<bool> var_soft_has_constraint,
-    wp::float64 var_weight,
-    COOMatrix3x3_0df4b45d var_hess_soft_diag,
-    wp::int32 var_affine_verts_num,
-    wp::array_t<wp::float64> var_soft_verts_mass,
-    wp::array_t<wp::int32> var_node2env,
-    wp::array_t<wp::int32> var_env_states,
-    wp::array_t<bool> adj_soft_has_constraint,
-    wp::float64 adj_weight,
-    COOMatrix3x3_0df4b45d adj_hess_soft_diag,
-    wp::int32 adj_affine_verts_num,
-    wp::array_t<wp::float64> adj_soft_verts_mass,
-    wp::array_t<wp::int32> adj_node2env,
-    wp::array_t<wp::int32> adj_env_states)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        wp::int32 var_1;
-        wp::int32* var_2;
-        wp::int32* var_3;
-        wp::int32 var_4;
-        const wp::int32 var_5 = 1;
-        bool var_6;
-        wp::int32 var_7;
-        wp::int32 var_8;
-        wp::int32* var_9;
-        wp::int32* var_10;
-        wp::int32 var_11;
-        const wp::int32 var_12 = 2;
-        bool var_13;
-        wp::int32 var_14;
-        bool var_15;
-        wp::float64* var_16;
-        wp::float64 var_17;
-        wp::float64 var_18;
-        const wp::float32 var_19 = 0.0;
-        wp::float64 var_20;
-        bool* var_21;
-        bool var_22;
-        bool var_23;
-        wp::float64 var_24;
-        wp::mat_t<3,3,wp::float64> var_25;
-        //---------
-        // dual vars
-        wp::int32 adj_0 = {};
-        wp::int32 adj_1 = {};
-        wp::int32 adj_2 = {};
-        wp::int32 adj_3 = {};
-        wp::int32 adj_4 = {};
-        wp::int32 adj_5 = {};
-        bool adj_6 = {};
-        wp::int32 adj_7 = {};
-        wp::int32 adj_8 = {};
-        wp::int32 adj_9 = {};
-        wp::int32 adj_10 = {};
-        wp::int32 adj_11 = {};
-        wp::int32 adj_12 = {};
-        bool adj_13 = {};
-        wp::int32 adj_14 = {};
-        bool adj_15 = {};
-        wp::float64 adj_16 = {};
-        wp::float64 adj_17 = {};
-        wp::float64 adj_18 = {};
-        wp::float32 adj_19 = {};
-        wp::float64 adj_20 = {};
-        bool adj_21 = {};
-        bool adj_22 = {};
-        bool adj_23 = {};
-        wp::float64 adj_24 = {};
-        wp::mat_t<3,3,wp::float64> adj_25 = {};
-        //---------
-        // forward
-        // def compute_soft_kinematic_hess(                                                       <L 276>
-        // tid = wp.tid()                                                                         <L 285>
-        var_0 = builtin_tid1d();
-        // if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:       <L 286>
-        var_1 = wp::add(var_0, var_affine_verts_num);
-        var_2 = wp::address(var_node2env, var_1);
-        var_4 = wp::load(var_2);
-        var_3 = wp::address(var_env_states, var_4);
-        var_7 = wp::load(var_3);
-        var_6 = (var_7 == var_5);
-        var_8 = wp::add(var_0, var_affine_verts_num);
-        var_9 = wp::address(var_node2env, var_8);
-        var_11 = wp::load(var_9);
-        var_10 = wp::address(var_env_states, var_11);
-        var_14 = wp::load(var_10);
-        var_13 = (var_14 == var_12);
-        var_15 = var_6 || var_13;
-        if (var_15) {
-            // return                                                                             <L 287>
-            goto label0;
-        }
-        // mass = soft_verts_mass[tid]                                                            <L 288>
-        var_16 = wp::address(var_soft_verts_mass, var_0);
-        var_18 = wp::load(var_16);
-        var_17 = wp::copy(var_18);
-        // _0 = wp.float64(0.0)                                                                   <L 289>
-        var_20 = wp::float64(var_19);
-        // has_constraint = soft_has_constraint[tid]                                              <L 290>
-        var_21 = wp::address(var_soft_has_constraint, var_0);
-        var_23 = wp::load(var_21);
-        var_22 = wp::copy(var_23);
-        // weighted_mass = mass * weight                                                          <L 291>
-        var_24 = wp::mul(var_17, var_weight);
-        // mat3 = wp.mat33d(weighted_mass, _0, _0, _0, weighted_mass, _0, _0, _0, weighted_mass)       <L 292>
-        var_25 = wp::mat_t<3,3,wp::float64>(var_24, var_20, var_20, var_20, var_24, var_20, var_20, var_20, var_24);
-        // if has_constraint:                                                                     <L 293>
-        if (var_22) {
-            // matrix.COOMatrix3x3_atomic_add(hess_soft_diag, tid, mat3)                          <L 294>
-            COOMatrix3x3_atomic_add_0(var_hess_soft_diag, var_0, var_25);
-        }
-        //---------
-        // reverse
-        if (var_22) {
-            adj_COOMatrix3x3_atomic_add_0(var_hess_soft_diag, var_0, var_25, adj_hess_soft_diag, adj_0, adj_25);
-            // adj: matrix.COOMatrix3x3_atomic_add(hess_soft_diag, tid, mat3)                     <L 294>
-        }
-        // adj: if has_constraint:                                                                <L 293>
-        wp::adj_mat_t(var_24, var_20, var_20, var_20, var_24, var_20, var_20, var_20, var_24, adj_24, adj_20, adj_20, adj_20, adj_24, adj_20, adj_20, adj_20, adj_24, adj_25);
-        // adj: mat3 = wp.mat33d(weighted_mass, _0, _0, _0, weighted_mass, _0, _0, _0, weighted_mass)  <L 292>
-        wp::adj_mul(var_17, var_weight, adj_17, adj_weight, adj_24);
-        // adj: weighted_mass = mass * weight                                                     <L 291>
-        wp::adj_copy(var_23, adj_21, adj_22);
-        wp::adj_load(var_21, adj_21, adj_23);
-        wp::adj_address(var_soft_has_constraint, var_0, adj_soft_has_constraint, adj_0, adj_21);
-        // adj: has_constraint = soft_has_constraint[tid]                                         <L 290>
-        wp::adj_float64(var_19, adj_19, adj_20);
-        // adj: _0 = wp.float64(0.0)                                                              <L 289>
-        wp::adj_copy(var_18, adj_16, adj_17);
-        wp::adj_load(var_16, adj_16, adj_18);
-        wp::adj_address(var_soft_verts_mass, var_0, adj_soft_verts_mass, adj_0, adj_16);
-        // adj: mass = soft_verts_mass[tid]                                                       <L 288>
-        if (var_15) {
-            label0:;
-            // adj: return                                                                        <L 287>
-        }
-        wp::adj_load(var_10, adj_10, adj_14);
-        wp::adj_address(var_env_states, var_11, adj_env_states, adj_9, adj_10);
-        wp::adj_load(var_9, adj_9, adj_11);
-        wp::adj_address(var_node2env, var_8, adj_node2env, adj_8, adj_9);
-        wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_8);
-        wp::adj_load(var_3, adj_3, adj_7);
-        wp::adj_address(var_env_states, var_4, adj_env_states, adj_2, adj_3);
-        wp::adj_load(var_2, adj_2, adj_4);
-        wp::adj_address(var_node2env, var_1, adj_node2env, adj_1, adj_2);
-        wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_1);
-        // adj: if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:  <L 286>
-        // adj: tid = wp.tid()                                                                    <L 285>
-        // adj: def compute_soft_kinematic_hess(                                                  <L 276>
-        continue;
-    }
 }
 
 
@@ -2267,277 +1418,11 @@ extern "C" __global__ void compute_affine_kinematic_energy_cuda_kernel_backward(
 
 
 
-extern "C" __global__ void compute_affine_kinematic_grad_cuda_kernel_forward(
+extern "C" __global__ void compute_soft_kinematic_hess_cuda_kernel_forward(
     wp::launch_bounds_t dim,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_y,
-    wp::array_t<bool> var_affine_has_constraint,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_affine_target_dof,
-    wp::float64 var_weight,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_affine_grad,
-    wp::array_t<wp::float64> var_mass_body,
-    wp::array_t<wp::int32> var_body_env_id,
-    wp::array_t<wp::int32> var_env_states)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        wp::int32* var_1;
-        wp::int32* var_2;
-        wp::int32 var_3;
-        const wp::int32 var_4 = 1;
-        bool var_5;
-        wp::int32 var_6;
-        wp::int32* var_7;
-        wp::int32* var_8;
-        wp::int32 var_9;
-        const wp::int32 var_10 = 2;
-        bool var_11;
-        wp::int32 var_12;
-        bool var_13;
-        wp::float64* var_14;
-        wp::float64 var_15;
-        wp::float64 var_16;
-        bool* var_17;
-        bool var_18;
-        bool var_19;
-        wp::float64 var_20;
-        wp::vec_t<12,wp::float64>* var_21;
-        wp::vec_t<12,wp::float64>* var_22;
-        wp::vec_t<12,wp::float64> var_23;
-        wp::vec_t<12,wp::float64> var_24;
-        wp::vec_t<12,wp::float64> var_25;
-        wp::vec_t<12,wp::float64> var_26;
-        wp::vec_t<12,wp::float64> var_27;
-        //---------
-        // forward
-        // def compute_affine_kinematic_grad(                                                     <L 143>
-        // tid = wp.tid()                                                                         <L 153>
-        var_0 = builtin_tid1d();
-        // if env_states[body_env_id[tid]] == ENV_STATE_INVALID or env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED:       <L 154>
-        var_1 = wp::address(var_body_env_id, var_0);
-        var_3 = wp::load(var_1);
-        var_2 = wp::address(var_env_states, var_3);
-        var_6 = wp::load(var_2);
-        var_5 = (var_6 == var_4);
-        var_7 = wp::address(var_body_env_id, var_0);
-        var_9 = wp::load(var_7);
-        var_8 = wp::address(var_env_states, var_9);
-        var_12 = wp::load(var_8);
-        var_11 = (var_12 == var_10);
-        var_13 = var_5 || var_11;
-        if (var_13) {
-            // return                                                                             <L 155>
-            continue;
-        }
-        // mass = mass_body[tid]                                                                  <L 156>
-        var_14 = wp::address(var_mass_body, var_0);
-        var_16 = wp::load(var_14);
-        var_15 = wp::copy(var_16);
-        // has_constraint = affine_has_constraint[tid]                                            <L 157>
-        var_17 = wp::address(var_affine_has_constraint, var_0);
-        var_19 = wp::load(var_17);
-        var_18 = wp::copy(var_19);
-        // if has_constraint:                                                                     <L 158>
-        if (var_18) {
-            // wp.atomic_add(affine_grad, tid, weight * mass * (y[tid] - affine_target_dof[tid]))       <L 159>
-            var_20 = wp::mul(var_weight, var_15);
-            var_21 = wp::address(var_y, var_0);
-            var_22 = wp::address(var_affine_target_dof, var_0);
-            var_24 = wp::load(var_21);
-            var_25 = wp::load(var_22);
-            var_23 = wp::sub(var_24, var_25);
-            var_26 = wp::mul(var_20, var_23);
-            var_27 = wp::atomic_add(var_affine_grad, var_0, var_26);
-        }
-    }
-}
-
-
-
-extern "C" __global__ void compute_affine_kinematic_grad_cuda_kernel_backward(
-    wp::launch_bounds_t dim,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_y,
-    wp::array_t<bool> var_affine_has_constraint,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_affine_target_dof,
-    wp::float64 var_weight,
-    wp::array_t<wp::vec_t<12,wp::float64>> var_affine_grad,
-    wp::array_t<wp::float64> var_mass_body,
-    wp::array_t<wp::int32> var_body_env_id,
-    wp::array_t<wp::int32> var_env_states,
-    wp::array_t<wp::vec_t<12,wp::float64>> adj_y,
-    wp::array_t<bool> adj_affine_has_constraint,
-    wp::array_t<wp::vec_t<12,wp::float64>> adj_affine_target_dof,
-    wp::float64 adj_weight,
-    wp::array_t<wp::vec_t<12,wp::float64>> adj_affine_grad,
-    wp::array_t<wp::float64> adj_mass_body,
-    wp::array_t<wp::int32> adj_body_env_id,
-    wp::array_t<wp::int32> adj_env_states)
-{
-    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
-         _idx < dim.size;
-         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
-    {
-        // reset shared memory allocator
-        wp::tile_alloc_shared(0, true);
-
-        //---------
-        // primal vars
-        wp::int32 var_0;
-        wp::int32* var_1;
-        wp::int32* var_2;
-        wp::int32 var_3;
-        const wp::int32 var_4 = 1;
-        bool var_5;
-        wp::int32 var_6;
-        wp::int32* var_7;
-        wp::int32* var_8;
-        wp::int32 var_9;
-        const wp::int32 var_10 = 2;
-        bool var_11;
-        wp::int32 var_12;
-        bool var_13;
-        wp::float64* var_14;
-        wp::float64 var_15;
-        wp::float64 var_16;
-        bool* var_17;
-        bool var_18;
-        bool var_19;
-        wp::float64 var_20;
-        wp::vec_t<12,wp::float64>* var_21;
-        wp::vec_t<12,wp::float64>* var_22;
-        wp::vec_t<12,wp::float64> var_23;
-        wp::vec_t<12,wp::float64> var_24;
-        wp::vec_t<12,wp::float64> var_25;
-        wp::vec_t<12,wp::float64> var_26;
-        wp::vec_t<12,wp::float64> var_27;
-        //---------
-        // dual vars
-        wp::int32 adj_0 = {};
-        wp::int32 adj_1 = {};
-        wp::int32 adj_2 = {};
-        wp::int32 adj_3 = {};
-        wp::int32 adj_4 = {};
-        bool adj_5 = {};
-        wp::int32 adj_6 = {};
-        wp::int32 adj_7 = {};
-        wp::int32 adj_8 = {};
-        wp::int32 adj_9 = {};
-        wp::int32 adj_10 = {};
-        bool adj_11 = {};
-        wp::int32 adj_12 = {};
-        bool adj_13 = {};
-        wp::float64 adj_14 = {};
-        wp::float64 adj_15 = {};
-        wp::float64 adj_16 = {};
-        bool adj_17 = {};
-        bool adj_18 = {};
-        bool adj_19 = {};
-        wp::float64 adj_20 = {};
-        wp::vec_t<12,wp::float64> adj_21 = {};
-        wp::vec_t<12,wp::float64> adj_22 = {};
-        wp::vec_t<12,wp::float64> adj_23 = {};
-        wp::vec_t<12,wp::float64> adj_24 = {};
-        wp::vec_t<12,wp::float64> adj_25 = {};
-        wp::vec_t<12,wp::float64> adj_26 = {};
-        wp::vec_t<12,wp::float64> adj_27 = {};
-        //---------
-        // forward
-        // def compute_affine_kinematic_grad(                                                     <L 143>
-        // tid = wp.tid()                                                                         <L 153>
-        var_0 = builtin_tid1d();
-        // if env_states[body_env_id[tid]] == ENV_STATE_INVALID or env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED:       <L 154>
-        var_1 = wp::address(var_body_env_id, var_0);
-        var_3 = wp::load(var_1);
-        var_2 = wp::address(var_env_states, var_3);
-        var_6 = wp::load(var_2);
-        var_5 = (var_6 == var_4);
-        var_7 = wp::address(var_body_env_id, var_0);
-        var_9 = wp::load(var_7);
-        var_8 = wp::address(var_env_states, var_9);
-        var_12 = wp::load(var_8);
-        var_11 = (var_12 == var_10);
-        var_13 = var_5 || var_11;
-        if (var_13) {
-            // return                                                                             <L 155>
-            goto label0;
-        }
-        // mass = mass_body[tid]                                                                  <L 156>
-        var_14 = wp::address(var_mass_body, var_0);
-        var_16 = wp::load(var_14);
-        var_15 = wp::copy(var_16);
-        // has_constraint = affine_has_constraint[tid]                                            <L 157>
-        var_17 = wp::address(var_affine_has_constraint, var_0);
-        var_19 = wp::load(var_17);
-        var_18 = wp::copy(var_19);
-        // if has_constraint:                                                                     <L 158>
-        if (var_18) {
-            // wp.atomic_add(affine_grad, tid, weight * mass * (y[tid] - affine_target_dof[tid]))       <L 159>
-            var_20 = wp::mul(var_weight, var_15);
-            var_21 = wp::address(var_y, var_0);
-            var_22 = wp::address(var_affine_target_dof, var_0);
-            var_24 = wp::load(var_21);
-            var_25 = wp::load(var_22);
-            var_23 = wp::sub(var_24, var_25);
-            var_26 = wp::mul(var_20, var_23);
-            // var_27 = wp::atomic_add(var_affine_grad, var_0, var_26);
-        }
-        //---------
-        // reverse
-        if (var_18) {
-            wp::adj_atomic_add(var_affine_grad, var_0, var_26, adj_affine_grad, adj_0, adj_26, adj_27);
-            wp::adj_mul(var_20, var_23, adj_20, adj_23, adj_26);
-            wp::adj_sub(var_24, var_25, adj_21, adj_22, adj_23);
-            wp::adj_load(var_22, adj_22, adj_25);
-            wp::adj_load(var_21, adj_21, adj_24);
-            wp::adj_address(var_affine_target_dof, var_0, adj_affine_target_dof, adj_0, adj_22);
-            wp::adj_address(var_y, var_0, adj_y, adj_0, adj_21);
-            wp::adj_mul(var_weight, var_15, adj_weight, adj_15, adj_20);
-            // adj: wp.atomic_add(affine_grad, tid, weight * mass * (y[tid] - affine_target_dof[tid]))  <L 159>
-        }
-        // adj: if has_constraint:                                                                <L 158>
-        wp::adj_copy(var_19, adj_17, adj_18);
-        wp::adj_load(var_17, adj_17, adj_19);
-        wp::adj_address(var_affine_has_constraint, var_0, adj_affine_has_constraint, adj_0, adj_17);
-        // adj: has_constraint = affine_has_constraint[tid]                                       <L 157>
-        wp::adj_copy(var_16, adj_14, adj_15);
-        wp::adj_load(var_14, adj_14, adj_16);
-        wp::adj_address(var_mass_body, var_0, adj_mass_body, adj_0, adj_14);
-        // adj: mass = mass_body[tid]                                                             <L 156>
-        if (var_13) {
-            label0:;
-            // adj: return                                                                        <L 155>
-        }
-        wp::adj_load(var_8, adj_8, adj_12);
-        wp::adj_address(var_env_states, var_9, adj_env_states, adj_7, adj_8);
-        wp::adj_load(var_7, adj_7, adj_9);
-        wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_7);
-        wp::adj_load(var_2, adj_2, adj_6);
-        wp::adj_address(var_env_states, var_3, adj_env_states, adj_1, adj_2);
-        wp::adj_load(var_1, adj_1, adj_3);
-        wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_1);
-        // adj: if env_states[body_env_id[tid]] == ENV_STATE_INVALID or env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED:  <L 154>
-        // adj: tid = wp.tid()                                                                    <L 153>
-        // adj: def compute_affine_kinematic_grad(                                                <L 143>
-        continue;
-    }
-}
-
-
-
-extern "C" __global__ void compute_soft_kinematic_grad_cuda_kernel_forward(
-    wp::launch_bounds_t dim,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
     wp::array_t<bool> var_soft_has_constraint,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_target_dof,
     wp::float64 var_weight,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_grad,
+    COOMatrix3x3_0df4b45d var_hess_soft_diag,
     wp::int32 var_affine_verts_num,
     wp::array_t<wp::float64> var_soft_verts_mass,
     wp::array_t<wp::int32> var_node2env,
@@ -2571,24 +1456,19 @@ extern "C" __global__ void compute_soft_kinematic_grad_cuda_kernel_forward(
         wp::float64* var_16;
         wp::float64 var_17;
         wp::float64 var_18;
-        bool* var_19;
-        bool var_20;
-        bool var_21;
-        wp::float64 var_22;
-        wp::int32 var_23;
-        wp::vec_t<3,wp::float64>* var_24;
-        wp::vec_t<3,wp::float64>* var_25;
-        wp::vec_t<3,wp::float64> var_26;
-        wp::vec_t<3,wp::float64> var_27;
-        wp::vec_t<3,wp::float64> var_28;
-        wp::vec_t<3,wp::float64> var_29;
-        wp::vec_t<3,wp::float64> var_30;
+        const wp::float32 var_19 = 0.0;
+        wp::float64 var_20;
+        bool* var_21;
+        bool var_22;
+        bool var_23;
+        wp::float64 var_24;
+        wp::mat_t<3,3,wp::float64> var_25;
         //---------
         // forward
-        // def compute_soft_kinematic_grad(                                                       <L 163>
-        // tid = wp.tid()                                                                         <L 174>
+        // def compute_soft_kinematic_hess(                                                       <L 276>
+        // tid = wp.tid()                                                                         <L 285>
         var_0 = builtin_tid1d();
-        // if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:       <L 175>
+        // if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:       <L 286>
         var_1 = wp::add(var_0, var_affine_verts_num);
         var_2 = wp::address(var_node2env, var_1);
         var_4 = wp::load(var_2);
@@ -2603,54 +1483,45 @@ extern "C" __global__ void compute_soft_kinematic_grad_cuda_kernel_forward(
         var_13 = (var_14 == var_12);
         var_15 = var_6 || var_13;
         if (var_15) {
-            // return                                                                             <L 176>
+            // return                                                                             <L 287>
             continue;
         }
-        // mass = soft_verts_mass[tid]                                                            <L 177>
+        // mass = soft_verts_mass[tid]                                                            <L 288>
         var_16 = wp::address(var_soft_verts_mass, var_0);
         var_18 = wp::load(var_16);
         var_17 = wp::copy(var_18);
-        // has_constraint = soft_has_constraint[tid]                                              <L 178>
-        var_19 = wp::address(var_soft_has_constraint, var_0);
-        var_21 = wp::load(var_19);
-        var_20 = wp::copy(var_21);
-        // if has_constraint:                                                                     <L 179>
-        if (var_20) {
-            // wp.atomic_add(                                                                     <L 180>
-            // soft_grad,                                                                         <L 181>
-            // tid,                                                                               <L 182>
-            // weight * mass * (x[tid + affine_verts_num] - soft_target_dof[tid]),                <L 183>
-            var_22 = wp::mul(var_weight, var_17);
-            var_23 = wp::add(var_0, var_affine_verts_num);
-            var_24 = wp::address(var_x, var_23);
-            var_25 = wp::address(var_soft_target_dof, var_0);
-            var_27 = wp::load(var_24);
-            var_28 = wp::load(var_25);
-            var_26 = wp::sub(var_27, var_28);
-            var_29 = wp::mul(var_22, var_26);
-            var_30 = wp::atomic_add(var_soft_grad, var_0, var_29);
+        // _0 = wp.float64(0.0)                                                                   <L 289>
+        var_20 = wp::float64(var_19);
+        // has_constraint = soft_has_constraint[tid]                                              <L 290>
+        var_21 = wp::address(var_soft_has_constraint, var_0);
+        var_23 = wp::load(var_21);
+        var_22 = wp::copy(var_23);
+        // weighted_mass = mass * weight                                                          <L 291>
+        var_24 = wp::mul(var_17, var_weight);
+        // mat3 = wp.mat33d(weighted_mass, _0, _0, _0, weighted_mass, _0, _0, _0, weighted_mass)       <L 292>
+        var_25 = wp::mat_t<3,3,wp::float64>(var_24, var_20, var_20, var_20, var_24, var_20, var_20, var_20, var_24);
+        // if has_constraint:                                                                     <L 293>
+        if (var_22) {
+            // matrix.COOMatrix3x3_atomic_add(hess_soft_diag, tid, mat3)                          <L 294>
+            COOMatrix3x3_atomic_add_0(var_hess_soft_diag, var_0, var_25);
         }
     }
 }
 
 
 
-extern "C" __global__ void compute_soft_kinematic_grad_cuda_kernel_backward(
+extern "C" __global__ void compute_soft_kinematic_hess_cuda_kernel_backward(
     wp::launch_bounds_t dim,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
     wp::array_t<bool> var_soft_has_constraint,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_target_dof,
     wp::float64 var_weight,
-    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_grad,
+    COOMatrix3x3_0df4b45d var_hess_soft_diag,
     wp::int32 var_affine_verts_num,
     wp::array_t<wp::float64> var_soft_verts_mass,
     wp::array_t<wp::int32> var_node2env,
     wp::array_t<wp::int32> var_env_states,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_x,
     wp::array_t<bool> adj_soft_has_constraint,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_soft_target_dof,
     wp::float64 adj_weight,
-    wp::array_t<wp::vec_t<3,wp::float64>> adj_soft_grad,
+    COOMatrix3x3_0df4b45d adj_hess_soft_diag,
     wp::int32 adj_affine_verts_num,
     wp::array_t<wp::float64> adj_soft_verts_mass,
     wp::array_t<wp::int32> adj_node2env,
@@ -2684,18 +1555,13 @@ extern "C" __global__ void compute_soft_kinematic_grad_cuda_kernel_backward(
         wp::float64* var_16;
         wp::float64 var_17;
         wp::float64 var_18;
-        bool* var_19;
-        bool var_20;
-        bool var_21;
-        wp::float64 var_22;
-        wp::int32 var_23;
-        wp::vec_t<3,wp::float64>* var_24;
-        wp::vec_t<3,wp::float64>* var_25;
-        wp::vec_t<3,wp::float64> var_26;
-        wp::vec_t<3,wp::float64> var_27;
-        wp::vec_t<3,wp::float64> var_28;
-        wp::vec_t<3,wp::float64> var_29;
-        wp::vec_t<3,wp::float64> var_30;
+        const wp::float32 var_19 = 0.0;
+        wp::float64 var_20;
+        bool* var_21;
+        bool var_22;
+        bool var_23;
+        wp::float64 var_24;
+        wp::mat_t<3,3,wp::float64> var_25;
         //---------
         // dual vars
         wp::int32 adj_0 = {};
@@ -2717,24 +1583,19 @@ extern "C" __global__ void compute_soft_kinematic_grad_cuda_kernel_backward(
         wp::float64 adj_16 = {};
         wp::float64 adj_17 = {};
         wp::float64 adj_18 = {};
-        bool adj_19 = {};
-        bool adj_20 = {};
+        wp::float32 adj_19 = {};
+        wp::float64 adj_20 = {};
         bool adj_21 = {};
-        wp::float64 adj_22 = {};
-        wp::int32 adj_23 = {};
-        wp::vec_t<3,wp::float64> adj_24 = {};
-        wp::vec_t<3,wp::float64> adj_25 = {};
-        wp::vec_t<3,wp::float64> adj_26 = {};
-        wp::vec_t<3,wp::float64> adj_27 = {};
-        wp::vec_t<3,wp::float64> adj_28 = {};
-        wp::vec_t<3,wp::float64> adj_29 = {};
-        wp::vec_t<3,wp::float64> adj_30 = {};
+        bool adj_22 = {};
+        bool adj_23 = {};
+        wp::float64 adj_24 = {};
+        wp::mat_t<3,3,wp::float64> adj_25 = {};
         //---------
         // forward
-        // def compute_soft_kinematic_grad(                                                       <L 163>
-        // tid = wp.tid()                                                                         <L 174>
+        // def compute_soft_kinematic_hess(                                                       <L 276>
+        // tid = wp.tid()                                                                         <L 285>
         var_0 = builtin_tid1d();
-        // if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:       <L 175>
+        // if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:       <L 286>
         var_1 = wp::add(var_0, var_affine_verts_num);
         var_2 = wp::address(var_node2env, var_1);
         var_4 = wp::load(var_2);
@@ -2749,62 +1610,52 @@ extern "C" __global__ void compute_soft_kinematic_grad_cuda_kernel_backward(
         var_13 = (var_14 == var_12);
         var_15 = var_6 || var_13;
         if (var_15) {
-            // return                                                                             <L 176>
+            // return                                                                             <L 287>
             goto label0;
         }
-        // mass = soft_verts_mass[tid]                                                            <L 177>
+        // mass = soft_verts_mass[tid]                                                            <L 288>
         var_16 = wp::address(var_soft_verts_mass, var_0);
         var_18 = wp::load(var_16);
         var_17 = wp::copy(var_18);
-        // has_constraint = soft_has_constraint[tid]                                              <L 178>
-        var_19 = wp::address(var_soft_has_constraint, var_0);
-        var_21 = wp::load(var_19);
-        var_20 = wp::copy(var_21);
-        // if has_constraint:                                                                     <L 179>
-        if (var_20) {
-            // wp.atomic_add(                                                                     <L 180>
-            // soft_grad,                                                                         <L 181>
-            // tid,                                                                               <L 182>
-            // weight * mass * (x[tid + affine_verts_num] - soft_target_dof[tid]),                <L 183>
-            var_22 = wp::mul(var_weight, var_17);
-            var_23 = wp::add(var_0, var_affine_verts_num);
-            var_24 = wp::address(var_x, var_23);
-            var_25 = wp::address(var_soft_target_dof, var_0);
-            var_27 = wp::load(var_24);
-            var_28 = wp::load(var_25);
-            var_26 = wp::sub(var_27, var_28);
-            var_29 = wp::mul(var_22, var_26);
-            // var_30 = wp::atomic_add(var_soft_grad, var_0, var_29);
+        // _0 = wp.float64(0.0)                                                                   <L 289>
+        var_20 = wp::float64(var_19);
+        // has_constraint = soft_has_constraint[tid]                                              <L 290>
+        var_21 = wp::address(var_soft_has_constraint, var_0);
+        var_23 = wp::load(var_21);
+        var_22 = wp::copy(var_23);
+        // weighted_mass = mass * weight                                                          <L 291>
+        var_24 = wp::mul(var_17, var_weight);
+        // mat3 = wp.mat33d(weighted_mass, _0, _0, _0, weighted_mass, _0, _0, _0, weighted_mass)       <L 292>
+        var_25 = wp::mat_t<3,3,wp::float64>(var_24, var_20, var_20, var_20, var_24, var_20, var_20, var_20, var_24);
+        // if has_constraint:                                                                     <L 293>
+        if (var_22) {
+            // matrix.COOMatrix3x3_atomic_add(hess_soft_diag, tid, mat3)                          <L 294>
+            COOMatrix3x3_atomic_add_0(var_hess_soft_diag, var_0, var_25);
         }
         //---------
         // reverse
-        if (var_20) {
-            wp::adj_atomic_add(var_soft_grad, var_0, var_29, adj_soft_grad, adj_0, adj_29, adj_30);
-            wp::adj_mul(var_22, var_26, adj_22, adj_26, adj_29);
-            wp::adj_sub(var_27, var_28, adj_24, adj_25, adj_26);
-            wp::adj_load(var_25, adj_25, adj_28);
-            wp::adj_load(var_24, adj_24, adj_27);
-            wp::adj_address(var_soft_target_dof, var_0, adj_soft_target_dof, adj_0, adj_25);
-            wp::adj_address(var_x, var_23, adj_x, adj_23, adj_24);
-            wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_23);
-            wp::adj_mul(var_weight, var_17, adj_weight, adj_17, adj_22);
-            // adj: weight * mass * (x[tid + affine_verts_num] - soft_target_dof[tid]),           <L 183>
-            // adj: tid,                                                                          <L 182>
-            // adj: soft_grad,                                                                    <L 181>
-            // adj: wp.atomic_add(                                                                <L 180>
+        if (var_22) {
+            adj_COOMatrix3x3_atomic_add_0(var_hess_soft_diag, var_0, var_25, adj_hess_soft_diag, adj_0, adj_25);
+            // adj: matrix.COOMatrix3x3_atomic_add(hess_soft_diag, tid, mat3)                     <L 294>
         }
-        // adj: if has_constraint:                                                                <L 179>
-        wp::adj_copy(var_21, adj_19, adj_20);
-        wp::adj_load(var_19, adj_19, adj_21);
-        wp::adj_address(var_soft_has_constraint, var_0, adj_soft_has_constraint, adj_0, adj_19);
-        // adj: has_constraint = soft_has_constraint[tid]                                         <L 178>
+        // adj: if has_constraint:                                                                <L 293>
+        wp::adj_mat_t(var_24, var_20, var_20, var_20, var_24, var_20, var_20, var_20, var_24, adj_24, adj_20, adj_20, adj_20, adj_24, adj_20, adj_20, adj_20, adj_24, adj_25);
+        // adj: mat3 = wp.mat33d(weighted_mass, _0, _0, _0, weighted_mass, _0, _0, _0, weighted_mass)  <L 292>
+        wp::adj_mul(var_17, var_weight, adj_17, adj_weight, adj_24);
+        // adj: weighted_mass = mass * weight                                                     <L 291>
+        wp::adj_copy(var_23, adj_21, adj_22);
+        wp::adj_load(var_21, adj_21, adj_23);
+        wp::adj_address(var_soft_has_constraint, var_0, adj_soft_has_constraint, adj_0, adj_21);
+        // adj: has_constraint = soft_has_constraint[tid]                                         <L 290>
+        wp::adj_float64(var_19, adj_19, adj_20);
+        // adj: _0 = wp.float64(0.0)                                                              <L 289>
         wp::adj_copy(var_18, adj_16, adj_17);
         wp::adj_load(var_16, adj_16, adj_18);
         wp::adj_address(var_soft_verts_mass, var_0, adj_soft_verts_mass, adj_0, adj_16);
-        // adj: mass = soft_verts_mass[tid]                                                       <L 177>
+        // adj: mass = soft_verts_mass[tid]                                                       <L 288>
         if (var_15) {
             label0:;
-            // adj: return                                                                        <L 176>
+            // adj: return                                                                        <L 287>
         }
         wp::adj_load(var_10, adj_10, adj_14);
         wp::adj_address(var_env_states, var_11, adj_env_states, adj_9, adj_10);
@@ -2816,9 +1667,9 @@ extern "C" __global__ void compute_soft_kinematic_grad_cuda_kernel_backward(
         wp::adj_load(var_2, adj_2, adj_4);
         wp::adj_address(var_node2env, var_1, adj_node2env, adj_1, adj_2);
         wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_1);
-        // adj: if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:  <L 175>
-        // adj: tid = wp.tid()                                                                    <L 174>
-        // adj: def compute_soft_kinematic_grad(                                                  <L 163>
+        // adj: if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:  <L 286>
+        // adj: tid = wp.tid()                                                                    <L 285>
+        // adj: def compute_soft_kinematic_hess(                                                  <L 276>
         continue;
     }
 }
@@ -3436,6 +2287,1155 @@ extern "C" __global__ void init_affine_kinematic_target_kernel_cuda_kernel_backw
         // adj: if affine_has_constraint[tid] == False:                                           <L 24>
         // adj: tid = wp.tid()                                                                    <L 23>
         // adj: def init_affine_kinematic_target_kernel(                                          <L 16>
+        continue;
+    }
+}
+
+
+
+extern "C" __global__ void compute_soft_kinematic_energy_cuda_kernel_forward(
+    wp::launch_bounds_t dim,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
+    wp::array_t<bool> var_soft_has_constraint,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_target_dof,
+    wp::float64 var_weight,
+    wp::array_t<wp::float64> var_soft_energy,
+    wp::int32 var_affine_verts_num,
+    wp::array_t<wp::float64> var_soft_verts_mass)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        bool* var_1;
+        bool var_2;
+        bool var_3;
+        wp::float64* var_4;
+        wp::float64 var_5;
+        wp::float64 var_6;
+        const wp::float32 var_7 = 0.5;
+        wp::float64 var_8;
+        wp::float64 var_9;
+        wp::float64 var_10;
+        wp::int32 var_11;
+        wp::vec_t<3,wp::float64>* var_12;
+        wp::vec_t<3,wp::float64>* var_13;
+        wp::vec_t<3,wp::float64> var_14;
+        wp::vec_t<3,wp::float64> var_15;
+        wp::vec_t<3,wp::float64> var_16;
+        wp::float64 var_17;
+        wp::float64 var_18;
+        wp::float64 var_19;
+        //---------
+        // forward
+        // def compute_soft_kinematic_energy(                                                     <L 86>
+        // tid = wp.tid()                                                                         <L 95>
+        var_0 = builtin_tid1d();
+        // has_constraint = soft_has_constraint[tid]                                              <L 96>
+        var_1 = wp::address(var_soft_has_constraint, var_0);
+        var_3 = wp::load(var_1);
+        var_2 = wp::copy(var_3);
+        // mass = soft_verts_mass[tid]                                                            <L 97>
+        var_4 = wp::address(var_soft_verts_mass, var_0);
+        var_6 = wp::load(var_4);
+        var_5 = wp::copy(var_6);
+        // if has_constraint:                                                                     <L 98>
+        if (var_2) {
+            // soft_energy[tid] += wp.float64(0.5) * weight * mass * wp.length_sq(x[tid + affine_verts_num] - soft_target_dof[tid])       <L 99>
+            var_8 = wp::float64(var_7);
+            var_9 = wp::mul(var_8, var_weight);
+            var_10 = wp::mul(var_9, var_5);
+            var_11 = wp::add(var_0, var_affine_verts_num);
+            var_12 = wp::address(var_x, var_11);
+            var_13 = wp::address(var_soft_target_dof, var_0);
+            var_15 = wp::load(var_12);
+            var_16 = wp::load(var_13);
+            var_14 = wp::sub(var_15, var_16);
+            var_17 = wp::length_sq(var_14);
+            var_18 = wp::mul(var_10, var_17);
+            var_19 = wp::atomic_add(var_soft_energy, var_0, var_18);
+        }
+    }
+}
+
+
+
+extern "C" __global__ void compute_soft_kinematic_energy_cuda_kernel_backward(
+    wp::launch_bounds_t dim,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
+    wp::array_t<bool> var_soft_has_constraint,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_target_dof,
+    wp::float64 var_weight,
+    wp::array_t<wp::float64> var_soft_energy,
+    wp::int32 var_affine_verts_num,
+    wp::array_t<wp::float64> var_soft_verts_mass,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_x,
+    wp::array_t<bool> adj_soft_has_constraint,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_soft_target_dof,
+    wp::float64 adj_weight,
+    wp::array_t<wp::float64> adj_soft_energy,
+    wp::int32 adj_affine_verts_num,
+    wp::array_t<wp::float64> adj_soft_verts_mass)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        bool* var_1;
+        bool var_2;
+        bool var_3;
+        wp::float64* var_4;
+        wp::float64 var_5;
+        wp::float64 var_6;
+        const wp::float32 var_7 = 0.5;
+        wp::float64 var_8;
+        wp::float64 var_9;
+        wp::float64 var_10;
+        wp::int32 var_11;
+        wp::vec_t<3,wp::float64>* var_12;
+        wp::vec_t<3,wp::float64>* var_13;
+        wp::vec_t<3,wp::float64> var_14;
+        wp::vec_t<3,wp::float64> var_15;
+        wp::vec_t<3,wp::float64> var_16;
+        wp::float64 var_17;
+        wp::float64 var_18;
+        wp::float64 var_19;
+        //---------
+        // dual vars
+        wp::int32 adj_0 = {};
+        bool adj_1 = {};
+        bool adj_2 = {};
+        bool adj_3 = {};
+        wp::float64 adj_4 = {};
+        wp::float64 adj_5 = {};
+        wp::float64 adj_6 = {};
+        wp::float32 adj_7 = {};
+        wp::float64 adj_8 = {};
+        wp::float64 adj_9 = {};
+        wp::float64 adj_10 = {};
+        wp::int32 adj_11 = {};
+        wp::vec_t<3,wp::float64> adj_12 = {};
+        wp::vec_t<3,wp::float64> adj_13 = {};
+        wp::vec_t<3,wp::float64> adj_14 = {};
+        wp::vec_t<3,wp::float64> adj_15 = {};
+        wp::vec_t<3,wp::float64> adj_16 = {};
+        wp::float64 adj_17 = {};
+        wp::float64 adj_18 = {};
+        wp::float64 adj_19 = {};
+        //---------
+        // forward
+        // def compute_soft_kinematic_energy(                                                     <L 86>
+        // tid = wp.tid()                                                                         <L 95>
+        var_0 = builtin_tid1d();
+        // has_constraint = soft_has_constraint[tid]                                              <L 96>
+        var_1 = wp::address(var_soft_has_constraint, var_0);
+        var_3 = wp::load(var_1);
+        var_2 = wp::copy(var_3);
+        // mass = soft_verts_mass[tid]                                                            <L 97>
+        var_4 = wp::address(var_soft_verts_mass, var_0);
+        var_6 = wp::load(var_4);
+        var_5 = wp::copy(var_6);
+        // if has_constraint:                                                                     <L 98>
+        if (var_2) {
+            // soft_energy[tid] += wp.float64(0.5) * weight * mass * wp.length_sq(x[tid + affine_verts_num] - soft_target_dof[tid])       <L 99>
+            var_8 = wp::float64(var_7);
+            var_9 = wp::mul(var_8, var_weight);
+            var_10 = wp::mul(var_9, var_5);
+            var_11 = wp::add(var_0, var_affine_verts_num);
+            var_12 = wp::address(var_x, var_11);
+            var_13 = wp::address(var_soft_target_dof, var_0);
+            var_15 = wp::load(var_12);
+            var_16 = wp::load(var_13);
+            var_14 = wp::sub(var_15, var_16);
+            var_17 = wp::length_sq(var_14);
+            var_18 = wp::mul(var_10, var_17);
+            // var_19 = wp::atomic_add(var_soft_energy, var_0, var_18);
+        }
+        //---------
+        // reverse
+        if (var_2) {
+            wp::adj_atomic_add(var_soft_energy, var_0, var_18, adj_soft_energy, adj_0, adj_18, adj_19);
+            wp::adj_mul(var_10, var_17, adj_10, adj_17, adj_18);
+            wp::adj_length_sq(var_14, adj_14, adj_17);
+            wp::adj_sub(var_15, var_16, adj_12, adj_13, adj_14);
+            wp::adj_load(var_13, adj_13, adj_16);
+            wp::adj_load(var_12, adj_12, adj_15);
+            wp::adj_address(var_soft_target_dof, var_0, adj_soft_target_dof, adj_0, adj_13);
+            wp::adj_address(var_x, var_11, adj_x, adj_11, adj_12);
+            wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_11);
+            wp::adj_mul(var_9, var_5, adj_9, adj_5, adj_10);
+            wp::adj_mul(var_8, var_weight, adj_8, adj_weight, adj_9);
+            wp::adj_float64(var_7, adj_7, adj_8);
+            // adj: soft_energy[tid] += wp.float64(0.5) * weight * mass * wp.length_sq(x[tid + affine_verts_num] - soft_target_dof[tid])  <L 99>
+        }
+        // adj: if has_constraint:                                                                <L 98>
+        wp::adj_copy(var_6, adj_4, adj_5);
+        wp::adj_load(var_4, adj_4, adj_6);
+        wp::adj_address(var_soft_verts_mass, var_0, adj_soft_verts_mass, adj_0, adj_4);
+        // adj: mass = soft_verts_mass[tid]                                                       <L 97>
+        wp::adj_copy(var_3, adj_1, adj_2);
+        wp::adj_load(var_1, adj_1, adj_3);
+        wp::adj_address(var_soft_has_constraint, var_0, adj_soft_has_constraint, adj_0, adj_1);
+        // adj: has_constraint = soft_has_constraint[tid]                                         <L 96>
+        // adj: tid = wp.tid()                                                                    <L 95>
+        // adj: def compute_soft_kinematic_energy(                                                <L 86>
+        continue;
+    }
+}
+
+
+
+extern "C" __global__ void compute_affine_kinematic_grad_cuda_kernel_forward(
+    wp::launch_bounds_t dim,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_y,
+    wp::array_t<bool> var_affine_has_constraint,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_affine_target_dof,
+    wp::float64 var_weight,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_affine_grad,
+    wp::array_t<wp::float64> var_mass_body,
+    wp::array_t<wp::int32> var_body_env_id,
+    wp::array_t<wp::int32> var_env_states)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        wp::int32* var_1;
+        wp::int32* var_2;
+        wp::int32 var_3;
+        const wp::int32 var_4 = 1;
+        bool var_5;
+        wp::int32 var_6;
+        wp::int32* var_7;
+        wp::int32* var_8;
+        wp::int32 var_9;
+        const wp::int32 var_10 = 2;
+        bool var_11;
+        wp::int32 var_12;
+        bool var_13;
+        wp::float64* var_14;
+        wp::float64 var_15;
+        wp::float64 var_16;
+        bool* var_17;
+        bool var_18;
+        bool var_19;
+        wp::float64 var_20;
+        wp::vec_t<12,wp::float64>* var_21;
+        wp::vec_t<12,wp::float64>* var_22;
+        wp::vec_t<12,wp::float64> var_23;
+        wp::vec_t<12,wp::float64> var_24;
+        wp::vec_t<12,wp::float64> var_25;
+        wp::vec_t<12,wp::float64> var_26;
+        wp::vec_t<12,wp::float64> var_27;
+        //---------
+        // forward
+        // def compute_affine_kinematic_grad(                                                     <L 143>
+        // tid = wp.tid()                                                                         <L 153>
+        var_0 = builtin_tid1d();
+        // if env_states[body_env_id[tid]] == ENV_STATE_INVALID or env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED:       <L 154>
+        var_1 = wp::address(var_body_env_id, var_0);
+        var_3 = wp::load(var_1);
+        var_2 = wp::address(var_env_states, var_3);
+        var_6 = wp::load(var_2);
+        var_5 = (var_6 == var_4);
+        var_7 = wp::address(var_body_env_id, var_0);
+        var_9 = wp::load(var_7);
+        var_8 = wp::address(var_env_states, var_9);
+        var_12 = wp::load(var_8);
+        var_11 = (var_12 == var_10);
+        var_13 = var_5 || var_11;
+        if (var_13) {
+            // return                                                                             <L 155>
+            continue;
+        }
+        // mass = mass_body[tid]                                                                  <L 156>
+        var_14 = wp::address(var_mass_body, var_0);
+        var_16 = wp::load(var_14);
+        var_15 = wp::copy(var_16);
+        // has_constraint = affine_has_constraint[tid]                                            <L 157>
+        var_17 = wp::address(var_affine_has_constraint, var_0);
+        var_19 = wp::load(var_17);
+        var_18 = wp::copy(var_19);
+        // if has_constraint:                                                                     <L 158>
+        if (var_18) {
+            // wp.atomic_add(affine_grad, tid, weight * mass * (y[tid] - affine_target_dof[tid]))       <L 159>
+            var_20 = wp::mul(var_weight, var_15);
+            var_21 = wp::address(var_y, var_0);
+            var_22 = wp::address(var_affine_target_dof, var_0);
+            var_24 = wp::load(var_21);
+            var_25 = wp::load(var_22);
+            var_23 = wp::sub(var_24, var_25);
+            var_26 = wp::mul(var_20, var_23);
+            var_27 = wp::atomic_add(var_affine_grad, var_0, var_26);
+        }
+    }
+}
+
+
+
+extern "C" __global__ void compute_affine_kinematic_grad_cuda_kernel_backward(
+    wp::launch_bounds_t dim,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_y,
+    wp::array_t<bool> var_affine_has_constraint,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_affine_target_dof,
+    wp::float64 var_weight,
+    wp::array_t<wp::vec_t<12,wp::float64>> var_affine_grad,
+    wp::array_t<wp::float64> var_mass_body,
+    wp::array_t<wp::int32> var_body_env_id,
+    wp::array_t<wp::int32> var_env_states,
+    wp::array_t<wp::vec_t<12,wp::float64>> adj_y,
+    wp::array_t<bool> adj_affine_has_constraint,
+    wp::array_t<wp::vec_t<12,wp::float64>> adj_affine_target_dof,
+    wp::float64 adj_weight,
+    wp::array_t<wp::vec_t<12,wp::float64>> adj_affine_grad,
+    wp::array_t<wp::float64> adj_mass_body,
+    wp::array_t<wp::int32> adj_body_env_id,
+    wp::array_t<wp::int32> adj_env_states)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        wp::int32* var_1;
+        wp::int32* var_2;
+        wp::int32 var_3;
+        const wp::int32 var_4 = 1;
+        bool var_5;
+        wp::int32 var_6;
+        wp::int32* var_7;
+        wp::int32* var_8;
+        wp::int32 var_9;
+        const wp::int32 var_10 = 2;
+        bool var_11;
+        wp::int32 var_12;
+        bool var_13;
+        wp::float64* var_14;
+        wp::float64 var_15;
+        wp::float64 var_16;
+        bool* var_17;
+        bool var_18;
+        bool var_19;
+        wp::float64 var_20;
+        wp::vec_t<12,wp::float64>* var_21;
+        wp::vec_t<12,wp::float64>* var_22;
+        wp::vec_t<12,wp::float64> var_23;
+        wp::vec_t<12,wp::float64> var_24;
+        wp::vec_t<12,wp::float64> var_25;
+        wp::vec_t<12,wp::float64> var_26;
+        wp::vec_t<12,wp::float64> var_27;
+        //---------
+        // dual vars
+        wp::int32 adj_0 = {};
+        wp::int32 adj_1 = {};
+        wp::int32 adj_2 = {};
+        wp::int32 adj_3 = {};
+        wp::int32 adj_4 = {};
+        bool adj_5 = {};
+        wp::int32 adj_6 = {};
+        wp::int32 adj_7 = {};
+        wp::int32 adj_8 = {};
+        wp::int32 adj_9 = {};
+        wp::int32 adj_10 = {};
+        bool adj_11 = {};
+        wp::int32 adj_12 = {};
+        bool adj_13 = {};
+        wp::float64 adj_14 = {};
+        wp::float64 adj_15 = {};
+        wp::float64 adj_16 = {};
+        bool adj_17 = {};
+        bool adj_18 = {};
+        bool adj_19 = {};
+        wp::float64 adj_20 = {};
+        wp::vec_t<12,wp::float64> adj_21 = {};
+        wp::vec_t<12,wp::float64> adj_22 = {};
+        wp::vec_t<12,wp::float64> adj_23 = {};
+        wp::vec_t<12,wp::float64> adj_24 = {};
+        wp::vec_t<12,wp::float64> adj_25 = {};
+        wp::vec_t<12,wp::float64> adj_26 = {};
+        wp::vec_t<12,wp::float64> adj_27 = {};
+        //---------
+        // forward
+        // def compute_affine_kinematic_grad(                                                     <L 143>
+        // tid = wp.tid()                                                                         <L 153>
+        var_0 = builtin_tid1d();
+        // if env_states[body_env_id[tid]] == ENV_STATE_INVALID or env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED:       <L 154>
+        var_1 = wp::address(var_body_env_id, var_0);
+        var_3 = wp::load(var_1);
+        var_2 = wp::address(var_env_states, var_3);
+        var_6 = wp::load(var_2);
+        var_5 = (var_6 == var_4);
+        var_7 = wp::address(var_body_env_id, var_0);
+        var_9 = wp::load(var_7);
+        var_8 = wp::address(var_env_states, var_9);
+        var_12 = wp::load(var_8);
+        var_11 = (var_12 == var_10);
+        var_13 = var_5 || var_11;
+        if (var_13) {
+            // return                                                                             <L 155>
+            goto label0;
+        }
+        // mass = mass_body[tid]                                                                  <L 156>
+        var_14 = wp::address(var_mass_body, var_0);
+        var_16 = wp::load(var_14);
+        var_15 = wp::copy(var_16);
+        // has_constraint = affine_has_constraint[tid]                                            <L 157>
+        var_17 = wp::address(var_affine_has_constraint, var_0);
+        var_19 = wp::load(var_17);
+        var_18 = wp::copy(var_19);
+        // if has_constraint:                                                                     <L 158>
+        if (var_18) {
+            // wp.atomic_add(affine_grad, tid, weight * mass * (y[tid] - affine_target_dof[tid]))       <L 159>
+            var_20 = wp::mul(var_weight, var_15);
+            var_21 = wp::address(var_y, var_0);
+            var_22 = wp::address(var_affine_target_dof, var_0);
+            var_24 = wp::load(var_21);
+            var_25 = wp::load(var_22);
+            var_23 = wp::sub(var_24, var_25);
+            var_26 = wp::mul(var_20, var_23);
+            // var_27 = wp::atomic_add(var_affine_grad, var_0, var_26);
+        }
+        //---------
+        // reverse
+        if (var_18) {
+            wp::adj_atomic_add(var_affine_grad, var_0, var_26, adj_affine_grad, adj_0, adj_26, adj_27);
+            wp::adj_mul(var_20, var_23, adj_20, adj_23, adj_26);
+            wp::adj_sub(var_24, var_25, adj_21, adj_22, adj_23);
+            wp::adj_load(var_22, adj_22, adj_25);
+            wp::adj_load(var_21, adj_21, adj_24);
+            wp::adj_address(var_affine_target_dof, var_0, adj_affine_target_dof, adj_0, adj_22);
+            wp::adj_address(var_y, var_0, adj_y, adj_0, adj_21);
+            wp::adj_mul(var_weight, var_15, adj_weight, adj_15, adj_20);
+            // adj: wp.atomic_add(affine_grad, tid, weight * mass * (y[tid] - affine_target_dof[tid]))  <L 159>
+        }
+        // adj: if has_constraint:                                                                <L 158>
+        wp::adj_copy(var_19, adj_17, adj_18);
+        wp::adj_load(var_17, adj_17, adj_19);
+        wp::adj_address(var_affine_has_constraint, var_0, adj_affine_has_constraint, adj_0, adj_17);
+        // adj: has_constraint = affine_has_constraint[tid]                                       <L 157>
+        wp::adj_copy(var_16, adj_14, adj_15);
+        wp::adj_load(var_14, adj_14, adj_16);
+        wp::adj_address(var_mass_body, var_0, adj_mass_body, adj_0, adj_14);
+        // adj: mass = mass_body[tid]                                                             <L 156>
+        if (var_13) {
+            label0:;
+            // adj: return                                                                        <L 155>
+        }
+        wp::adj_load(var_8, adj_8, adj_12);
+        wp::adj_address(var_env_states, var_9, adj_env_states, adj_7, adj_8);
+        wp::adj_load(var_7, adj_7, adj_9);
+        wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_7);
+        wp::adj_load(var_2, adj_2, adj_6);
+        wp::adj_address(var_env_states, var_3, adj_env_states, adj_1, adj_2);
+        wp::adj_load(var_1, adj_1, adj_3);
+        wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_1);
+        // adj: if env_states[body_env_id[tid]] == ENV_STATE_INVALID or env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED:  <L 154>
+        // adj: tid = wp.tid()                                                                    <L 153>
+        // adj: def compute_affine_kinematic_grad(                                                <L 143>
+        continue;
+    }
+}
+
+
+
+extern "C" __global__ void compute_affine_kinematic_hess_cuda_kernel_forward(
+    wp::launch_bounds_t dim,
+    wp::array_t<bool> var_affine_has_constraint,
+    wp::float64 var_weight,
+    COOMatrix3x3_0df4b45d var_hess_affine_diag,
+    wp::array_t<wp::float64> var_mass_body,
+    wp::array_t<wp::int32> var_body_env_id,
+    wp::array_t<wp::int32> var_env_states)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        wp::int32* var_1;
+        wp::int32* var_2;
+        wp::int32 var_3;
+        const wp::int32 var_4 = 1;
+        bool var_5;
+        wp::int32 var_6;
+        wp::int32* var_7;
+        wp::int32* var_8;
+        wp::int32 var_9;
+        const wp::int32 var_10 = 2;
+        bool var_11;
+        wp::int32 var_12;
+        bool var_13;
+        wp::float64* var_14;
+        wp::float64 var_15;
+        wp::float64 var_16;
+        const wp::float32 var_17 = 0.0;
+        wp::float64 var_18;
+        bool* var_19;
+        bool var_20;
+        bool var_21;
+        wp::float64 var_22;
+        wp::mat_t<3,3,wp::float64> var_23;
+        const wp::int32 var_24 = 0;
+        const wp::int32 var_25 = 16;
+        wp::int32 var_26;
+        const wp::int32 var_27 = 4;
+        wp::int32 var_28;
+        wp::int32 var_29;
+        wp::int32 var_30;
+        const wp::int32 var_31 = 1;
+        const wp::int32 var_32 = 16;
+        wp::int32 var_33;
+        const wp::int32 var_34 = 4;
+        wp::int32 var_35;
+        wp::int32 var_36;
+        wp::int32 var_37;
+        const wp::int32 var_38 = 2;
+        const wp::int32 var_39 = 16;
+        wp::int32 var_40;
+        const wp::int32 var_41 = 4;
+        wp::int32 var_42;
+        wp::int32 var_43;
+        wp::int32 var_44;
+        const wp::int32 var_45 = 3;
+        const wp::int32 var_46 = 16;
+        wp::int32 var_47;
+        const wp::int32 var_48 = 4;
+        wp::int32 var_49;
+        wp::int32 var_50;
+        wp::int32 var_51;
+        //---------
+        // forward
+        // def compute_affine_kinematic_hess(                                                     <L 254>
+        // tid = wp.tid()                                                                         <L 262>
+        var_0 = builtin_tid1d();
+        // if env_states[body_env_id[tid]] == ENV_STATE_INVALID or env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED:       <L 263>
+        var_1 = wp::address(var_body_env_id, var_0);
+        var_3 = wp::load(var_1);
+        var_2 = wp::address(var_env_states, var_3);
+        var_6 = wp::load(var_2);
+        var_5 = (var_6 == var_4);
+        var_7 = wp::address(var_body_env_id, var_0);
+        var_9 = wp::load(var_7);
+        var_8 = wp::address(var_env_states, var_9);
+        var_12 = wp::load(var_8);
+        var_11 = (var_12 == var_10);
+        var_13 = var_5 || var_11;
+        if (var_13) {
+            // return                                                                             <L 264>
+            continue;
+        }
+        // mass = mass_body[tid]                                                                  <L 265>
+        var_14 = wp::address(var_mass_body, var_0);
+        var_16 = wp::load(var_14);
+        var_15 = wp::copy(var_16);
+        // _0 = wp.float64(0.0)                                                                   <L 266>
+        var_18 = wp::float64(var_17);
+        // has_constraint = affine_has_constraint[tid]                                            <L 267>
+        var_19 = wp::address(var_affine_has_constraint, var_0);
+        var_21 = wp::load(var_19);
+        var_20 = wp::copy(var_21);
+        // weighted_mass = mass * weight                                                          <L 268>
+        var_22 = wp::mul(var_15, var_weight);
+        // mat3 = wp.mat33d(weighted_mass, _0, _0, _0, weighted_mass, _0, _0, _0, weighted_mass)       <L 269>
+        var_23 = wp::mat_t<3,3,wp::float64>(var_22, var_18, var_18, var_18, var_22, var_18, var_18, var_18, var_22);
+        // if has_constraint:                                                                     <L 270>
+        if (var_20) {
+            // for bi in range(4):                                                                <L 271>
+            // matrix.COOMatrix3x3_atomic_add(hess_affine_diag, tid * 16 + 4 * bi + bi, mat3)       <L 272>
+            var_26 = wp::mul(var_0, var_25);
+            var_28 = wp::mul(var_27, var_24);
+            var_29 = wp::add(var_26, var_28);
+            var_30 = wp::add(var_29, var_24);
+            COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_30, var_23);
+            var_33 = wp::mul(var_0, var_32);
+            var_35 = wp::mul(var_34, var_31);
+            var_36 = wp::add(var_33, var_35);
+            var_37 = wp::add(var_36, var_31);
+            COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_37, var_23);
+            var_40 = wp::mul(var_0, var_39);
+            var_42 = wp::mul(var_41, var_38);
+            var_43 = wp::add(var_40, var_42);
+            var_44 = wp::add(var_43, var_38);
+            COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_44, var_23);
+            var_47 = wp::mul(var_0, var_46);
+            var_49 = wp::mul(var_48, var_45);
+            var_50 = wp::add(var_47, var_49);
+            var_51 = wp::add(var_50, var_45);
+            COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_51, var_23);
+        }
+    }
+}
+
+
+
+extern "C" __global__ void compute_affine_kinematic_hess_cuda_kernel_backward(
+    wp::launch_bounds_t dim,
+    wp::array_t<bool> var_affine_has_constraint,
+    wp::float64 var_weight,
+    COOMatrix3x3_0df4b45d var_hess_affine_diag,
+    wp::array_t<wp::float64> var_mass_body,
+    wp::array_t<wp::int32> var_body_env_id,
+    wp::array_t<wp::int32> var_env_states,
+    wp::array_t<bool> adj_affine_has_constraint,
+    wp::float64 adj_weight,
+    COOMatrix3x3_0df4b45d adj_hess_affine_diag,
+    wp::array_t<wp::float64> adj_mass_body,
+    wp::array_t<wp::int32> adj_body_env_id,
+    wp::array_t<wp::int32> adj_env_states)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        wp::int32* var_1;
+        wp::int32* var_2;
+        wp::int32 var_3;
+        const wp::int32 var_4 = 1;
+        bool var_5;
+        wp::int32 var_6;
+        wp::int32* var_7;
+        wp::int32* var_8;
+        wp::int32 var_9;
+        const wp::int32 var_10 = 2;
+        bool var_11;
+        wp::int32 var_12;
+        bool var_13;
+        wp::float64* var_14;
+        wp::float64 var_15;
+        wp::float64 var_16;
+        const wp::float32 var_17 = 0.0;
+        wp::float64 var_18;
+        bool* var_19;
+        bool var_20;
+        bool var_21;
+        wp::float64 var_22;
+        wp::mat_t<3,3,wp::float64> var_23;
+        const wp::int32 var_24 = 0;
+        const wp::int32 var_25 = 16;
+        wp::int32 var_26;
+        const wp::int32 var_27 = 4;
+        wp::int32 var_28;
+        wp::int32 var_29;
+        wp::int32 var_30;
+        const wp::int32 var_31 = 1;
+        const wp::int32 var_32 = 16;
+        wp::int32 var_33;
+        const wp::int32 var_34 = 4;
+        wp::int32 var_35;
+        wp::int32 var_36;
+        wp::int32 var_37;
+        const wp::int32 var_38 = 2;
+        const wp::int32 var_39 = 16;
+        wp::int32 var_40;
+        const wp::int32 var_41 = 4;
+        wp::int32 var_42;
+        wp::int32 var_43;
+        wp::int32 var_44;
+        const wp::int32 var_45 = 3;
+        const wp::int32 var_46 = 16;
+        wp::int32 var_47;
+        const wp::int32 var_48 = 4;
+        wp::int32 var_49;
+        wp::int32 var_50;
+        wp::int32 var_51;
+        //---------
+        // dual vars
+        wp::int32 adj_0 = {};
+        wp::int32 adj_1 = {};
+        wp::int32 adj_2 = {};
+        wp::int32 adj_3 = {};
+        wp::int32 adj_4 = {};
+        bool adj_5 = {};
+        wp::int32 adj_6 = {};
+        wp::int32 adj_7 = {};
+        wp::int32 adj_8 = {};
+        wp::int32 adj_9 = {};
+        wp::int32 adj_10 = {};
+        bool adj_11 = {};
+        wp::int32 adj_12 = {};
+        bool adj_13 = {};
+        wp::float64 adj_14 = {};
+        wp::float64 adj_15 = {};
+        wp::float64 adj_16 = {};
+        wp::float32 adj_17 = {};
+        wp::float64 adj_18 = {};
+        bool adj_19 = {};
+        bool adj_20 = {};
+        bool adj_21 = {};
+        wp::float64 adj_22 = {};
+        wp::mat_t<3,3,wp::float64> adj_23 = {};
+        wp::int32 adj_24 = {};
+        wp::int32 adj_25 = {};
+        wp::int32 adj_26 = {};
+        wp::int32 adj_27 = {};
+        wp::int32 adj_28 = {};
+        wp::int32 adj_29 = {};
+        wp::int32 adj_30 = {};
+        wp::int32 adj_31 = {};
+        wp::int32 adj_32 = {};
+        wp::int32 adj_33 = {};
+        wp::int32 adj_34 = {};
+        wp::int32 adj_35 = {};
+        wp::int32 adj_36 = {};
+        wp::int32 adj_37 = {};
+        wp::int32 adj_38 = {};
+        wp::int32 adj_39 = {};
+        wp::int32 adj_40 = {};
+        wp::int32 adj_41 = {};
+        wp::int32 adj_42 = {};
+        wp::int32 adj_43 = {};
+        wp::int32 adj_44 = {};
+        wp::int32 adj_45 = {};
+        wp::int32 adj_46 = {};
+        wp::int32 adj_47 = {};
+        wp::int32 adj_48 = {};
+        wp::int32 adj_49 = {};
+        wp::int32 adj_50 = {};
+        wp::int32 adj_51 = {};
+        //---------
+        // forward
+        // def compute_affine_kinematic_hess(                                                     <L 254>
+        // tid = wp.tid()                                                                         <L 262>
+        var_0 = builtin_tid1d();
+        // if env_states[body_env_id[tid]] == ENV_STATE_INVALID or env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED:       <L 263>
+        var_1 = wp::address(var_body_env_id, var_0);
+        var_3 = wp::load(var_1);
+        var_2 = wp::address(var_env_states, var_3);
+        var_6 = wp::load(var_2);
+        var_5 = (var_6 == var_4);
+        var_7 = wp::address(var_body_env_id, var_0);
+        var_9 = wp::load(var_7);
+        var_8 = wp::address(var_env_states, var_9);
+        var_12 = wp::load(var_8);
+        var_11 = (var_12 == var_10);
+        var_13 = var_5 || var_11;
+        if (var_13) {
+            // return                                                                             <L 264>
+            goto label0;
+        }
+        // mass = mass_body[tid]                                                                  <L 265>
+        var_14 = wp::address(var_mass_body, var_0);
+        var_16 = wp::load(var_14);
+        var_15 = wp::copy(var_16);
+        // _0 = wp.float64(0.0)                                                                   <L 266>
+        var_18 = wp::float64(var_17);
+        // has_constraint = affine_has_constraint[tid]                                            <L 267>
+        var_19 = wp::address(var_affine_has_constraint, var_0);
+        var_21 = wp::load(var_19);
+        var_20 = wp::copy(var_21);
+        // weighted_mass = mass * weight                                                          <L 268>
+        var_22 = wp::mul(var_15, var_weight);
+        // mat3 = wp.mat33d(weighted_mass, _0, _0, _0, weighted_mass, _0, _0, _0, weighted_mass)       <L 269>
+        var_23 = wp::mat_t<3,3,wp::float64>(var_22, var_18, var_18, var_18, var_22, var_18, var_18, var_18, var_22);
+        // if has_constraint:                                                                     <L 270>
+        if (var_20) {
+            // for bi in range(4):                                                                <L 271>
+            // matrix.COOMatrix3x3_atomic_add(hess_affine_diag, tid * 16 + 4 * bi + bi, mat3)       <L 272>
+            var_26 = wp::mul(var_0, var_25);
+            var_28 = wp::mul(var_27, var_24);
+            var_29 = wp::add(var_26, var_28);
+            var_30 = wp::add(var_29, var_24);
+            COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_30, var_23);
+            var_33 = wp::mul(var_0, var_32);
+            var_35 = wp::mul(var_34, var_31);
+            var_36 = wp::add(var_33, var_35);
+            var_37 = wp::add(var_36, var_31);
+            COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_37, var_23);
+            var_40 = wp::mul(var_0, var_39);
+            var_42 = wp::mul(var_41, var_38);
+            var_43 = wp::add(var_40, var_42);
+            var_44 = wp::add(var_43, var_38);
+            COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_44, var_23);
+            var_47 = wp::mul(var_0, var_46);
+            var_49 = wp::mul(var_48, var_45);
+            var_50 = wp::add(var_47, var_49);
+            var_51 = wp::add(var_50, var_45);
+            COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_51, var_23);
+        }
+        //---------
+        // reverse
+        if (var_20) {
+            adj_COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_51, var_23, adj_hess_affine_diag, adj_51, adj_23);
+            wp::adj_add(var_50, var_45, adj_50, adj_45, adj_51);
+            wp::adj_add(var_47, var_49, adj_47, adj_49, adj_50);
+            wp::adj_mul(var_48, var_45, adj_48, adj_45, adj_49);
+            wp::adj_mul(var_0, var_46, adj_0, adj_46, adj_47);
+            adj_COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_44, var_23, adj_hess_affine_diag, adj_44, adj_23);
+            wp::adj_add(var_43, var_38, adj_43, adj_38, adj_44);
+            wp::adj_add(var_40, var_42, adj_40, adj_42, adj_43);
+            wp::adj_mul(var_41, var_38, adj_41, adj_38, adj_42);
+            wp::adj_mul(var_0, var_39, adj_0, adj_39, adj_40);
+            adj_COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_37, var_23, adj_hess_affine_diag, adj_37, adj_23);
+            wp::adj_add(var_36, var_31, adj_36, adj_31, adj_37);
+            wp::adj_add(var_33, var_35, adj_33, adj_35, adj_36);
+            wp::adj_mul(var_34, var_31, adj_34, adj_31, adj_35);
+            wp::adj_mul(var_0, var_32, adj_0, adj_32, adj_33);
+            adj_COOMatrix3x3_atomic_add_0(var_hess_affine_diag, var_30, var_23, adj_hess_affine_diag, adj_30, adj_23);
+            wp::adj_add(var_29, var_24, adj_29, adj_24, adj_30);
+            wp::adj_add(var_26, var_28, adj_26, adj_28, adj_29);
+            wp::adj_mul(var_27, var_24, adj_27, adj_24, adj_28);
+            wp::adj_mul(var_0, var_25, adj_0, adj_25, adj_26);
+            // adj: matrix.COOMatrix3x3_atomic_add(hess_affine_diag, tid * 16 + 4 * bi + bi, mat3)  <L 272>
+            // adj: for bi in range(4):                                                           <L 271>
+        }
+        // adj: if has_constraint:                                                                <L 270>
+        wp::adj_mat_t(var_22, var_18, var_18, var_18, var_22, var_18, var_18, var_18, var_22, adj_22, adj_18, adj_18, adj_18, adj_22, adj_18, adj_18, adj_18, adj_22, adj_23);
+        // adj: mat3 = wp.mat33d(weighted_mass, _0, _0, _0, weighted_mass, _0, _0, _0, weighted_mass)  <L 269>
+        wp::adj_mul(var_15, var_weight, adj_15, adj_weight, adj_22);
+        // adj: weighted_mass = mass * weight                                                     <L 268>
+        wp::adj_copy(var_21, adj_19, adj_20);
+        wp::adj_load(var_19, adj_19, adj_21);
+        wp::adj_address(var_affine_has_constraint, var_0, adj_affine_has_constraint, adj_0, adj_19);
+        // adj: has_constraint = affine_has_constraint[tid]                                       <L 267>
+        wp::adj_float64(var_17, adj_17, adj_18);
+        // adj: _0 = wp.float64(0.0)                                                              <L 266>
+        wp::adj_copy(var_16, adj_14, adj_15);
+        wp::adj_load(var_14, adj_14, adj_16);
+        wp::adj_address(var_mass_body, var_0, adj_mass_body, adj_0, adj_14);
+        // adj: mass = mass_body[tid]                                                             <L 265>
+        if (var_13) {
+            label0:;
+            // adj: return                                                                        <L 264>
+        }
+        wp::adj_load(var_8, adj_8, adj_12);
+        wp::adj_address(var_env_states, var_9, adj_env_states, adj_7, adj_8);
+        wp::adj_load(var_7, adj_7, adj_9);
+        wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_7);
+        wp::adj_load(var_2, adj_2, adj_6);
+        wp::adj_address(var_env_states, var_3, adj_env_states, adj_1, adj_2);
+        wp::adj_load(var_1, adj_1, adj_3);
+        wp::adj_address(var_body_env_id, var_0, adj_body_env_id, adj_0, adj_1);
+        // adj: if env_states[body_env_id[tid]] == ENV_STATE_INVALID or env_states[body_env_id[tid]] == ENV_STATE_NEWTON_SOLVED:  <L 263>
+        // adj: tid = wp.tid()                                                                    <L 262>
+        // adj: def compute_affine_kinematic_hess(                                                <L 254>
+        continue;
+    }
+}
+
+
+
+extern "C" __global__ void compute_soft_kinematic_grad_cuda_kernel_forward(
+    wp::launch_bounds_t dim,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
+    wp::array_t<bool> var_soft_has_constraint,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_target_dof,
+    wp::float64 var_weight,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_grad,
+    wp::int32 var_affine_verts_num,
+    wp::array_t<wp::float64> var_soft_verts_mass,
+    wp::array_t<wp::int32> var_node2env,
+    wp::array_t<wp::int32> var_env_states)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        wp::int32 var_1;
+        wp::int32* var_2;
+        wp::int32* var_3;
+        wp::int32 var_4;
+        const wp::int32 var_5 = 1;
+        bool var_6;
+        wp::int32 var_7;
+        wp::int32 var_8;
+        wp::int32* var_9;
+        wp::int32* var_10;
+        wp::int32 var_11;
+        const wp::int32 var_12 = 2;
+        bool var_13;
+        wp::int32 var_14;
+        bool var_15;
+        wp::float64* var_16;
+        wp::float64 var_17;
+        wp::float64 var_18;
+        bool* var_19;
+        bool var_20;
+        bool var_21;
+        wp::float64 var_22;
+        wp::int32 var_23;
+        wp::vec_t<3,wp::float64>* var_24;
+        wp::vec_t<3,wp::float64>* var_25;
+        wp::vec_t<3,wp::float64> var_26;
+        wp::vec_t<3,wp::float64> var_27;
+        wp::vec_t<3,wp::float64> var_28;
+        wp::vec_t<3,wp::float64> var_29;
+        wp::vec_t<3,wp::float64> var_30;
+        //---------
+        // forward
+        // def compute_soft_kinematic_grad(                                                       <L 163>
+        // tid = wp.tid()                                                                         <L 174>
+        var_0 = builtin_tid1d();
+        // if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:       <L 175>
+        var_1 = wp::add(var_0, var_affine_verts_num);
+        var_2 = wp::address(var_node2env, var_1);
+        var_4 = wp::load(var_2);
+        var_3 = wp::address(var_env_states, var_4);
+        var_7 = wp::load(var_3);
+        var_6 = (var_7 == var_5);
+        var_8 = wp::add(var_0, var_affine_verts_num);
+        var_9 = wp::address(var_node2env, var_8);
+        var_11 = wp::load(var_9);
+        var_10 = wp::address(var_env_states, var_11);
+        var_14 = wp::load(var_10);
+        var_13 = (var_14 == var_12);
+        var_15 = var_6 || var_13;
+        if (var_15) {
+            // return                                                                             <L 176>
+            continue;
+        }
+        // mass = soft_verts_mass[tid]                                                            <L 177>
+        var_16 = wp::address(var_soft_verts_mass, var_0);
+        var_18 = wp::load(var_16);
+        var_17 = wp::copy(var_18);
+        // has_constraint = soft_has_constraint[tid]                                              <L 178>
+        var_19 = wp::address(var_soft_has_constraint, var_0);
+        var_21 = wp::load(var_19);
+        var_20 = wp::copy(var_21);
+        // if has_constraint:                                                                     <L 179>
+        if (var_20) {
+            // wp.atomic_add(                                                                     <L 180>
+            // soft_grad,                                                                         <L 181>
+            // tid,                                                                               <L 182>
+            // weight * mass * (x[tid + affine_verts_num] - soft_target_dof[tid]),                <L 183>
+            var_22 = wp::mul(var_weight, var_17);
+            var_23 = wp::add(var_0, var_affine_verts_num);
+            var_24 = wp::address(var_x, var_23);
+            var_25 = wp::address(var_soft_target_dof, var_0);
+            var_27 = wp::load(var_24);
+            var_28 = wp::load(var_25);
+            var_26 = wp::sub(var_27, var_28);
+            var_29 = wp::mul(var_22, var_26);
+            var_30 = wp::atomic_add(var_soft_grad, var_0, var_29);
+        }
+    }
+}
+
+
+
+extern "C" __global__ void compute_soft_kinematic_grad_cuda_kernel_backward(
+    wp::launch_bounds_t dim,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_x,
+    wp::array_t<bool> var_soft_has_constraint,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_target_dof,
+    wp::float64 var_weight,
+    wp::array_t<wp::vec_t<3,wp::float64>> var_soft_grad,
+    wp::int32 var_affine_verts_num,
+    wp::array_t<wp::float64> var_soft_verts_mass,
+    wp::array_t<wp::int32> var_node2env,
+    wp::array_t<wp::int32> var_env_states,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_x,
+    wp::array_t<bool> adj_soft_has_constraint,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_soft_target_dof,
+    wp::float64 adj_weight,
+    wp::array_t<wp::vec_t<3,wp::float64>> adj_soft_grad,
+    wp::int32 adj_affine_verts_num,
+    wp::array_t<wp::float64> adj_soft_verts_mass,
+    wp::array_t<wp::int32> adj_node2env,
+    wp::array_t<wp::int32> adj_env_states)
+{
+    for (size_t _idx = static_cast<size_t>(blockDim.x) * static_cast<size_t>(blockIdx.x) + static_cast<size_t>(threadIdx.x);
+         _idx < dim.size;
+         _idx += static_cast<size_t>(blockDim.x) * static_cast<size_t>(gridDim.x))
+    {
+        // reset shared memory allocator
+        wp::tile_alloc_shared(0, true);
+
+        //---------
+        // primal vars
+        wp::int32 var_0;
+        wp::int32 var_1;
+        wp::int32* var_2;
+        wp::int32* var_3;
+        wp::int32 var_4;
+        const wp::int32 var_5 = 1;
+        bool var_6;
+        wp::int32 var_7;
+        wp::int32 var_8;
+        wp::int32* var_9;
+        wp::int32* var_10;
+        wp::int32 var_11;
+        const wp::int32 var_12 = 2;
+        bool var_13;
+        wp::int32 var_14;
+        bool var_15;
+        wp::float64* var_16;
+        wp::float64 var_17;
+        wp::float64 var_18;
+        bool* var_19;
+        bool var_20;
+        bool var_21;
+        wp::float64 var_22;
+        wp::int32 var_23;
+        wp::vec_t<3,wp::float64>* var_24;
+        wp::vec_t<3,wp::float64>* var_25;
+        wp::vec_t<3,wp::float64> var_26;
+        wp::vec_t<3,wp::float64> var_27;
+        wp::vec_t<3,wp::float64> var_28;
+        wp::vec_t<3,wp::float64> var_29;
+        wp::vec_t<3,wp::float64> var_30;
+        //---------
+        // dual vars
+        wp::int32 adj_0 = {};
+        wp::int32 adj_1 = {};
+        wp::int32 adj_2 = {};
+        wp::int32 adj_3 = {};
+        wp::int32 adj_4 = {};
+        wp::int32 adj_5 = {};
+        bool adj_6 = {};
+        wp::int32 adj_7 = {};
+        wp::int32 adj_8 = {};
+        wp::int32 adj_9 = {};
+        wp::int32 adj_10 = {};
+        wp::int32 adj_11 = {};
+        wp::int32 adj_12 = {};
+        bool adj_13 = {};
+        wp::int32 adj_14 = {};
+        bool adj_15 = {};
+        wp::float64 adj_16 = {};
+        wp::float64 adj_17 = {};
+        wp::float64 adj_18 = {};
+        bool adj_19 = {};
+        bool adj_20 = {};
+        bool adj_21 = {};
+        wp::float64 adj_22 = {};
+        wp::int32 adj_23 = {};
+        wp::vec_t<3,wp::float64> adj_24 = {};
+        wp::vec_t<3,wp::float64> adj_25 = {};
+        wp::vec_t<3,wp::float64> adj_26 = {};
+        wp::vec_t<3,wp::float64> adj_27 = {};
+        wp::vec_t<3,wp::float64> adj_28 = {};
+        wp::vec_t<3,wp::float64> adj_29 = {};
+        wp::vec_t<3,wp::float64> adj_30 = {};
+        //---------
+        // forward
+        // def compute_soft_kinematic_grad(                                                       <L 163>
+        // tid = wp.tid()                                                                         <L 174>
+        var_0 = builtin_tid1d();
+        // if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:       <L 175>
+        var_1 = wp::add(var_0, var_affine_verts_num);
+        var_2 = wp::address(var_node2env, var_1);
+        var_4 = wp::load(var_2);
+        var_3 = wp::address(var_env_states, var_4);
+        var_7 = wp::load(var_3);
+        var_6 = (var_7 == var_5);
+        var_8 = wp::add(var_0, var_affine_verts_num);
+        var_9 = wp::address(var_node2env, var_8);
+        var_11 = wp::load(var_9);
+        var_10 = wp::address(var_env_states, var_11);
+        var_14 = wp::load(var_10);
+        var_13 = (var_14 == var_12);
+        var_15 = var_6 || var_13;
+        if (var_15) {
+            // return                                                                             <L 176>
+            goto label0;
+        }
+        // mass = soft_verts_mass[tid]                                                            <L 177>
+        var_16 = wp::address(var_soft_verts_mass, var_0);
+        var_18 = wp::load(var_16);
+        var_17 = wp::copy(var_18);
+        // has_constraint = soft_has_constraint[tid]                                              <L 178>
+        var_19 = wp::address(var_soft_has_constraint, var_0);
+        var_21 = wp::load(var_19);
+        var_20 = wp::copy(var_21);
+        // if has_constraint:                                                                     <L 179>
+        if (var_20) {
+            // wp.atomic_add(                                                                     <L 180>
+            // soft_grad,                                                                         <L 181>
+            // tid,                                                                               <L 182>
+            // weight * mass * (x[tid + affine_verts_num] - soft_target_dof[tid]),                <L 183>
+            var_22 = wp::mul(var_weight, var_17);
+            var_23 = wp::add(var_0, var_affine_verts_num);
+            var_24 = wp::address(var_x, var_23);
+            var_25 = wp::address(var_soft_target_dof, var_0);
+            var_27 = wp::load(var_24);
+            var_28 = wp::load(var_25);
+            var_26 = wp::sub(var_27, var_28);
+            var_29 = wp::mul(var_22, var_26);
+            // var_30 = wp::atomic_add(var_soft_grad, var_0, var_29);
+        }
+        //---------
+        // reverse
+        if (var_20) {
+            wp::adj_atomic_add(var_soft_grad, var_0, var_29, adj_soft_grad, adj_0, adj_29, adj_30);
+            wp::adj_mul(var_22, var_26, adj_22, adj_26, adj_29);
+            wp::adj_sub(var_27, var_28, adj_24, adj_25, adj_26);
+            wp::adj_load(var_25, adj_25, adj_28);
+            wp::adj_load(var_24, adj_24, adj_27);
+            wp::adj_address(var_soft_target_dof, var_0, adj_soft_target_dof, adj_0, adj_25);
+            wp::adj_address(var_x, var_23, adj_x, adj_23, adj_24);
+            wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_23);
+            wp::adj_mul(var_weight, var_17, adj_weight, adj_17, adj_22);
+            // adj: weight * mass * (x[tid + affine_verts_num] - soft_target_dof[tid]),           <L 183>
+            // adj: tid,                                                                          <L 182>
+            // adj: soft_grad,                                                                    <L 181>
+            // adj: wp.atomic_add(                                                                <L 180>
+        }
+        // adj: if has_constraint:                                                                <L 179>
+        wp::adj_copy(var_21, adj_19, adj_20);
+        wp::adj_load(var_19, adj_19, adj_21);
+        wp::adj_address(var_soft_has_constraint, var_0, adj_soft_has_constraint, adj_0, adj_19);
+        // adj: has_constraint = soft_has_constraint[tid]                                         <L 178>
+        wp::adj_copy(var_18, adj_16, adj_17);
+        wp::adj_load(var_16, adj_16, adj_18);
+        wp::adj_address(var_soft_verts_mass, var_0, adj_soft_verts_mass, adj_0, adj_16);
+        // adj: mass = soft_verts_mass[tid]                                                       <L 177>
+        if (var_15) {
+            label0:;
+            // adj: return                                                                        <L 176>
+        }
+        wp::adj_load(var_10, adj_10, adj_14);
+        wp::adj_address(var_env_states, var_11, adj_env_states, adj_9, adj_10);
+        wp::adj_load(var_9, adj_9, adj_11);
+        wp::adj_address(var_node2env, var_8, adj_node2env, adj_8, adj_9);
+        wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_8);
+        wp::adj_load(var_3, adj_3, adj_7);
+        wp::adj_address(var_env_states, var_4, adj_env_states, adj_2, adj_3);
+        wp::adj_load(var_2, adj_2, adj_4);
+        wp::adj_address(var_node2env, var_1, adj_node2env, adj_1, adj_2);
+        wp::adj_add(var_0, var_affine_verts_num, adj_0, adj_affine_verts_num, adj_1);
+        // adj: if env_states[node2env[tid + affine_verts_num]] == ENV_STATE_INVALID or env_states[node2env[tid + affine_verts_num]] == ENV_STATE_NEWTON_SOLVED:  <L 175>
+        // adj: tid = wp.tid()                                                                    <L 174>
+        // adj: def compute_soft_kinematic_grad(                                                  <L 163>
         continue;
     }
 }
