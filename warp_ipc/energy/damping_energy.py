@@ -1,12 +1,7 @@
 from typing import TYPE_CHECKING
-import torch
 import warp as wp
 import warp.sparse as wps
-import warp_ipc.utils.matrix as matrix
-from warp_ipc.utils.constants import ENV_STATE_INVALID, ENV_STATE_VALID
 from warp_ipc.utils.env_ops import reduce_env_energy_affine_body, reduce_env_energy_soft_vert
-from warp_ipc.utils.wp_math import sqr
-from warp_ipc.utils.wp_types import vec12d
 if TYPE_CHECKING:
     from warp_ipc.sim_model import ASRModel
 

@@ -177,3 +177,7 @@ class TactileRobot(Robot):
             vbts_cfgs.append(cfg)
 
         return vbts_cfgs
+
+    @cached_property
+    def tac_coll_layers(self) -> List[int]:
+        return [cfg.coll_layer for cfg in self.vbts_cfgs if cfg.coll_layer is not None]

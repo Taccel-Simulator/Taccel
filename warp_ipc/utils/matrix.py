@@ -1,11 +1,10 @@
-import torch
+from typing import List, Tuple
 import numpy as np
-from numpy.typing import NDArray
+import torch
 import warp as wp
 import warp.sparse as wps
-import inspect
 from icecream import ic
-from typing import Tuple, List
+from numpy.typing import NDArray
 ENABLE_COO_OFB = wp.constant(True)
 
 @wp.struct
@@ -111,27 +110,27 @@ def coos_to_numpy_triplets(*coos) -> Tuple[NDArray, NDArray, NDArray]:
 
 @wp.func
 def COOMatrix3x3_atomic_add(mat: COOMatrix3x3, block_index: wp.int32, v: wp.mat33d):
-    pass
+    print('[ERROR] Unexpected Recompilation: COOMatrix3x3_atomic_add')
 
 @wp.func
 def COOMatrix3x3_atomic_add_with_inds(mat: COOMatrix3x3, block_index: wp.int32, i: wp.int32, j: wp.int32, v: wp.mat33d):
-    pass
+    print('[ERROR] Unexpected Recompilation: COOMatrix3x3_atomic_add_with_inds')
 
 @wp.func
 def COOMatrix3x3_set_val(mat: COOMatrix3x3, block_index: wp.int32, v: wp.mat33d):
-    pass
+    print('[ERROR] Unexpected Recompilation: COOMatrix3x3_set_val')
 
 @wp.func
 def COOMatrix3x3_insert(mat: COOMatrix3x3, block_index: wp.int32, i: wp.int32, j: wp.int32, v: wp.mat33d):
-    pass
+    print('[ERROR] Unexpected Recompilation: COOMatrix3x3_insert')
 
 @wp.func
 def COOMatrix3x3_insert_place(mat: COOMatrix3x3, block_index: wp.int32, i: wp.int32, j: wp.int32):
-    pass
+    print('[ERROR] Unexpected Recompilation: COOMatrix3x3_insert_place')
 
 @wp.kernel
 def test_insert_COO3x3(mat: COOMatrix3x3):
-    pass
+    print('[ERROR] Unexpected Recompilation: test_insert_COO3x3')
 if __name__ == '__main__':
     wp.init()
     mat = COOMatrix3x3()

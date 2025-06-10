@@ -1,5 +1,5 @@
-from plyfile import PlyData, PlyElement
 import numpy as np
+from plyfile import PlyData, PlyElement
 
 def write_ply(filename, points, tris):
     vertex = np.array([tuple(v) for v in points], dtype=[('x', 'f4'), ('y', 'f4'), ('z', 'f4')])

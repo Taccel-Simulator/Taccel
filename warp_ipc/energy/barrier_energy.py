@@ -1,9 +1,6 @@
 from typing import TYPE_CHECKING
-import numpy as np
-import torch
 import warp as wp
 import warp.sparse as wps
-from icecream import ic
 import warp_ipc.collision_detection as collision_detection
 import warp_ipc.contact.barrier as barrier
 import warp_ipc.utils.matrix as matrix
@@ -25,11 +22,11 @@ if TYPE_CHECKING:
 
 @wp.kernel
 def initialize_friction_hs(hs_lambda: wp.array(dtype=wp.float64), hs_node: wp.array(dtype=wp.int32), hs_ground: wp.array(dtype=wp.int32), x: wp.array(dtype=wp.vec3d), surf_vi: wp.array(dtype=wp.int32), node_xi: wp.array(dtype=wp.float64), node_area: wp.array(dtype=wp.float64), half_space_n: wp.array(dtype=wp.vec3d), half_space_o: wp.array(dtype=wp.vec3d), dhat: wp.float64, kappa: wp.float64):
-    pass
+    print('[ERROR] Unexpected Recompilation: initialize_friction_hs')
 
 @wp.kernel
 def initialize_friction_collisions(c_lambda: wp.array(dtype=wp.float64), closest_points: wp.array(dtype=wp.vec2d), normal: wp.array(dtype=wp.vec3d), nodeI: wp.array(dtype=wp.int32), nodeJ: wp.array(dtype=wp.int32), collision_type: wp.array(dtype=wp.int32), x: wp.array(dtype=wp.vec3d), surf_vi: wp.array(dtype=wp.int32), X: wp.array(dtype=wp.vec3d), node_xi: wp.array(dtype=wp.float64), edge_xi: wp.array(dtype=wp.float64), face_xi: wp.array(dtype=wp.float64), node_area: wp.array(dtype=wp.float64), edge_area: wp.array(dtype=wp.float64), edge: wp.array(dtype=wp.vec2i), face: wp.array(dtype=wp.vec3i), dhat: wp.float64, kappa: wp.float64, int_w_PTEE: wp.float64):
-    pass
+    print('[ERROR] Unexpected Recompilation: initialize_friction_collisions')
 
 def initialize_friction(sim: 'ASRModel', cdw: collision_detection.CollisionData, x: wp.array):
     int_w_PTEE = wp.constant(wp.float64(0.25 if sim.handle_EE else 0.5))
@@ -44,11 +41,11 @@ def initialize_friction_adjoint(sim: 'ASRModel', cdw: collision_detection.Collis
 
 @wp.kernel
 def val_IPC_hs(energy_x: wp.array(dtype=wp.float64), hs_lambda: wp.array(dtype=wp.float64), hs_node: wp.array(dtype=wp.int32), hs_ground: wp.array(dtype=wp.int32), x: wp.array(dtype=wp.vec3d), surf_vi: wp.array(dtype=wp.int32), hat_x: wp.array(dtype=wp.vec3d), node_xi: wp.array(dtype=wp.float64), node_area: wp.array(dtype=wp.float64), half_space_n: wp.array(dtype=wp.vec3d), half_space_o: wp.array(dtype=wp.vec3d), half_space_mu: wp.array(dtype=wp.float64), dhat: wp.float64, hat_h: wp.float64, kappa: wp.float64, scale: wp.float64, epsv: wp.float64, E: wp.int32):
-    pass
+    print('[ERROR] Unexpected Recompilation: val_IPC_hs')
 
 @wp.kernel
 def val_IPC_collisions(energy_x: wp.array(dtype=wp.float64), c_lambda: wp.array(dtype=wp.float64), closest_points: wp.array(dtype=wp.vec2d), normal: wp.array(dtype=wp.vec3d), nodeI: wp.array(dtype=wp.int32), nodeJ: wp.array(dtype=wp.int32), bodyI: wp.array(dtype=wp.int32), bodyJ: wp.array(dtype=wp.int32), collision_type: wp.array(dtype=wp.int32), x: wp.array(dtype=wp.vec3d), surf_vi: wp.array(dtype=wp.int32), hat_x: wp.array(dtype=wp.vec3d), X: wp.array(dtype=wp.vec3d), mu_body: wp.array(dtype=wp.float64), node_xi: wp.array(dtype=wp.float64), edge_xi: wp.array(dtype=wp.float64), face_xi: wp.array(dtype=wp.float64), node_area: wp.array(dtype=wp.float64), edge_area: wp.array(dtype=wp.float64), edge: wp.array(dtype=wp.vec2i), face: wp.array(dtype=wp.vec3i), dhat: wp.float64, hat_h: wp.float64, kappa: wp.float64, int_w_PTEE: wp.float64, scale: wp.float64, epsv: wp.float64, E: wp.int32):
-    pass
+    print('[ERROR] Unexpected Recompilation: val_IPC_collisions')
 
 def val_IPC(E, sim: 'ASRModel', x: wp.array, cdw: collision_detection.CollisionData, hat_h: float, scale: float, energy_x: wp.array):
     num_connectivity = int(cdw.num_collisions.numpy()[0])
@@ -84,11 +81,11 @@ def grad_IPC_adjoint(E: wp.array, sim: 'ASRModel', x: wp.array, cdw: collision_d
 
 @wp.kernel
 def add_projected_x_to_y(projected_x: wp.array(dtype=vec12d), x: wp.array(dtype=wp.vec3d), node2body: wp.array(dtype=wp.int32), X: wp.array(dtype=wp.vec3d)):
-    pass
+    print('[ERROR] Unexpected Recompilation: add_projected_x_to_y')
 
 @wp.kernel
 def add_x_to_soft_x(x: wp.array(dtype=wp.vec3d), soft_x: wp.array(dtype=wp.vec3d), affine_verts_num: wp.int32):
-    pass
+    print('[ERROR] Unexpected Recompilation: add_x_to_soft_x')
 
 def grad(E, sim: 'ASRModel', x: wp.array, cdw: collision_detection.CollisionData, hat_h: float, scale: float, gradient_x: wp.array, gradient_y: wp.array, soft_gradient_x: wp.array):
     gradient_x.zero_()
@@ -103,15 +100,15 @@ def grad_adjoint(E, sim: 'ASRModel', x: wp.array, cdw: collision_detection.Colli
 
 @wp.func
 def add_hess12_by_mat3(hess_barrier: COOMatrix3x3, index: wp.int32, mat12: wp.mat(shape=(12, 12), dtype=wp.float64), bodyI: wp.int32, bodyJ: wp.int32):
-    pass
+    print('[ERROR] Unexpected Recompilation: add_hess12_by_mat3')
 
 @wp.func
 def add_diag_hess12_by_mat3(hess_affine_diag: COOMatrix3x3, index: wp.int32, mat12: wp.mat(shape=(12, 12), dtype=wp.float64)):
-    pass
+    print('[ERROR] Unexpected Recompilation: add_diag_hess12_by_mat3')
 
 @wp.kernel
 def assemble_matrix(hess_affine_diag: COOMatrix3x3, hess_barrier: COOMatrix3x3, bodyI: wp.array(dtype=wp.int32), bodyJ: wp.array(dtype=wp.int32), all_hess_b_y: wp.array(dtype=wp.mat(shape=(24, 24), dtype=wp.float64)), affine_body_num: wp.int32, num_connectivity: wp.int32):
-    pass
+    print('[ERROR] Unexpected Recompilation: assemble_matrix')
 
 def hess(E, hess_barrier_coo: COOMatrix3x3, sim: 'ASRModel', x: wp.array, cdw, hat_h, scale, project_pd: bool=True, sm: wps.BsrMatrix | None=None):
     num_connectivity = int(cdw.num_collisions.numpy()[0])

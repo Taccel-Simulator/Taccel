@@ -4,7 +4,7 @@ import pyvista as pv
 import trimesh as tm
 from scipy.spatial.transform import Rotation as R, Slerp
 
-from examples.example_utils import init_robot_demo
+from taccel.utils.example_utils import init_robot_demo
 from warp_ipc.ipc_integrator import IPCIntegrator
 from warp_ipc.sim_model import ASRModel
 from warp_ipc.utils import log

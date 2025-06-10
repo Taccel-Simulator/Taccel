@@ -1,7 +1,6 @@
 from typing import TYPE_CHECKING
 import torch
 import warp as wp
-from icecream import ic
 import warp_ipc.collision_detection as collision_detection
 from warp_ipc.contact.edge_edge_distance import edge_edge_distance
 from warp_ipc.contact.point_triangle_distance import point_triangle_distance
@@ -13,11 +12,11 @@ if TYPE_CHECKING:
 
 @wp.kernel
 def dist_IPC_hs(energy_x: wp.array(dtype=wp.float64), hs_node: wp.array(dtype=wp.int32), hs_ground: wp.array(dtype=wp.int32), x: wp.array(dtype=wp.vec3d), surf_vi: wp.array(dtype=wp.int32), node_xi: wp.array(dtype=wp.float64), half_space_n: wp.array(dtype=wp.vec3d), half_space_o: wp.array(dtype=wp.vec3d)):
-    pass
+    print('[ERROR] Unexpected Recompilation: dist_IPC_hs')
 
 @wp.kernel
 def dist_IPC_collisions(energy_x: wp.array(dtype=wp.float64), nodeI: wp.array(dtype=wp.int32), nodeJ: wp.array(dtype=wp.int32), collision_type: wp.array(dtype=wp.int32), x: wp.array(dtype=wp.vec3d), surf_vi: wp.array(dtype=wp.int32), node_xi: wp.array(dtype=wp.float64), edge_xi: wp.array(dtype=wp.float64), face_xi: wp.array(dtype=wp.float64), edge: wp.array(dtype=wp.vec2i), face: wp.array(dtype=wp.vec3i)):
-    pass
+    print('[ERROR] Unexpected Recompilation: dist_IPC_collisions')
 
 def min_dist(sim: 'ASRModel', cdw: collision_detection.CollisionData, x: wp.array):
     num_connectivity = int(cdw.num_collisions.numpy()[0])

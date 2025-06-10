@@ -17,111 +17,111 @@ class Complex64:
 
 @wp.func
 def add(self: Complex64, other: Complex64) -> Complex64:
-    pass
+    print('[ERROR] Unexpected Recompilation: add')
 
 @wp.func
 def sub(self: Complex64, other: Complex64) -> Complex64:
-    pass
+    print('[ERROR] Unexpected Recompilation: sub')
 
 @wp.func
 def mul(self: Complex64, other: Complex64) -> Complex64:
-    pass
+    print('[ERROR] Unexpected Recompilation: mul')
 
 @wp.func
 def truediv(self: Complex64, other: Complex64) -> Complex64:
-    pass
+    print('[ERROR] Unexpected Recompilation: truediv')
 
 @wp.func
 def magnitude(self: Complex64) -> wp.float64:
-    pass
+    print('[ERROR] Unexpected Recompilation: magnitude')
 
 @wp.func
 def phase(self: Complex64) -> wp.float64:
-    pass
+    print('[ERROR] Unexpected Recompilation: phase')
 
 @wp.func
 def conjugate(self: Complex64) -> Complex64:
-    pass
+    print('[ERROR] Unexpected Recompilation: conjugate')
 
 @wp.func
 def pow_c(self: Complex64, exponent: wp.float64) -> Complex64:
-    pass
+    print('[ERROR] Unexpected Recompilation: pow_c')
 
 @wp.func
 def sqrt_c(self: wp.float64) -> Complex64:
-    pass
+    print('[ERROR] Unexpected Recompilation: sqrt_c')
 
 @wp.func
 def inverse_c(self: Complex64) -> Complex64:
-    pass
+    print('[ERROR] Unexpected Recompilation: inverse_c')
 
 @wp.func
 def cat_3_vec3d(a: wp.vec3d, b: wp.vec3d, c: wp.vec3d):
-    pass
+    print('[ERROR] Unexpected Recompilation: cat_3_vec3d')
 
 @wp.func
 def cat_4_vec3d(a: wp.vec3d, b: wp.vec3d, c: wp.vec3d, d: wp.vec3d):
-    pass
+    print('[ERROR] Unexpected Recompilation: cat_4_vec3d')
 
 @wp.func
 def extract_column_mat33d(mat: wp.mat33d, column: wp.int32):
-    pass
+    print('[ERROR] Unexpected Recompilation: extract_column_mat33d')
 
 @wp.func
 def is_nan(x: wp.float64) -> wp.bool:
-    pass
+    print('[ERROR] Unexpected Recompilation: is_nan')
 
 @wp.func
 def is_pos_inf(x: wp.float64) -> wp.bool:
-    pass
+    print('[ERROR] Unexpected Recompilation: is_pos_inf')
 
 @wp.func
 def is_neg_inf(x: wp.float64) -> wp.bool:
-    pass
+    print('[ERROR] Unexpected Recompilation: is_neg_inf')
 
 @wp.func
 def is_inf(x: wp.float64) -> wp.bool:
-    pass
+    print('[ERROR] Unexpected Recompilation: is_inf')
 
 @wp.func
 def mat_l2_norm_sqr(mat: wp.mat33d):
-    pass
+    print('[ERROR] Unexpected Recompilation: mat_l2_norm_sqr')
 
 @wp.func
 def mat_l2_norm_sqr_3x2(mat: mat32d):
-    pass
+    print('[ERROR] Unexpected Recompilation: mat_l2_norm_sqr_3x2')
 
 @wp.func
 def sqr(x: wp.float64):
-    pass
+    print('[ERROR] Unexpected Recompilation: sqr')
 
 @wp.func
 def safe_divide(num: wp.float64, denom: wp.float64):
-    pass
+    print('[ERROR] Unexpected Recompilation: safe_divide')
 
 @wp.func
 def get_combined_coulomb_friction(mu1: wp.float64, mu2: wp.float64):
-    pass
+    print('[ERROR] Unexpected Recompilation: get_combined_coulomb_friction')
 
 @wp.func
 def kronecker_3x3_3x3(A: mat33d, B: mat33d) -> mat99d:
-    pass
+    print('[ERROR] Unexpected Recompilation: kronecker_3x3_3x3')
 
 @wp.func
 def col_stack2(vec0: wp.vec3d, vec1: wp.vec3d):
-    pass
+    print('[ERROR] Unexpected Recompilation: col_stack2')
 
 @wp.func
 def col_stack3(vec0: wp.vec3d, vec1: wp.vec3d, vec2: wp.vec3d):
-    pass
+    print('[ERROR] Unexpected Recompilation: col_stack3')
 
 @wp.func
 def col_stack3(vec0: wp.vec3d, vec1: wp.vec3d, vec2: wp.vec3d):
-    pass
+    print('[ERROR] Unexpected Recompilation: col_stack3')
 
 @wp.kernel
 def dot_vec3d_arr_kernel(a: wp.array(dtype=wp.vec3d), b: wp.array(dtype=wp.vec3d), products: wp.array(dtype=wp.float64)):
-    pass
+    print('[ERROR] Unexpected Recompilation: dot_vec3d_arr_kernel')
 
 def dot_vec3d_arr(a: wp.array, b: wp.array):
     assert len(a) == len(b)
@@ -131,27 +131,27 @@ def dot_vec3d_arr(a: wp.array, b: wp.array):
 
 @wp.func
 def det_derivative_3x3(mat: wp.mat33d):
-    pass
+    print('[ERROR] Unexpected Recompilation: det_derivative_3x3')
 
 @wp.func
 def column_flatten_3x3(mat: wp.mat33d):
-    pass
+    print('[ERROR] Unexpected Recompilation: column_flatten_3x3')
 
 @wp.func
 def det_3x3(mat: wp.mat33d):
-    pass
+    print('[ERROR] Unexpected Recompilation: det_3x3')
 
 @wp.func
 def from_y_to_x(y: vec12d, w: wp.vec3d):
-    pass
+    print('[ERROR] Unexpected Recompilation: from_y_to_x')
 
 @wp.func
 def get_smallest_positive_real_quad_root(a: wp.float64, b: wp.float64, c: wp.float64, tol: wp.float64):
-    pass
+    print('[ERROR] Unexpected Recompilation: get_smallest_positive_real_quad_root')
 
 @wp.func
 def get_smallest_positive_real_cubic_root(a: wp.float64, b: wp.float64, c: wp.float64, d: wp.float64, img_tol: wp.float64, cubic_coef_tol: wp.float64):
-    pass
+    print('[ERROR] Unexpected Recompilation: get_smallest_positive_real_cubic_root')
 
 def scipy_bsr_to_triplets(bsr: bsr_matrix):
     data = bsr.data

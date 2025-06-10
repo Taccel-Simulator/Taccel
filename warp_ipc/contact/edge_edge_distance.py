@@ -6,12 +6,12 @@ from warp_ipc.contact.point_point_distance import *
 
 @wp.func
 def edge_edge_distance(ea0: wp.vec3d, ea1: wp.vec3d, eb0: wp.vec3d, eb1: wp.vec3d):
-    pass
+    print('[ERROR] Unexpected Recompilation: edge_edge_distance')
 
 @wp.func
 def edge_edge_distance_gradient(ea0: wp.vec3d, ea1: wp.vec3d, eb0: wp.vec3d, eb1: wp.vec3d):
-    pass
+    print('[ERROR] Unexpected Recompilation: edge_edge_distance_gradient')
 
 @wp.func
 def edge_edge_distance_hessian(ea0: wp.vec3d, ea1: wp.vec3d, eb0: wp.vec3d, eb1: wp.vec3d):
-    pass
+    print('[ERROR] Unexpected Recompilation: edge_edge_distance_hessian')

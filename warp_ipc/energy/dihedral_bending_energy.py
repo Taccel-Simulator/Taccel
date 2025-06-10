@@ -9,31 +9,31 @@ from warp_ipc.utils.wp_types import mat12x12d
 
 @wp.func
 def dihedral_angle(v0: wp.vec3d, v1: wp.vec3d, v2: wp.vec3d, v3: wp.vec3d):
-    pass
+    print('[ERROR] Unexpected Recompilation: dihedral_angle')
 
 @wp.func
 def dihedral_angle_gradient(v2: wp.vec3d, v0: wp.vec3d, v1: wp.vec3d, v3: wp.vec3d):
-    pass
+    print('[ERROR] Unexpected Recompilation: dihedral_angle_gradient')
 
 @wp.func
 def compute_mHat(xp: wp.vec3d, xe0: wp.vec3d, xe1: wp.vec3d):
-    pass
+    print('[ERROR] Unexpected Recompilation: compute_mHat')
 
 @wp.func
 def dihedral_angle_hessian(v2: wp.vec3d, v0: wp.vec3d, v1: wp.vec3d, v3: wp.vec3d):
-    pass
+    print('[ERROR] Unexpected Recompilation: dihedral_angle_hessian')
 
 @wp.kernel
 def dihedral_bending_energy_kernel(energy_buffer: wp.array(dtype=wp.float64), x: wp.array(dtype=wp.vec3d), bendings: wp.array(dtype=wp.vec4i), bending_rest_angle: wp.array(dtype=wp.float64), bending_e: wp.array(dtype=wp.float64), bending_h: wp.array(dtype=wp.float64), bending_stiff: wp.array(dtype=wp.float64), scale: wp.float64):
-    pass
+    print('[ERROR] Unexpected Recompilation: dihedral_bending_energy_kernel')
 
 @wp.kernel
 def dihedral_bending_gradient_kernel(soft_gradient_x: wp.array(dtype=wp.vec3d), x: wp.array(dtype=wp.vec3d), bendings: wp.array(dtype=wp.vec4i), bending_rest_angle: wp.array(dtype=wp.float64), bending_e: wp.array(dtype=wp.float64), bending_h: wp.array(dtype=wp.float64), bending_stiff: wp.array(dtype=wp.float64), scale: wp.float64, affine_verts_num: wp.int32):
-    pass
+    print('[ERROR] Unexpected Recompilation: dihedral_bending_gradient_kernel')
 
 @wp.kernel
 def dihedral_bending_hessian_kernel(hess_soft_diag: COOMatrix3x3, hess_soft_bending: COOMatrix3x3, x: wp.array(dtype=wp.vec3d), bendings: wp.array(dtype=wp.vec4i), bending_rest_angle: wp.array(dtype=wp.float64), bending_e: wp.array(dtype=wp.float64), bending_h: wp.array(dtype=wp.float64), bending_stiff: wp.array(dtype=wp.float64), scale: wp.float64, project_pd: wp.bool, affine_verts_num: wp.int32, affine_dofs: wp.int32):
-    pass
+    print('[ERROR] Unexpected Recompilation: dihedral_bending_hessian_kernel')
 
 def val(x: wp.array, sim: 'ASRModel', scale: float) -> float:
     energy = wp.zeros((sim.bending.shape[0],), dtype=wp.float64, device=sim.device)

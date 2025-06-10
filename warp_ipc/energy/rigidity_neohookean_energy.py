@@ -1,19 +1,19 @@
 from typing import TYPE_CHECKING
 import warp as wp
 import warp_ipc.utils.matrix as matrix
-from warp_ipc.utils.constants import ENV_STATE_INVALID, ENV_STATE_NEWTON_SOLVED, ENV_STATE_VALID, _0, _1, _2
+from warp_ipc.utils.constants import ENV_STATE_INVALID, ENV_STATE_NEWTON_SOLVED, _0, _1, _2
 from warp_ipc.utils.env_ops import reduce_env_energy_affine_body
-from warp_ipc.utils.make_pd import make_pd_9x9, make_pd_12x12
+from warp_ipc.utils.make_pd import make_pd_12x12
 from warp_ipc.utils.matrix import COOMatrix3x3
 from warp_ipc.utils.wp_math import column_flatten_3x3, det_3x3, det_derivative_3x3
-from warp_ipc.utils.wp_types import mat12x9d, mat99d
+from warp_ipc.utils.wp_types import mat99d
 from ..utils.wp_types import vec12d
 if TYPE_CHECKING:
     from warp_ipc.sim_model import ASRModel
 
 @wp.kernel
 def compute_rigidity_neohookean_energy_val(energy: wp.array(dtype=wp.float64), y: wp.array(dtype=wp.vec(length=12, dtype=wp.float64)), vol_body: wp.array(dtype=wp.float64), E_body: wp.array(dtype=wp.float64), nu_body: wp.array(dtype=wp.float64), scale: wp.float64, affine_has_constraint: wp.array(dtype=wp.bool)):
-    pass
+    print('[ERROR] Unexpected Recompilation: compute_rigidity_neohookean_energy_val')
 
 def val(y, sim: 'ASRModel', scale: float, reduce_each: bool):
     helper = sim.kinematic_helper
@@ -29,7 +29,7 @@ def val(y, sim: 'ASRModel', scale: float, reduce_each: bool):
 
 @wp.kernel
 def compute_rigidity_neohookean_energy_grad(gradient: wp.array(dtype=wp.vec(length=12, dtype=wp.float64)), y: wp.array(dtype=wp.vec(length=12, dtype=wp.float64)), vol_body: wp.array(dtype=wp.float64), E_body: wp.array(dtype=wp.float64), nu_body: wp.array(dtype=wp.float64), scale: wp.float64, affine_has_constraint: wp.array(dtype=wp.bool), body_env_id: wp.array(dtype=wp.int32), env_states: wp.array(dtype=wp.int32)):
-    pass
+    print('[ERROR] Unexpected Recompilation: compute_rigidity_neohookean_energy_grad')
 
 def grad(y, sim: 'ASRModel', scale, gradient):
     helper = sim.kinematic_helper
@@ -37,7 +37,7 @@ def grad(y, sim: 'ASRModel', scale, gradient):
 
 @wp.kernel
 def compute_rigidity_neohookean_energy_hess(hess_affine_diag: COOMatrix3x3, y: wp.array(dtype=wp.vec(length=12, dtype=wp.float64)), vol_body: wp.array(dtype=wp.float64), E_body: wp.array(dtype=wp.float64), nu_body: wp.array(dtype=wp.float64), scale: wp.float64, project_pd: wp.bool, affine_has_constraint: wp.array(dtype=wp.bool), body_env_id: wp.array(dtype=wp.int32), env_states: wp.array(dtype=wp.int32)):
-    pass
+    print('[ERROR] Unexpected Recompilation: compute_rigidity_neohookean_energy_hess')
 
 def hess(y, sim: 'ASRModel', scale, project_pd):
     helper = sim.kinematic_helper

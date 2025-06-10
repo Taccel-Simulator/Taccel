@@ -1,15 +1,14 @@
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from functools import cached_property
-from typing import List
-import os
+
 import numpy as np
 import pyvista as pv
 import torch
+import torch.nn as nn
 import trimesh as tm
 import warp as wp
 from scipy.spatial.transform import Rotation as R
-import torch.nn as nn
 
 from warp_ipc.body_handle import TetMeshBodyHandle, TriMeshBodyHandle
 
@@ -69,7 +68,7 @@ class VBTSConfig:
 
     sensor_name: str = "sensor"
     link_name: str = "link"
-    attch_rel_pose: np.ndarray = np.array([0, 0, 0, 0, 0, 0])
+    attch_rel_pose: np.ndarray = field(default_factory=lambda: np.array([0, 0, 0, 0, 0, 0]))
 
     # Gel
     gel_mesh_path: str = ""
@@ -84,10 +83,10 @@ class VBTSConfig:
     cam_fov: float = 60
     cam_pixel_size: float = 0.079375
     cam_intrinsics: np.ndarray = None
-    cam_rel_pose: np.ndarray = np.array([0, 0, 0, 0, 0, 0])
+    cam_rel_pose: np.ndarray = field(default_factory=lambda: np.array([0, 0, 0, 0, 0, 0]))
     ref_img_path: str = "taccel/data/6k_ref.png"
     mlp_ckpt_path: str = "taccel/data/n2rgb.pth"
-    cam_fwd_dir: np.ndarray = np.array([0, 0, -1])  # tmp
+    cam_fwd_dir: np.ndarray = field(default_factory=lambda: np.array([0, 0, -1]))  # tmp
     ray_axis: str = "z"
     ray_start_level: float = 0.01
     ray_rest_level: float = 0.0
@@ -116,7 +115,7 @@ class VBTSConfig:
     collide_with_robot: bool = False
     shell_body_handle: TriMeshBodyHandle = None
     gel_body_handle: TetMeshBodyHandle = None
-    coll_layer: int = -1
+    coll_layer: int | None = None
     self_coll: bool = False
 
     @cached_property

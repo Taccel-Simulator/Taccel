@@ -1,6 +1,3 @@
-import torch
-import warp as wp
-import numpy as np
 from collections import defaultdict
 
 def collect_edge_and_point(boundary_faces):

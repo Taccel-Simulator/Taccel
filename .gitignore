@@ -159,9 +159,6 @@ cython_debug/
 #.idea/
 *.ply
 
-# VSCode
-.vscode/
-
 # Manipulation policy checkpoints
 robot/ckpt
 *.blend1
@@ -194,5 +191,14 @@ ptx/wp_taccel*
 *.DS_Store
 .ruff_cache/
 
+# docs/build/ # We will compile docs offline.
+
+# UR
+*.convex
+
 docs/build/
-!taccel/data
+docs_turbo/build/
+ptx/
+
+*.egg-info
+scripts/

@@ -4,23 +4,22 @@ import warp_ipc.utils.matrix as matrix
 from warp_ipc.utils.matrix import COOMatrix3x3
 if TYPE_CHECKING:
     from warp_ipc.sim_model import ASRModel
-from warp_ipc.utils.wp_types import mat66d
 
 @wp.kernel
 def construct_stitch_map(stitch_pair: wp.array(dtype=wp.vec2i), stitch_map: wp.array2d(dtype=wp.int32), num_stitch_per_x: wp.array(dtype=wp.int32)):
-    pass
+    print('[ERROR] Unexpected Recompilation: construct_stitch_map')
 
 @wp.kernel
 def stitch_energy_kernel(energy_buffer: wp.array(dtype=wp.float64), x: wp.array(dtype=wp.vec3d), xhat: wp.array(dtype=wp.vec3d), node_area: wp.array(dtype=wp.float64), stitches: wp.array(dtype=wp.vec2i), stitch_stiffness: wp.float64, stitch_damping: wp.float64, dt: wp.float64, scale: wp.float64):
-    pass
+    print('[ERROR] Unexpected Recompilation: stitch_energy_kernel')
 
 @wp.kernel
 def stitch_gradient_kernel(soft_gradient_x: wp.array(dtype=wp.vec3d), x: wp.array(dtype=wp.vec3d), xhat: wp.array(dtype=wp.vec3d), node_area: wp.array(dtype=wp.float64), stitches: wp.array(dtype=wp.vec2i), stitch_stiffness: wp.float64, stitch_damping: wp.float64, dt: wp.float64, scale: wp.float64, affine_verts_num: wp.int32):
-    pass
+    print('[ERROR] Unexpected Recompilation: stitch_gradient_kernel')
 
 @wp.kernel
 def stitch_hessian_kernel(hess_soft_diag: COOMatrix3x3, hess_soft_stitch: COOMatrix3x3, node_area: wp.array(dtype=wp.float64), stitches: wp.array(dtype=wp.vec2i), stitch_stiffness: wp.float64, stitch_damping: wp.float64, scale: wp.float64, affine_verts_num: wp.int32, affine_dofs: wp.int32):
-    pass
+    print('[ERROR] Unexpected Recompilation: stitch_hessian_kernel')
 
 def val(x: wp.array, sim: 'ASRModel', scale: float, dt: float) -> float:
     energy = wp.zeros((sim.stitch.shape[0],), dtype=wp.float64, device=sim.device)

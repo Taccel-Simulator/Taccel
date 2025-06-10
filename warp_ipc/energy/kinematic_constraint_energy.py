@@ -1,9 +1,8 @@
 from typing import TYPE_CHECKING
 import warp as wp
 import warp_ipc.utils.matrix as matrix
-from warp_ipc.utils.constants import ENV_STATE_INVALID, ENV_STATE_NEWTON_SOLVED, ENV_STATE_VALID
+from warp_ipc.utils.constants import ENV_STATE_INVALID, ENV_STATE_NEWTON_SOLVED
 from warp_ipc.utils.env_ops import reduce_env_energy_affine_body, reduce_env_energy_soft_vert
-from warp_ipc.utils.wp_debug import print_vec_val
 from warp_ipc.utils.wp_math import sqr
 from warp_ipc.utils.wp_types import vec12d
 if TYPE_CHECKING:
@@ -11,7 +10,7 @@ if TYPE_CHECKING:
 
 @wp.kernel
 def init_affine_kinematic_target_kernel(affine_has_constraint: wp.array(dtype=wp.bool), affine_kinematic_target_pose: wp.array(dtype=vec12d), affine_target_dof: wp.array(dtype=vec12d), virtual_object_centers: wp.array(dtype=wp.vec3d), ABD_centers: wp.array(dtype=wp.vec3d)):
-    pass
+    print('[ERROR] Unexpected Recompilation: init_affine_kinematic_target_kernel')
 
 def init(sim: 'ASRModel'):
     helper = sim.kinematic_helper
@@ -19,11 +18,11 @@ def init(sim: 'ASRModel'):
 
 @wp.kernel
 def compute_affine_kinematic_energy(y: wp.array(dtype=vec12d), affine_has_constraint: wp.array(dtype=wp.bool), affine_target_dof: wp.array(dtype=vec12d), weight: wp.float64, affine_energy: wp.array(dtype=wp.float64), mass_body: wp.array(dtype=wp.float64)):
-    pass
+    print('[ERROR] Unexpected Recompilation: compute_affine_kinematic_energy')
 
 @wp.kernel
 def compute_soft_kinematic_energy(x: wp.array(dtype=wp.vec3d), soft_has_constraint: wp.array(dtype=wp.bool), soft_target_dof: wp.array(dtype=wp.vec3d), weight: wp.float64, soft_energy: wp.array(dtype=wp.float64), affine_verts_num: wp.int32, soft_verts_mass: wp.array(dtype=wp.float64)):
-    pass
+    print('[ERROR] Unexpected Recompilation: compute_soft_kinematic_energy')
 
 def val(x: wp.array, y: wp.array, sim: 'ASRModel', reduce_each: bool):
     if reduce_each:
@@ -42,11 +41,11 @@ def val(x: wp.array, y: wp.array, sim: 'ASRModel', reduce_each: bool):
 
 @wp.kernel
 def compute_affine_kinematic_grad(y: wp.array(dtype=vec12d), affine_has_constraint: wp.array(dtype=wp.bool), affine_target_dof: wp.array(dtype=vec12d), weight: wp.float64, affine_grad: wp.array(dtype=vec12d), mass_body: wp.array(dtype=wp.float64), body_env_id: wp.array(dtype=wp.int32), env_states: wp.array(dtype=wp.int32)):
-    pass
+    print('[ERROR] Unexpected Recompilation: compute_affine_kinematic_grad')
 
 @wp.kernel
 def compute_soft_kinematic_grad(x: wp.array(dtype=wp.vec3d), soft_has_constraint: wp.array(dtype=wp.bool), soft_target_dof: wp.array(dtype=wp.vec3d), weight: wp.float64, soft_grad: wp.array(dtype=wp.vec3d), affine_verts_num: wp.int32, soft_verts_mass: wp.array(dtype=wp.float64), node2env: wp.array(dtype=wp.int32), env_states: wp.array(dtype=wp.int32)):
-    pass
+    print('[ERROR] Unexpected Recompilation: compute_soft_kinematic_grad')
 
 def grad(x, y, sim: 'ASRModel', soft_gradient_x: wp.array, affine_gradient_y: wp.array):
     helper = sim.kinematic_helper
@@ -60,11 +59,11 @@ def grad_adjoint(x, y, sim: 'ASRModel', soft_gradient_x: wp.array, affine_gradie
 
 @wp.kernel
 def compute_affine_kinematic_hess(affine_has_constraint: wp.array(dtype=wp.bool), weight: wp.float64, hess_affine_diag: matrix.COOMatrix3x3, mass_body: wp.array(dtype=wp.float64), body_env_id: wp.array(dtype=wp.int32), env_states: wp.array(dtype=wp.int32)):
-    pass
+    print('[ERROR] Unexpected Recompilation: compute_affine_kinematic_hess')
 
 @wp.kernel
 def compute_soft_kinematic_hess(soft_has_constraint: wp.array(dtype=wp.bool), weight: wp.float64, hess_soft_diag: matrix.COOMatrix3x3, affine_verts_num: wp.int32, soft_verts_mass: wp.array(dtype=wp.float64), node2env: wp.array(dtype=wp.int32), env_states: wp.array(dtype=wp.int32)):
-    pass
+    print('[ERROR] Unexpected Recompilation: compute_soft_kinematic_hess')
 
 def hess(sim: 'ASRModel'):
     helper = sim.kinematic_helper

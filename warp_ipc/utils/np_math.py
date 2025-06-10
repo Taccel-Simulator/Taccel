@@ -1,7 +1,7 @@
 import numpy as np
-from numpy.typing import NDArray
 from icecream import ic
-from scipy.sparse import csc_matrix, coo_matrix, vstack
+from numpy.typing import NDArray
+from scipy.sparse import coo_matrix, csc_matrix, vstack
 from scipy.sparse.linalg import inv as sparse_inv
 ZERO_THRESH = 1e-12
 

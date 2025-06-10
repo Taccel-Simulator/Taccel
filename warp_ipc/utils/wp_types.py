@@ -1,5 +1,4 @@
 import warp as wp
-from .matrix import COOMatrix3x3
 vec12d = wp.vec(12, dtype=wp.float64)
 vec12i = wp.vec(12, dtype=wp.int32)
 mat32d = wp.mat((3, 2), dtype=wp.float64)
@@ -16,4 +15,4 @@ vec8i = wp.vec(8, dtype=wp.int32)
 
 @wp.kernel
 def vec3d_to_vec3(vec_in: wp.array(dtype=wp.vec3), vec_out: wp.array(dtype=wp.vec3)):
-    pass
+    print('[ERROR] Unexpected Recompilation: vec3d_to_vec3')

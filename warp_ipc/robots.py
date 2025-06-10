@@ -1,12 +1,10 @@
 import os.path as osp
-import sys
 from functools import cached_property
 from typing import Dict, List
 import numpy as np
+import torch
 import trimesh
 import yourdfpy
-from scipy.spatial.transform import Rotation as R
-sys.path.append('.')
 from warp_ipc.body_handle import BodyHandle
 
 def geom2mesh(geometry: yourdfpy.Geometry, urdf_dir: str):
@@ -35,7 +33,7 @@ class Link:
         self.robot = robot
         self.urdf_link = urdf_link
         self.rest_mesh = self._compute_rest_mesh(link_meshes_dir)
-        self.collision_layer = 0
+        self.collision_layer = None
 
     def _compute_rest_mesh(self, link_meshes_dir) -> trimesh.Trimesh:
         reset_meshes = []
@@ -132,6 +130,22 @@ class Kinematic:
     def q_upper(self):
         return [j.limit.upper for j in self._urdf.actuated_joints]
 
+    @cached_property
+    def joint_stiffness(self) -> list[float]:
+        return [1.0] * len(self._urdf.actuated_joints)
+
+    @cached_property
+    def joint_damping(self) -> list[float]:
+        return [float(joint.dynamics.damping) for joint in self._urdf.actuated_joints]
+
+    @cached_property
+    def joint_max_vel(self) -> list[float]:
+        return [joint.limit.velocity for joint in self._urdf.actuated_joints]
+
+    @cached_property
+    def joint_max_force(self) -> list[float]:
+        return [joint.limit.effort for joint in self._urdf.actuated_joints]
+
     @property
     def triangular_meshes(self) -> list[trimesh.Trimesh] | trimesh.Trimesh:
         meshes = []
@@ -181,20 +195,17 @@ class Robot(Kinematic):
             urdf_filepath = 'assets/robots/f_tac_hand_description/urdf/f_tac_hand_rigid.urdf'
             tac_fabr_filepath = f'assets/robots/f_tac_hand_description/tac_fab_{tac_reso}.json'
         elif model_name == 'tactile-shadowhand':
+            tac_reso = tac_reso or 1e-05
             urdf_filepath = 'assets/robots/deft_shadow_hand_description/shadowhand_tactile_ipc.urdf'
-            tac_fabr_filepath = 'assets/robots/deft_shadow_hand_description/tac_fab_default.json'
+            tac_fabr_filepath = f'assets/robots/deft_shadow_hand_description/tac_fab_{tac_reso}.json'
         elif model_name == 'tactile-allegro':
-            tac_reso = tac_reso or 1e-10
+            tac_reso = tac_reso or 1e-07
             urdf_filepath = 'assets/robots/allegro_hand_description/allegro_hand_description_right.urdf'
             tac_fabr_filepath = f'assets/robots/allegro_hand_description/tac_fabr_{tac_reso}.json'
         elif model_name == 'allegro-digit360':
             tac_reso = tac_reso or 1e-07
             urdf_filepath = 'assets/robots/allegro_digit360/digit360_allegro_right.urdf'
             tac_fabr_filepath = f'assets/robots/allegro_digit360/tac_fabr_{tac_reso}.json'
-        elif model_name == 'deft-shadow':
-            tac_reso = tac_reso or 5e-08
-            urdf_filepath = 'assets/robots/deft_description/deft_ur10e_rigid.urdf'
-            tac_fabr_filepath = f'assets/robots/deft_description/tac_fab_{tac_reso}.json'
         mesh_filepath = osp.dirname(urdf_filepath)
         return (urdf_filepath, mesh_filepath, tac_fabr_filepath)
 
@@ -205,3 +216,76 @@ class Robot(Kinematic):
     @property
     def fingertip_links(self) -> List[Link]:
         return self._fingertip_links
+
+    @cached_property
+    def link_coll_layers(self) -> List[int]:
+        return [link.collision_layer for link in self._links if link.collision_layer is not None]
+
+class JointController:
+    default_stiffness: float = 1.0
+    default_damping: float = 0.1
+    default_max_effort: float = 1.0
+    default_max_velocity: float = 1.57
+
+    def __init__(self, example_robot: Robot, num_envs: int, device: torch.device=torch.device('cuda:0')):
+        self._num_envs = num_envs
+        self._example_robot = example_robot
+        self.all_joint_names = self._example_robot.actuated_joint_names
+        self.lower = torch.tensor(self._example_robot.q_lower, dtype=torch.float32, device=device).unsqueeze(0).tile([num_envs, 1])
+        self.upper = torch.tensor(self._example_robot.q_upper, dtype=torch.float32, device=device).unsqueeze(0).tile([num_envs, 1])
+        self.q = torch.zeros([self.num_envs, self.num_dof], dtype=torch.float32, device=device)
+        stiffness = [k or self.default_stiffness for k in self._example_robot.joint_stiffness]
+        damping = [k or self.default_damping for k in self._example_robot.joint_damping]
+        max_dq = [dq or self.default_max_velocity for dq in self._example_robot.joint_max_vel]
+        max_effort = [tau or self.default_max_effort for tau in self._example_robot.joint_max_force]
+        self.stiffness = torch.tensor(stiffness, dtype=torch.float32, device=device).unsqueeze(0).tile([num_envs, 1])
+        self.damping = torch.tensor(damping, dtype=torch.float32, device=device).unsqueeze(0).tile([num_envs, 1])
+        self.max_dq = torch.tensor(max_dq, dtype=torch.float32, device=device).unsqueeze(0).tile([num_envs, 1])
+        self.max_effort = torch.tensor(max_effort, dtype=torch.float32, device=device).unsqueeze(0).tile([num_envs, 1])
+        self.arange = list(range(self.num_envs))
+        self._device = device
+
+    @property
+    def num_dof(self):
+        return self._example_robot.num_actuated_joints
+
+    @property
+    def num_envs(self):
+        return self._num_envs
+
+    def set_state(self, q: torch.Tensor, dq: torch.Tensor=None, ddq: torch.Tensor=None, i_envs: List[int]=None):
+        i_envs = self.arange if i_envs is None else i_envs
+        q = torch.clamp(q, self.lower[i_envs], self.upper[i_envs])
+        self.q[i_envs] = q
+
+    def compute_target(self, q_d: torch.Tensor, i_envs: List[int]=None) -> torch.Tensor:
+        i_envs = self.arange if i_envs is None else i_envs
+        q_d = torch.clamp(q_d, self.lower[i_envs], self.upper[i_envs])
+        self.q[i_envs] = q_d
+        return self.q[i_envs]
+
+class MimicTorqueController(JointController):
+
+    def __init__(self, example_robot: Robot, num_envs: int, dt: float=0.02, ttddq: float=10.0, device: torch.device=torch.device('cuda:0')):
+        super().__init__(example_robot, num_envs, device)
+        self.dq = torch.zeros([self.num_envs, self.num_dof], dtype=torch.float32, device=device)
+        self.ddq = torch.zeros([self.num_envs, self.num_dof], dtype=torch.float32, device=device)
+        self.dt = dt
+        self.tau_to_ddq = ttddq
+        self.arange = list(range(self.num_envs))
+        self._device = device
+
+    def set_state(self, q: torch.Tensor, dq: torch.Tensor=None, ddq: torch.Tensor=None, i_envs: List[int]=None):
+        i_envs = self.arange if i_envs is None else i_envs
+        q = torch.clamp(q, self.lower[i_envs], self.upper[i_envs])
+        self.q[i_envs] = q
+        self.dq[i_envs] = 0.0 if dq is None else dq
+        self.ddq[i_envs] = 0.0 if ddq is None else ddq
+
+    def compute_target(self, q_d: torch.Tensor, i_envs: List[int]=None) -> torch.Tensor:
+        i_envs = self.arange if i_envs is None else i_envs
+        q_d = torch.clamp(q_d, self.lower[i_envs], self.upper[i_envs])
+        self.ddq[i_envs] = self.tau_to_ddq * torch.clamp(self.stiffness[i_envs] * (q_d - self.q[i_envs]) - self.damping[i_envs] * self.dq[i_envs], -self.max_effort[i_envs], self.max_effort[i_envs])
+        self.dq[i_envs] = torch.clamp(self.dq[i_envs] + self.ddq[i_envs] * self.dt, -self.max_dq[i_envs], self.max_dq[i_envs])
+        self.q[i_envs] = torch.clamp(self.q[i_envs] + self.dq[i_envs] * self.dt, self.lower[i_envs], self.upper[i_envs])
+        return self.q[i_envs]

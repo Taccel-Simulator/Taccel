@@ -3,8 +3,8 @@ from warp_ipc.utils.wp_types import mat32d
 
 @wp.func
 def clamp_zero(x: wp.float64):
-    pass
+    print('[ERROR] Unexpected Recompilation: clamp_zero')
 
 @wp.func
 def svd3x2(A: mat32d):
-    pass
+    print('[ERROR] Unexpected Recompilation: svd3x2')

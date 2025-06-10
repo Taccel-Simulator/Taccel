@@ -1,5 +1,8 @@
+# multi-threading params
 import os
+import sys
 
+sys.path.append(".")
 import json
 import os.path as osp
 from argparse import ArgumentParser
@@ -11,10 +14,9 @@ from scipy.spatial.transform import Rotation as R
 from tqdm import tqdm
 from warp.sim.render import SimRendererOpenGL
 
-from taccel import TaccelModel, TactileRobot
-
 import warp_ipc.utils.profile as abd_profile
-from examples.example_utils import init_robot_demo
+
+from taccel.utils.example_utils import init_robot_demo
 from warp_ipc.ipc_integrator import IPCIntegrator
 from warp_ipc.utils.constants import VolMaterialType
 from warp_ipc.utils.log import LoggingLevel, set_logging_level
@@ -27,22 +29,31 @@ if __name__ == "__main__":
     abd_profile.WATCH_GPU_MEM_USAGE_ENABLED = True
 
     parser = ArgumentParser()
-    parser.add_argument("--num_envs", type=int, default=2)
+    parser.add_argument("--num_envs", type=int, default=4)
+    parser.add_argument("--tactile", action="store_true")
     parser.add_argument("--viz", action="store_true")
+    parser.add_argument("--mesh", type=str, default="teddy/teddy.vtk")
     args = parser.parse_args()
 
     _, OUT_DIR = init_robot_demo(args, "soft_teddy")
 
-    dt = 1 / 50
+    if args.tactile:
+        from taccel import TaccelModel as Model
+        from taccel import TactileRobot as Robot
+    else:
+        from warp_ipc.robots import Robot
+        from warp_ipc.sim_model import ASRModel as Model
 
-    model = TaccelModel(num_envs=args.num_envs, viz_envs=list(range(args.num_envs)) if args.viz else [])
-    model.dhat = 5e-3
+    dt = 0.02
+
+    model = Model(num_envs=args.num_envs, viz_envs=list(range(args.num_envs)) if args.viz else [])
+    model.dhat = 1e-3
     model.kappa = 3e6
     model.k_elasticity_damping = 0
 
-    stage_path = os.path.join(OUT_DIR, "teddy.usd")
+    stage_path = os.path.join(OUT_DIR, "parallel_test.usd")
 
-    urdf_path, _, tac_path = TactileRobot.get_fabr_path("tactile-robotiq3f")
+    urdf_path, _, tac_path = Robot.get_fabr_path("tactile-robotiq3f")
     for i_env in range(args.num_envs):
         model.add_robot(
             urdf_path,
@@ -53,12 +64,13 @@ if __name__ == "__main__":
             disable_coll_layers=[1],
         )
 
-    for i_env, robot in enumerate(model.robots):
-        model.add_vbts_to_sim(robot, coll_layers=1)
+    if args.tactile:
+        for i_env, robot in enumerate(model.robots):
+            model.add_vbts_to_sim(robot, coll_layers=1)
 
     env_translation = np.asarray([1.0, 0.0, 0.0])
 
-    teddy_mesh = pv.read("assets/objects/teddy/teddy.vtk")
+    teddy_mesh = pv.read(osp.join("assets/objects/", args.mesh))
     teddy_handles = []
     for env_id in tqdm(range(args.num_envs)):
         mesh = teddy_mesh.copy()
@@ -87,15 +99,13 @@ if __name__ == "__main__":
 
     integrator = IPCIntegrator()
     integrator.use_cpu = False
-    integrator.max_newton_iter = 30
-    integrator.max_cg_iter = 300
-    integrator.cg_rel_tol = 1e-3
+    integrator.max_newton_iter = 100
     integrator.use_inversion_free_step_size_filter = True
-    integrator.inversion_free_im_tol = integrator.inversion_free_im_tol = 1e-6
-    integrator.inversion_free_cubic_coef_tol = integrator.inversion_free_cubic_coef_tol = 1e-10
+    integrator.inversion_free_im_tol = 1e-6
+    integrator.inversion_free_cubic_coef_tol = 1e-10
     integrator.use_hard_kinematic_constraint = False
     integrator.soft_vol_material_type = VolMaterialType.NEO_HOOKEAN
-    model.kinematic_helper.set_initial_stiffness(1e8)
+    model.kinematic_helper.set_initial_stiffness(1e5)
 
     joint_params = {
         "finger_1_joint_1": 0.0,
@@ -119,7 +129,6 @@ if __name__ == "__main__":
     hand_tf[:, :3, 3] += env_translation[:, None].T * (np.arange(args.num_envs)[:, None] + 1)
 
     model.set_robot_states([joint_params] * args.num_envs, hand_tf)
-    # model.set_robot_targets(joint_params, hand_tf)
     model.finalize()
 
     for frame in range(60):
@@ -140,6 +149,7 @@ if __name__ == "__main__":
         model.set_robot_targets([joint_params] * args.num_envs, hand_tf)
         integrator.simulate(model, dt=dt, control=None)
 
+        # Render
         if args.viz:
             renderer.begin_frame(model.elapsed_time)
             renderer.render(model.state())
@@ -150,6 +160,8 @@ if __name__ == "__main__":
     for frame in range(60, 80):
         hand_tf[:, 1, 3] += 0.0025
 
+        # TODO: Integrate this into `Control`
+        # model.set_robot_states(joint_params, hand_tf)
         model.set_robot_targets([joint_params] * args.num_envs, hand_tf)
         integrator.simulate(model, dt=dt, control=None)
 
@@ -165,7 +177,6 @@ if __name__ == "__main__":
     with open(osp.join(OUT_DIR, f"profile_{args.num_envs}.json"), "w") as f:
         json.dump(profile_data, f, indent=4)
 
-    print("Task finished. The visualizer will remain open until you close it.")
     if args.viz:
         while True:
             renderer.begin_frame(model.elapsed_time)

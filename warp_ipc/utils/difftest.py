@@ -1,6 +1,5 @@
-import torch
 import numpy as np
-from icecream import ic
+import torch
 
 def check_autodiff_convergence_order(func: callable, inputs: list, base_eps=1e-06):
     delta_inputs = [torch.rand_like(input) for input in inputs]
@@ -65,7 +64,6 @@ def check_autodiff(func: callable, inputs: list, eps=1e-06):
     print('finite_diff:', (loss0 - loss1).item() / eps)
     print('analytical:', sum([torch.sum(delta_input * (grad0 + grad1)) for (delta_input, grad0, grad1) in zip(delta_inputs, grads0, grads1)]).item())
     return grad_error
-import warp as wp
 
 def check_grad(energy: callable, grad: callable, x: torch.Tensor, delta: torch.Tensor, eps=1e-08):
     """

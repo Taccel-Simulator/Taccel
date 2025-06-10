@@ -10,19 +10,23 @@ import torch
 import trimesh as tm
 import warp as wp
 from scipy.spatial.transform import Rotation as R
-
-sys.path.append(".")
+from warp.sim.render import SimRendererOpenGL
 
 import argparse
 
 from taccel.taccel import TaccelModel
 from warp_ipc.body_handle import TetMeshBodyHandle
 from warp_ipc.ipc_integrator import IPCIntegrator
-from warp_ipc.joint_handle import WorldJointHandle, WorldJointType
+from warp_ipc.joint_handle import WorldJointHandle, JointType
 from warp_ipc.robots import Robot
 from warp_ipc.utils import log
 
-from .example_utils import get_interp_step, init_robot_demo
+from taccel.utils.example_utils import init_robot_demo
+
+
+def get_interp_step(start, end, n_steps, step):
+    return start + (end - start) * step / n_steps
+
 
 # Tac-man Parameters
 DELTA0 = 4e-4
@@ -38,11 +42,11 @@ class TacManState(Enum):
 def add_joint(
     model: TaccelModel,
     part_handle: TetMeshBodyHandle,
-    joint: WorldJointType,
+    joint: JointType,
     edge_verts=None,
-) -> WorldJointHandle | None:
+) -> WorldJointHandle:
     match joint:
-        case WorldJointType.PRISMATIC:
+        case JointType.PRISMATIC:
             axis_x = 1.0
             axis_y, axis_z = 0.0, 0.0
             joint_axis = np.array([axis_x, axis_y, axis_z])
@@ -51,7 +55,7 @@ def add_joint(
             print(f"Creating prismatic joint towards {joint_axis}")
             joint_handle = model.add_world_prismatic_joint(part_handle, joint_axis)
 
-        case WorldJointType.REVOLUTE:
+        case JointType.REVOLUTE:
             axis_i = np.random.randint(0, 3)
             axis_j = (axis_i + int(np.sign(np.random.uniform(-1, 1, 1)).item())) % 3
             axis_position = edge_verts[axis_i]
@@ -60,11 +64,10 @@ def add_joint(
             print(f"Creating revolute joint at {axis_position} towards {joint_axis}")
             joint_handle = model.add_world_revolute_joint(part_handle, axis_position, joint_axis)
 
-        case WorldJointType.HELICAL:
+        case JointType.HELICAL:
             print("Loaded nut and bolt to simulate a helical joint")
             model.enable_affine_kinematic_constraint(part_handle)
             joint_handle = None
-
         case _:
             raise NotImplementedError()
 
@@ -100,18 +103,18 @@ def run():
     _, OUT_DIR = init_robot_demo(args, f"tac_man-{args.joint_type}-{args.seed}")
 
     joint_type = {
-        "prismatic": WorldJointType.PRISMATIC,
-        "revolute": WorldJointType.REVOLUTE,
-        "helical": WorldJointType.HELICAL,
+        "prismatic": JointType.PRISMATIC,
+        "revolute": JointType.REVOLUTE,
+        "helical": JointType.HELICAL,
     }[args.joint_type]
 
     # ============================== Setup Simulation Model ==============================
     model = TaccelModel(num_envs=1, viz_envs=[])
     model.set_kinematic_stiffness(1e8)
     model.gravity = wp.vec3d([0, 0, 0])
-    model.dhat = 5e-4
+    model.dhat = 1e-4
 
-    if joint_type == WorldJointType.PRISMATIC or joint_type == WorldJointType.REVOLUTE:
+    if joint_type == JointType.PRISMATIC or joint_type == JointType.REVOLUTE:
         handle_extents = np.array([0.0075, 0.1, 0.01]) * 2
         obj_handle_mesh = tm.primitives.Box(extents=handle_extents).to_mesh()
         obj_handle_mesh.vertices = np.array(obj_handle_mesh.vertices) + np.array([[0.02, 0.0, 0.1]])
@@ -138,7 +141,7 @@ def run():
         delta_tf = np.eye(4)
         delta_tf[:3, 3] = np.array([0.0, 0.0, -5e-4])
 
-    elif joint_type == WorldJointType.HELICAL:
+    elif joint_type == JointType.HELICAL:
         nut_mesh = tm.load("assets/objects/bolt_and_nut/m20_nut_wt.stl")
 
         bolt_mesh = tm.load("assets/objects/bolt_and_nut/m20_bolt_wt.stl")
@@ -187,8 +190,7 @@ def run():
     integrator = IPCIntegrator()
     integrator.use_hard_kinematic_constraint = False
     integrator.use_cpu = False
-    integrator.dt = 1 / 50
-    integrator.max_newton_iter = 30
+    integrator.max_newton_iter = 50
     integrator.use_inversion_free_step_size_filter = True
     integrator.inversion_free_im_tol = 1e-6
     integrator.inversion_free_cubic_coef_tol = 1e-10
@@ -198,7 +200,7 @@ def run():
         "panda_finger_joint1": gripper_release_q,
         "panda_finger_joint2": gripper_release_q,
     }
-    if joint_type == WorldJointType.HELICAL:
+    if joint_type == JointType.HELICAL:
         model.set_affine_state(nut_handle, np.eye(3), np.zeros(3))
         model.set_affine_kinematic_target(nut_handle, np.eye(3), np.zeros(3))
         model.set_affine_state(bolt_handle, np.eye(3), np.zeros(3))
@@ -222,7 +224,7 @@ def run():
                 "panda_finger_joint2": gripper_grasp_q,
             }
         model.set_robot_targets([hand_q], hand_tf[None])
-        integrator.simulate(model, dt=1 / 50)
+        integrator.simulate(model, dt=0.02)
 
         all_rgbs, all_depths, all_normals = model.render_tactile(True, True)
         viz_rgb = all_rgbs[viz_env].reshape([800, 400, 3])
@@ -234,7 +236,7 @@ def run():
             cv2.waitKey(1)
         model.write_scene(osp.join(OUT_DIR, "frames", f"frame_{model.frame}.ply"))
         o3d.io.write_point_cloud(
-            osp.join(OUT_DIR, "frames", f"frame-tac_{model.frame}_markers_GRASP.ply"),
+            osp.join(OUT_DIR, "frames", f"frame_{model.frame}_markers_GRASP.ply"),
             o3d.geometry.PointCloud(points=o3d.utility.Vector3dVector(model.tac_markers[0].cpu().numpy())),
         )
 
@@ -252,12 +254,12 @@ def run():
     ).T
 
     marker_depth = np.abs(grasp_markers_local[..., -1] - canon_markers_local[..., -1]).reshape(-1)
-    tracking_marker_idx = np.where(marker_depth > 8e-4)[0].tolist()
+    tracking_marker_idx = np.where(marker_depth > 6e-4)[0].tolist()
     tracked_marker_diff = 0.0
     assert len(tracking_marker_idx) > 6
 
     # ============================== Manipulation ==============================
-    N_STEPS_MANIP_MAX = int(50 / integrator.dt)  # 50 sec
+    N_STEPS_MANIP_MAX = int(50 / 0.02)  # 50 sec
     curr_state = TacManState.EXECUTION
 
     hand_tf_exe_dir = np.eye(4)
@@ -295,15 +297,15 @@ def run():
             case _:
                 break
 
-        if n_rec == 200 or tracked_marker_diff > 4e-3:
-            print("Recovery phase execution failed. Stopping simulation.")
+        if n_rec == 200:
+            log.warn("Tac-Man Recovery failed. Stopping simulation")
             break
 
-        if not joint_type == WorldJointType.HELICAL:
+        if not joint_type == JointType.HELICAL:
             joint_state = model.get_joint_value(joint_handle)
 
         model.set_robot_targets([hand_q], hand_tf[None])
-        integrator.simulate(model, dt=1 / 50)
+        integrator.simulate(model, dt=0.02)
 
         # Update markers
         robot_tf = model.robots[0].root_transform
@@ -317,7 +319,7 @@ def run():
             osp.join(
                 OUT_DIR,
                 "frames",
-                f"frame-tac_{model.frame}_tracked_markers_{curr_state.name}_err={tracked_marker_diff:.4f}.ply",
+                f"frame_{model.frame}_tracked_markers_{curr_state.name}_err={tracked_marker_diff:.4f}.ply",
             ),
             o3d.geometry.PointCloud(points=o3d.utility.Vector3dVector(curr_markers_world[tracking_marker_idx])),
         )
@@ -325,17 +327,14 @@ def run():
             osp.join(
                 OUT_DIR,
                 "frames",
-                f"frame-tac_{model.frame}_reference_markers_{curr_state.name}_err={tracked_marker_diff:.4f}.ply",
+                f"frame_{model.frame}_reference_markers_{curr_state.name}_err={tracked_marker_diff:.4f}.ply",
             ),
             o3d.geometry.PointCloud(points=o3d.utility.Vector3dVector(grasp_markers_world[tracking_marker_idx])),
         )
 
         all_rgbs, all_depths, all_normals = model.render_tactile(True, True)
         viz_rgb = all_rgbs[viz_env].reshape([800, 400, 3])
-        if joint_type == WorldJointType.HELICAL:
-            text = f"Env {viz_env} | {model.frame} ({curr_state.name}) | Diff: {tracked_marker_diff * 1000:.2f} mm"
-        else:
-            text = f"Env {viz_env} | {model.frame} ({curr_state.name}) | Diff: {tracked_marker_diff * 1000:.2f} mm | Joint: {joint_state:.4f}"
+        text = f"Env {viz_env} | {model.frame} ({curr_state.name}) | Diff: {tracked_marker_diff * 1000:.2f} mm | Joint: {joint_state:.4f}"
         viz_rgb = cv2.putText(viz_rgb, text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.3, (0, 0, 255), 1)
         if not args.headless:
             cv2.imshow("TacMan - RGB", viz_rgb[..., [2, 1, 0]])

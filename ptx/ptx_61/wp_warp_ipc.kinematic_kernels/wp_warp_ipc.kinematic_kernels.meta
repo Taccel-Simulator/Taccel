@@ -1,0 +1,1 @@
+{"check_is_satisfied_kernel_cuda_kernel_forward_smem_bytes": 0, "check_is_satisfied_kernel_cuda_kernel_backward_smem_bytes": 0, "update_dof_satisfied_kernel_cuda_kernel_forward_smem_bytes": 0, "update_dof_satisfied_kernel_cuda_kernel_backward_smem_bytes": 0, "project_system_kernel_cuda_kernel_forward_smem_bytes": 0, "project_system_kernel_cuda_kernel_backward_smem_bytes": 0}

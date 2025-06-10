@@ -1,6 +1,4 @@
-import os
 import os.path as osp
-import sys
 from functools import cached_property
 from typing import List
 
@@ -12,16 +10,13 @@ import trimesh as tm
 import warp as wp
 from numpy.typing import NDArray
 
+import warp_ipc.utils.log as log
 from warp_ipc.body_handle import TetMeshBodyHandle
 from warp_ipc.sim_model import ASRModel
-import warp_ipc.utils.log as log
-from .utils.mesh_utils import (
-    pv_to_tm,
-    trimesh_select_by_index,
-    trimesh_select_by_index_old,
-)
-from .vbts import VBTSMLP, depth_to_normal, raycast_depth_kernel
+
 from .tactile_robot import TactileRobot
+from .utils.mesh_utils import pv_to_tm, trimesh_select_by_index, trimesh_select_by_index_old
+from .vbts import VBTSMLP, depth_to_normal, raycast_depth_kernel
 
 
 class TaccelModel(ASRModel):
@@ -117,7 +112,7 @@ class TaccelModel(ASRModel):
         if isinstance(joint_params, torch.Tensor):
             joint_params = joint_params.cpu().numpy()
         if isinstance(joint_params, np.ndarray):
-            joint_params = [dict(zip(self.dummy_robot.joint_names, jp.tolist())) for jp in joint_params]
+            joint_params = [dict(zip(self.dummy_robot.actuated_joint_names, jp.tolist())) for jp in joint_params]
         if isinstance(root_tf, torch.Tensor):
             root_tf = root_tf.cpu().numpy()
 
@@ -148,7 +143,7 @@ class TaccelModel(ASRModel):
         if isinstance(joint_params, torch.Tensor):
             joint_params = joint_params.cpu().numpy()
         if isinstance(joint_params, np.ndarray):
-            joint_params = [dict(zip(self.dummy_robot.joint_names, jp)) for jp in joint_params]
+            joint_params = [dict(zip(self.dummy_robot.actuated_joint_names, jp)) for jp in joint_params]
         if isinstance(root_tf, torch.Tensor):
             root_tf = root_tf.cpu().numpy()
 
@@ -183,12 +178,19 @@ class TaccelModel(ASRModel):
         self_collision: bool = False,
         use_collision_mesh: bool = False,
     ):
-        robot = TactileRobot(urdf_path, env_id=env_id, tac_fab_path=tac_fab_path, use_collision=use_collision_mesh)
+        robot = TactileRobot(
+            urdf_path,
+            env_id=env_id,
+            tac_fab_path=tac_fab_path,
+            use_collision=use_collision_mesh,
+        )
 
+        curr_layer = start_coll_layer
         for i_link, link in enumerate(robot.links):
             if link.rest_mesh == [] or len(link.rest_mesh.vertices) == 0:
                 continue
             if not no_bodies:
+                link.collision_layer = curr_layer
                 link.handle = self.add_affine_body(
                     np.asarray(link.rest_mesh.vertices, dtype=np.float64),
                     np.asarray(link.rest_mesh.faces, dtype=np.int32),
@@ -198,6 +200,7 @@ class TaccelModel(ASRModel):
                     mass_xi=0.01,
                     env_id=env_id,
                 )
+                curr_layer += 1
 
         self.robots.append(robot)
         self.robot_link_added = True
@@ -211,21 +214,17 @@ class TaccelModel(ASRModel):
             disable_coll_layers=rob_disable_coll_layer,
         ):
             log.debug(f"Set robot at env {target_robot.env_id}: coll layer {rob_coll_layer}, ignore coll {rob_disable_coll_layer}")
-            curr_layer = start_coll_layer
             for i_link, link in enumerate(target_robot.links):
                 if link.handle is None:
                     continue
-                link.collision_layer = curr_layer
                 self.enable_affine_kinematic_constraint(link.handle)
                 self.set_body_collision_layer(link.handle, link.collision_layer)
 
                 for coll_layer in coll_layers:
-                    self.set_collision_layer_filter(curr_layer, coll_layer, True)
+                    self.set_collision_layer_filter(link.collision_layer, coll_layer, True)
 
                 for coll_layer in disable_coll_layers:
-                    self.set_collision_layer_filter(curr_layer, coll_layer, False)
-
-                curr_layer += 1
+                    self.set_collision_layer_filter(link.collision_layer, coll_layer, False)
 
             for i_layer in range(start_coll_layer, curr_layer):
                 for j_layer in range(i_layer, curr_layer):
@@ -251,7 +250,6 @@ class TaccelModel(ASRModel):
         coll_layers = [coll_layers] * robot.num_tac if isinstance(coll_layers, int) else list(coll_layers)
 
         for i_vbts, vbts_cfg in enumerate(robot.vbts_cfgs):
-            robot.tac_coll_layer = coll_layers
             handle = self.add_soft_vol_body(
                 vbts_cfg.gel_mesh,
                 vbts_cfg.density,
@@ -271,12 +269,14 @@ class TaccelModel(ASRModel):
             for vbts_cfg in robot.vbts_cfgs:
                 self.set_soft_kinematic_constraint(vbts_cfg.gel_body_handle, vbts_cfg.body_attach_mask)
                 for link in target_robot.links:
+                    if link.collision_layer is None:
+                        continue
                     self.set_collision_layer_filter(
                         link.collision_layer,
                         vbts_cfg.coll_layer,
                         vbts_cfg.collide_with_robot,
                     )
-                self.set_collision_layer_filter(0, vbts_cfg.coll_layer, True)
+                self.set_collision_layer_filter(0, vbts_cfg.coll_layer, True)  # Object collision
 
         self.constraint_fns.append((f"tac_constraints_{robot.env_id}", apply_tac_constraints))
 
@@ -385,7 +385,9 @@ class TaccelModel(ASRModel):
         return markers
 
     @property
-    def tac_markers_rest_and_current_hand_local(self) -> tuple[torch.Tensor, torch.Tensor]:
+    def tac_markers_rest_and_current_hand_local(
+        self,
+    ) -> tuple[torch.Tensor, torch.Tensor]:
         """Accquire the current markers and their rest states (for reference) of the gel pads.
 
         Returns:
@@ -412,11 +414,71 @@ class TaccelModel(ASRModel):
             markers[-1] = torch.concat(markers[-1], dim=0)
             rest_markers[-1] = torch.concat(rest_markers[-1], dim=0)
 
-        markers, rest_markers = torch.stack(markers, dim=0), torch.stack(rest_markers, dim=0)  # Each in B x N x 3
+        markers, rest_markers = (
+            torch.stack(markers, dim=0),
+            torch.stack(rest_markers, dim=0),
+        )  # Each in B x N x 3
         # World to hand local
         robot_poses = torch.stack([torch.from_numpy(robot.root_transform).to(self.device) for robot in self.robots])
-        markers = torch.matmul(robot_poses[:, :3, :3].transpose(-1, -2), (markers - robot_poses[:, :3, 3].unsqueeze(-2)).transpose(-1, -2)).transpose(
-            -1, -2
+        markers = torch.matmul(
+            robot_poses[:, :3, :3].transpose(-1, -2),
+            (markers - robot_poses[:, :3, 3].unsqueeze(-2)).transpose(-1, -2),
+        ).transpose(-1, -2)
+        return markers, rest_markers
+
+    @property
+    def tac_markers_rest_and_current(self) -> tuple[torch.Tensor, torch.Tensor]:
+        """Accquire the current markers and their rest states (for reference) of the gel pads.
+
+        Returns:
+            tuple[torch.Tensor, torch.Tensor]: markers and rest markers, each in shape [num_envs, num_markers_all, 3]
+        """
+        markers, rest_markers = [], []
+
+        for i_env, robot in enumerate(self.robots):
+            markers.append([])
+            rest_markers.append([])
+
+            for i_vbts, vbts_cfg in enumerate(robot.vbts_cfgs):
+                v = self.get_element_by_handle(vbts_cfg.gel_body_handle, False)[0].float()
+                tac_markers = (v[vbts_cfg.body_marker_bc_verts] * vbts_cfg.marker_bc_coords.unsqueeze(-1)).sum(dim=-2)
+                markers[-1].append(tac_markers.float())
+                rest_markers[-1].append(self.rest_markers[i_env][i_vbts].float())
+
+            markers[-1] = torch.concat(markers[-1], dim=0)
+            rest_markers[-1] = torch.concat(rest_markers[-1], dim=0)
+
+        markers, rest_markers = (
+            torch.stack(markers, dim=0),
+            torch.stack(rest_markers, dim=0),
+        )
+        return markers, rest_markers
+
+    @property
+    def tac_markers_rest_and_current_stacks(self) -> tuple[torch.Tensor, torch.Tensor]:
+        """Accquire the current markers and their rest states (for reference) of the gel pads.
+
+        Returns:
+            tuple[torch.Tensor, torch.Tensor]: markers and rest markers, each in shape [num_envs, num_markers_all, 3]
+        """
+        markers, rest_markers = [], []
+
+        for i_env, robot in enumerate(self.robots):
+            markers.append([])
+            rest_markers.append([])
+
+            for i_vbts, vbts_cfg in enumerate(robot.vbts_cfgs):
+                v = self.get_element_by_handle(vbts_cfg.gel_body_handle, False)[0].float()
+                tac_markers = (v[vbts_cfg.body_marker_bc_verts] * vbts_cfg.marker_bc_coords.unsqueeze(-1)).sum(dim=-2)
+                markers[-1].append(tac_markers.float())
+                rest_markers[-1].append(self.rest_markers[i_env][i_vbts].float())
+
+            markers[-1] = torch.stack(markers[-1], dim=0)
+            rest_markers[-1] = torch.stack(rest_markers[-1], dim=0)
+
+        markers, rest_markers = (
+            torch.stack(markers, dim=0),
+            torch.stack(rest_markers, dim=0),
         )
         return markers, rest_markers
 
@@ -442,6 +504,20 @@ class TaccelModel(ASRModel):
                 markers[-1].append(tac_markers.cpu().numpy() if return_numpy else tac_markers)
                 rest_markers[-1].append(tac_rest_markers.cpu().numpy() if return_numpy else tac_markers)
 
+        return markers, rest_markers
+
+    @property
+    def tac_markers_rest_and_current_local(self) -> tuple[torch.Tensor, torch.Tensor]:
+        """Accquire the current markers and their rest states (for reference) of the gel pads.
+
+        Returns:
+            tuple[torch.Tensor, torch.Tensor]: markers and rest markers, each in shape [num_envs, num_markers_all, 3]
+        """
+        markers, rest_markers = self.tac_markers_rest_and_current  # [n_envs, n_tac, n_pts, 3]
+        tac_tf = self.tac_tf.to(torch.float32)  # [n_envs, n_tac, 4, 4]
+
+        markers = torch.matmul(markers, tac_tf[..., :3, :3].transpose(-1, -2)) + tac_tf[..., :3, 3].unsqueeze(-2)
+        rest_markers = torch.matmul(rest_markers, tac_tf[..., :3, :3].transpose(-1, -2)) + tac_tf[..., :3, 3].unsqueeze(-2)
         return markers, rest_markers
 
     @property
@@ -493,6 +569,8 @@ class TaccelModel(ASRModel):
             # self.gel_coat_meshes_wp[i_tac].indices = wp.array(indices, dtype=wp.int32)
             self.gel_coat_meshes_wp[i_tac] = wp.Mesh(wp.array(points, dtype=wp.vec3), wp.array(indices, dtype=wp.int32))
 
+    # TODO: Generate this via camera intrinsics and extrinsics
+    # TODO: Parallelize
     @cached_property
     def sensor_xy_queries_local(self) -> tuple[torch.Tensor, torch.Tensor]:
         xy_origins, xy_dirs = [], []
@@ -531,7 +609,7 @@ class TaccelModel(ASRModel):
         # [num_envs*num_tac, H*W, 2] and [num_envs, num_tac, H*W, 3]
         return origins, dirs
 
-    def _draw_marker_on_rgb(self, rgb: NDArray, markers: NDArray, flows: NDArray = None):
+    def draw_marker_on_rgb(self, rgb: NDArray, markers: NDArray, flows: NDArray = None):
         for i_marker, marker in enumerate(markers):
             rgb = cv2.circle(rgb.copy(), marker.astype(int), 5, (0.0, 0.0, 0.0), -1)
             if flows is not None:
@@ -556,6 +634,25 @@ class TaccelModel(ASRModel):
         ray_dirs = torch.matmul(ray_dirs, tac_tfs[..., :3, :3].transpose(-1, -2))
         markers, markers_rest, markers_flow = [], [], []
 
+        # DEBUG
+        # import open3d as o3d
+
+        # o3d.io.write_point_cloud(
+        #     osp.join("output/origins.ply"),
+        #     o3d.geometry.PointCloud(points=o3d.utility.Vector3dVector(ray_origins[0, 0].cpu().numpy())),
+        # )
+        # o3d.io.write_point_cloud(
+        #     osp.join("output/max_end.ply"),
+        #     o3d.geometry.PointCloud(points=o3d.utility.Vector3dVector((ray_origins[0, 0] + ray_dirs[0, 0] * 0.02).cpu().numpy())),
+        # )
+        # self.write_scene("output/scene.ply")
+        # tm.Trimesh(
+        #     self.gel_coat_meshes_wp[0].points.numpy(),
+        #     self.gel_coat_meshes_wp[0].indices.numpy().reshape([-1, 3]),
+        # ).export("output/coat.ply")
+        # DEBUG
+
+        # TODO: Parallelize over the environments
         for env_id, robot in enumerate(self.robots):
             for i_tac, vbts_cfg in enumerate(robot.vbts_cfgs):
                 ray_origins_wp = wp.array(ray_origins[env_id, i_tac], dtype=wp.vec3)
@@ -573,15 +670,19 @@ class TaccelModel(ASRModel):
                     ],
                 )
 
+        # TODO: VBTS Normal to local frame
         all_rgbs = []
         all_depths = wp.to_torch(self.vbts_depths)
         for i_tac, vbts_cfg in enumerate(self.dummy_robot.vbts_cfgs):
             all_depths[:, i_tac] = vbts_cfg.ray_dist_to_depth_offset - all_depths[:, i_tac]
 
-        all_depths = all_depths.reshape(self.num_envs, self.dummy_robot.num_tac, *self.ref_imgs[i_tac].shape[1:3]).transpose(-1, -2).contiguous()
-        all_depths = torch.clamp(all_depths, 0.0, 3e-3) * 1e3
+        all_depths = all_depths.reshape(self.num_envs, self.dummy_robot.num_tac, *self.ref_imgs[i_tac].shape[1:3])
+        all_depths = torch.clamp(all_depths, 0.0, 3e-3)
         all_normals = depth_to_normal(all_depths)
         # all_normals = wp.to_torch(self.vbts_normals)
+
+        if render_marker:
+            markers, markers_rest, markers_flow = self.get_marker_flow_2d()  # list: n_envs, n_tac, (n_markers x 2)
         for i_tac, (vbts_mlp, vbts_cfg) in enumerate(zip(self.vbts_mlps, self.dummy_robot.vbts_cfgs)):
             d_rgb = vbts_mlp(
                 all_depths[:, i_tac].view([self.num_envs, -1]),
@@ -591,9 +692,8 @@ class TaccelModel(ASRModel):
             rgb = (self.ref_imgs[i_tac] + d_rgb).clone().cpu().numpy()  # [..., :: vbts_cfg.reso_ds_ratio, :: vbts_cfg.reso_ds_ratio, :]
 
             if render_marker:
-                markers, markers_rest, markers_flow = self.get_marker_flow_2d()  # list: n_envs, n_tac, (n_markers x 2)
                 for i_env in range(self.num_envs):
-                    rgb[i_env] = self._draw_marker_on_rgb(
+                    rgb[i_env] = self.draw_marker_on_rgb(
                         rgb[i_env],
                         markers[i_env][i_tac],
                         markers_flow[i_env][i_tac] if render_flow else None,
@@ -609,6 +709,7 @@ class TaccelModel(ASRModel):
             all_normals,
         )  # , markers, markers_rest, markers_flow
 
+    # TODO
     @torch.no_grad()
     def get_marker_flow_2d(self):
         """Transform the markers, rest markers, and their flows back to 2D space on the pixel coordinate."""
@@ -627,5 +728,17 @@ class TaccelModel(ASRModel):
                 markers[-1].append(marker)
                 markers_rest[-1].append(marker_rest)
                 markers_flow[-1].append(marker - marker_rest)
+
+        # DEBUG
+        import open3d as o3d
+
+        o3d.io.write_point_cloud(
+            osp.join("output/markers_local.ply"),
+            o3d.geometry.PointCloud(points=o3d.utility.Vector3dVector(markers_local[0][0])),
+        )
+        o3d.io.write_point_cloud(
+            osp.join("output/markers_local_rest.ply"),
+            o3d.geometry.PointCloud(points=o3d.utility.Vector3dVector(markers_local_rest[0][0])),
+        )
 
         return markers, markers_rest, markers_flow

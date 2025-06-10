@@ -1,7 +1,7 @@
 from typing import TYPE_CHECKING
 import warp as wp
 import warp_ipc.utils.matrix as matrix
-from warp_ipc.utils.constants import ENV_STATE_INVALID, ENV_STATE_NEWTON_SOLVED, ENV_STATE_VALID
+from warp_ipc.utils.constants import ENV_STATE_INVALID, ENV_STATE_NEWTON_SOLVED
 from warp_ipc.utils.env_ops import reduce_env_energy_affine_body, reduce_env_energy_soft_vert
 from warp_ipc.utils.matrix import COOMatrix3x3
 from ..utils.wp_types import vec12d
@@ -10,27 +10,27 @@ if TYPE_CHECKING:
 
 @wp.kernel
 def compute_inertia_energy_val_affine(energy: wp.array(dtype=wp.float64), y: wp.array(dtype=wp.vec(length=12, dtype=wp.float64)), tilde_y: wp.array(dtype=wp.vec(length=12, dtype=wp.float64)), mass_matrix: wp.array(dtype=wp.mat44d), affine_has_constraint: wp.array(dtype=wp.bool)):
-    pass
+    print('[ERROR] Unexpected Recompilation: compute_inertia_energy_val_affine')
 
 @wp.kernel
 def compute_inertia_energy_val_soft(energy: wp.array(dtype=wp.float64), x: wp.array(dtype=wp.vec3d), soft_tilde_x: wp.array(dtype=wp.vec3d), soft_verts_mass: wp.array(dtype=wp.float64), affine_verts_num: wp.int32, soft_has_constraint: wp.array(dtype=wp.bool)):
-    pass
+    print('[ERROR] Unexpected Recompilation: compute_inertia_energy_val_soft')
 
 @wp.kernel
 def compute_inertia_energy_grad_affine_y(gradient: wp.array(dtype=wp.vec(length=12, dtype=wp.float64)), y: wp.array(dtype=wp.vec(length=12, dtype=wp.float64)), tilde_y: wp.array(dtype=wp.vec(length=12, dtype=wp.float64)), mass_matrix: wp.array(dtype=wp.mat44d), affine_has_constraint: wp.array(dtype=wp.bool), body_env_id: wp.array(dtype=wp.int32), env_states: wp.array(dtype=wp.int32)):
-    pass
+    print('[ERROR] Unexpected Recompilation: compute_inertia_energy_grad_affine_y')
 
 @wp.kernel
 def compute_inertia_energy_grad_soft_x(soft_gradient_x: wp.array(dtype=wp.vec3d), x: wp.array(dtype=wp.vec3d), soft_tilde_x: wp.array(dtype=wp.vec3d), soft_vert_mass: wp.array(dtype=wp.float64), affine_verts_num: wp.int32, soft_has_constraint: wp.array(dtype=wp.bool), node2env: wp.array(dtype=wp.int32), env_states: wp.array(dtype=wp.int32)):
-    pass
+    print('[ERROR] Unexpected Recompilation: compute_inertia_energy_grad_soft_x')
 
 @wp.kernel
 def compute_inertia_energy_hess_affine(hess_affine_diag: COOMatrix3x3, mass_matrix: wp.array(dtype=wp.mat44d), affine_has_constraint: wp.array(dtype=wp.bool), body_env_id: wp.array(dtype=wp.int32), env_states: wp.array(dtype=wp.int32)):
-    pass
+    print('[ERROR] Unexpected Recompilation: compute_inertia_energy_hess_affine')
 
 @wp.kernel
 def compute_inertia_energy_hess_soft(soft_verts_mass: wp.array(dtype=wp.float64), hess_soft_diag: COOMatrix3x3, affine_verts_num: wp.int32, soft_has_constraint: wp.array(dtype=wp.bool), node2env: wp.array(dtype=wp.int32), env_states: wp.array(dtype=wp.int32)):
-    pass
+    print('[ERROR] Unexpected Recompilation: compute_inertia_energy_hess_soft')
 
 def val(x: wp.array, y: wp.array, sim: 'ASRModel', reduce_each: bool):
     if reduce_each:

@@ -1,7 +1,5 @@
-blinker
 colorful
 executing
-jinja2
 gymnasium
 hydra-core
 icecream
@@ -23,6 +21,7 @@ pyglet==2.1.3
 pyvista
 rich
 rl_games
+stable_baselines3
 scikit_image
 scikit_learn
 scipy
@@ -39,4 +38,6 @@ vtk
 wandb
 yourdfpy
 zarr
+stable_baselines3==2.5.0
 scikit-sparse
+rsl-rl-lib

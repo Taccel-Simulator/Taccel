@@ -1,7 +1,6 @@
-import torch
 import os
-import warp as wp
 from time import perf_counter
+import warp as wp
 from .log import debug
 WATCH_GPU_MEM_USAGE_ENABLED = False
 gpu_handle = None

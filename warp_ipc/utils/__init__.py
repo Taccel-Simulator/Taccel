@@ -1,6 +1,6 @@
-import warp as wp
 import colorful
-from .profile import Profiler, MemoryProfiler
+import warp as wp
+from .profile import MemoryProfiler as MemoryProfiler, Profiler as Profiler
 
 def get_val(arr: wp.array):
     wp.synchronize()
